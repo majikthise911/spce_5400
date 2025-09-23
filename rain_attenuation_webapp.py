@@ -16,7 +16,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
-from rain_attenuation import RainAttenuationCalculator
+from rain_attenuation_core import RainAttenuationCalculator
 
 # Extended location data with longitude for mapping
 LOCATION_COORDS = {
