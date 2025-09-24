@@ -31,10 +31,10 @@ This repository contains projects and assignments for SPCE 5400 - Low Earth Orbi
 
 ## 🛠️ Technologies Used
 
-- **Languages**: Python, MATLAB
+- **Languages**: Python
 - **Frameworks**: Streamlit, Jupyter Notebook
 - **Libraries**: NumPy, Matplotlib, Plotly, Pandas
-- **Tools**: Git, VS Code
+- **Tools**: Git, Cursor
 
 ## 🚀 Getting Started
 
