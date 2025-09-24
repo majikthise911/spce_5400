@@ -5,13 +5,13 @@ A comprehensive implementation of the ITU-R P.618 model for calculating rain att
 ## 📁 Project Structure
 
 ```
-rain_attenuation/
+RainAttenuation/
 ├── README.md                           # This file - project overview and usage
-├── rain_attenuation_core.py           # Core calculation engine (CLI + API)
 ├── rain_attenuation_notebook.ipynb    # Interactive Jupyter notebook with widgets
-├── rain_attenuation_webapp.py         # Beautiful Streamlit web dashboard
-├── visualizations.py                  # Additional visualization utilities
-└── figures/                           # Generated plots and images
+└── RainAttenuationWebApp/              # Web application directory
+    ├── app.py                          # Streamlit web dashboard
+    ├── rain_attenuation_core.py        # Core calculation engine (CLI + API)
+    └── requirements.txt                # Python dependencies
 ```
 
 ## 🎯 Which File to Use?
@@ -21,30 +21,34 @@ rain_attenuation/
 - **Features**: Interactive widgets, inline plots, step-by-step calculations
 - **Run with**: `jupyter notebook rain_attenuation_notebook.ipynb`
 
-### 🌐 **For Beautiful Web Interface** → `rain_attenuation_webapp.py`
+### 🌐 **For Beautiful Web Interface** → `RainAttenuationWebApp/app.py`
 - **Best for**: Presentations, client demos, comprehensive analysis
 - **Features**: Interactive maps, multiple visualizations, professional UI
-- **Run with**: `streamlit run rain_attenuation_webapp.py`
+- **Run with**: `cd RainAttenuationWebApp && streamlit run app.py`
 
-### ⚙️ **For Integration & Automation** → `rain_attenuation_core.py`
+### ⚙️ **For Integration & Automation** → `RainAttenuationWebApp/rain_attenuation_core.py`
 - **Best for**: Scripts, automation, integration into other projects
 - **Features**: Command-line interface, importable classes, batch processing
-- **Run with**: `python rain_attenuation_core.py [options]`
+- **Run with**: `cd RainAttenuationWebApp && python rain_attenuation_core.py [options]`
 
 ## 🚀 Quick Start
 
 ### 1. **Install Dependencies**
 ```bash
-pip install streamlit plotly pandas numpy jupyter ipywidgets matplotlib
+cd RainAttenuationWebApp
+pip install -r requirements.txt
 ```
 
 ### 2. **Run the Web Dashboard**
 ```bash
-streamlit run rain_attenuation_webapp.py
+cd RainAttenuationWebApp
+streamlit run app.py
 ```
 
 ### 3. **Try Command Line Examples**
 ```bash
+cd RainAttenuationWebApp
+
 # Single location calculation
 python rain_attenuation_core.py -f 2.5 -p v -r 30 -l Madrid -e 15 -v
 
@@ -57,6 +61,8 @@ python rain_attenuation_core.py -f 3.0 -p h -r 50 --lat 45.0 --height 0.5 -e 20 
 
 ### 4. **Import into Your Code**
 ```python
+import sys
+sys.path.append('RainAttenuationWebApp')
 from rain_attenuation_core import RainAttenuationCalculator
 
 calc = RainAttenuationCalculator()
@@ -171,7 +177,7 @@ for elev in elevations:
 4. ✅ Added comprehensive documentation and examples
 
 ### **File Dependencies**
-- `rain_attenuation_webapp.py` imports `rain_attenuation_core.py`
+- `RainAttenuationWebApp/app.py` imports `rain_attenuation_core.py`
 - `rain_attenuation_notebook.ipynb` is standalone
 - All files use the same coefficient tables and algorithms
 
