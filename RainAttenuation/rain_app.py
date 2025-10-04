@@ -7,7 +7,6 @@ import math
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider, RadioButtons, Button
 import matplotlib.patches as mpatches
-import os
 
 # Constants for rain attenuation model from ITU-R P.618
 MIN_ELEVATION = 1.0
@@ -79,7 +78,7 @@ def interpolate_coeff(f, coeff_dict): # Interpolate the a and b coefficients for
 
     return coeff_dict[f]['a'], coeff_dict[f]['b']
 
-
+# Calculate the rain attenuation using ITU-R P.618 model
 def calculate_rain_attenuation(f, pol, R, phi, hs_km, epsilon0):
     """Calculate rain attenuation using ITU-R P.618 model"""
     if not (1.0 <= f <= 4.0):
@@ -91,11 +90,11 @@ def calculate_rain_attenuation(f, pol, R, phi, hs_km, epsilon0):
     if not (MIN_ELEVATION <= epsilon0 <= 90):
         raise ValueError(f"Elevation angle must be between {MIN_ELEVATION}° and 90°")
 
-    coeff_dict = coeff_v if pol == 'v' else coeff_h
-    a, b = interpolate_coeff(f, coeff_dict)
+    coeff_dict = coeff_v if pol == 'v' else coeff_h # Assigning the coefficients dictionary to the appropriate dictionary based on the polarization
+    a, b = interpolate_coeff(f, coeff_dict) 
     gamma = a * (R ** b)
 
-    if phi > LAT_THRESHOLD:
+    if phi > LAT_THRESHOLD: # Checking if the latitude is greater than the latitude threshold
         h_r = RAIN_HEIGHT_BASE - RAIN_HEIGHT_COEFF * (phi - LAT_THRESHOLD)
     else:
         h_r = RAIN_HEIGHT_BASE
@@ -126,18 +125,6 @@ def get_location_data(location):
     return locations[location]['phi'], locations[location]['hs_m'] / 1000
 
 
-def draw_europe_map(ax):
-    """Load and display Europe map image"""
-    # Get the directory where this script is located
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    map_path = os.path.join(script_dir, 'europe_countries.jpg')
-
-    # Load and display the map image
-    img = plt.imread(map_path)
-    # Set extent to match European coordinates (lon_min, lon_max, lat_min, lat_max)
-    ax.imshow(img, extent=[-11, 23, 36, 56], aspect='auto', zorder=0)
-
-
 # Initialize the GUI
 fig = plt.figure(figsize=(16, 9))
 fig.canvas.manager.set_window_title('Rain Attenuation Calculator')
@@ -145,14 +132,14 @@ fig.canvas.manager.set_window_title('Rain Attenuation Calculator')
 # Create axes for plot and controls
 ax_plot = plt.axes([0.08, 0.42, 0.55, 0.53])
 ax_map = plt.axes([0.68, 0.50, 0.28, 0.45])
-ax_location = plt.axes([0.05, 0.05, 0.15, 0.25])
-ax_freq = plt.axes([0.30, 0.32, 0.25, 0.03])
-ax_rain = plt.axes([0.30, 0.27, 0.25, 0.03])
-ax_elev = plt.axes([0.30, 0.22, 0.25, 0.03])
-ax_pol = plt.axes([0.60, 0.22, 0.12, 0.15])
-ax_latalt = plt.axes([0.75, 0.22, 0.20, 0.15])
-ax_text = plt.axes([0.22, 0.13, 0.65, 0.06])
+ax_location = plt.axes([0.05, 0.05, 0.15, 0.30])
+ax_freq = plt.axes([0.30, 0.25, 0.25, 0.03])
+ax_rain = plt.axes([0.30, 0.20, 0.25, 0.03])
+ax_elev = plt.axes([0.30, 0.15, 0.25, 0.03])
+ax_pol = plt.axes([0.60, 0.15, 0.12, 0.15])
 ax_button = plt.axes([0.30, 0.05, 0.25, 0.05])
+ax_latalt = plt.axes([0.68, 0.25, 0.28, 0.12])
+ax_text = plt.axes([0.68, 0.05, 0.28, 0.18])
 ax_text.axis('off')
 ax_latalt.axis('off')
 
@@ -178,10 +165,29 @@ def update_plot(event=None):
         phi, hs_km = get_location_data(location)
         results = calculate_rain_attenuation(f, pol, R, phi, hs_km, epsilon0)
 
+        # Print results to terminal
+        print("\n" + "="*50)
+        print("RAIN ATTENUATION CALCULATION RESULTS")
+        print("="*50)
+        print(f"Location: {location}")
+        print(f"Latitude: {phi}°")
+        print(f"Altitude: {locations[location]['hs_m']} m")
+        print(f"Frequency: {f} GHz")
+        print(f"Polarization: {pol}")
+        print(f"Rain Rate: {R} mm/h")
+        print(f"Elevation Angle: {epsilon0}°")
+        print("-"*50)
+        print(f"Specific Attenuation (γ): {results['gamma']:.6f} dB/km")
+        print(f"Rain Height (h_r): {results['h_r']:.3f} km")
+        print(f"Slant Path Length (l_r): {results['l_r']:.3f} km")
+        print(f"Reduction Factor (s): {results['s']:.4f}")
+        print(f"Total Attenuation (A_R): {results['A_R']:.6f} dB")
+        print("="*50 + "\n")
+
         # Update lat/alt display
         ax_latalt.clear()
         ax_latalt.axis('off')
-        hs_m = locations[location]['hs_m']
+        hs_m = locations[location]['hs_m'] 
         latalt_text = (
             f"Selected Location:\n"
             f"Latitude: {phi}° \n"
@@ -195,13 +201,14 @@ def update_plot(event=None):
         ax_text.clear()
         ax_text.axis('off')
         result_text = (
-            f"Results for {location} (f={f} GHz, pol={pol}, R={R} mm/h, ε0={epsilon0}°):\n"
-            f"Specific Attenuation: {results['gamma']:.5f} dB/km  |  "
-            f"Reduction Factor: {results['s']:.4f}  |  "
+            f"Results for {location}\n"
+            f"(f={f} GHz, pol={pol}, R={R} mm/h, ε0={epsilon0}°)\n"
+            f"Specific Atten: {results['gamma']:.5f} dB/km\n"
+            f"Reduction Factor: {results['s']:.4f}\n"
             f"Attenuation: {results['A_R']:.4f} dB"
         )
         ax_text.text(0.5, 0.5, result_text, ha='center', va='center',
-                    fontsize=10, weight='bold',
+                    fontsize=9, weight='bold',
                     bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
         # Calculate for all locations
@@ -241,9 +248,6 @@ def update_plot(event=None):
         # Update map with city locations
         ax_map.clear()
 
-        # Draw Europe map outline first
-        draw_europe_map(ax_map)
-
         # Plot all cities
         for city in location_list:
             city_lon = locations[city]['lon']
@@ -267,8 +271,8 @@ def update_plot(event=None):
         ax_map.set_ylim(36, 56)
         ax_map.set_xlabel('Longitude (°E)', fontsize=9)
         ax_map.set_ylabel('Latitude (°N)', fontsize=9)
-        ax_map.set_title('European Locations Map', fontsize=10, weight='bold')
-        ax_map.grid(True, alpha=0.3, linestyle='--', color='white', linewidth=0.5)
+        ax_map.set_title('European Locations', fontsize=10, weight='bold')
+        ax_map.grid(True, alpha=0.3, linestyle='--')
 
         fig.canvas.draw_idle()
 
