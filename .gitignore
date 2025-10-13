@@ -1,0 +1,19 @@
+# Large textbook PDF (too big for GitHub)
+Ground Station Design and Analysis for LEO Satellites*.pdf
+
+# Original source files
+*.rtf
+
+# LaTeX compilation files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Screenshots
+Screenshot*.png
+
+# Python cache
+__pycache__/
+*.pyc
