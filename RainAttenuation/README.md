@@ -14,7 +14,7 @@ RainAttenuation/
     └── requirements.txt                # Python dependencies
 ```
 
-## 🎯 Which File to Use?
+##  Which File to Use?
 
 ### 📊 **For Interactive Exploration** → `rain_attenuation_notebook.ipynb`
 - **Best for**: Learning, research, parameter exploration
@@ -24,14 +24,15 @@ RainAttenuation/
 ### 🌐 **For Beautiful Web Interface** → `RainAttenuationWebApp/app.py`
 - **Best for**: Presentations, client demos, comprehensive analysis
 - **Features**: Interactive maps, multiple visualizations, professional UI
-- **Run with**: `cd RainAttenuationWebApp && streamlit run app.py`
+- **Run locally**: Navigate to the directory with cd `RainAttenuationWebApp` and launch via `streamlit run app.py` (requires Streamlit installed: `pip install streamlit`).
+- **OR**: Visit the hosted Streamlit dashboard (built using the same principles as the notebook): https://rainattenuation.streamlit.app/
 
 ### ⚙️ **For Integration & Automation** → `RainAttenuationWebApp/rain_attenuation_core.py`
 - **Best for**: Scripts, automation, integration into other projects
 - **Features**: Command-line interface, importable classes, batch processing
 - **Run with**: `cd RainAttenuationWebApp && python rain_attenuation_core.py [options]`
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. **Install Dependencies**
 ```bash
@@ -70,35 +71,35 @@ results = calc.calculate_for_location(2.5, 'v', 30, 'Madrid', 15)
 print(f"Attenuation: {results['A_R']:.4f} dB")
 ```
 
-## 📋 Features
+## Features
 
-### 🧮 **Core Calculations**
+### **Core Calculations**
 - ✅ ITU-R P.618 compliant implementation
 - ✅ Frequency range: 1-4 GHz
 - ✅ Both horizontal and vertical polarization
 - ✅ Linear interpolation for intermediate frequencies
 - ✅ Comprehensive input validation
 
-### 🌍 **Location Support**
+### **Location Support**
 - ✅ 10 predefined European cities
 - ✅ Custom latitude/longitude coordinates
 - ✅ Height above sea level consideration
 - ✅ Interactive world maps with pins
 
-### 📊 **Visualizations**
+### **Visualizations**
 - ✅ Interactive bar charts (Plotly)
 - ✅ Geographic scatter plots
 - ✅ Attenuation vs latitude analysis
 - ✅ Text-based plots (no dependencies)
 - ✅ Summary statistics
 
-### 🔧 **User Interfaces**
+### **User Interfaces**
 - ✅ Jupyter notebook with widgets
 - ✅ Streamlit web dashboard
 - ✅ Command-line interface
 - ✅ Python API for integration
 
-## 📖 ITU-R P.618 Model Parameters
+## ITU-R P.618 Model Parameters
 
 | Parameter | Description | Range | Units |
 |-----------|-------------|-------|-------|
@@ -109,7 +110,7 @@ print(f"Attenuation: {results['A_R']:.4f} dB")
 | **hs** | Height above sea level | ≥ 0 | km |
 | **ε₀** | Elevation angle | 1 - 90 | degrees |
 
-## 🏙️ Predefined Locations
+## Predefined Locations
 
 | City | Latitude | Height | City | Latitude | Height |
 |------|----------|--------|------|----------|--------|
@@ -119,7 +120,7 @@ print(f"Attenuation: {results['A_R']:.4f} dB")
 | Pristina | 42.6°N | 652m | London | 51.5°N | 14m |
 | Zagreb | 45.8°N | 130m | Berlin | 52.5°N | 34m |
 
-## 📚 Example Use Cases
+## Example Use Cases
 
 ### 🛰️ **Satellite Link Design**
 Calculate rain margins for your satellite communication system:
