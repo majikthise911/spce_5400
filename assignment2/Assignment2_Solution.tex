@@ -1,0 +1,567 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+\title{\textbf{SPCE 5400 Assignment \#2} \\ Ground Station Analysis - Complete Solution}
+\author{Topics: Chapters 4 \& 5}
+\date{Due: October 15, 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem Statement}
+
+Given a satellite in circular, polar LEO at an altitude of 1000 km, with the following parameters:
+
+\textbf{Satellite Tx Signal:}
+\begin{itemize}
+    \item Tx power: 10 W (10 dBW)
+    \item Frequency: 2.0 GHz
+    \item Satellite antenna Gain: 3 dBi
+    \item Atmospheric Conditions: No rain, no adverse weather
+\end{itemize}
+
+\textbf{Ground Station:}
+\begin{itemize}
+    \item Location: Pikes Peak, CO [no visible obstructions]
+    \item Lock-on Design: AOS [Az, 30°]
+\end{itemize}
+
+\section{Constants and Key Equations}
+
+\subsection{Standard Constants}
+From Chapter 4.1 and standard references:
+\begin{itemize}
+    \item Earth radius: $R_E = 6371$ km
+    \item Gravitational parameter: $\mu = 3.986 \times 10^5$ km$^3$/s$^2$
+    \item Speed of light: $c = 3 \times 10^5$ km/s (or $3 \times 10^8$ m/s)
+    \item Frequency: $f = 2.0$ GHz = $2 \times 10^9$ Hz
+\end{itemize}
+
+\subsection{Orbital Parameters}
+\begin{itemize}
+    \item Altitude: $H = 1000$ km
+    \item Orbital radius: $r = R_E + H = 6371 + 1000 = 7371$ km
+    \item Inclination: $i = 90°$ (polar orbit)
+    \item Eccentricity: $e = 0$ (circular orbit)
+\end{itemize}
+
+\section{Question 1: Satellite Speed in Orbit [10 pts]}
+
+\subsection{Reference Material}
+\textbf{Textbook: Chapter 4.1 - LEO Satellite Tracking Principles}
+
+The orbital velocity for circular orbits is derived from balancing gravitational and centripetal forces.
+
+\subsection{Formula}
+From Chapter 4.1:
+\begin{equation}
+v = \sqrt{\frac{\mu}{r}}
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $v$ = orbital velocity (km/s)
+    \item $\mu = 3.986 \times 10^5$ km$^3$/s$^2$ (Earth's gravitational parameter)
+    \item $r = R_E + H = 7371$ km (orbital radius)
+\end{itemize}
+
+\subsection{Solution}
+\begin{align}
+v &= \sqrt{\frac{3.986 \times 10^5}{7371}} \\
+v &= \sqrt{54.079} \\
+v &= 7.354 \text{ km/s}
+\end{align}
+
+\textbf{Answer: The satellite speed is 7.35 km/s}
+
+\subsection{Physical Interpretation}
+This speed is typical for LEO satellites. For reference:
+\begin{itemize}
+    \item ISS (400 km): $\approx$ 7.66 km/s
+    \item Our satellite (1000 km): 7.35 km/s
+    \item Higher altitudes have lower velocities (Kepler's laws)
+\end{itemize}
+
+\section{Question 2: Satellite Orbit Period [10 pts]}
+
+\subsection{Reference Material}
+\textbf{Textbook: Chapter 4.1 - Orbital Period from Kepler's Third Law}
+
+For circular orbits, the semi-major axis $a = r$.
+
+\subsection{Formula}
+From Chapter 4.1:
+\begin{equation}
+T = 2\pi \sqrt{\frac{a^3}{\mu}} = 2\pi \sqrt{\frac{r^3}{\mu}}
+\end{equation}
+
+\subsection{Solution}
+\begin{align}
+T &= 2\pi \sqrt{\frac{(7371)^3}{3.986 \times 10^5}} \\
+T &= 2\pi \sqrt{\frac{4.002 \times 10^{11}}{3.986 \times 10^5}} \\
+T &= 2\pi \sqrt{1.004 \times 10^6} \\
+T &= 2\pi \times 1002.0 \\
+T &= 6295.5 \text{ seconds} \\
+T &= 104.9 \text{ minutes} = 104 \text{ min } 54 \text{ sec}
+\end{align}
+
+\textbf{Answer: The orbital period is 6296 seconds (104 min 54 sec)}
+
+\subsection{Physical Interpretation}
+\begin{itemize}
+    \item This is typical for LEO satellites at 1000 km
+    \item Sidereal day = 86164 seconds
+    \item Number of orbits per day: $n = 86164 / 6295.5 \approx 13.7$ orbits/day
+    \item Each orbit covers different ground track due to Earth rotation
+\end{itemize}
+
+\section{Question 3: Visible Time Duration (AOS to LOS) [20 pts]}
+
+\subsection{Reference Material}
+\textbf{Textbook: Chapter 4.2 - Ideal Horizon Plane and Communication Duration}
+
+For an overhead pass (Max-El $\approx 90°$) from AOS [0°, 0°] to LOS [180°, 0°], we need to calculate the ideal horizon duration.
+
+\subsection{Formulas}
+From Chapter 4.2 and 4.3:
+
+\textbf{Maximum nadir angle (at $\varepsilon_0 = 0°$):}
+\begin{equation}
+\alpha_{0,max} = \sin^{-1}\left(\frac{R_E}{R_E + H}\right)
+\end{equation}
+
+\textbf{Central angle (full visibility arc):}
+\begin{equation}
+\gamma = 2 \times (90° - \alpha_{0,max})
+\end{equation}
+
+\textbf{Visible time duration:}
+\begin{equation}
+t_{visible} = \frac{\gamma}{360°} \times T
+\end{equation}
+
+\subsection{Solution}
+\textbf{Step 1: Calculate maximum nadir angle}
+\begin{align}
+\alpha_{0,max} &= \sin^{-1}\left(\frac{6371}{7371}\right) \\
+\alpha_{0,max} &= \sin^{-1}(0.8643) \\
+\alpha_{0,max} &= 59.75°
+\end{align}
+
+\textbf{Step 2: Calculate central angle}
+
+From Chapter 4.2, the visibility arc is defined as the central angle subtended by the satellite's visible path. This is:
+\begin{align}
+\gamma &= 2 \times (90° - \alpha_{0,max}) \\
+\gamma &= 2 \times (90° - 59.75°) \\
+\gamma &= 2 \times 30.25° \\
+\gamma &= 60.5°
+\end{align}
+
+\textbf{Step 3: Calculate visible duration}
+\begin{align}
+t_{visible} &= \frac{\gamma}{360°} \times T \\
+t_{visible} &= \frac{60.5°}{360°} \times 6295.5 \text{ s} \\
+t_{visible} &= 0.1681 \times 6295.5 \\
+t_{visible} &= 1058 \text{ seconds} = 17.6 \text{ minutes} = 17 \text{ min } 38 \text{ sec}
+\end{align}
+
+\textbf{Answer: The visible time duration is 1058 seconds (17 min 38 sec)}
+
+\subsection{Alternative Verification Using Maximum Slant Range}
+From Chapter 4.3, Equation 1.56:
+\begin{equation}
+d_{max} = \sqrt{H(2R_E + H)} = \sqrt{1000(2 \times 6371 + 1000)} = \sqrt{13742000} = 3707 \text{ km}
+\end{equation}
+
+This confirms our calculation is reasonable.
+
+\section{Question 4: Percent Lock-On Time (30° Design) [20 pts]}
+
+\subsection{Reference Material}
+\textbf{Textbook: Chapter 4.5 - Real Communication Duration and Designed Horizon Plane}
+
+Time efficiency factor $T_{eff}$ from Chapter 4.5.
+
+\subsection{Formulas}
+From Chapter 4.5:
+
+For designed elevation $\varepsilon_0^D = 30°$:
+
+\textbf{Nadir angle at designed elevation:}
+\begin{equation}
+\sin \alpha_0 = \frac{R_E}{R_E + H} \cos \varepsilon_0
+\end{equation}
+
+\textbf{Central angle at designed elevation:}
+\begin{equation}
+\varepsilon_0 + \alpha_0 + \beta_0 = 90°
+\end{equation}
+
+Therefore: $\beta_0 = 90° - \varepsilon_0 - \alpha_0$
+
+\textbf{Designed central angle:}
+\begin{equation}
+\gamma_D = 2 \times \beta_0
+\end{equation}
+
+\subsection{Solution}
+\textbf{Step 1: Calculate nadir angle at 30° elevation}
+\begin{align}
+\sin \alpha_0 &= \frac{6371}{7371} \times \cos(30°) \\
+\sin \alpha_0 &= 0.8643 \times 0.8660 \\
+\sin \alpha_0 &= 0.7485 \\
+\alpha_0 &= 48.45°
+\end{align}
+
+\textbf{Step 2: Calculate central angle at 30°}
+\begin{align}
+\beta_0 &= 90° - 30° - 48.45° \\
+\beta_0 &= 11.55°
+\end{align}
+
+\textbf{Step 3: Calculate designed central angle}
+\begin{equation}
+\gamma_D = 2 \times 11.55° = 23.1°
+\end{equation}
+
+\textbf{Step 4: Calculate locked-on duration}
+
+The satellite moves along its orbital arc at constant angular velocity. The time spent in the lock-on zone is proportional to the angular arc.
+
+For the lock-on zone (above 30° elevation), the satellite travels through a central angle of $\gamma_D = 23.1°$.
+
+But we need to calculate the time based on the \textbf{visible pass duration} (not the full orbital period):
+
+\begin{align}
+t_{locked} &= \frac{\gamma_D}{\gamma_{visible}} \times t_{visible} \\
+t_{locked} &= \frac{23.1°}{60.5°} \times 1058 \text{ s} \\
+t_{locked} &= 0.3818 \times 1058 \\
+t_{locked} &= 404 \text{ seconds} = 6 \text{ min } 44 \text{ sec}
+\end{align}
+
+\textbf{Step 5: Calculate percentage}
+\begin{align}
+\text{Percent} &= \frac{t_{locked}}{t_{visible}} \times 100\% \\
+\text{Percent} &= \frac{404}{1058} \times 100\% \\
+\text{Percent} &= \boxed{38.2\%}
+\end{align}
+
+\textbf{Answer: The signal is locked-on for 38.2\% of the overhead pass}
+
+\subsection{Physical Interpretation}
+This percentage (38.2\%) is physically reasonable for a 30° designed elevation on an overhead pass:
+
+From Chapter 4.5:
+\begin{itemize}
+    \item Higher designed elevation = shorter communication time
+    \item For a 30° threshold, the satellite must be reasonably close to zenith
+    \item The central angle for 30° elevation is 23.1° (compared to 60.5° visible)
+    \item This is the trade-off: better signal quality (higher elevation, shorter distance) vs. shorter duration
+    \item Typical designed elevations: 5°-10° for maximum coverage time, 20°-30° for better link quality
+    \item Chapter 4.7 shows EIRP savings increase significantly with elevation
+    \item For an overhead pass, approximately 38% of the visible time is above 30° elevation
+\end{itemize}
+
+\textbf{Verification:} The ratio $\gamma_D / \gamma_{visible} = 23.1° / 60.5° = 38.2\%$ confirms this result.
+
+\section{Question 5: Power Received vs. Elevation [20 pts]}
+
+\subsection{Reference Material}
+\textbf{Textbook: Chapter 4.8 - Elevation Impact on S/N$_0$}
+
+Free space loss calculation from Chapter 4.8.
+
+\subsection{Formulas}
+\textbf{EIRP (Effective Isotropic Radiated Power):}
+\begin{equation}
+EIRP = P_{Tx} + G_{Tx} = 10 \text{ dBW} + 3 \text{ dBi} = 13 \text{ dBW}
+\end{equation}
+
+\textbf{Slant range at elevation $\varepsilon_0$:}
+From Chapter 4.3, Equation 1.56:
+\begin{equation}
+d(\varepsilon_0) = R_E \left[\sqrt{\left(\frac{H}{R_E} + 1\right)^2 - \cos^2 \varepsilon_0} - \sin \varepsilon_0\right]
+\end{equation}
+
+\textbf{Free Space Loss:}
+From Chapter 4.8:
+\begin{equation}
+L_s = 20 \log_{10}\left(\frac{4\pi d f}{c}\right) \text{ dB}
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $d$ = slant range (m)
+    \item $f$ = frequency (Hz) = $2 \times 10^9$ Hz
+    \item $c$ = speed of light (m/s) = $3 \times 10^8$ m/s
+\end{itemize}
+
+\textbf{Received Power:}
+\begin{equation}
+P_r = EIRP - L_s \text{ (dBW)}
+\end{equation}
+
+\subsection{Solution}
+\textbf{Calculations for each elevation (0° to 90° in 10° increments):}
+
+\begin{center}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{Elevation} & \textbf{Slant Range} & \textbf{Free Space Loss} & \textbf{Received Power} \\
+\textbf{(degrees)} & \textbf{(km)} & \textbf{(dB)} & \textbf{(dBW)} \\
+\midrule
+0  & 3707 & 169.8 & -156.8 \\
+10 & 2762 & 167.3 & -154.3 \\
+20 & 2121 & 165.0 & -152.0 \\
+30 & 1702 & 163.1 & -150.1 \\
+40 & 1429 & 161.6 & -148.6 \\
+50 & 1248 & 160.4 & -147.4 \\
+60 & 1130 & 159.5 & -146.5 \\
+70 & 1055 & 158.9 & -145.9 \\
+80 & 1013 & 158.6 & -145.6 \\
+90 & 1000 & 158.5 & -145.5 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Calculation Details}
+
+\textbf{Example verification for 30° elevation:}
+
+Using the Python code below, for $\varepsilon_0 = 30°$:
+
+\textbf{Step 1: Calculate slant range}
+\begin{align}
+d(30°) &= 6371 \left[\sqrt{\left(1 + \frac{1000}{6371}\right)^2 - \cos^2(30°)} - \sin(30°)\right] \\
+d(30°) &= 6371 \left[\sqrt{(1.157)^2 - (0.866)^2} - 0.5\right] \\
+d(30°) &= 6371 \left[\sqrt{1.339 - 0.750} - 0.5\right] \\
+d(30°) &= 6371 \left[0.768 - 0.5\right] \\
+d(30°) &= 6371 \times 0.268 = 1702 \text{ km}
+\end{align}
+
+\textbf{Step 2: Calculate free space loss}
+\begin{align}
+L_s &= 20 \log_{10}\left(\frac{4\pi \times 1.702 \times 10^6 \times 2 \times 10^9}{3 \times 10^8}\right) \\
+L_s &= 20 \log_{10}(142586) \\
+L_s &= 20 \times 5.154 = 163.1 \text{ dB}
+\end{align}
+
+\textbf{Step 3: Calculate received power}
+\begin{equation}
+P_r = 13 \text{ dBW} - 163.1 \text{ dB} = -150.1 \text{ dBW}
+\end{equation}
+
+\textbf{Verification at 90° elevation:} At zenith, slant range equals altitude: $d(90°) = H = 1000$ km. This confirms the formula is correctly applied.
+
+The table above shows all calculated values for elevations from 0° to 90° in 10° increments.
+
+\subsection{Python Code for Plotting}
+
+\begin{lstlisting}[language=Python, basicstyle=\small, frame=single]
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+R_E = 6371  # km
+H = 1000    # km
+f = 2e9     # Hz
+c = 3e8     # m/s
+EIRP = 13   # dBW
+
+# Elevation angles
+el_deg = np.arange(0, 91, 10)
+el_rad = np.deg2rad(el_deg)
+
+# Calculate slant range (km)
+d_km = R_E * (np.sqrt((1 + H/R_E)**2 - np.cos(el_rad)**2)
+              - np.sin(el_rad))
+
+# Convert to meters
+d_m = d_km * 1000
+
+# Calculate free space loss (dB)
+L_s = 20 * np.log10(4 * np.pi * d_m * f / c)
+
+# Calculate received power (dBW)
+P_r = EIRP - L_s
+
+# Create plot
+plt.figure(figsize=(10, 6))
+plt.plot(el_deg, P_r, 'b-o', linewidth=2, markersize=8)
+plt.xlabel('Elevation Angle (degrees)', fontsize=12)
+plt.ylabel('Received Power (dBW)', fontsize=12)
+plt.title('Received Power vs Elevation Angle', fontsize=14)
+plt.grid(True, alpha=0.3)
+plt.xlim(0, 90)
+
+# Add annotations
+for i in range(0, len(el_deg), 2):
+    plt.annotate(f'{P_r[i]:.1f} dBW',
+                xy=(el_deg[i], P_r[i]),
+                xytext=(5, 5), textcoords='offset points',
+                fontsize=9)
+
+plt.tight_layout()
+plt.savefig('power_vs_elevation.png', dpi=300)
+plt.show()
+
+# Print table
+print("Elevation | Slant Range | Free Space Loss | Rx Power")
+print("(deg)     | (km)        | (dB)            | (dBW)")
+print("-" * 55)
+for i in range(len(el_deg)):
+    print(f"{el_deg[i]:3.0f}       | {d_km[i]:7.1f}     "
+          f"| {L_s[i]:7.1f}         | {P_r[i]:7.1f}")
+\end{lstlisting}
+
+\textbf{Answer: See table above and plot. Maximum power (-145.5 dBW) occurs at 90° elevation, minimum (-156.8 dBW) at 0° elevation}
+
+\subsection{Physical Interpretation}
+From Chapter 4.8:
+\begin{itemize}
+    \item Power increases with elevation (shorter distance)
+    \item Range from 3707 km (0°) to 1000 km (90°) = 3.7:1 ratio
+    \item Loss variation: 11.3 dB over the pass (169.8 dB at 0° to 158.5 dB at 90°)
+    \item This validates the designed elevation trade-off (Chapter 4.7)
+    \item At 30° designed elevation: -150.1 dBW received
+    \item At zenith (90°), slant range equals altitude (1000 km) - geometric verification
+\end{itemize}
+
+\section{Question 6: Doppler Shift Analysis [20 pts]}
+
+\subsection{Reference Material}
+\textbf{Textbook: Chapter 4.1 - Velocity; Chapter 4.8 mentions Doppler effects}
+
+Doppler shift occurs due to relative motion between satellite and ground station.
+
+\subsection{Theory and Formulas}
+For a satellite passing overhead (polar orbit), the radial velocity component (toward/away from ground station) varies with elevation.
+
+\textbf{Radial velocity:}
+For an overhead pass, the geometry shows:
+\begin{equation}
+v_r = v \cos(\varepsilon_0)
+\end{equation}
+
+where $v_r$ is the radial component (positive = approaching, negative = receding).
+
+\textbf{Doppler shift:}
+\begin{equation}
+\Delta f = \frac{v_r}{c} \times f = \frac{v \cos(\varepsilon_0)}{c} \times f
+\end{equation}
+
+\subsection{Solution}
+\textbf{Step 1: Identify maximum and minimum Doppler conditions}
+
+From the geometry of an overhead polar pass:
+\begin{itemize}
+    \item \textbf{Maximum Doppler:} At horizon (El = 0°), when satellite is approaching
+    \begin{itemize}
+        \item Radial velocity: $v_r = v \cos(0°) = v$ (maximum)
+        \item At AOS [0°, 0°]: positive Doppler (blue shift)
+        \item At LOS [180°, 0°]: negative Doppler (red shift, same magnitude)
+    \end{itemize}
+    \item \textbf{Minimum Doppler:} At zenith (El = 90°)
+    \begin{itemize}
+        \item Radial velocity: $v_r = v \cos(90°) = 0$
+        \item Satellite moving perpendicular to line of sight
+        \item Doppler = 0 Hz
+    \end{itemize}
+\end{itemize}
+
+\textbf{Step 2: Calculate maximum Doppler shift}
+
+Using $v = 7.354$ km/s from Question 1:
+
+\begin{align}
+\Delta f_{max} &= \frac{v}{c} \times f \\
+\Delta f_{max} &= \frac{7.354 \text{ km/s}}{3 \times 10^5 \text{ km/s}} \times 2 \times 10^9 \text{ Hz} \\
+\Delta f_{max} &= \frac{7.354}{300000} \times 2 \times 10^9 \\
+\Delta f_{max} &= 2.451 \times 10^{-5} \times 2 \times 10^9 \\
+\Delta f_{max} &= 49,020 \text{ Hz} = 49.02 \text{ kHz}
+\end{align}
+
+\textbf{Answer:}
+\begin{itemize}
+    \item \textbf{Maximum Doppler} occurs at 0° elevation (horizon, AOS/LOS)
+    \item \textbf{Minimum Doppler} occurs at 90° elevation (zenith)
+    \item \textbf{Maximum Doppler value:} $\pm 49.0$ kHz
+\end{itemize}
+
+\subsection{Doppler Profile During Pass}
+
+The Doppler shift varies continuously during the pass:
+
+\begin{center}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{Elevation} & \textbf{Radial Velocity} & \textbf{Doppler Shift} \\
+\textbf{(degrees)} & \textbf{(km/s)} & \textbf{(kHz)} \\
+\midrule
+0  (AOS) & +7.35 & +49.0 \\
+10  & +7.24 & +48.3 \\
+20  & +6.91 & +46.1 \\
+30  & +6.37 & +42.5 \\
+40  & +5.63 & +37.5 \\
+50  & +4.72 & +31.5 \\
+60  & +3.68 & +24.5 \\
+70  & +2.51 & +16.8 \\
+80  & +1.28 & +8.5 \\
+90  (zenith) & 0.00 & 0.0 \\
+80  & -1.28 & -8.5 \\
+70  & -2.51 & -16.8 \\
+0  (LOS) & -7.35 & -49.0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Physical Interpretation}
+\begin{itemize}
+    \item Doppler shift is symmetric around zenith for overhead pass
+    \item Positive (blue shift) when approaching, negative (red shift) when receding
+    \item Zero crossing at maximum elevation
+    \item This affects tracking systems (mentioned in Chapter 4.1)
+    \item Ground stations must compensate for frequency shift in receivers
+    \item At 2 GHz carrier, $\pm 49$ kHz is $\pm 0.0025\%$ shift
+\end{itemize}
+
+\section{Summary of Results}
+
+\begin{center}
+\begin{tabular}{@{}clc@{}}
+\toprule
+\textbf{Question} & \textbf{Result} & \textbf{Units} \\
+\midrule
+1 & Orbital Speed & 7.35 km/s \\
+2 & Orbital Period & 104 min 54 sec \\
+3 & Visible Duration & 17 min 38 sec \\
+4 & Lock-On Percentage & 38.2\% \\
+5 & Power Range & -156.8 to -145.5 dBW \\
+6a & Max Doppler at & 0° elevation \\
+6b & Min Doppler at & 90° elevation \\
+6c & Max Doppler Value & $\pm 49.0$ kHz \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Key Textbook References}
+
+\begin{itemize}
+    \item \textbf{Chapter 4.1:} Orbital mechanics, velocity, period
+    \item \textbf{Chapter 4.2:} Ideal horizon plane, communication duration
+    \item \textbf{Chapter 4.3:} Slant range calculations, geometry
+    \item \textbf{Chapter 4.5:} Designed horizon plane, time efficiency
+    \item \textbf{Chapter 4.7:} EIRP savings with elevation
+    \item \textbf{Chapter 4.8:} Elevation impact on link budget, free space loss
+\end{itemize}
+
+\end{document}
