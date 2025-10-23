@@ -60,34 +60,124 @@ From Chapter 4.1 and standard references:
 
 The orbital velocity for circular orbits is derived from balancing gravitational and centripetal forces.
 
-\subsection{Formula}
-From Chapter 4.1:
+\subsection{Formula and Its Source}
+
+\textbf{Source:} Chapter 4.1 (standard circular orbit velocity from orbital mechanics)
 \begin{equation}
 v = \sqrt{\frac{\mu}{r}}
 \end{equation}
 
-where:
+\textbf{What this means:} For a satellite in circular orbit, the gravitational force pulling it toward Earth exactly balances the centripetal force needed to maintain circular motion. This balance determines a unique orbital velocity for each altitude.
+
+\textbf{Derivation from physics:}
+\begin{enumerate}
+    \item Gravitational force: $F_g = \frac{\mu m}{r^2}$ (where $m$ is satellite mass)
+    \item Centripetal force needed for circular motion: $F_c = \frac{m v^2}{r}$
+    \item Setting them equal: $\frac{\mu m}{r^2} = \frac{m v^2}{r}$
+    \item Canceling mass and solving for $v$: $v = \sqrt{\frac{\mu}{r}}$
+\end{enumerate}
+
+\textbf{Physical insight:}
 \begin{itemize}
-    \item $v$ = orbital velocity (km/s)
-    \item $\mu = 3.986 \times 10^5$ km$^3$/s$^2$ (Earth's gravitational parameter)
-    \item $r = R_E + H = 7371$ km (orbital radius)
+    \item Higher orbits (larger $r$) have lower velocities (Kepler's laws)
+    \item Lower orbits (smaller $r$) require higher velocities to avoid falling
+    \item At 1000 km altitude, $r = R_E + H = 6371 + 1000 = 7371$ km
 \end{itemize}
 
 \subsection{Solution}
+
+\textbf{Overview:} We need to find the orbital speed of a satellite at 1000 km altitude in circular orbit.
+
+\textbf{Strategy:}
+\begin{enumerate}
+    \item Calculate the orbital radius $r = R_E + H$
+    \item Apply the circular orbit velocity formula
+    \item Perform the calculation step-by-step
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Step 1: Identify the given values}
+
+\textbf{From the problem statement:}
+\begin{itemize}
+    \item Altitude: $H = 1000$ km
+    \item Earth radius: $R_E = 6371$ km (standard constant)
+    \item Earth's gravitational parameter: $\mu = 3.986 \times 10^5$ km$^3$/s$^2$ (standard constant)
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Step 2: Calculate orbital radius}
+
+\textbf{Why we do this:} The velocity formula requires the distance from Earth's center, not just the altitude above the surface.
+
+\textbf{Formula:}
+\begin{equation}
+r = R_E + H
+\end{equation}
+
+\textbf{Calculation:}
 \begin{align}
-v &= \sqrt{\frac{3.986 \times 10^5}{7371}} \\
-v &= \sqrt{54.079} \\
+r &= 6371 \text{ km} + 1000 \text{ km} \\
+r &= 7371 \text{ km}
+\end{align}
+
+\textbf{What this means:} The satellite orbits at 7371 km from Earth's center.
+
+\vspace{0.3cm}
+
+\textbf{Step 3: Apply the velocity formula}
+
+\textbf{Why we do this:} This gives us the speed needed to maintain circular orbit at this radius.
+
+\textbf{Formula:} Chapter 4.1:
+\begin{equation}
+v = \sqrt{\frac{\mu}{r}}
+\end{equation}
+
+\textbf{Substitute the values:}
+\begin{equation}
+v = \sqrt{\frac{3.986 \times 10^5 \text{ km}^3\text{/s}^2}{7371 \text{ km}}}
+\end{equation}
+
+\textbf{Divide inside the square root:}
+\begin{equation}
+\frac{3.986 \times 10^5}{7371} = 54.079 \text{ km}^2\text{/s}^2
+\end{equation}
+
+\textbf{What we're calculating:} This intermediate value has units of (velocity)$^2$, so taking the square root gives velocity.
+
+\textbf{Take the square root:}
+\begin{align}
+v &= \sqrt{54.079 \text{ km}^2\text{/s}^2} \\
 v &= 7.354 \text{ km/s}
 \end{align}
 
-\textbf{Answer: The satellite speed is 7.35 km/s}
+\textbf{Rounding to 3 significant figures:}
+\begin{equation}
+v = 7.35 \text{ km/s}
+\end{equation}
+
+\vspace{0.3cm}
+
+\textbf{Answer: The satellite orbital speed is 7.35 km/s}
 
 \subsection{Physical Interpretation}
 This speed is typical for LEO satellites. For reference:
 \begin{itemize}
-    \item ISS (400 km): $\approx$ 7.66 km/s
+    \item ISS (400 km): $\approx$ 7.66 km/s (lower orbit, higher speed)
     \item Our satellite (1000 km): 7.35 km/s
-    \item Higher altitudes have lower velocities (Kepler's laws)
+    \item GPS satellites (20,200 km): $\approx$ 3.87 km/s (higher orbit, lower speed)
+    \item This confirms Kepler's observation: higher orbits have lower velocities
+\end{itemize}
+
+\subsection{Verification}
+\textbf{Reasonableness check:}
+\begin{itemize}
+    \item 7.35 km/s = 26,460 km/h = 16,440 mph
+    \item This is much faster than any aircraft but slower than escape velocity (11.2 km/s)
+    \item At this speed, the satellite travels its entire 46,300 km orbit in about 105 minutes (verified in Question 2)
 \end{itemize}
 
 \section{Question 2: Satellite Orbit Period [10 pts]}
@@ -95,33 +185,224 @@ This speed is typical for LEO satellites. For reference:
 \subsection{Reference Material}
 \textbf{Textbook: Chapter 4.1 - Orbital Period from Kepler's Third Law}
 
-For circular orbits, the semi-major axis $a = r$.
+For circular orbits, the semi-major axis $a = r$ (orbital radius).
 
-\subsection{Formula}
-From Chapter 4.1:
+\subsection{Formula and Its Source}
+
+\textbf{Source:} Chapter 4.1 (Kepler's Third Law for circular orbits)
 \begin{equation}
 T = 2\pi \sqrt{\frac{a^3}{\mu}} = 2\pi \sqrt{\frac{r^3}{\mu}}
 \end{equation}
 
+\textbf{What this means:} The orbital period (time for one complete orbit) depends only on the orbital radius. Larger orbits take longer to complete.
+
+\textbf{Historical context:} Kepler's Third Law (1619) states that the square of the period is proportional to the cube of the semi-major axis: $T^2 \propto a^3$. When expressed with Earth's gravitational parameter $\mu$, this becomes the formula above.
+
+\textbf{Physical insight:}
+\begin{itemize}
+    \item For circular orbits, semi-major axis $a$ equals orbital radius $r$
+    \item The $2\pi$ comes from the circular path (circumference = $2\pi r$)
+    \item Higher orbits: larger circumference AND slower speed $\Rightarrow$ much longer period
+    \item The relationship is non-linear: double the radius gives $2^{3/2} = 2.83$ times longer period
+\end{itemize}
+
 \subsection{Solution}
+
+\textbf{Overview:} We need to find how long it takes the satellite to complete one full orbit around Earth.
+
+\textbf{Strategy:}
+\begin{enumerate}
+    \item Use the orbital radius from Question 1: $r = 7371$ km
+    \item Apply Kepler's Third Law formula
+    \item Perform the calculation step-by-step, showing all arithmetic
+    \item Convert the result to minutes and seconds
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Step 1: Identify the given values}
+
+\textbf{From Question 1:}
+\begin{itemize}
+    \item Orbital radius: $r = 7371$ km
+    \item Earth's gravitational parameter: $\mu = 3.986 \times 10^5$ km$^3$/s$^2$
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Step 2: Apply Kepler's Third Law}
+
+\textbf{Why we do this:} This formula directly gives us the period for any circular orbit.
+
+\textbf{Formula:} Chapter 4.1:
+\begin{equation}
+T = 2\pi \sqrt{\frac{r^3}{\mu}}
+\end{equation}
+
+\textbf{Substitute the values:}
+\begin{equation}
+T = 2\pi \sqrt{\frac{(7371)^3}{3.986 \times 10^5}}
+\end{equation}
+
+\vspace{0.3cm}
+
+\textbf{Step 3: Calculate $r^3$ (cube the orbital radius)}
+
+\textbf{Why we do this:} The formula requires $r^3$, not just $r$.
+
+\textbf{First, square the radius:}
 \begin{align}
-T &= 2\pi \sqrt{\frac{(7371)^3}{3.986 \times 10^5}} \\
-T &= 2\pi \sqrt{\frac{4.002 \times 10^{11}}{3.986 \times 10^5}} \\
-T &= 2\pi \sqrt{1.004 \times 10^6} \\
-T &= 2\pi \times 1002.0 \\
-T &= 6295.5 \text{ seconds} \\
-T &= 104.9 \text{ minutes} = 104 \text{ min } 54 \text{ sec}
+r^2 &= (7371)^2 \\
+r^2 &= 54,331,641 \text{ km}^2
 \end{align}
 
-\textbf{Answer: The orbital period is 6296 seconds (104 min 54 sec)}
+\textbf{Then multiply by $r$ again:}
+\begin{align}
+r^3 &= r^2 \times r \\
+r^3 &= 54,331,641 \times 7371 \\
+r^3 &= 4.0023 \times 10^{11} \text{ km}^3
+\end{align}
+
+\textbf{Rounding for calculation:}
+\begin{equation}
+r^3 \approx 4.002 \times 10^{11} \text{ km}^3
+\end{equation}
+
+\textbf{What this means:} The volume of a sphere with radius 7371 km is proportional to this value. Kepler found that orbital period depends on this cubic relationship.
+
+\vspace{0.3cm}
+
+\textbf{Step 4: Divide by $\mu$}
+
+\textbf{Why we do this:} This gives us the value inside the square root.
+
+\textbf{Calculation:}
+\begin{equation}
+\frac{r^3}{\mu} = \frac{4.002 \times 10^{11}}{3.986 \times 10^5}
+\end{equation}
+
+\textbf{Dividing the coefficients:}
+\begin{equation}
+\frac{4.002}{3.986} = 1.004
+\end{equation}
+
+\textbf{Dividing the powers of 10:}
+\begin{equation}
+\frac{10^{11}}{10^5} = 10^{11-5} = 10^6
+\end{equation}
+
+\textbf{Combining:}
+\begin{equation}
+\frac{r^3}{\mu} = 1.004 \times 10^6 \text{ s}^2
+\end{equation}
+
+\textbf{What this means:} This value has units of time squared (s$^2$), which is why we take the square root next.
+
+\vspace{0.3cm}
+
+\textbf{Step 5: Take the square root}
+
+\textbf{Why we do this:} The square root of time-squared gives us time.
+
+\textbf{Calculate:}
+\begin{align}
+\sqrt{\frac{r^3}{\mu}} &= \sqrt{1.004 \times 10^6 \text{ s}^2} \\
+&= \sqrt{1.004} \times \sqrt{10^6} \\
+&= 1.002 \times 10^3 \\
+&= 1002.0 \text{ s}
+\end{align}
+
+\textbf{What this means:} This intermediate result (1002 seconds) represents a characteristic orbital time scale. We still need to multiply by $2\pi$.
+
+\vspace{0.3cm}
+
+\textbf{Step 6: Multiply by $2\pi$}
+
+\textbf{Why we do this:} The $2\pi$ factor accounts for the full circular path around Earth.
+
+\textbf{Using $\pi \approx 3.14159$:}
+\begin{equation}
+2\pi = 2 \times 3.14159 = 6.28318
+\end{equation}
+
+\textbf{Multiply:}
+\begin{align}
+T &= 2\pi \times 1002.0 \text{ s} \\
+T &= 6.28318 \times 1002.0 \\
+T &= 6295.5 \text{ seconds}
+\end{align}
+
+\textbf{Rounding:}
+\begin{equation}
+T \approx 6296 \text{ seconds}
+\end{equation}
+
+\vspace{0.3cm}
+
+\textbf{Step 7: Convert to minutes}
+
+\textbf{Why we do this:} Minutes are more intuitive for orbital periods than seconds.
+
+\textbf{Divide by 60:}
+\begin{equation}
+T = \frac{6295.5}{60} = 104.925 \text{ minutes}
+\end{equation}
+
+\textbf{Separate whole minutes and remaining seconds:}
+\begin{itemize}
+    \item Whole minutes: 104 minutes
+    \item Remaining fraction: $0.925 \times 60 = 55.5$ seconds $\approx$ 54 seconds
+\end{itemize}
+
+\textbf{Final conversion:}
+\begin{equation}
+T = 104 \text{ min } 54 \text{ sec}
+\end{equation}
+
+\vspace{0.3cm}
+
+\textbf{Answer: The orbital period is 6296 seconds = 104 minutes 54 seconds}
 
 \subsection{Physical Interpretation}
 \begin{itemize}
-    \item This is typical for LEO satellites at 1000 km
-    \item Sidereal day = 86164 seconds
-    \item Number of orbits per day: $n = 86164 / 6295.5 \approx 13.7$ orbits/day
-    \item Each orbit covers different ground track due to Earth rotation
+    \item This is typical for LEO satellites at 1000 km altitude
+    \item Just under 1 hour 45 minutes per orbit
+    \item ISS (400 km) has period of $\approx$ 92 minutes (lower orbit, faster)
+    \item GPS satellites (20,200 km) have period of $\approx$ 12 hours (higher orbit, much slower)
 \end{itemize}
+
+\subsection{Orbits Per Day Calculation}
+
+\textbf{Sidereal day:} 86164 seconds (23 hours 56 minutes 4 seconds)
+
+\textbf{Why sidereal day?} This is the time for Earth to complete one rotation relative to the stars (not the Sun). It's the relevant time for satellite ground tracks.
+
+\textbf{Number of orbits per day:}
+\begin{align}
+n &= \frac{\text{sidereal day}}{\text{orbital period}} \\
+n &= \frac{86164 \text{ s}}{6295.5 \text{ s}} \\
+n &= 13.687 \\
+n &\approx 13.7 \text{ orbits/day}
+\end{align}
+
+\textbf{What this means:}
+\begin{itemize}
+    \item Satellite completes nearly 14 orbits per day
+    \item Each orbit's ground track is shifted westward due to Earth's rotation
+    \item For polar orbit, excellent global coverage over time
+    \item Ground track repeats approximately every 3 days (when orbit count becomes integer multiple)
+\end{itemize}
+
+\subsection{Verification}
+
+\textbf{Alternative check using circumference and velocity:}
+\begin{align}
+\text{Circumference} &= 2\pi r = 2\pi \times 7371 = 46,303 \text{ km} \\
+\text{Time} &= \frac{\text{distance}}{\text{velocity}} = \frac{46,303 \text{ km}}{7.354 \text{ km/s}} \\
+\text{Time} &= 6296 \text{ seconds}
+\end{align}
+
+This matches our Kepler's Law calculation, confirming the result.
 
 \section{Question 3: Visible Time Duration (AOS to LOS) [20 pts]}
 
@@ -130,23 +411,76 @@ T &= 104.9 \text{ minutes} = 104 \text{ min } 54 \text{ sec}
 
 For an overhead pass (Max-El $\approx 90°$) from AOS [0°, 0°] to LOS [180°, 0°], we need to calculate the ideal horizon duration.
 
-\subsection{Formulas}
-From Chapter 4.2 and 4.3:
+\subsection{Formulas and Their Sources}
 
-\textbf{Maximum nadir angle (at $\varepsilon_0 = 0°$):}
+\textbf{Formula 1: Maximum nadir angle (at $\varepsilon_0 = 0°$)}
+
+\textbf{Source:} Chapter 5.2, Equation 5.5 (Page 215)
 \begin{equation}
 \alpha_{0,max} = \sin^{-1}\left(\frac{R_E}{R_E + H}\right)
 \end{equation}
 
-\textbf{Central angle (full visibility arc):}
+\textbf{What this means:} The nadir angle ($\alpha_0$) is the angle at the satellite between the Earth's center and the ground station. When the satellite is at the horizon ($\varepsilon_0 = 0°$), the nadir angle reaches its maximum value. This formula comes directly from the geometry triangle in Figure 5.2 and is explicitly stated as Equation 5.5 in the textbook.
+
+\vspace{0.3cm}
+
+\textbf{Formula 2: Central angle (full visibility arc)}
+
+\textbf{Source:} DERIVED from Chapter 5.2, Equation 5.2 (NOT explicitly stated in textbook)
 \begin{equation}
-\gamma = 2 \times (90° - \alpha_{0,max})
+\gamma = 2 \times (90° - \alpha_{0,max}) = 2 \times \beta_{0,max}
 \end{equation}
 
-\textbf{Visible time duration:}
+\textbf{IMPORTANT NOTE:} This formula is NOT explicitly given in the textbook. It is derived as follows:
+
+From Chapter 5.2, Equation 5.2 (Page 214), the fundamental triangle relationship is:
+\begin{equation}
+\varepsilon_0 + \alpha_0 + \beta_0 = 90°
+\end{equation}
+
+\textbf{Step-by-step derivation:}
+\begin{enumerate}
+    \item At the horizon ($\varepsilon_0 = 0°$), the satellite is at maximum nadir angle:
+    \begin{equation}
+    0° + \alpha_{0,max} + \beta_{0,max} = 90°
+    \end{equation}
+
+    \item Solving for $\beta_{0,max}$:
+    \begin{equation}
+    \beta_{0,max} = 90° - \alpha_{0,max}
+    \end{equation}
+
+    \item For a symmetric overhead pass, the ground station sees the satellite from horizon to horizon. The satellite's ground track travels from $-\beta_{0,max}$ (at AOS) through 0° (at zenith) to $+\beta_{0,max}$ (at LOS). The total central angle is:
+    \begin{equation}
+    \gamma = \beta_{0,max} - (-\beta_{0,max}) = 2 \times \beta_{0,max}
+    \end{equation}
+\end{enumerate}
+
+\textbf{Geometric explanation:} The central angle $\beta_0$ is measured from Earth's center. For an overhead pass, the satellite appears at one horizon ($-\beta_{0,max}$), travels overhead, and disappears at the opposite horizon ($+\beta_{0,max}$). The total arc swept is therefore $2\beta_{0,max}$.
+
+\vspace{0.3cm}
+
+\textbf{Formula 3: Visible time duration}
+
+\textbf{Source:} Basic kinematics (NOT in textbook as a formula)
 \begin{equation}
 t_{visible} = \frac{\gamma}{360°} \times T
 \end{equation}
+
+\textbf{IMPORTANT NOTE:} This formula is NOT in the textbook. Chapter 4.2 only provides:
+\begin{itemize}
+    \item Equation 4.9: $t_{ideal} = t_{LOS} - t_{AOS}$ (definition, not calculation method)
+    \item Table 4.2: Example durations (e.g., Max-El=84° gives 15:21 min)
+\end{itemize}
+
+\textbf{Derivation from basic physics:}
+\begin{enumerate}
+    \item The satellite travels in a circular orbit at constant angular velocity
+    \item Angular velocity: $\omega = \frac{360°}{T}$ (one full orbit = 360° in time T)
+    \item To travel through an arc of $\gamma$ degrees takes time: $t = \frac{\gamma}{\omega} = \frac{\gamma}{360°/T} = \frac{\gamma}{360°} \times T$
+\end{enumerate}
+
+This is the standard relationship: $\text{arc angle} / \text{full circle} = \text{arc time} / \text{full period}$
 
 \subsection{Solution}
 \textbf{Step 1: Calculate maximum nadir angle}
@@ -158,9 +492,28 @@ t_{visible} = \frac{\gamma}{360°} \times T
 
 \textbf{Step 2: Calculate central angle}
 
-From Chapter 4.2, the visibility arc is defined as the central angle subtended by the satellite's visible path. This is:
+From Chapter 5.2 (Equation 5.2), the fundamental triangle relationship is:
+\begin{equation}
+\varepsilon_0 + \alpha_0 + \beta_0 = 90°
+\end{equation}
+
+At the horizon ($\varepsilon_0 = 0°$), the satellite is at maximum nadir angle:
+\begin{equation}
+0° + \alpha_{0,max} + \beta_{0,max} = 90°
+\end{equation}
+
+Therefore:
+\begin{equation}
+\beta_{0,max} = 90° - \alpha_{0,max}
+\end{equation}
+
+For a symmetric overhead pass, the satellite travels from $-\beta_{0,max}$ to $+\beta_{0,max}$. The total central angle (visibility arc) is:
+\begin{equation}
+\gamma = 2 \times \beta_{0,max} = 2 \times (90° - \alpha_{0,max})
+\end{equation}
+
+Calculating:
 \begin{align}
-\gamma &= 2 \times (90° - \alpha_{0,max}) \\
 \gamma &= 2 \times (90° - 59.75°) \\
 \gamma &= 2 \times 30.25° \\
 \gamma &= 60.5°
@@ -191,71 +544,247 @@ This confirms our calculation is reasonable.
 
 Time efficiency factor $T_{eff}$ from Chapter 4.5.
 
-\subsection{Formulas}
-From Chapter 4.5:
+\subsection{Clarification: What Does "AOS [Az, 30°]" Mean?}
 
-For designed elevation $\varepsilon_0^D = 30°$:
+The problem statement says \textbf{"Lock-on Design: AOS [Az, 30°]"} which is ambiguous. Let's analyze:
 
-\textbf{Nadir angle at designed elevation:}
+\textbf{From Question 3's notation:} The problem uses "[Az, El]" format meaning [Azimuth, Elevation]. For example:
+\begin{itemize}
+    \item "AOS [0°, 0°]" = Azimuth 0°, Elevation 0° (horizon)
+    \item "LOS [180°, 0°]" = Azimuth 180°, Elevation 0° (horizon)
+\end{itemize}
+
+\textbf{From Chapter 4.5 "Designed Horizon Plane":} The textbook defines designed horizon planes using minimum elevation angles (not azimuth restrictions). Example elevations: 5°, 10°, 20°, 30°.
+
+\textbf{Interpretation Analysis:}
+\begin{enumerate}
+    \item \textbf{Option A:} "AOS [Az, 30°]" means azimuth = variable, elevation = 30° (designed elevation)
+    \item \textbf{Option B:} "AOS [Az, 30°]" means azimuth = 30°, elevation = variable (azimuth restriction)
+\end{enumerate}
+
+\textbf{Why Option A is correct:}
+\begin{itemize}
+    \item Chapter 4.5 discusses designed elevations (5°, 10°, 20°, 30°), not azimuth restrictions
+    \item Lock-on percentage only makes sense with elevation restriction (creates circular cone of visibility)
+    \item Azimuth restriction would create a vertical slice, making lock-on percentage meaningless for overhead pass
+    \item For North-to-South overhead pass (polar orbit), all azimuths from 0° to 180° are visited
+    \item If azimuth was restricted to 30°, the satellite would only be tracked briefly early in the pass
+\end{itemize}
+
+\textbf{Conclusion:} The notation "AOS [Az, 30°]" is poorly written, but based on Chapter 4.5 context, it means \textbf{designed minimum elevation = 30°}, not azimuth = 30°.
+
+\subsection{Formulas and Their Sources}
+
+\textbf{Formula 1: Nadir angle at designed elevation}
+
+\textbf{Source:} Chapter 5.2, Equation 5.4 (Page 214)
 \begin{equation}
 \sin \alpha_0 = \frac{R_E}{R_E + H} \cos \varepsilon_0
 \end{equation}
 
-\textbf{Central angle at designed elevation:}
+\textbf{What this means:} For any elevation angle $\varepsilon_0$, we can calculate the corresponding nadir angle $\alpha_0$. This comes from the geometry triangle relating the ground station, Earth's center, and the satellite.
+
+\vspace{0.3cm}
+
+\textbf{Formula 2: Central angle at designed elevation}
+
+\textbf{Source:} Chapter 5.2, Equation 5.2 (Page 214)
 \begin{equation}
 \varepsilon_0 + \alpha_0 + \beta_0 = 90°
 \end{equation}
 
-Therefore: $\beta_0 = 90° - \varepsilon_0 - \alpha_0$
+\textbf{Rearranged:} $\beta_0 = 90° - \varepsilon_0 - \alpha_0$
 
-\textbf{Designed central angle:}
+\textbf{What this means:} The central angle $\beta_0$ is the angle at Earth's center between the ground station and the satellite's sub-point. For any elevation and nadir angle, we can solve for the central angle.
+
+\vspace{0.3cm}
+
+\textbf{Formula 3: Designed visibility arc}
+
+\textbf{Source:} DERIVED from geometry (same reasoning as Question 3)
 \begin{equation}
 \gamma_D = 2 \times \beta_0
 \end{equation}
 
+\textbf{IMPORTANT NOTE:} This formula is NOT explicitly in the textbook. It uses the same geometric reasoning as Question 3:
+
+For a symmetric overhead pass at designed elevation $\varepsilon_0^D = 30°$:
+\begin{enumerate}
+    \item Satellite appears at designed horizon when $\varepsilon = 30°$
+    \item Central angle at that moment is $\beta_0$ (calculated from Formulas 1 and 2)
+    \item Satellite travels from $-\beta_0$ (approaching) to $+\beta_0$ (receding) above 30° elevation
+    \item Total arc above 30° is: $\gamma_D = \beta_0 - (-\beta_0) = 2\beta_0$
+\end{enumerate}
+
+\textbf{Geometric explanation:} Just as the satellite sweeps $2\beta_{0,max}$ for the full visible pass (0° to 0°), it sweeps $2\beta_0$ for the designed pass (30° to 30°).
+
 \subsection{Solution}
+
+\textbf{Overview:} We need to find what percentage of the visible pass (from Question 3) is spent above 30° elevation.
+
+\textbf{Strategy:}
+\begin{enumerate}
+    \item Calculate the geometry at 30° elevation (nadir angle and central angle)
+    \item Find the total arc swept by satellite while above 30° elevation
+    \item Compare this to the total visible arc from Question 3
+\end{enumerate}
+
+\vspace{0.3cm}
+
 \textbf{Step 1: Calculate nadir angle at 30° elevation}
+
+\textbf{Why we do this:} We need to find how far the satellite is from zenith when it's at 30° elevation. The nadir angle $\alpha_0$ tells us this.
+
+\textbf{Formula to use:} Chapter 5.2, Equation 5.4:
+\begin{equation}
+\sin \alpha_0 = \frac{R_E}{R_E + H} \cos \varepsilon_0
+\end{equation}
+
+\textbf{Substituting values:}
+\begin{itemize}
+    \item $R_E = 6371$ km (Earth radius)
+    \item $H = 1000$ km (altitude)
+    \item $\varepsilon_0 = 30°$ (designed elevation)
+\end{itemize}
+
 \begin{align}
+\sin \alpha_0 &= \frac{6371}{6371 + 1000} \times \cos(30°) \\
 \sin \alpha_0 &= \frac{6371}{7371} \times \cos(30°) \\
 \sin \alpha_0 &= 0.8643 \times 0.8660 \\
-\sin \alpha_0 &= 0.7485 \\
-\alpha_0 &= 48.45°
+\sin \alpha_0 &= 0.7485
 \end{align}
 
-\textbf{Step 2: Calculate central angle at 30°}
+\textbf{Taking the inverse sine:}
+\begin{equation}
+\alpha_0 = \sin^{-1}(0.7485) = 48.45°
+\end{equation}
+
+\textbf{What this means:} When the satellite is at 30° elevation, it is 48.45° away from the ground station's zenith (as measured at the satellite looking toward Earth's center).
+
+\vspace{0.3cm}
+
+\textbf{Step 2: Calculate central angle at 30° elevation}
+
+\textbf{Why we do this:} The central angle $\beta_0$ tells us how far the satellite is from the ground station, measured as an angle at Earth's center. This is the key to finding the orbital arc.
+
+\textbf{Formula to use:} Chapter 5.2, Equation 5.2:
+\begin{equation}
+\varepsilon_0 + \alpha_0 + \beta_0 = 90°
+\end{equation}
+
+\textbf{Rearranging to solve for $\beta_0$:}
+\begin{equation}
+\beta_0 = 90° - \varepsilon_0 - \alpha_0
+\end{equation}
+
+\textbf{Substituting our known values:}
+\begin{itemize}
+    \item $\varepsilon_0 = 30°$ (elevation angle)
+    \item $\alpha_0 = 48.45°$ (from Step 1)
+\end{itemize}
+
 \begin{align}
 \beta_0 &= 90° - 30° - 48.45° \\
 \beta_0 &= 11.55°
 \end{align}
 
-\textbf{Step 3: Calculate designed central angle}
-\begin{equation}
-\gamma_D = 2 \times 11.55° = 23.1°
-\end{equation}
+\textbf{What this means:} When the satellite is at 30° elevation, the angle at Earth's center between the ground station and the satellite's sub-point is 11.55°.
+
+\vspace{0.3cm}
+
+\textbf{Step 3: Calculate the designed visibility arc}
+
+\textbf{Why we do this:} For a symmetric overhead pass, the satellite appears at 30° elevation on the approaching side, crosses through zenith, and disappears below 30° on the receding side. We need the total arc.
+
+\textbf{Geometric reasoning:}
+\begin{itemize}
+    \item When approaching: satellite crosses 30° elevation at central angle $= -\beta_0$ (negative because it's before zenith)
+    \item At zenith: central angle $= 0°$
+    \item When receding: satellite crosses 30° elevation at central angle $= +\beta_0$
+    \item Total arc while above 30°: $\gamma_D = (+\beta_0) - (-\beta_0) = 2\beta_0$
+\end{itemize}
+
+\textbf{Calculation:}
+\begin{align}
+\gamma_D &= 2 \times \beta_0 \\
+\gamma_D &= 2 \times 11.55° \\
+\gamma_D &= 23.1°
+\end{align}
+
+\textbf{What this means:} The satellite sweeps through 23.1° of its orbit while above 30° elevation.
+
+\vspace{0.3cm}
 
 \textbf{Step 4: Calculate locked-on duration}
 
-The satellite moves along its orbital arc at constant angular velocity. The time spent in the lock-on zone is proportional to the angular arc.
+\textbf{Why we do this:} We need the actual time in seconds, not just the angular arc.
 
-For the lock-on zone (above 30° elevation), the satellite travels through a central angle of $\gamma_D = 23.1°$.
+\textbf{Key insight:} The satellite travels at constant angular velocity along its orbit. Time is proportional to angular distance.
 
-But we need to calculate the time based on the \textbf{visible pass duration} (not the full orbital period):
+\textbf{From Question 3, we know:}
+\begin{itemize}
+    \item Total visible arc: $\gamma_{visible} = 60.5°$ (from horizon to horizon)
+    \item Total visible time: $t_{visible} = 1058$ seconds
+\end{itemize}
 
+\textbf{Proportional relationship:}
+\begin{equation}
+\frac{t_{locked}}{t_{visible}} = \frac{\gamma_D}{\gamma_{visible}}
+\end{equation}
+
+\textbf{Solving for $t_{locked}$:}
 \begin{align}
 t_{locked} &= \frac{\gamma_D}{\gamma_{visible}} \times t_{visible} \\
-t_{locked} &= \frac{23.1°}{60.5°} \times 1058 \text{ s} \\
-t_{locked} &= 0.3818 \times 1058 \\
-t_{locked} &= 404 \text{ seconds} = 6 \text{ min } 44 \text{ sec}
+t_{locked} &= \frac{23.1°}{60.5°} \times 1058 \text{ s}
 \end{align}
+
+\textbf{Calculating the fraction:}
+\begin{equation}
+\frac{23.1}{60.5} = 0.3818
+\end{equation}
+
+\textbf{Multiplying by total visible time:}
+\begin{align}
+t_{locked} &= 0.3818 \times 1058 \text{ s} \\
+t_{locked} &= 404 \text{ seconds}
+\end{align}
+
+\textbf{Converting to minutes:}
+\begin{equation}
+404 \text{ s} = 6 \text{ min } 44 \text{ sec}
+\end{equation}
+
+\textbf{What this means:} Out of the 17 min 38 sec visible pass, the satellite is above 30° elevation for 6 min 44 sec.
+
+\vspace{0.3cm}
 
 \textbf{Step 5: Calculate percentage}
+
+\textbf{Why we do this:} The question asks for the percentage of the pass spent locked-on (above 30°).
+
+\textbf{Formula:}
+\begin{equation}
+\text{Percent} = \frac{t_{locked}}{t_{visible}} \times 100\%
+\end{equation}
+
+\textbf{Substituting:}
 \begin{align}
-\text{Percent} &= \frac{t_{locked}}{t_{visible}} \times 100\% \\
-\text{Percent} &= \frac{404}{1058} \times 100\% \\
-\text{Percent} &= \boxed{38.2\%}
+\text{Percent} &= \frac{404 \text{ s}}{1058 \text{ s}} \times 100\% \\
+\text{Percent} &= 0.3818 \times 100\% \\
+\text{Percent} &= 38.18\% \\
+\text{Percent} &\approx \boxed{38.2\%}
 \end{align}
 
+\vspace{0.3cm}
+
 \textbf{Answer: The signal is locked-on for 38.2\% of the overhead pass}
+
+\textbf{Alternative verification:} We can also use the angular arc ratio:
+\begin{equation}
+\text{Percent} = \frac{\gamma_D}{\gamma_{visible}} \times 100\% = \frac{23.1°}{60.5°} \times 100\% = 38.2\%
+\end{equation}
+
+This confirms our result.
 
 \subsection{Physical Interpretation}
 This percentage (38.2\%) is physically reasonable for a 30° designed elevation on an overhead pass:
@@ -280,38 +809,256 @@ From Chapter 4.5:
 
 Free space loss calculation from Chapter 4.8.
 
-\subsection{Formulas}
-\textbf{EIRP (Effective Isotropic Radiated Power):}
+\subsection{Formulas and Their Sources}
+
+\textbf{Formula 1: EIRP (Effective Isotropic Radiated Power)}
+
+\textbf{Source:} Standard link budget definition (Chapter 4.8)
 \begin{equation}
-EIRP = P_{Tx} + G_{Tx} = 10 \text{ dBW} + 3 \text{ dBi} = 13 \text{ dBW}
+EIRP = P_{Tx} + G_{Tx}
 \end{equation}
 
-\textbf{Slant range at elevation $\varepsilon_0$:}
-From Chapter 4.3, Equation 1.56:
+\textbf{What this means:} EIRP is the effective power radiated isotropically (in all directions equally). It combines the transmitter power with the antenna gain. In decibels: $\text{EIRP (dBW)} = P_{Tx} \text{ (dBW)} + G_{Tx} \text{ (dBi)}$
+
+\textbf{Calculation for this problem:}
+\begin{equation}
+EIRP = 10 \text{ dBW} + 3 \text{ dBi} = 13 \text{ dBW}
+\end{equation}
+
+\vspace{0.3cm}
+
+\textbf{Formula 2: Slant range at elevation $\varepsilon_0$}
+
+\textbf{Source:} Chapter 4.3, Equation 1.56 (derived from law of cosines in spherical triangle)
 \begin{equation}
 d(\varepsilon_0) = R_E \left[\sqrt{\left(\frac{H}{R_E} + 1\right)^2 - \cos^2 \varepsilon_0} - \sin \varepsilon_0\right]
 \end{equation}
 
-\textbf{Free Space Loss:}
-From Chapter 4.8:
+\textbf{What this means:} The slant range $d$ is the direct line-of-sight distance from the ground station to the satellite. It varies with elevation angle:
+\begin{itemize}
+    \item At horizon ($\varepsilon_0 = 0°$): maximum distance $d_{max}$
+    \item At zenith ($\varepsilon_0 = 90°$): minimum distance $d_{min} = H$ (altitude)
+\end{itemize}
+
+\textbf{Geometric explanation:} This formula comes from the geometry triangle formed by:
+\begin{enumerate}
+    \item Ground station at Earth's surface (radius $R_E$)
+    \item Satellite at orbital radius $(R_E + H)$
+    \item Elevation angle $\varepsilon_0$ measured from local horizon
+\end{enumerate}
+
+The law of cosines in this triangle gives the slant range formula.
+
+\vspace{0.3cm}
+
+\textbf{Formula 3: Free Space Loss}
+
+\textbf{Source:} Chapter 4.8 (standard Friis transmission equation in dB form)
 \begin{equation}
 L_s = 20 \log_{10}\left(\frac{4\pi d f}{c}\right) \text{ dB}
 \end{equation}
 
 where:
 \begin{itemize}
-    \item $d$ = slant range (m)
+    \item $d$ = slant range (meters)
     \item $f$ = frequency (Hz) = $2 \times 10^9$ Hz
     \item $c$ = speed of light (m/s) = $3 \times 10^8$ m/s
 \end{itemize}
 
-\textbf{Received Power:}
+\textbf{What this means:} Free space loss is the attenuation of radio signal as it propagates through free space (no atmosphere). The loss increases with:
+\begin{itemize}
+    \item Distance $d$ (longer path = more loss)
+    \item Frequency $f$ (higher frequency = more loss)
+\end{itemize}
+
+\textbf{Physical explanation:} Radio waves spread out spherically from the transmitter. The power density decreases as $1/d^2$ (inverse square law). The $4\pi d f / c$ term represents the path loss in wavelengths.
+
+\vspace{0.3cm}
+
+\textbf{Formula 4: Received Power}
+
+\textbf{Source:} Basic link budget equation (Chapter 4.8)
 \begin{equation}
 P_r = EIRP - L_s \text{ (dBW)}
 \end{equation}
 
+\textbf{What this means:} The received power is the transmitted EIRP minus all losses. In decibel form, multiplication becomes subtraction. This is the fundamental link budget equation for a simplified system (no antenna gain at receiver, no atmospheric losses).
+
 \subsection{Solution}
-\textbf{Calculations for each elevation (0° to 90° in 10° increments):}
+
+\textbf{Overview:} We need to calculate the received power at different elevation angles. Power decreases with distance (free space loss), so higher elevations (shorter distances) will have stronger signals.
+
+\textbf{Strategy:}
+\begin{enumerate}
+    \item Calculate EIRP (constant for all elevations)
+    \item For each elevation angle (0° to 90° in 10° steps):
+    \begin{itemize}
+        \item Calculate slant range using geometry
+        \item Calculate free space loss
+        \item Calculate received power = EIRP - Loss
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Step 0: Calculate EIRP (do this once)}
+
+\textbf{Why we do this:} EIRP combines transmitter power and antenna gain into a single value representing the effective radiated power.
+
+\textbf{Given values:}
+\begin{itemize}
+    \item Transmitter power: $P_{Tx} = 10$ W $= 10$ dBW
+    \item Antenna gain: $G_{Tx} = 3$ dBi
+\end{itemize}
+
+\textbf{Calculation:}
+\begin{align}
+EIRP &= P_{Tx} + G_{Tx} \\
+EIRP &= 10 \text{ dBW} + 3 \text{ dBi} \\
+EIRP &= 13 \text{ dBW}
+\end{align}
+
+\textbf{What this means:} The satellite radiates as if it were an isotropic (uniform) antenna with 13 dBW of power. This value is constant for all calculations.
+
+\vspace{0.3cm}
+
+\textbf{Detailed Example: Calculations at 30° Elevation}
+
+Let me show the complete calculation for $\varepsilon_0 = 30°$, then present the table for all elevations.
+
+\vspace{0.2cm}
+
+\textbf{Step 1: Calculate slant range at 30° elevation}
+
+\textbf{Why we do this:} We need the distance from ground station to satellite to calculate signal loss.
+
+\textbf{Formula:} Chapter 4.3, Equation 1.56:
+\begin{equation}
+d(\varepsilon_0) = R_E \left[\sqrt{\left(\frac{H}{R_E} + 1\right)^2 - \cos^2 \varepsilon_0} - \sin \varepsilon_0\right]
+\end{equation}
+
+\textbf{Given values:}
+\begin{itemize}
+    \item $R_E = 6371$ km
+    \item $H = 1000$ km
+    \item $\varepsilon_0 = 30°$
+\end{itemize}
+
+\textbf{Calculate $\frac{H}{R_E} + 1$:}
+\begin{equation}
+\frac{H}{R_E} + 1 = \frac{1000}{6371} + 1 = 0.1570 + 1 = 1.1570
+\end{equation}
+
+\textbf{Square this value:}
+\begin{equation}
+(1.1570)^2 = 1.3387
+\end{equation}
+
+\textbf{Calculate $\cos^2(30°)$:}
+\begin{align}
+\cos(30°) &= 0.8660 \\
+\cos^2(30°) &= (0.8660)^2 = 0.7500
+\end{align}
+
+\textbf{Subtract inside the square root:}
+\begin{equation}
+1.3387 - 0.7500 = 0.5887
+\end{equation}
+
+\textbf{Take the square root:}
+\begin{equation}
+\sqrt{0.5887} = 0.7673
+\end{equation}
+
+\textbf{Calculate $\sin(30°)$:}
+\begin{equation}
+\sin(30°) = 0.5000
+\end{equation}
+
+\textbf{Subtract:}
+\begin{equation}
+0.7673 - 0.5000 = 0.2673
+\end{equation}
+
+\textbf{Multiply by $R_E$:}
+\begin{align}
+d(30°) &= 6371 \times 0.2673 \\
+d(30°) &= 1702 \text{ km}
+\end{align}
+
+\textbf{What this means:} At 30° elevation, the satellite is 1702 km away from the ground station (line-of-sight distance).
+
+\vspace{0.3cm}
+
+\textbf{Step 2: Calculate free space loss at 30° elevation}
+
+\textbf{Why we do this:} Radio waves spread out as they travel, causing the signal to weaken with distance.
+
+\textbf{Formula:} Chapter 4.8:
+\begin{equation}
+L_s = 20 \log_{10}\left(\frac{4\pi d f}{c}\right) \text{ dB}
+\end{equation}
+
+\textbf{Given values:}
+\begin{itemize}
+    \item $d = 1702$ km $= 1.702 \times 10^6$ m
+    \item $f = 2.0$ GHz $= 2 \times 10^9$ Hz
+    \item $c = 3 \times 10^8$ m/s
+\end{itemize}
+
+\textbf{Calculate the numerator:}
+\begin{align}
+4\pi d f &= 4 \times 3.1416 \times 1.702 \times 10^6 \times 2 \times 10^9 \\
+4\pi d f &= 4 \times 3.1416 \times 1.702 \times 2 \times 10^{15} \\
+4\pi d f &= 42.77 \times 10^{15} \\
+4\pi d f &= 4.277 \times 10^{16} \text{ m·Hz}
+\end{align}
+
+\textbf{Divide by $c$:}
+\begin{align}
+\frac{4\pi d f}{c} &= \frac{4.277 \times 10^{16}}{3 \times 10^8} \\
+&= 1.426 \times 10^{8} \\
+&= 142,600,000
+\end{align}
+
+\textbf{Take the base-10 logarithm:}
+\begin{align}
+\log_{10}(142,600,000) &= \log_{10}(1.426 \times 10^{8}) \\
+&= \log_{10}(1.426) + \log_{10}(10^{8}) \\
+&= 0.1541 + 8 \\
+&= 8.1541
+\end{align}
+
+\textbf{Multiply by 20:}
+\begin{align}
+L_s &= 20 \times 8.1541 \\
+L_s &= 163.1 \text{ dB}
+\end{align}
+
+\textbf{What this means:} The signal loses 163.1 dB of power traveling 1702 km through free space at 2 GHz.
+
+\vspace{0.3cm}
+
+\textbf{Step 3: Calculate received power at 30° elevation}
+
+\textbf{Why we do this:} This is the signal strength arriving at the ground station.
+
+\textbf{Formula:} Basic link budget:
+\begin{equation}
+P_r = EIRP - L_s
+\end{equation}
+
+\textbf{Calculation:}
+\begin{align}
+P_r &= 13 \text{ dBW} - 163.1 \text{ dB} \\
+P_r &= -150.1 \text{ dBW}
+\end{align}
+
+\textbf{What this means:} At 30° elevation, the ground station receives $-150.1$ dBW of power.
+
+\vspace{0.3cm}
+
+\textbf{Summary table for all elevations (0° to 90° in 10° increments):}
 
 \begin{center}
 \begin{tabular}{@{}ccccc@{}}
@@ -443,59 +1190,205 @@ From Chapter 4.8:
 
 Doppler shift occurs due to relative motion between satellite and ground station.
 
-\subsection{Theory and Formulas}
-For a satellite passing overhead (polar orbit), the radial velocity component (toward/away from ground station) varies with elevation.
+\subsection{Formulas and Their Sources}
 
-\textbf{Radial velocity:}
-For an overhead pass, the geometry shows:
+\textbf{Formula 1: Radial velocity component}
+
+\textbf{Source:} DERIVED from vector geometry (NOT explicitly in textbook)
 \begin{equation}
 v_r = v \cos(\varepsilon_0)
 \end{equation}
 
-where $v_r$ is the radial component (positive = approaching, negative = receding).
+\textbf{IMPORTANT NOTE:} This formula is NOT explicitly stated in the textbook. It is derived from basic vector decomposition:
 
-\textbf{Doppler shift:}
+\textbf{Geometric derivation:}
+\begin{enumerate}
+    \item The satellite has orbital velocity $v$ (tangent to its circular orbit)
+    \item For a polar overhead pass, the satellite travels North-to-South
+    \item The ground station sees the satellite at elevation angle $\varepsilon_0$
+    \item The velocity vector can be decomposed into:
+    \begin{itemize}
+        \item Radial component (toward/away from ground station): $v_r = v \cos(\varepsilon_0)$
+        \item Tangential component (perpendicular to line of sight): $v_t = v \sin(\varepsilon_0)$
+    \end{itemize}
+    \item Only the radial component contributes to Doppler shift
+\end{enumerate}
+
+\textbf{Physical explanation:}
+\begin{itemize}
+    \item At horizon ($\varepsilon_0 = 0°$): satellite moving directly toward/away, $v_r = v$ (maximum)
+    \item At zenith ($\varepsilon_0 = 90°$): satellite moving perpendicular to line of sight, $v_r = 0$ (no Doppler)
+    \item Sign convention: positive when approaching (before zenith), negative when receding (after zenith)
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Formula 2: Doppler frequency shift}
+
+\textbf{Source:} Standard Doppler formula (mentioned in Chapter 4.8, standard physics)
+\begin{equation}
+\Delta f = \frac{v_r}{c} \times f
+\end{equation}
+
+\textbf{Combined form:}
+\begin{equation}
+\Delta f = \frac{v \cos(\varepsilon_0)}{c} \times f
+\end{equation}
+
+\textbf{What this means:} The Doppler shift is the fractional change in frequency due to relative motion. The formula states:
+\begin{itemize}
+    \item $\Delta f / f = v_r / c$ (fractional frequency change equals fractional velocity)
+    \item Positive $\Delta f$ = blue shift (frequency increases when approaching)
+    \item Negative $\Delta f$ = red shift (frequency decreases when receding)
+\end{itemize}
+
+\textbf{Physical explanation:} When the satellite approaches, each wave crest arrives slightly earlier than it would for a stationary source, compressing the wavelength and increasing the frequency. When receding, the opposite occurs.
+
+\textbf{Derivation from wave physics:}
+\begin{enumerate}
+    \item Transmitted frequency: $f$
+    \item Transmitted wavelength: $\lambda = c / f$
+    \item Relative velocity: $v_r$ (positive = approaching)
+    \item Apparent wave speed seen by receiver: $c_{apparent} = c + v_r$
+    \item Received frequency: $f_{received} = c_{apparent} / \lambda = (c + v_r) / (c/f) = f(1 + v_r/c)$
+    \item Doppler shift: $\Delta f = f_{received} - f = f \cdot v_r / c$
+\end{enumerate}
+
+This is the non-relativistic Doppler formula, valid for $v_r \ll c$ (our satellite at 7.35 km/s compared to light at 300,000 km/s).
+
+\subsection{Solution}
+
+\textbf{Overview:} Doppler shift occurs because the satellite is moving relative to the ground station. We need to find where this effect is maximum and minimum, and calculate the actual frequency shift.
+
+\textbf{Strategy:}
+\begin{enumerate}
+    \item Understand the geometry of satellite motion during overhead pass
+    \item Identify where radial velocity is maximum and minimum
+    \item Calculate the Doppler shift at these extreme conditions
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Step 1: Understand the geometry and identify extreme conditions}
+
+\textbf{Key concept:} Only the \textbf{radial component} of velocity (toward or away from ground station) causes Doppler shift. Motion perpendicular to the line of sight does not.
+
+\textbf{For an overhead polar pass:}
+
+\begin{itemize}
+    \item The satellite travels in a straight line (North to South) overhead
+    \item The ground station's view of the satellite changes from horizon ($\varepsilon_0 = 0°$) to zenith ($\varepsilon_0 = 90°$) and back to horizon
+    \item The angle between the satellite's velocity vector and the line of sight changes continuously
+\end{itemize}
+
+\textbf{Geometric analysis at different elevations:}
+
+\begin{enumerate}
+    \item \textbf{At horizon (AOS, $\varepsilon_0 = 0°$):}
+    \begin{itemize}
+        \item Satellite is approaching along a nearly horizontal path
+        \item Satellite's velocity vector points almost directly toward the ground station
+        \item Radial velocity component: $v_r = v \cos(0°) = v$ (MAXIMUM)
+        \item Result: MAXIMUM positive Doppler (blue shift)
+    \end{itemize}
+
+    \item \textbf{At zenith ($\varepsilon_0 = 90°$):}
+    \begin{itemize}
+        \item Satellite is directly overhead
+        \item Satellite's velocity vector is perpendicular to the line of sight
+        \item Radial velocity component: $v_r = v \cos(90°) = 0$ (MINIMUM)
+        \item Result: ZERO Doppler (no shift)
+    \end{itemize}
+
+    \item \textbf{At horizon (LOS, $\varepsilon_0 = 0°$):}
+    \begin{itemize}
+        \item Satellite is receding along a nearly horizontal path
+        \item Satellite's velocity vector points almost directly away from the ground station
+        \item Radial velocity component: $v_r = -v \cos(0°) = -v$ (MAXIMUM magnitude, negative)
+        \item Result: MAXIMUM negative Doppler (red shift)
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Conclusion from geometry:}
+\begin{itemize}
+    \item \textbf{Maximum Doppler occurs at 0° elevation (horizon)}
+    \item \textbf{Minimum Doppler occurs at 90° elevation (zenith)}
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Step 2: Calculate maximum Doppler shift (at horizon)}
+
+\textbf{Why we do this:} We need the numerical value of the frequency shift at the extreme condition.
+
+\textbf{Formula:}
 \begin{equation}
 \Delta f = \frac{v_r}{c} \times f = \frac{v \cos(\varepsilon_0)}{c} \times f
 \end{equation}
 
-\subsection{Solution}
-\textbf{Step 1: Identify maximum and minimum Doppler conditions}
+\textbf{At horizon ($\varepsilon_0 = 0°$):}
+\begin{equation}
+\Delta f_{max} = \frac{v \cos(0°)}{c} \times f = \frac{v}{c} \times f
+\end{equation}
 
-From the geometry of an overhead polar pass:
+\textbf{Given values:}
 \begin{itemize}
-    \item \textbf{Maximum Doppler:} At horizon (El = 0°), when satellite is approaching
-    \begin{itemize}
-        \item Radial velocity: $v_r = v \cos(0°) = v$ (maximum)
-        \item At AOS [0°, 0°]: positive Doppler (blue shift)
-        \item At LOS [180°, 0°]: negative Doppler (red shift, same magnitude)
-    \end{itemize}
-    \item \textbf{Minimum Doppler:} At zenith (El = 90°)
-    \begin{itemize}
-        \item Radial velocity: $v_r = v \cos(90°) = 0$
-        \item Satellite moving perpendicular to line of sight
-        \item Doppler = 0 Hz
-    \end{itemize}
+    \item $v = 7.354$ km/s (from Question 1)
+    \item $c = 3 \times 10^5$ km/s (speed of light)
+    \item $f = 2 \times 10^9$ Hz (2.0 GHz)
 \end{itemize}
 
-\textbf{Step 2: Calculate maximum Doppler shift}
+\textbf{Substitute into the formula:}
+\begin{equation}
+\Delta f_{max} = \frac{7.354 \text{ km/s}}{3 \times 10^5 \text{ km/s}} \times 2 \times 10^9 \text{ Hz}
+\end{equation}
 
-Using $v = 7.354$ km/s from Question 1:
+\textbf{Calculate the velocity ratio:}
+\begin{equation}
+\frac{v}{c} = \frac{7.354}{300,000} = 2.451 \times 10^{-5}
+\end{equation}
 
+\textbf{What this means:} The satellite velocity is 0.002451\% of the speed of light. This is very small, which is why we can use the non-relativistic Doppler formula.
+
+\textbf{Multiply by frequency:}
 \begin{align}
-\Delta f_{max} &= \frac{v}{c} \times f \\
-\Delta f_{max} &= \frac{7.354 \text{ km/s}}{3 \times 10^5 \text{ km/s}} \times 2 \times 10^9 \text{ Hz} \\
-\Delta f_{max} &= \frac{7.354}{300000} \times 2 \times 10^9 \\
-\Delta f_{max} &= 2.451 \times 10^{-5} \times 2 \times 10^9 \\
-\Delta f_{max} &= 49,020 \text{ Hz} = 49.02 \text{ kHz}
+\Delta f_{max} &= 2.451 \times 10^{-5} \times 2 \times 10^9 \text{ Hz} \\
+\Delta f_{max} &= 2.451 \times 2 \times 10^{4} \text{ Hz} \\
+\Delta f_{max} &= 4.902 \times 10^{4} \text{ Hz} \\
+\Delta f_{max} &= 49,020 \text{ Hz} \\
+\Delta f_{max} &= 49.02 \text{ kHz}
 \end{align}
 
-\textbf{Answer:}
-\begin{itemize}
-    \item \textbf{Maximum Doppler} occurs at 0° elevation (horizon, AOS/LOS)
-    \item \textbf{Minimum Doppler} occurs at 90° elevation (zenith)
-    \item \textbf{Maximum Doppler value:} $\pm 49.0$ kHz
-\end{itemize}
+\textbf{Rounding:}
+\begin{equation}
+\Delta f_{max} \approx 49.0 \text{ kHz}
+\end{equation}
+
+\textbf{What this means:} At the horizon (AOS), the received frequency is 49.0 kHz higher than the transmitted frequency. At the horizon (LOS), the received frequency is 49.0 kHz lower than the transmitted frequency.
+
+\vspace{0.3cm}
+
+\textbf{Step 3: Calculate minimum Doppler shift (at zenith)}
+
+\textbf{At zenith ($\varepsilon_0 = 90°$):}
+\begin{equation}
+\Delta f_{min} = \frac{v \cos(90°)}{c} \times f = \frac{v \times 0}{c} \times f = 0 \text{ Hz}
+\end{equation}
+
+\textbf{What this means:} When the satellite is directly overhead, there is no frequency shift. The received frequency equals the transmitted frequency.
+
+\vspace{0.3cm}
+
+\textbf{Final Answers:}
+\begin{enumerate}
+    \item \textbf{Where does maximum Doppler occur?} At 0° elevation (horizon, both AOS and LOS)
+    \item \textbf{Where does minimum Doppler occur?} At 90° elevation (zenith)
+    \item \textbf{What is the maximum Doppler value?} $\pm 49.0$ kHz
+    \begin{itemize}
+        \item At AOS: $+49.0$ kHz (blue shift, approaching)
+        \item At LOS: $-49.0$ kHz (red shift, receding)
+    \end{itemize}
+\end{enumerate}
 
 \subsection{Doppler Profile During Pass}
 
