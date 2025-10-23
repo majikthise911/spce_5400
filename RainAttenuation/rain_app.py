@@ -1,6 +1,31 @@
 """
 Rain Attenuation Calculator - Interactive GUI Application
 Standalone version of rain_attenuation_notebook.ipynb using Matplotlib widgets
+
+================================================================================
+SETUP INSTRUCTIONS - READ BEFORE RUNNING:
+================================================================================
+This script requires matplotlib to be installed. If you get a "ModuleNotFoundError",
+follow these steps:
+
+1. Open your terminal/command prompt
+2. Run ONE of these commands:
+
+   pip install matplotlib
+
+   OR if that doesn't work:
+
+   python -m pip install matplotlib
+
+   OR if you're using Python 3 specifically:
+
+   python3 -m pip install matplotlib
+
+3. Once installed, run this file with:
+
+   python rain_app.py
+
+================================================================================
 """
 
 import math
