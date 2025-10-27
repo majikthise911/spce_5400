@@ -24,7 +24,7 @@ This study guide is designed using neuroscience-backed learning principles:
 
 **Coverage** is the circular area on Earth from where the satellite can be seen:
 
-![Coverage Geometry](study_guide_figures/01_coverage_geometry.png)
+![Coverage Geometry](../../study_guide_figures/01_coverage_geometry.png)
 
 *This diagram shows the fundamental triangle relationship between the satellite, ground station, and Earth's center. Understanding this geometry is KEY to all coverage calculations!*
 
@@ -137,7 +137,7 @@ Two key relationships (inverse proportional):
 1. **↑ Elevation angle → ↓ Coverage** (for same altitude)
 2. **↑ Altitude → ↑ Coverage** (for same elevation)
 
-![Coverage Analysis](study_guide_figures/02_coverage_vs_params.png)
+![Coverage Analysis](../../study_guide_figures/02_coverage_vs_params.png)
 
 *Left plot shows the trade-off between elevation and coverage. Right plot shows how altitude affects coverage.*
 
@@ -147,7 +147,7 @@ Two key relationships (inverse proportional):
 
 ### Concept Visualization
 
-![Coverage Belt](study_guide_figures/03_coverage_belt.png)
+![Coverage Belt](../../study_guide_figures/03_coverage_belt.png)
 
 *This visualization shows how the satellite's coverage area sweeps across Earth's surface, creating a belt. The belt width determines the geographical area accessible during one orbital pass.*
 
@@ -254,7 +254,7 @@ At 550 km altitude, 40° elevation:
 
 ### Geometric Understanding
 
-![Handover Process](study_guide_figures/06_handover_process.png)
+![Handover Process](../../study_guide_figures/06_handover_process.png)
 
 *This radar view shows the handover zone where two satellites overlap in coverage. The blue satellite (Sat 1) is leaving while the red satellite (Sat 2) is entering the user's designed horizon. The green shaded area represents the critical overlap zone where seamless communication transfer occurs.*
 
@@ -330,7 +330,7 @@ Throughout the entire year!
 
 As Earth orbits the Sun throughout the year, the satellite's orbital plane precesses (via nodal regression) at exactly the right rate to keep a constant angle with the Sun direction.
 
-![3D Sun-Synchronous Orbit](study_guide_figures/05_3d_sun_sync_orbit.png)
+![3D Sun-Synchronous Orbit](../../study_guide_figures/05_3d_sun_sync_orbit.png)
 
 *This 3D visualization shows a sun-synchronous orbit (in blue) with Earth at the center. The yellow arrow points toward the Sun, and the orbital plane maintains a constant orientation relative to this Sun direction throughout the year. The equatorial plane is shown in light gray.*
 
@@ -361,7 +361,7 @@ The **line of nodes** (intersection of orbital plane with equatorial plane) shif
 
 ### Visual Understanding
 
-![Nodal Regression Analysis](study_guide_figures/04_nodal_regression.png)
+![Nodal Regression Analysis](../../study_guide_figures/04_nodal_regression.png)
 
 *These plots show how nodal regression varies with inclination (left) and the critical sun-synchronous inclination window (right, shaded in green). The 600-1200 km altitude range creates a narrow 2.6° window for sun-synchronous orbits.*
 
@@ -494,7 +494,7 @@ The angle from the line of nodes to the orbital perigee (closest approach point)
 
 Just like the line of nodes, Earth's oblateness causes the **major axis to rotate** within the orbital plane!
 
-![Perigee Deviation](study_guide_figures/07_perigee_deviation.png)
+![Perigee Deviation](../../study_guide_figures/07_perigee_deviation.png)
 
 *This diagram shows how the argument of perigee (ω) changes over time due to Earth's oblateness. The major axis of the orbit rotates within the orbital plane, causing the perigee point to drift. For sun-synchronous orbits, this deviation is approximately 10-13 arcminutes per orbit.*
 
