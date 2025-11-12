@@ -1,0 +1,5 @@
+Scenario,Description,Optical_Margin_dB,Optical_Power_W,Optical_Aperture_cm,RF_Margin_dB,RF_Power_W,RF_Antenna_cm
+baseline,"250 km range, 1 Gbps data rate (Assignment baseline)",25.65796439337973,0.12157665459056936,10.0,2.8778171039190283,1.2157665459056928,30.0
+extended_range,"500 km range (2x distance), 1 Gbps data rate",19.63736448010011,0.12157665459056936,10.0,3.0886736530358974,3.4867844010000004,33.0
+higher_rate,"250 km range, 2 Gbps data rate (2x baseline)",22.647664436739916,0.12157665459056936,10.0,3.0705414865264515,2.541865828329,30.0
+swap_constrained,"Cubesat constraints: <5kg, <20W, <10L volume",19.757962722315696,0.5,5.0,-3.0221845671450183,5.0,15.0
