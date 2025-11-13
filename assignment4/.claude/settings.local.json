@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python create_visualizations.py:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
