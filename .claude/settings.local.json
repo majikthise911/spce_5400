@@ -7,7 +7,14 @@
       "Bash(python read_excel_template.py:*)",
       "Bash(python satellite_crosslink_analysis.py:*)",
       "Bash(python generate_trade_study_report.py:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(chmod:*)",
+      "Bash(pandoc:*)",
+      "Bash(./build_pdf.sh:*)",
+      "Bash(sudo tlmgr install:*)",
+      "Bash(./build_pdf_simple.sh:*)",
+      "Bash(./build_pdf_file24.sh:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

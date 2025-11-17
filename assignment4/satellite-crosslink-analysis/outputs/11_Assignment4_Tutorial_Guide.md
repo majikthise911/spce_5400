@@ -362,9 +362,10 @@ Both transmit and receive have the same gain: **G_t = G_r = 106.14 dBi**
 There are additional losses in the system:
 
 **Pointing Loss: -3.0 dB**
-- The laser beam is very narrow (18.9 microradians)
+- The laser beam has a half-power beamwidth of 8.0 microradians (this is the -3 dB point)
+- The beam divergence to first null is 18.9 microradians (full Airy disk width)
 - Small pointing errors cause the beam to miss the center of the receiver
-- If pointing error is about 1σ (one standard deviation) of the beam width, we lose 3 dB
+- To keep loss ≤3 dB, we need to point within the half-power beamwidth (±8 μrad)
 - This is achievable with a Fast Steering Mirror
 
 **Line In/Out Losses: -6.0 dB**
@@ -456,40 +457,53 @@ M = 25.66 dB
 
 The laser beam spreads out as it travels. How wide is it?
 
-**Formula for divergence:**
+**Formula for divergence to first null (Airy disk):**
 ```
-θ_divergence = 1.22 × λ / D_transmit
+θ_null = 1.22 × λ / D_transmit
 ```
-
-This is the full-width at 1/e² intensity (a standard metric for Gaussian beams).
 
 **Calculation:**
 ```
-θ = 1.22 × (1.55 × 10^-6 m) / (0.10 m)
-θ = 1.891 × 10^-5 radians
-θ = 18.91 microradians
+θ_null = 1.22 × (1.55 × 10^-6 m) / (0.10 m)
+θ_null = 1.891 × 10^-5 radians
+θ_null = 18.91 microradians
+```
+
+This is the beam divergence to the first null (edge of the Airy disk).
+
+**Half-Power Beamwidth (the -3 dB point):**
+```
+θ_3dB = 0.514 × λ / D_transmit
+```
+
+**Calculation:**
+```
+θ_3dB = 0.514 × (1.55 × 10^-6 m) / (0.10 m)
+θ_3dB = 7.97 × 10^-6 radians
+θ_3dB = 8.0 microradians
 ```
 
 **Spot size at 250 km:**
 ```
-Spot diameter = θ × Range
-             = 18.91 × 10^-6 rad × 250,000 m
-             = 4.73 meters
+Spot diameter (to first null) = 18.91 × 10^-6 rad × 250,000 m = 4.73 meters
+Half-power spot diameter = 8.0 × 10^-6 rad × 250,000 m = 2.0 meters
 ```
 
-The beam spreads to 4.73 m diameter at the receiver. The receiver telescope is 0.10 m, so we're collecting light from a 4.73 m spot - plenty of room.
+The beam spreads to 4.73 m diameter (first null) at the receiver. The half-power diameter is 2.0 m. The receiver telescope is 0.10 m, so we're collecting light from a large spot.
 
 **Pointing accuracy requirement:**
-To keep pointing loss ≤3 dB, we need to point within about 1σ of the beam center. This means:
+To keep pointing loss ≤3 dB, we need to point within the half-power beamwidth. This means:
 
-**Required pointing accuracy: ±18.9 microradians (3σ)**
+**Required pointing accuracy: ±8.0 microradians (NOT 18.9 μrad!)**
+
+The 18.9 μrad is the beam divergence to first null, but the pointing requirement is based on the half-power beamwidth.
 
 To convert to degrees:
 ```
-18.9 μrad × (1 rad / 10^6 μrad) × (57.3 deg / 1 rad) = 0.0011 degrees
+8.0 μrad × (1 rad / 10^6 μrad) × (57.3 deg / 1 rad) = 0.00046 degrees
 ```
 
-That's 0.0011 degrees, or about 4 arcseconds. This is very precise and requires a Fast Steering Mirror (FSM).
+That's 0.00046 degrees, or about 1.6 arcseconds. This is extremely precise and requires a Fast Steering Mirror (FSM).
 
 ### 3.13 Optical Link Summary
 
@@ -497,7 +511,8 @@ That's 0.0011 degrees, or about 4 arcseconds. This is very precise and requires 
 - Transmit power: 0.122 W
 - Aperture diameter: 10 cm (transmit and receive)
 - Link margin: 25.66 dB (excellent)
-- Pointing requirement: 18.9 microradians (very challenging)
+- Pointing requirement: 8.0 microradians (extremely challenging)
+- Beam divergence: 18.9 microradians (to first null)
 - Data rate: 1 Gbps easily achieved, can scale to 10+ Gbps
 
 ---
@@ -823,7 +838,7 @@ Now let's put the two technologies side by side and understand what the numbers 
 | **Transmit Power** | 0.122 W | 1.2 W | Optical | 10× less power = smaller solar panels, more power for payload |
 | **Data Rate** | 10+ Gbps | ~2 Gbps max | Optical | No spectrum limits vs. bandwidth-constrained RF |
 | **Link Margin** | 25.66 dB | 2.8 dB | Optical | 9× more robustness; can tolerate degradation |
-| **Pointing** | 18.9 μrad | 2.19° | RF | 115,000× easier pointing; no FSM needed |
+| **Pointing** | 8.0 μrad | 2.19° | RF | 4,800× easier pointing; no FSM needed |
 
 ### 5.2 Understanding Link Margin Difference
 
@@ -859,12 +874,14 @@ We receive 1.91 times more power than the minimum needed.
 
 ### 5.3 Understanding the Pointing Difference
 
-**Optical: 18.9 microradians**
+**Optical: 8.0 microradians (half-power beamwidth)**
 ```
-18.9 μrad = 0.0011 degrees = 3.9 arcseconds
+8.0 μrad = 0.00046 degrees = 1.6 arcseconds
 ```
 
-**Analogy:** Imagine standing in New York City and trying to keep a laser pointer aimed at a dime in Boston (250 km away). You need to keep it steady within the thickness of a human hair as seen from 10 meters away. Any vibration from nearby traffic would throw off your aim.
+**Note:** The beam divergence to first null is 18.9 μrad, but the pointing requirement is based on the half-power beamwidth (8.0 μrad) to maintain -3 dB loss.
+
+**Analogy:** Imagine standing in New York City and trying to keep a laser pointer aimed at a coin in Boston (250 km away). You need to keep it steady within less than a millimeter as seen from 10 meters away. Any vibration from nearby traffic would throw off your aim.
 
 **How to achieve this:**
 - Need Fast Steering Mirror (FSM) with 1000+ Hz update rate
@@ -886,6 +903,13 @@ We receive 1.91 times more power than the minimum needed.
 - No special hardware needed
 - Cost: $0 extra (already have attitude control)
 - Complexity: Low
+
+**The pointing ratio:**
+```
+RF beamwidth / Optical beamwidth = 38,200 μrad / 8.0 μrad = 4,775 ≈ 4,800×
+```
+
+RF pointing is 4,800× easier than optical!
 
 **The paradox:**
 - Optical has stricter pointing (bad) BUT has 9× more margin (good)
@@ -1006,7 +1030,7 @@ For small satellite missions, these differences are transformational. A 2 kg sav
 
 **Winner: RF (significantly)**
 
-- Pointing: 2.19° vs 18.9 μrad: RF is 115,000× easier
+- Pointing: 2.19° vs 8.0 μrad: RF is 4,800× easier
 - Acquisition: 5-10 sec vs 30-60 sec: RF is 6× faster
 - Operations: Standard ACS vs FSM required: RF is simpler
 
@@ -1089,7 +1113,7 @@ Let's test both options under different scenarios:
 
 2. **SWaP critical for small satellites:** 2.2 kg vs 4.1 kg and 10 cm vs 30 cm apertures are transformational for cubesat-class missions.
 
-3. **Pointing challenge is manageable:** While 18.9 μrad is demanding, heritage FSM technology exists (EDRS, LCRD). The huge margin provides buffer to tolerate degraded pointing.
+3. **Pointing challenge is manageable:** While 8.0 μrad is extremely demanding, heritage FSM technology exists (EDRS, LCRD). The huge margin provides buffer to tolerate degraded pointing.
 
 4. **RF's minimal margin is a showstopper:** 2.8 dB leaves no room for error. Any unexpected loss (antenna deployment issue, component aging, pointing error) causes mission failure.
 
@@ -1119,7 +1143,7 @@ None of these apply to this mission.
 7. Chose transmit power: 0.122 W
 8. Calculated received power: 6.3 microwatts
 9. Calculated margin: 25.66 dB (369× more than needed)
-10. Calculated beam divergence: 18.9 microradians (pointing requirement)
+10. Calculated beam divergence: 18.9 μrad (to first null); half-power beamwidth: 8.0 μrad (pointing requirement)
 
 **For RF:**
 1. Chose frequency: 32 GHz (Ka-band)
@@ -1138,7 +1162,7 @@ None of these apply to this mission.
 ### 7.2 Key Insights
 
 **The Core Trade-Off:**
-- Optical: Difficult pointing (18.9 μrad) BUT enormous margin (25.66 dB)
+- Optical: Extremely difficult pointing (8.0 μrad half-power beamwidth) BUT enormous margin (25.66 dB)
 - RF: Easy pointing (2.19°) BUT minimal margin (2.8 dB)
 
 **Why Optical Wins:**
