@@ -1,0 +1,1824 @@
+9
+Interference Aspects
+9.1 General Interference Aspects
+Generally, interference sources are statistically independent.
+Interference may be considered as a form of noise. Thus, the interference
+at each source may be added directly to give the total interference at
+the end user receiver. The eects of interference must be assessed in
+terms of: (i) the amount of frequency overlap between the interfering
+spectrum and the wanted channel passband of the end user receiver
+and (ii) the tolerable disturbing (interference) signal power level to the
+end user receiver. There are various sources of interference in a satellite
+communication system. These may be broadly classied as intra‐system
+and inter‐system.
+Intra‐interference can occur when the lters used for isolating adjacent
+channels do not have sucient roll‐o characteristic. This interference
+is called adjacent channel interference (ACI). Such interference can be
+minimized by using adequate guard bands between adjacent channels
+and well‐designated lters. A guard band (GB) is the dierence between
+the upper edge of the band and the last frequency within a band. However, the use of wide guard bands leads to inecient use of the
+channel bandwidth and higher operating cost per carrier. Therefore,
+a technical and economic compromise should be made. Whatever the
+compromise is chosen, part of the power of a carrier adjacent to a given
+carrier will be captured by the receiver tuned to the frequency of the
+carrier considered. Quality is maintained if the captured power is under
+permitted limits. A link margin of (0.5–1) dB is adequate to compensate
+for intra‐system interference (Richharia 1999).
+344
+• Satellite transmitter interferes into terrestrial station receiver (1)
+• Terrestrial station transmitter interferes into satellite receiver (2)
+Intra‐system interference can be caused by coupling of orthogonally
+polarized signals in dual polarized system, also. A horizontally polarized
+signal can interfere with vertically polarized signal and vice versa.
+Rain and ice can cause interference at ground stations because
+of depolarization. This can be minimized by using well‐designed
+ground station receivers and antennas (typical values of cross‐polar
+discrimination in well‐designed antennas are of the order of 25–30 dB)
+(Richharia 1999), or especially by applying circular polarization.
+Inter‐system interference may occur between a satellite system and
+terrestrial system whenever the same frequencies are shared. Certain
+frequency bands above 1 GHz are shared between the xed satellite
+and xed terrestrial services. Both services are necessary to satisfy the
+telecommunication needs of the world, so these services have coexisted
+for over four decades and probably will continue to coexist in the future. With so many telecommunications services using radio transmissions,
+interference between services can arise in a number of ways. Figure
+9.1 shows the possible interference scenarios between satellite and
+terrestrial services:
+345
+Figure 9.1 Interference scenarios.
+• Satellite ground station transmitter interferes into terrestrial station
+receiver (3)
+• Terrestrial station transmitter interferes into satellite ground station
+receiver (4)
+The satellite ground stations typically operate at high elevation angles, while terrestrial stations operate at low elevation angles. This simplies
+situation allowing spatial discrimination in both direction (3) and (4)
+in Figure 9.1. But, for low Earth orbit (LEO) satellites there is a
+communication under low elevations angles, also, so the interference
+eects have to be considered. (The term ground station is specically
+associated with satellite circuits and terrestrial station is specically
+associated with microwave line of sight circuits.)
+Permitted frequency sharing imposes limits on transmission levels
+for terrestrial transmitters, ground satellite stations, and satellite
+transmitters in certain bands and services, aiming to minimize
+intersystem interference. These limitations should be coordinated to
+Figure 9.1 Interference scenarios.
+• Satellite ground station transmitter interferes into terrestrial station
+receiver (3)
+• Terrestrial station transmitter interferes into satellite ground station
+receiver (4)
+The satellite ground stations typically operate at high elevation angles, while terrestrial stations operate at low elevation angles. This simplies
+situation allowing spatial discrimination in both direction (3) and (4)
+in Figure 9.1. But, for low Earth orbit (LEO) satellites there is a
+communication under low elevations angles, also, so the interference
+eects have to be considered. (The term ground station is specically
+associated with satellite circuits and terrestrial station is specically
+associated with microwave line of sight circuits.)
+Permitted frequency sharing imposes limits on transmission levels
+for terrestrial transmitters, ground satellite stations, and satellite
+transmitters in certain bands and services, aiming to minimize
+intersystem interference. These limitations should be coordinated to
+346
+• Limitations on satellite power‐ux density (PFD) produced at the
+surface of the Earth (1).
+• Limitations on the terrestrial station EIRP and power delivered to the
+antenna (2).
+• Limitations on the satellite ground station power radiated toward the
+horizon (3).
+• Limitations on distances between satellite ground stations and
+terrestrial stations (3), (4).
+• Antenna performance standards (3).
+Figure 9.2 Co‐channel interference (a), and out‐of‐band interference (b).
+reduce interference. Procedures have been developed to permit the
+coexistence of networks sharing the same frequency by mutual
+agreement. The procedures and coordination are under International
+Telecommunication Union (ITU) responsibility. Based on these ITU radio
+regulations limits, we can apply the following means by which can be
+reduced the interference for scenarios described in Figure 9.1:
+The values for interfering signals due to frequency reuse cross‐
+polarization, multiple beam interferers, and interference power received
+from other systems (intra‐system and inter‐system), must be obtained by
+carefully constructing the link equation for each case (Difonzo 2000).
+• Limitations on satellite power‐ux density (PFD) produced at the
+surface of the Earth (1).
+• Limitations on the terrestrial station EIRP and power delivered to the
+antenna (2).
+• Limitations on the satellite ground station power radiated toward the
+horizon (3).
+• Limitations on distances between satellite ground stations and
+terrestrial stations (3), (4).
+• Antenna performance standards (3).
+Figure 9.2 Co‐channel interference (a), and out‐of‐band interference (b).
+reduce interference. Procedures have been developed to permit the
+coexistence of networks sharing the same frequency by mutual
+agreement. The procedures and coordination are under International
+Telecommunication Union (ITU) responsibility. Based on these ITU radio
+regulations limits, we can apply the following means by which can be
+reduced the interference for scenarios described in Figure 9.1:
+The values for interfering signals due to frequency reuse cross‐
+polarization, multiple beam interferers, and interference power received
+from other systems (intra‐system and inter‐system), must be obtained by
+carefully constructing the link equation for each case (Difonzo 2000).
+347
+• Co‐channel interference
+• Out‐of‐band interference
+From the technical and practical point of view, two classications of
+interference should be considered (Gordon and Morgan 1993). These two
+scenarios are presented in Figure 9.2:
+The co‐channel interference occurs when the user's receiver is disturbed
+by the system or equipment operating at the same frequency as
+the user's receiver (Figure 9.2a). More problematic is out‐of‐band
+interference. This interference occurs when the intended receiver is hit
+by signals that are generated by equipment that does not operate in
+the same frequency as that receiver. The phenomenon whereby one
+or more new signals are generated is called intermodulation. These
+new generated signals (intermodulation products) can unexpectedly fall
+within a victim receiver's licensed passband (Figure 9.2b), interfering
+with signal reception. These unwanted intermodulation products can
+occur in receivers and may coincide with the operating frequency of the
+receiver, in which case the wanted signal can be masked. If the signal is
+too strong, it will completely block the desired receiving signal (Bulloch
+1987; Mendenhall 2001; National Telecommunications and Information
+Systems 2006).
+9.2 Intermodulation Products
+The inuence source of noise in a satellite communication system is the
+intermodulation noise generated by nonlinear transfer characteristics
+of devices. Toward the uplink, the intermodulation noise is mainly
+generated because of the high‐power amplier (HPA) nonlinearity.
+Related to downlink performance, especially in urban areas (presence
+of wireless networks, xed or mobile) intermodulation should be
+considered because of the low noise amplier (LNA) nonlinearity.
+348
+(9.1)
+Figure 9.3 Harmonic products.
+• Harmonic products
+• Intermodulation products
+Disturbance introduced due to nonlinearity is known as intermodulation
+interference.
+The nonlinear transfer characteristic may be expressed as a Taylor series, which relates input and output voltages:
+Here, a, b, c, and so on are coecients, depending on the transfer
+characteristic, e0
+is the output voltage, and ei is the input voltage, which
+consists of the sum of individual carriers.
+Intermodulation interference components can be classied as:
+Harmonic products are single‐tone distortion products caused by device
+nonlinearity. When a nonlinear device is stimulated by a signal at
+frequency f1
+, spurious output signals can be generated at the harmonic
+frequencies 2f1
+, 3f1
+,… Nf1
+. The order of the harmonic products is
+(9.1)
+Figure 9.3 Harmonic products.
+• Harmonic products
+• Intermodulation products
+Disturbance introduced due to nonlinearity is known as intermodulation
+interference.
+The nonlinear transfer characteristic may be expressed as a Taylor series, which relates input and output voltages:
+Here, a, b, c, and so on are coecients, depending on the transfer
+characteristic, e0
+is the output voltage, and ei is the input voltage, which
+consists of the sum of individual carriers.
+Intermodulation interference components can be classied as:
+Harmonic products are single‐tone distortion products caused by device
+nonlinearity. When a nonlinear device is stimulated by a signal at
+frequency f1
+, spurious output signals can be generated at the harmonic
+frequencies 2f1
+, 3f1
+,… Nf1
+. The order of the harmonic products is
+349
+(9.2)
+The order of the distortion product is given by the sum M + N. The
+second‐order intermodulation products of two signals at f1
+2
+. The third‐ 2 and 2f 1
+, 2f 1 and , f − f 2 + f 1 would occur at f 2
+f
+order intermodulation products (component of Eq. 9.1) of
+1 +1
+, f 2 − f 1
+, 2f 2
+two signals , 2f + f 2
+, 3f 1 would be 3f 2 and f 1
+f
+2f2 and f1 − 2f2
+(Maral and Bousquet 2002; Dodel 1999). These
+are presented in Figure 9.4. Mathematically, intermodulation
+product calculation could result in “negative” frequency, but it
+is the absolute value of these calculations that is of concern.
+Broadband systems may be aected by all nonlinear distortion
+products. Narrowband circuits are only susceptible to those in the
+passband. Bandpass ltering can be an eective way to eliminate
+most of the undesired products without aecting in band
+performance (see Figure 9.4).
+given by the frequency multiplier; for example, the second harmonic is
+a second‐order product. These harmonics are presented in Figure 9.3. Harmonics are usually measured in dBc (indexed by c), which means dB
+below the carrier (fundamental) output signal.
+Intermodulation products are multi‐tone distortion products that result
+when two or more signals at frequencies f1
+, f2
+, …fn are present at the
+input of a nonlinear device. The spurious products, which are generated
+due to the nonlinearity of a device, are related to the original input
+signals frequencies. Analysis and measurements in practice are most
+frequently done with two input frequencies (sometimes termed tones).
+The frequencies of the two‐tone intermodulation products are:
+Third‐order intermodulation products are usually too close to the
+fundamental signals to be ltered out, so the third‐order (and to a
+lesser extent fth‐order) products contribute the major proportion of
+the intermodulation noise power. The closer the fundamental signals
+(9.2)
+The order of the distortion product is given by the sum M + N. The
+second‐order intermodulation products of two signals at f1
+2
+. The third‐ 2 and 2f 1
+, 2f 1 and , f − f 2 + f 1 would occur at f 2
+f
+order intermodulation products (component of Eq. 9.1) of
+1 +1
+, f 2 − f 1
+, 2f 2
+two signals , 2f + f 2
+, 3f 1 would be 3f 2 and f 1
+f
+2f2 and f1 − 2f2
+(Maral and Bousquet 2002; Dodel 1999). These
+are presented in Figure 9.4. Mathematically, intermodulation
+product calculation could result in “negative” frequency, but it
+is the absolute value of these calculations that is of concern.
+Broadband systems may be aected by all nonlinear distortion
+products. Narrowband circuits are only susceptible to those in the
+passband. Bandpass ltering can be an eective way to eliminate
+most of the undesired products without aecting in band
+performance (see Figure 9.4).
+given by the frequency multiplier; for example, the second harmonic is
+a second‐order product. These harmonics are presented in Figure 9.3. Harmonics are usually measured in dBc (indexed by c), which means dB
+below the carrier (fundamental) output signal.
+Intermodulation products are multi‐tone distortion products that result
+when two or more signals at frequencies f1
+, f2
+, …fn are present at the
+input of a nonlinear device. The spurious products, which are generated
+due to the nonlinearity of a device, are related to the original input
+signals frequencies. Analysis and measurements in practice are most
+frequently done with two input frequencies (sometimes termed tones).
+The frequencies of the two‐tone intermodulation products are:
+Third‐order intermodulation products are usually too close to the
+fundamental signals to be ltered out, so the third‐order (and to a
+lesser extent fth‐order) products contribute the major proportion of
+the intermodulation noise power. The closer the fundamental signals
+350
+Figure 9.4 Second‐ and third‐order intermodulation products.
+• Frequency allocations for various satellite communication services
+are to each other, the closer third intermodulation products will be
+to them. Filtering becomes very hard if the intermodulation products
+fall inside the passband. These unwanted intermodulation products can
+occur in receivers and may coincide with the operating frequency of the
+receiver, in which case the wanted signal can be masked. The level of
+these products is a function of the power received and the linearity of
+the receiver/preamplier. Moreover, the amplitude of the intermodulation
+product decreases with the order of the product. Further, out‐of‐
+band intermodulation products transmitted from the ground stations
+or satellites result in interference to other systems. To minimize
+such harmful emissions, radio regulations restrict such out‐of‐band
+transmissions from ground stations to very low levels. There is no single
+technical method to eliminate the impact of intermodulation products;
+on‐site experimental investigations are needed (Mendenhall 2001). Such
+approach and experimental results for LEO ground stations will be
+further claried later.
+The regulations for various satellite communication and
+recommendations that aect the planning and design of satellite
+communication system pertain to:
+Figure 9.4 Second‐ and third‐order intermodulation products.
+• Frequency allocations for various satellite communication services
+are to each other, the closer third intermodulation products will be
+to them. Filtering becomes very hard if the intermodulation products
+fall inside the passband. These unwanted intermodulation products can
+occur in receivers and may coincide with the operating frequency of the
+receiver, in which case the wanted signal can be masked. The level of
+these products is a function of the power received and the linearity of
+the receiver/preamplier. Moreover, the amplitude of the intermodulation
+product decreases with the order of the product. Further, out‐of‐
+band intermodulation products transmitted from the ground stations
+or satellites result in interference to other systems. To minimize
+such harmful emissions, radio regulations restrict such out‐of‐band
+transmissions from ground stations to very low levels. There is no single
+technical method to eliminate the impact of intermodulation products;
+on‐site experimental investigations are needed (Mendenhall 2001). Such
+approach and experimental results for LEO ground stations will be
+further claried later.
+The regulations for various satellite communication and
+recommendations that aect the planning and design of satellite
+communication system pertain to:
+351
+• Constrains on the maximum permissible RF power spectral density
+from the ground station (CCIR Rec 524)
+• Antenna pattern of ground stations (CCIR Rec 465 and 580)
+• Constraints on the maximum permissible transmission levels from
+satellites (CCIR Rec 358)
+• Permissible interference from other networks (CCIR Rec 466, Rec 483
+and Rec 523)
+9.3 Intermodulation by Uplink Signal at
+LEO Satellite Ground Stations
+At the ground station located in an urban area with the high penetration
+of mobile radio systems, it is not easy to eliminate intermodulation
+interference signals since these are unpredictable. There is no single
+technical method to eliminate them, so again, on‐site investigations and
+experimental measurements are needed.
+Ground stations in urban areas should be designed so that, at the receiver
+input, the level of the signal received from the satellite via the main beam
+of the ground station antenna exceeds the in‐band noise by an adequate
+margin. But, the unwanted out‐of‐band inputs, as intermodulation
+products, generated by the ground station uplink signal and signals from
+nearby mobile system base stations, even though they are received via
+sidelobes in the ground station's antenna pattern, they could be higher
+and can mask the wanted signal (Maral and Bousquet, 2002; Sklar 2001;
+Mendenhall 2001).
+Idea: The intention is to mathematically and by executed experiment
+conrm whether the intermodulation products will disturb the receiver
+at the Vienna satellite ground station dedicated for communication with
+MOST satellite.
+352
+Figure 9.5 Intermodulation scenario at satellite ground station.
+Method: Math analysis and experimental execution is applied. Figure 9.5
+presents the experiment setup that enables us to generally check the
+intermodulation disturbance at the any receiving satellite ground station
+(Cakaj et al. 2005).
+In Figure 9.5 in front of satellite receiving ground station the GSM
+1800 signals are presented. The similar procedure could be used in case
+of other MW signal presence, also. As in case of intermodulation, each
+specic case specically should be studied. Thus, here we analyze further
+the intermodulation disturbance at Vienna satellite ground station
+within MOST scientic space observation project.
+The presence of intermodulation products, at ground station, near the
+downlink frequency (f
+r = 2232 MHz) caused by GSM 1800 and uplink
+signal (f
+t = 2055 MHz) is expected because of eventual nonlinearity of the
+LNA used in the front end at the downlink of the ground station. By the
+nonlinearity of the LNA, the intermodulation products will be generated
+from the uplink signal at frequency f
+t on one hand and GSM signals
+at frequencies fGSM on the other. Only third‐order intermodulation
+products will be considered.
+Figure 9.5 Intermodulation scenario at satellite ground station.
+Method: Math analysis and experimental execution is applied. Figure 9.5
+presents the experiment setup that enables us to generally check the
+intermodulation disturbance at the any receiving satellite ground station
+(Cakaj et al. 2005).
+In Figure 9.5 in front of satellite receiving ground station the GSM
+1800 signals are presented. The similar procedure could be used in case
+of other MW signal presence, also. As in case of intermodulation, each
+specic case specically should be studied. Thus, here we analyze further
+the intermodulation disturbance at Vienna satellite ground station
+within MOST scientic space observation project.
+The presence of intermodulation products, at ground station, near the
+downlink frequency (f
+r = 2232 MHz) caused by GSM 1800 and uplink
+signal (f
+t = 2055 MHz) is expected because of eventual nonlinearity of the
+LNA used in the front end at the downlink of the ground station. By the
+nonlinearity of the LNA, the intermodulation products will be generated
+from the uplink signal at frequency f
+t on one hand and GSM signals
+at frequencies fGSM on the other. Only third‐order intermodulation
+products will be considered.
+353
+Table 9.1 Frequencies of GSM 1800 providers operating in Austria.
+Channel fu
+fd Provider
+512 1710.2 MHz 1805.2 MHz TMA
+521 1712.0 MHz 1807.0 MHz TMA
+523 1712.4 MHz 1807.4 MHz Mobilkom
+586 1725.0 MHz 1820.0 MHz Telering
+632 1734.2 MHz 1829.2 MHz One
+868 1781.4 MHz 1876.4 MHz One
+(9.3)
+In order to make correct analysis, www.rtr.at provides the GSM frequency
+plan related to GSM 1800 providers in Austria. These data are presented
+in Table 9.1 (Cakaj et al. 2005), showing the rst channel, a few in the
+middle, and the last one.
+In Table 9.1 fu
+is the GSM uplink signal frequency and fd
+is the GSM
+downlink signal frequency of the GSM 1800 network (see Figure 9.5).
+Based on ITU‐R F.382‐6, 1.7GHz–2.1GHz frequency band for mobile
+systems is 1710 MHz–1785 MHz for the uplink and 1805 MHz–1880 MHz
+for the downlink. Recall that the dierence between the upper edge of the
+band and the last frequency within a band is called guard band (GB). So, in
+this case the guard bands are:
+Signals present at the front end of the preamplier of the
+receiving system at the ground station are presented in Figure 9.6.
+Intermodulation products generated by signals at frequencies f
+t and
+fu
+fall too far on the frequency domain from the receiver's downlink
+frequency f
+r
+; therefore, they will not be considered here. Third‐order
+Table 9.1 Frequencies of GSM 1800 providers operating in Austria.
+Channel fu
+fd Provider
+512 1710.2 MHz 1805.2 MHz TMA
+521 1712.0 MHz 1807.0 MHz TMA
+523 1712.4 MHz 1807.4 MHz Mobilkom
+586 1725.0 MHz 1820.0 MHz Telering
+632 1734.2 MHz 1829.2 MHz One
+868 1781.4 MHz 1876.4 MHz One
+(9.3)
+In order to make correct analysis, www.rtr.at provides the GSM frequency
+plan related to GSM 1800 providers in Austria. These data are presented
+in Table 9.1 (Cakaj et al. 2005), showing the rst channel, a few in the
+middle, and the last one.
+In Table 9.1 fu
+is the GSM uplink signal frequency and fd
+is the GSM
+downlink signal frequency of the GSM 1800 network (see Figure 9.5).
+Based on ITU‐R F.382‐6, 1.7GHz–2.1GHz frequency band for mobile
+systems is 1710 MHz–1785 MHz for the uplink and 1805 MHz–1880 MHz
+for the downlink. Recall that the dierence between the upper edge of the
+band and the last frequency within a band is called guard band (GB). So, in
+this case the guard bands are:
+Signals present at the front end of the preamplier of the
+receiving system at the ground station are presented in Figure 9.6.
+Intermodulation products generated by signals at frequencies f
+t and
+fu
+fall too far on the frequency domain from the receiver's downlink
+frequency f
+r
+; therefore, they will not be considered here. Third‐order
+354
+Figure 9.6 Signals present at frontend of preamplier (LNA) of the
+downlink.
+intermodulation products generated by frequencies f
+t and fd are 2f
+t ± fd
+and 2fd ± f
+t
+.
+Only, products 2f
+t − fd are worth further analysis, because only they
+fall in the frequency domain near the receiver's frequency f
+r
+.These
+intermodulation products appear at the preamplier's (LNA) output
+(respectively at the lters input)in frequency domain (RF)(see Figure 9.7)
+(Cakaj et al. 2005; Cakaj and Malaric 2007).
+The respective frequencies of these signals correlated to Table 9.1 are
+presented in Table 9.2.
+These signals will be ltered before going into the downconverter
+(see Figure 9.5). The situation behind the lter and in front of the
+downconverter is presented in Figure 9.8.
+From Figure 9.8 it is clear that the lter has substantially
+attenuated a considerable number of interference contributions from
+intermodulation products. The local oscillator frequency of the
+downconverter at the satellite ground station is fLO
+= 2372 MHz. Then,
+if all signals presented in Figure 9.8 in RF domain mirror into IF domain
+with frequency fLO
+, the spectrum in Figure 9.9 follows (Cakaj et al. 2005;
+Cakaj and Malaric 2007).
+Figure 9.6 Signals present at frontend of preamplier (LNA) of the
+downlink.
+intermodulation products generated by frequencies f
+t and fd are 2f
+t ± fd
+and 2fd ± f
+t
+.
+Only, products 2f
+t − fd are worth further analysis, because only they
+fall in the frequency domain near the receiver's frequency f
+r
+.These
+intermodulation products appear at the preamplier's (LNA) output
+(respectively at the lters input)in frequency domain (RF)(see Figure 9.7)
+(Cakaj et al. 2005; Cakaj and Malaric 2007).
+The respective frequencies of these signals correlated to Table 9.1 are
+presented in Table 9.2.
+These signals will be ltered before going into the downconverter
+(see Figure 9.5). The situation behind the lter and in front of the
+downconverter is presented in Figure 9.8.
+From Figure 9.8 it is clear that the lter has substantially
+attenuated a considerable number of interference contributions from
+intermodulation products. The local oscillator frequency of the
+downconverter at the satellite ground station is fLO
+= 2372 MHz. Then,
+if all signals presented in Figure 9.8 in RF domain mirror into IF domain
+with frequency fLO
+, the spectrum in Figure 9.9 follows (Cakaj et al. 2005;
+Cakaj and Malaric 2007).
+355
+Figure 9.7 Third order of intermodulation products.
+Table 9.2 Third order intermodulation products.
+f
+t fd 2f
+t − fd
+2055 MHz 1805.2 MHz 2304.8 MHz
+2055 MHz 1807.0 MHz 2293.0 MHz
+2055 MHz 1807.4 MHz 2292.6 MHz
+2055 MHz 1820.0 MHz 2290.0 MHz
+2055 MHz 1829.2 MHz 2280.8 MHz
+2055 MHz 1876.4 MHz 2233.6 MHz
+Figure 9.8 Signals in front of downconverter.
+From Figure 9.9 it is obvious the presence of intermodulation products
+behind the downconverter and in front of the demodulator.
+Figure 9.7 Third order of intermodulation products.
+Table 9.2 Third order intermodulation products.
+f
+t fd 2f
+t − fd
+2055 MHz 1805.2 MHz 2304.8 MHz
+2055 MHz 1807.0 MHz 2293.0 MHz
+2055 MHz 1807.4 MHz 2292.6 MHz
+2055 MHz 1820.0 MHz 2290.0 MHz
+2055 MHz 1829.2 MHz 2280.8 MHz
+2055 MHz 1876.4 MHz 2233.6 MHz
+Figure 9.8 Signals in front of downconverter.
+From Figure 9.9 it is obvious the presence of intermodulation products
+behind the downconverter and in front of the demodulator.
+356
+(9.4)
+Figure 9.9 Downconverter output.
+Results: In Figure 9.9, in the center is our desired signal which is coming
+from the satellite at IF input with frequency of 140 MHz. The receiving
+bandwidth from Table 3.1 is 76.8KHz. So, looking at IF output of the
+downconverter, or as input of the receiver, the bandwidth is
+The intermodulation interference will aect the desired signal if
+respective intermodulation frequencies fall within this range. From Table
+9.2 the intermodulation products (third column) are mirrored in IF band
+by local oscillator of frequency 2372 MHz. The mirrored intermodulation
+products are: 67.2, 79, 79.4, 82, 91.2, and 138.4 MHz. No one of these
+intermodulation products is within a frequency range under Eq. (9.4),
+so there is no intermodulation interference. In this case, an advantage
+is that satellite downlink frequencies lie in a band that is in fact the
+mirrored guard band.
+(9.4)
+Figure 9.9 Downconverter output.
+Results: In Figure 9.9, in the center is our desired signal which is coming
+from the satellite at IF input with frequency of 140 MHz. The receiving
+bandwidth from Table 3.1 is 76.8KHz. So, looking at IF output of the
+downconverter, or as input of the receiver, the bandwidth is
+The intermodulation interference will aect the desired signal if
+respective intermodulation frequencies fall within this range. From Table
+9.2 the intermodulation products (third column) are mirrored in IF band
+by local oscillator of frequency 2372 MHz. The mirrored intermodulation
+products are: 67.2, 79, 79.4, 82, 91.2, and 138.4 MHz. No one of these
+intermodulation products is within a frequency range under Eq. (9.4),
+so there is no intermodulation interference. In this case, an advantage
+is that satellite downlink frequencies lie in a band that is in fact the
+mirrored guard band.
+357
+Figure 9.10 Presence of intermodulation products.
+Intermodulation products are recorded by experiment, and the
+appropriate set up is presented in Figure 9.5. The IF record by spectrum
+analyzer conrming a mathematical calculation is presented in Figure
+9.10. (Cakaj et al. 2005; Cakaj and Malaric 2007).
+In the center of Figure 9.10 is the desired signal coming from the satellite. On the left side there are intermodulation products that do not mask the
+desired receiving signal. The span in Figure 9.10 is 30 MHz. The receiving
+bandwidth from Table 3.1 is 76.8 KHz, so although intermodulation
+products are present, they are too far from the receiving bandwidth to
+signicantly degrade the signal. The advantage of this case is that the
+satellite downlink frequencies lie in a band that is in fact the mirrored
+guard band of GSM 1800 MHz in IF domain (Figure 9.8 and Figure 9.9).
+Figure 9.10 Presence of intermodulation products.
+Intermodulation products are recorded by experiment, and the
+appropriate set up is presented in Figure 9.5. The IF record by spectrum
+analyzer conrming a mathematical calculation is presented in Figure
+9.10. (Cakaj et al. 2005; Cakaj and Malaric 2007).
+In the center of Figure 9.10 is the desired signal coming from the satellite. On the left side there are intermodulation products that do not mask the
+desired receiving signal. The span in Figure 9.10 is 30 MHz. The receiving
+bandwidth from Table 3.1 is 76.8 KHz, so although intermodulation
+products are present, they are too far from the receiving bandwidth to
+signicantly degrade the signal. The advantage of this case is that the
+satellite downlink frequencies lie in a band that is in fact the mirrored
+guard band of GSM 1800 MHz in IF domain (Figure 9.8 and Figure 9.9).
+358
+The envelope around signal f
+r at Figure 9.9 stemmed from mathematical
+analysis and the envelope of the experimentally recorded signal around
+f
+r are almost identical, in this case conrming each other. This makes
+possible to have LNAs directly connected to the feed without lter, and
+therefore the maximum downlink margin.
+Conclusion: The nal conclusion is that the presence of the 50 W
+uplink signal and the GSM 1800 signals do not produce intermodulation
+products that disturb the performance of the downlink receiving system
+at the (LEO) satellite ground station. This makes it possible to have LNAs
+directly connected to the feed without lter, and therefore the maximal
+downlink margin. But, in case of the intermodulation disturbance, the
+lter should be implemented in the front end, more exactly in between
+the feeder and LNA.
+9.4 Modeling of Interference Caused by Uplink
+Signal for LEO Satellite Ground Stations
+Idea: Interference can negatively aect the functionality of the
+satellite ground station. The major source of interference in a
+satellite communication system is intermodulation noise generated by
+nonlinear transfer characteristics of devices. Toward the uplink, the
+intermodulation noise is mainly generated because of HPA nonlinearity.
+Related to the downlink performance, especially in urban areas (presence
+of mobile and xed wireless networks) intermodulation should be
+considered because of LNA nonlinearity. Disturbance introduced due
+to nonlinearity is known as intermodulation interference. If spurious
+signals generated as intermodulation products behind LNA fall within a
+passband of a receiver and the signal level is of sucient amplitude, it can
+degrade the receiver's performance.
+At the ground stations located in urban areas with high density of mobile
+radio systems it is not easy to eliminate intermodulation interference
+signals, since these are unpredictable. These new generated signals can
+359
+The amplitudes of intermodulation products of frequencies 2fx − f
+t
+and 2f
+t − fx are respectively and (these yields out from
+trigonometry) where Ax
+is amplitude of any radio signal of frequency fx
+unexpectedly fall within a victim receiver licensed passband. In case the
+generated intermodulation signal is too strong, it will not only interfere
+but could completely block the desired receiving signal. Filtering
+becomes very hard if the intermodulation products fall inside the
+passband. So, the receiver's operation will be disturbed if two conditions
+are fullled: (i) interference signal fall within a passband; and (ii) has too
+high power.
+Based on this concept and the example described under Section 9.3, the
+idea is to build the intermodulation interference modeling owchart that
+enables the interference calculation caused by any other radio source of
+frequency fx and the satellite uplink signal of frequency f
+t
+. From the
+appropriate model will be built the interference calculator to determine
+and predict such disturbances of the receiver, based on the radio signals
+environmental presence.
+Method: Based on interference concepts and the previously
+mathematical interpretation, considering radiofrequency signal (fx
+)
+present in the front end of the satellite ground station's receiving
+system, which is potential for generating intermodulation interference,
+it is analyzed and then modeled the intermodulation interference, and
+further is introduced the intermodulation interference calculator.
+Only third‐order intermodulation products are considered. Among third‐
+order intermodulation products are considered only components of
+frequencies 2fx − f
+t and 2f
+t − fx
+. Analyses under Section 9.2 conrmed
+that these products could fall within a receiver's passband. Other
++
+x
++ f
+t and 2f
+t
+intermodulation products of frequencies 3 f x
+, 2f
+t
+, 3f x
+f
+usually fall too far from the passband and practically are eliminated by
+ltering. Thus, these products are not treated in the modeling approach
+(Cakaj et al. 2008; Cakaj 2010).
+The amplitudes of intermodulation products of frequencies 2fx − f
+t
+and 2f
+t − fx are respectively and (these yields out from
+trigonometry) where Ax
+is amplitude of any radio signal of frequency fx
+unexpectedly fall within a victim receiver licensed passband. In case the
+generated intermodulation signal is too strong, it will not only interfere
+but could completely block the desired receiving signal. Filtering
+becomes very hard if the intermodulation products fall inside the
+passband. So, the receiver's operation will be disturbed if two conditions
+are fullled: (i) interference signal fall within a passband; and (ii) has too
+high power.
+Based on this concept and the example described under Section 9.3, the
+idea is to build the intermodulation interference modeling owchart that
+enables the interference calculation caused by any other radio source of
+frequency fx and the satellite uplink signal of frequency f
+t
+. From the
+appropriate model will be built the interference calculator to determine
+and predict such disturbances of the receiver, based on the radio signals
+environmental presence.
+Method: Based on interference concepts and the previously
+mathematical interpretation, considering radiofrequency signal (fx
+)
+present in the front end of the satellite ground station's receiving
+system, which is potential for generating intermodulation interference,
+it is analyzed and then modeled the intermodulation interference, and
+further is introduced the intermodulation interference calculator.
+Only third‐order intermodulation products are considered. Among third‐
+order intermodulation products are considered only components of
+frequencies 2fx − f
+t and 2f
+t − fx
+. Analyses under Section 9.2 conrmed
+that these products could fall within a receiver's passband. Other
++
+x
++ f
+t and 2f
+t
+intermodulation products of frequencies 3 f x
+, 2f
+t
+, 3f x
+f
+usually fall too far from the passband and practically are eliminated by
+ltering. Thus, these products are not treated in the modeling approach
+(Cakaj et al. 2008; Cakaj 2010).
+360
+in front of LNA, which has the potential to cause intermodulation with
+uplink satellite signal of frequency f
+t and amplitude At
+. Thus, third‐order
+intermodulation products are characterized by:
+(9.5)
+(9.6)
+Usually, the amplitude Ax
+is low in front of LNA since it is limited by
+ITU rules about radiated power and consequently it is expected that the
+amplitude will not disturb the receiver. The most dangerous
+component is since the amplitude At
+is high because this is
+the amplitude of uplink signal that must overcome too‐high attenuation
+toward the satellite.
+(9.7)
+where f
+in
+is intermodulation interference frequency of amplitude Nin
+for
+n = 1, 2 behind the LNA. Since, the analyses are related mainly to the
+frequency domain, in order to simplify the situation, it is assumed that
+there is no amplication on overall system chain.
+The reference checking point is downconverter's IF output or receiver's
+IF input. So, the intermodulation interference is checked around
+intermediate frequency f
+IF
+. The mirroring into intermediate frequency is
+achieved by local oscillator frequency of fLO
+. All frequencies are mirrored
+by fLO
+, including intermodulation products and desired receiving signal
+of frequency f
+r
+. Thus, it is:
+For receiver with bandwidth B = 2Δf, the receiving passband at IF input is
+from f
+IF − Δf up to f
+IF + Δf where f
+IF
+is the intermediate frequency, which
+is usually 140 MHz or 70 MHz. Thus, the receiver could be disturbed if the
+intermodulation product mirrored at IF falls within frequency band at IF
+input, mathematically expressed as:
+in front of LNA, which has the potential to cause intermodulation with
+uplink satellite signal of frequency f
+t and amplitude At
+. Thus, third‐order
+intermodulation products are characterized by:
+(9.5)
+(9.6)
+Usually, the amplitude Ax
+is low in front of LNA since it is limited by
+ITU rules about radiated power and consequently it is expected that the
+amplitude will not disturb the receiver. The most dangerous
+component is since the amplitude At
+is high because this is
+the amplitude of uplink signal that must overcome too‐high attenuation
+toward the satellite.
+(9.7)
+where f
+in
+is intermodulation interference frequency of amplitude Nin
+for
+n = 1, 2 behind the LNA. Since, the analyses are related mainly to the
+frequency domain, in order to simplify the situation, it is assumed that
+there is no amplication on overall system chain.
+The reference checking point is downconverter's IF output or receiver's
+IF input. So, the intermodulation interference is checked around
+intermediate frequency f
+IF
+. The mirroring into intermediate frequency is
+achieved by local oscillator frequency of fLO
+. All frequencies are mirrored
+by fLO
+, including intermodulation products and desired receiving signal
+of frequency f
+r
+. Thus, it is:
+For receiver with bandwidth B = 2Δf, the receiving passband at IF input is
+from f
+IF − Δf up to f
+IF + Δf where f
+IF
+is the intermediate frequency, which
+is usually 140 MHz or 70 MHz. Thus, the receiver could be disturbed if the
+intermodulation product mirrored at IF falls within frequency band at IF
+input, mathematically expressed as:
+361
+(9.8)
+(9.9)
+(9.10)
+(9.11)
+(9.12)
+By substituting f
+IF
+from Eq. (9.7) to Eq. (9.8) yields
+Then, further, if we substitute f
+in
+from Eq. (9.5) and Eq. (9.6) at Eq. (9.9)
+will have:
+Thus, if intermodulation frequency fullls the Eq. (9.10) or Eq. (9.11)
+the desired signal at the receiver could be masked by intermodulation
+interference.
+The next step is considering power (amplitude) issue. Thus, the level of
+interfering signal should be compared with the level of desired signal
+at IF input. For comparison of these levels, it is sucient to consider
+the relationship between the two relative levels (one of them is the
+reference level). Usually this is measured with a spectrum analyzer
+at IF checkpoint. The criteria for amplitudes comparison between
+the desired and interference signal depends on the Earth's station
+size and dedication. The criteria between downlink carrier level and
+interference signal level range from 20 to 30 dB (http://www.satsig.net/
+interfer.html). This is mathematically expressed by Eq. (9.12):
+where S(IF) is desired signal power and Nin(IF) intermodulation
+interference signal power at IF input. These two power levels can
+be calculated or measured in order to conclude about the receiver's
+disturbance. The above concept is presented through the owchart in
+Figure 9.11. Input parameters in Figure 9.11 are: fx
+is frequency of radio
+(9.8)
+(9.9)
+(9.10)
+(9.11)
+(9.12)
+By substituting f
+IF
+from Eq. (9.7) to Eq. (9.8) yields
+Then, further, if we substitute f
+in
+from Eq. (9.5) and Eq. (9.6) at Eq. (9.9)
+will have:
+Thus, if intermodulation frequency fullls the Eq. (9.10) or Eq. (9.11)
+the desired signal at the receiver could be masked by intermodulation
+interference.
+The next step is considering power (amplitude) issue. Thus, the level of
+interfering signal should be compared with the level of desired signal
+at IF input. For comparison of these levels, it is sucient to consider
+the relationship between the two relative levels (one of them is the
+reference level). Usually this is measured with a spectrum analyzer
+at IF checkpoint. The criteria for amplitudes comparison between
+the desired and interference signal depends on the Earth's station
+size and dedication. The criteria between downlink carrier level and
+interference signal level range from 20 to 30 dB (http://www.satsig.net/
+interfer.html). This is mathematically expressed by Eq. (9.12):
+where S(IF) is desired signal power and Nin(IF) intermodulation
+interference signal power at IF input. These two power levels can
+be calculated or measured in order to conclude about the receiver's
+disturbance. The above concept is presented through the owchart in
+Figure 9.11. Input parameters in Figure 9.11 are: fx
+is frequency of radio
+362
+source in front of LNA of the satellite receiving system, f
+t uplink transmit
+frequency, f
+r downlink receiving frequency, and B is downlink receiver's
+bandwidth. Considering the appropriate owchart, it is structured the
+following intermodulation interference calculator presented in Figure
+9.12 (Cakaj et al. 2008; Cakaj 2010).
+Usually, only one of the treated components falls within a passband
+and causes the disturbance. So, if intermodulation components are out
+of band, then under status for f
+in
+, n = 1, 2 will show up this text:
+“Intermodulation products out of band (no disturbance),” and no further
+analyses are needed.
+In case when one of components falls inside the band, then under status
+for f
+in
+, n = 1, 2 will show up this text: “In band interference” and
+further analyses related to the amplitude level are needed. If amplitude of
+interference is under limited level at nal status will show up text as “No
+disturbance,” and if the amplitude of interference level is above planned
+limit shows up the text: “It is disturbance (Action).”
+Results: This study is further conrmed under a particular case, where
+uplink transmits with frequency f
+t = 2055 MHz, and in the surrounding
+environment are present GSM 1800 signals designated as fd
+.The third‐
+order generated intermodulation products frequencies are (2f
+t − fd
+), as
+given in Table 9.2, Section 9.2 (Cakaj et al. 2005). Further, for B =
+100KHz, f
+IF = 140 MHz and f
+r = 2232 MHz, fLO
+= 2372 MHz, the receiving
+bandwidth, at IF output of the downconverter or as input of the receiver,
+is:
+363
+Figure 9.11 Intermodulation interference modeling owchart.
+364
+Figure 9.12 Intermodulation interference calculator.
+(9.13)
+f
+IF, f
+r, fLO
+are, respectively, intermediate, receiving, and local oscillator
+frequencies. From Table 9.2 the intermodulation products (third column)
+are mirrored in IF band by local oscillator of frequency 2372 MHz. The
+mirrored intermodulation products are: 67.2, 79, 79.4, 82, 91.2, and
+138.4 MHz. No one of them falls within mirrored IF bandwidth, thus the
+conclusion is that there is no downlink disturbance by intermodulation
+products. Finally, for the case presented under Section 9.3, at Figure 9.5
+the intermodulation interference disturbs receiving system if in front of
+LNA is present a signal of frequency fx = 1598 MHz or fx = 2283.5 MHz.
+This is conrmed by applying intermodulation interference modeling.
+Conclusion: The introduced modeling concept could be applied on uplink
+signal frequency selection in order to avoid the interference. These
+Figure 9.12 Intermodulation interference calculator.
+(9.13)
+f
+IF, f
+r, fLO
+are, respectively, intermediate, receiving, and local oscillator
+frequencies. From Table 9.2 the intermodulation products (third column)
+are mirrored in IF band by local oscillator of frequency 2372 MHz. The
+mirrored intermodulation products are: 67.2, 79, 79.4, 82, 91.2, and
+138.4 MHz. No one of them falls within mirrored IF bandwidth, thus the
+conclusion is that there is no downlink disturbance by intermodulation
+products. Finally, for the case presented under Section 9.3, at Figure 9.5
+the intermodulation interference disturbs receiving system if in front of
+LNA is present a signal of frequency fx = 1598 MHz or fx = 2283.5 MHz.
+This is conrmed by applying intermodulation interference modeling.
+Conclusion: The introduced modeling concept could be applied on uplink
+signal frequency selection in order to avoid the interference. These
+365
+analyses are of high importance on the nal decision of the ground
+station design. This methodology is applicable for medium Earth orbit
+(MEO) MEO systems, also. The math analysis and experimental results,
+under 9.3, are completely in accordance with results stemmed from the
+modeling approach.
+9.5 Downlink Adjacent Interference for LEO Satellites
+The downlink adjacent interference is expected when two satellites
+operate in close proximity to each other and share the same frequency,
+aecting the desired signal‐to‐noise ratio of the downlink. Further, this
+problem is considered and analyzed under very practical operational
+circumstances for SARSAT (Search and Rescue Satellite Aided Tracking)
+system (constellation). The SARSAT system is operated and managed by
+NOAA (National Oceanic and Atmospheric Administration).
+The SARSAT system is designed to provide distress alert and location
+data to assist on search and rescue operations. SARSAT locates distress
+beacons (406 MHz) activated at distress locations. The system calculates
+a location of the distress event using Doppler processing techniques.
+Processed data are continuously retransmitted through the SARSAT
+downlink to local user terminals (LUT) when satellites are in view.
+The downlink communication, from SARSAT satellites to LUTs, will be
+further treated from the interference point of view.
+Receive‐only ground stations, specically designed to track the search
+and rescue satellites as they pass across the sky are called LUTs. The
+communication link is established when the satellite ies within a LUT's
+visibility. This “y‐over” is called a satellite pass. The distress beacon
+signal is received on the satellite uplink from the distress location and
+then it is transmitted to LUTs by downlink. Normally, the beacon location
+is random and LUT locations are xed and known. The LUTs are fully
+automated and completely unmanned at all times [Losik 1995; Landis
+and Mulldolland 1993]. Communication from satellite operates in two
+366
+modes (Repeater mode and store and forward mode, Figures 8.4, 8.5,
+Chapter 8) transmitting in LHCP (left‐hand circular polarization) to any
+LUT in its view (COSPAS –SARSAT System Monitoring and Reporting
+2008).
+The LEOLUT (means LUT dedicated for LEOs), usually includes a satellite
+receive antenna, a digital processing system, and the software for control, monitoring and processing functions. When a satellite receives a beacon
+signal from a distress location, the Search and Rescue Processor (SARP)
+on board the LEO satellite performs Doppler processing and generates an
+entry into the 2.4 kb/s processed data stream (pds) that is continuously
+“dumped” to any LEOLUT in view of the satellite's downlink footprint.
+(COSPAS –SARSAT System Monitoring and Reporting 2008).
+LEOLUT software accepts the satellite's downlink data stream, then
+decodes and extracts beacon data messages. From each satellite pass
+taken by the LEOLUT, software selects data from each detected beacon
+and validates time, frequency (Doppler shifted frequency), and message
+content. Data from each pass, and for each beacon identication
+number, is then passed to the solution processing software. The solution
+processing software determines an optimum location based on a Doppler
+frequency curve, built based on frequency shift. An example of recorded
+Doppler curve at LUT is given in Figure 9.13.
+This is an excellent Doppler curve providing 15 Doppler events, noted
+from 1 to 15. Time is given on the x‐axis and Doppler frequency shift
+on the y‐axis. Using the orbital parameters of the satellite, the beacon
+frequency, and the known Doppler shift, the distance of the beacon
+relative to the projection of the satellite orbit ground‐track on the Earth
+can be determined as is depicted in Figure 8.10 (Vataralo et al. 1995; Cakaj
+et al. 2010a).
+Communication reliability during a satellite pass may be degraded when
+satellites sharing the same downlink frequency are adjacent to each
+other. The downlinks of all SARSAT LEO satellites use the same 1544.5
+367
+Figure 9.13 Doppler curve.
+MHz frequency (COSPAS – SARSAT 406 MHz Frequency Management Plan,
+2008). In cases where the satellites are within the main lobe of the
+local user terminal antenna, transmissions from adjacent satellites act as
+interference to one another, consequently degrading the desired signal at
+the appropriate LUT (Vataralo et al. 1995; Cakaj and Malaric 2007). This
+can result in missed distress beacon bursts or no stored solutions received
+at the LUT, consequently no data is provided about a distress location.
+This should be avoided as much as possible!
+Analysis on interference prediction, interference periods, and mitigating
+procedure are further discussed. Interference mitigation of signicant
+duration, with attached measurement results, is also presented. For
+further analytical purposes, to avoid repetition, we use the data from
+Table 8.1 and Table 8.2, which present the space and ground segment of
+the SARSAT system.
+Figure 9.13 Doppler curve.
+MHz frequency (COSPAS – SARSAT 406 MHz Frequency Management Plan,
+2008). In cases where the satellites are within the main lobe of the
+local user terminal antenna, transmissions from adjacent satellites act as
+interference to one another, consequently degrading the desired signal at
+the appropriate LUT (Vataralo et al. 1995; Cakaj and Malaric 2007). This
+can result in missed distress beacon bursts or no stored solutions received
+at the LUT, consequently no data is provided about a distress location.
+This should be avoided as much as possible!
+Analysis on interference prediction, interference periods, and mitigating
+procedure are further discussed. Interference mitigation of signicant
+duration, with attached measurement results, is also presented. For
+further analytical purposes, to avoid repetition, we use the data from
+Table 8.1 and Table 8.2, which present the space and ground segment of
+the SARSAT system.
+368
+9.6 Adjacent Satellites Interference
+(Identification/Avoiding)
+Satellites are considered as adjacent if they are too close to each other
+determined by their space orbital parameters, or too close in radar map or
+as the ground tracks, which for further analysis is applied. The adjacent
+satellite interference manifests when two adjacent satellites share the
+same downlink frequency, and are seen too close to each other from
+the ground station. If the transmitted EIRP (equivalent isotropic radiated
+power) from each satellite is similar, for two satellites close to each other,
+the two signals will act as interference to each other, severely degrading
+the received desired signal (Kanellopoulos et al. 2007; Cakaj et al. 2010a).
+The above is illustrated in Figure 9.14 where the receiving ground
+stations noted as AK, CA, and HI(as a part of SARSAT ground segment) are
+looking at two satellites S9 and S11(a part of SARSAT space segment).
+The downlink of all SARSAT LEO satellites uses the same 1544.5 MHz
+frequency, and in principle the same transmitted EIRP from each satellite.
+Thus, if two satellites are too close to each other, their signals will
+interfere with each other, severely degrading the received signal (COSPAS
+– SARSAT 406 MHz Frequency Management Plan, 2008). The received
+carrier frequency provides a useful measure of the interference level.
+The carrier frequency of the transmitter is 1544.5 MHz, but the relative
+velocity between the satellite and LUT causes a Doppler shift in the
+received frequency, and a plot over time shows the characteristic Doppler
+curve of a LEO satellite. As the orbital positions of the two satellites
+converge, so do their relative velocities to the LUT and Doppler curves
+(COSPAS –SARSAT System Monitoring and Reporting 2008).
+Slight dierences in relative velocity between the two interfering
+satellites cause two distinct curves of carrier frequency. When the
+dierence in relative velocity and angular separation is minimal, the
+Doppler curves of the carrier frequency become almost identical. Figure
+369
+Figure 9.14 Adjacent satellites seen from the ground station.
+9.15 shows the real‐time received carrier frequency for Florida‐1 and
+Florida‐2 LUTs. Florida‐1 is tracking S9 and Florida‐2 is tracking S11
+(Cakaj et al. 2010a).
+Figure 9.14 Adjacent satellites seen from the ground station.
+9.15 shows the real‐time received carrier frequency for Florida‐1 and
+Florida‐2 LUTs. Florida‐1 is tracking S9 and Florida‐2 is tracking S11
+(Cakaj et al. 2010a).
+370
+Figure 9.15 Interference interval.
+Table 9.3 Passes aected by interference.
+Date DOY AOS LOS LUT SAT Orbit Reason
+03.08.09 067 16 : 31 16 : 43 LSE S9 34 844 No pds
+solution
+03.08.09 067 16 : 35 16 : 47 CA2 S9 34 844 No pds
+solution
+03.08.09 067 18 : 08 18 : 18 AK2 S9 34 845 No pds
+solution
+03.08.09 067 19 : 56 20 : 04 CA1 S9 34 846 No pds
+solution
+When the receiver locks on the interfering signal, jumping (interruptions
+on curve) of the received carrier frequency is seen. These interruptions
+in carrier lock result in loss of downlink capability and can visually show
+when interference has occurred. Figure 9.15 shows that for most of the
+pass, each LUT is successfully locked on its desired signal. Two vertical
+lines, in Figure 9.15 show the time interval of interference. This can
+result in missed bursts (missed Doppler event), or no signal received at all.
+Figure 9.15 Interference interval.
+Table 9.3 Passes aected by interference.
+Date DOY AOS LOS LUT SAT Orbit Reason
+03.08.09 067 16 : 31 16 : 43 LSE S9 34 844 No pds
+solution
+03.08.09 067 16 : 35 16 : 47 CA2 S9 34 844 No pds
+solution
+03.08.09 067 18 : 08 18 : 18 AK2 S9 34 845 No pds
+solution
+03.08.09 067 19 : 56 20 : 04 CA1 S9 34 846 No pds
+solution
+When the receiver locks on the interfering signal, jumping (interruptions
+on curve) of the received carrier frequency is seen. These interruptions
+in carrier lock result in loss of downlink capability and can visually show
+when interference has occurred. Figure 9.15 shows that for most of the
+pass, each LUT is successfully locked on its desired signal. Two vertical
+lines, in Figure 9.15 show the time interval of interference. This can
+result in missed bursts (missed Doppler event), or no signal received at all.
+371
+04.16.09 106 19 : 49 19 : 58 CA2 S9 35 401 No pds
+solution
+04.16.09 106 21 : 34 21 : 44 HI2 S9 35 402 No pds
+solution
+04.17.09 107 0 : 58 1 : 11 GU2 S11 12 932 No pds
+solution
+For SARSAT system, the downlink interference between S11 and S9
+(Figure 9.15) was documented by France in March and April 2009, when
+S9 and S11 were close to each other. The March 8, 2009, occurrence
+of interference between these two satellites caused four passes, over
+a period of three orbits, which produced no pds solutions. The April
+16, 2009, occurrence of interference caused three passes with no pds
+solutions over a period of three orbits, presented in Table 9.3 (DOY means
+day of the year). But, the number of no pds solutions alone cannot
+accurately gauge the amount of interference in the downlink. It is a
+signicant variability in the number pds bursts received by the satellite
+during each orbit depending on the path.
+Considering orbital parameters (Table 8.1), three pairs of operational
+SARSAT satellites are susceptible to this interference condition: S10/
+S12, S9/S11, and S7/S8 identied and presented in Table 9.4 with their
+respective orbital periods and dierences between them, and recorder by
+NOAA orbital software are given in Figure 9.16.
+The small dierence in orbital periods of the S10/S12 pair is particularly
+concerning. The Orbit repeat cycle indicates the number of orbits that
+satellite should pass through to achieve the same position relative to the
+adjacent satellite and to the xed ground station. Mathematically, Orbit
+repeat cycle is the ratio of orbit period and orbital dierence. Further, for
+this cycle to be expressed in days, it should be divided by the mean motion
+from Table 8.1 (for example for S12 is 14.1095). The SARSAT documented
+that the launch of S12 (NOAA‐19) into an orbital plane similar to
+372
+Table 9.4 SARSAT adjacent satellites.
+Satellite Orbit period Dierence Orbit repeat
+cycle
+Repeat cycle
+(days)
+SARSAT12 01 : 42 :
+03.53
+00 : 00 :
+01.30
+4710 334
+SARSAT10 01 : 42 :
+02.23
+SARSAT11 01 : 41 :
+18.10
+00 : 00 :
+10.92
+556 39
+SARSAT 9 01 : 41 :
+07.18
+SARSAT 8 01 : 41 :
+56.75
+00 : 00 :
+52.55
+116 8
+SARSAT 7 01 : 41 :
+04.20
+S10 (NOAA‐18), and with nearly identical orbital periods, created long
+periods of adjacent interference. The rst period of extended interference
+occurred September 15–20, 2009 (Cakaj et al. 2010a).
+373
+Figure 9.16 SARSAT adjacent satellites.
+9.6.1 Adjacent Interference Identification and Duration Interval
+To determine the duration of the interference periods, one must nd the
+minimal angular separation between satellites as seen from the ground
+station, when interference occurs. This is highly dependent on the gain
+pattern and pointing accuracy of the LUT antenna. For a typical LEOLUT
+antenna gain pattern, the −3 dB (half power) beamwidth is found to be
+±4.25°. This beamwidth represents the necessary angular separation to
+prevent undesired signals from being highly amplied. As the angular
+separation increases, the gain of the interfering source decreases. Since
+the distance between the two satellites is relatively constant during a
+Figure 9.16 SARSAT adjacent satellites.
+9.6.1 Adjacent Interference Identification and Duration Interval
+To determine the duration of the interference periods, one must nd the
+minimal angular separation between satellites as seen from the ground
+station, when interference occurs. This is highly dependent on the gain
+pattern and pointing accuracy of the LUT antenna. For a typical LEOLUT
+antenna gain pattern, the −3 dB (half power) beamwidth is found to be
+±4.25°. This beamwidth represents the necessary angular separation to
+prevent undesired signals from being highly amplied. As the angular
+separation increases, the gain of the interfering source decreases. Since
+the distance between the two satellites is relatively constant during a
+374
+(9.14)
+singular pass, it can be seen that the apparent angular separation is
+greatest when the satellites are at their maximum elevation (closest
+approach) (Cakaj et al. 2010a). Thus, minimum angular separation occurs
+when the satellites are at minimum elevation. Thus, the cases with low
+elevation are of interest from the interference aspect.
+Idea: Under the case that the satellites based on their orbital parameters
+are adjacent, and the interference is expected, the main question is to
+conclude how long it will take? Further elaborated!
+Method: Mathematical and simulation approach are applied and
+conrming each other. Let us consider a LUT with antenna aperture
+of ±4.25°. This antenna is tracking a satellite, which is moving ahead
+relative to another satellite which is seen at minimum elevation above
+the horizon (5°), as shown in Figure 9.17.
+These adjacent satellites, seen at low elevation and with a very low
+separation angle, have great potential to interfere with each other. The
+slant range is calculated for elevations of 9.25° and 5° (5° is designed
+horizon with 4.25° separation) from the ground station. Spatially the
+separation angle is the spherical angle from 0° to 4.25°. The 0° point
+is on the desired satellite, and 4.25° point is the –3 dB interference
+point; consequently, it is the largest possible distance for interference
+from another satellite. The general formula for the slant range (d) under
+elevation ε0
+is (Cakaj and Malaric 2007):
+(9.14)
+singular pass, it can be seen that the apparent angular separation is
+greatest when the satellites are at their maximum elevation (closest
+approach) (Cakaj et al. 2010a). Thus, minimum angular separation occurs
+when the satellites are at minimum elevation. Thus, the cases with low
+elevation are of interest from the interference aspect.
+Idea: Under the case that the satellites based on their orbital parameters
+are adjacent, and the interference is expected, the main question is to
+conclude how long it will take? Further elaborated!
+Method: Mathematical and simulation approach are applied and
+conrming each other. Let us consider a LUT with antenna aperture
+of ±4.25°. This antenna is tracking a satellite, which is moving ahead
+relative to another satellite which is seen at minimum elevation above
+the horizon (5°), as shown in Figure 9.17.
+These adjacent satellites, seen at low elevation and with a very low
+separation angle, have great potential to interfere with each other. The
+slant range is calculated for elevations of 9.25° and 5° (5° is designed
+horizon with 4.25° separation) from the ground station. Spatially the
+separation angle is the spherical angle from 0° to 4.25°. The 0° point
+is on the desired satellite, and 4.25° point is the –3 dB interference
+point; consequently, it is the largest possible distance for interference
+from another satellite. The general formula for the slant range (d) under
+elevation ε0
+is (Cakaj and Malaric 2007):
+375
+Figure 9.17 Adjacent satellites angular separation.
+(9.15)
+where, RE = 6378km is Earth radius and H is orbital altitude. The
+separation distance (sd) can then be determined using a small angle
+approximation and applying cosines theorem, as:
+Where d2
+is the slant range of pointed satellite from the ground station
+and d1
+is the slant range of the adjacent satellite potential to interfere.
+Altitude H for each satellite is taken from Table 8.1. The slant ranges
+and separation distances calculated based on Eq. (9.14) and Eq. (9.15)
+are presented in Table 9.5. For more exact calculations, these separation
+distances should be multiplied by cosines of separation angle (projection
+of separation distance in its own orbit), which for too‐low angles can be
+considered as 1. This separation distance when interference may occur,
+and the dierence in orbital periods can then be used to nd the duration
+Figure 9.17 Adjacent satellites angular separation.
+(9.15)
+where, RE = 6378km is Earth radius and H is orbital altitude. The
+separation distance (sd) can then be determined using a small angle
+approximation and applying cosines theorem, as:
+Where d2
+is the slant range of pointed satellite from the ground station
+and d1
+is the slant range of the adjacent satellite potential to interfere.
+Altitude H for each satellite is taken from Table 8.1. The slant ranges
+and separation distances calculated based on Eq. (9.14) and Eq. (9.15)
+are presented in Table 9.5. For more exact calculations, these separation
+distances should be multiplied by cosines of separation angle (projection
+of separation distance in its own orbit), which for too‐low angles can be
+considered as 1. This separation distance when interference may occur,
+and the dierence in orbital periods can then be used to nd the duration
+376
+Table 9.5 SARSAT adjacent satellites.
+Satellite Slant range (at
+9.25°) (km)
+Slant range
+(at 5°) (km)
+Separation distance
+(km)
+SARSAT12 2544.5 416.4
+SARSAT10 2903.8
+SARSAT11 2470.3 399.1
+SARSAT 9 2812.9
+SARSAT 8 2534.4 341.4
+SARSAT 7 2806.5
+Table 9.6 SARSAT adjacent satellites.
+Satellite Velocity (km/
+s)
+Duration (s) Interference repeat
+cycle (#Orbits)
+Repeat cycle
+(#days)
+SARSAT12 7.423 56.3 43.3 3.10
+SARSAT10 7.423
+SARSAT11 7.446 53.9 4.9 0.35
+SARSAT 9 7.441
+SARSAT 8 7.447 46.1 0.9 0.06
+of possible interference. Considering that these satellites are always
+moving with a particular velocity v, the question is how long they can be
+together within a separation angle of 4.25° or lower!
+Results: Finally, the math results for separation distances between
+adjacent satellites and interference repeat cycle are given in Tables 9.5
+and 9.6.
+In Table 9.6, the Duration represents expected time interval of possible
+adjacent interference. (This is needed time for satellite S12(S10) moving
+at velocity of 7.423km/s to pass the critical separation distance of
+377
+416.4km). The frequency of these events and their duration relative to
+the xed ground stations depend on the dierence of orbital period times
+(Table 9.4). The ratio of interference time duration to time dierence in
+orbital periods represents Interference repeat cycle per orbit. For duration
+of 56.3s divided by orbital time dierence of 1.3s from Table 9.4 the
+repeat cycle is 43.3. This cycle is expressed in days when divided by mean
+motion (Table 8.1, it is 14.1095). Thus, for repeat cycle of 43.3 divided
+by 14.1095 stems the value of approx. 3.10 days. Considering separation
+distance, predictions for the interference repeat cycle of satellite pairs are
+listed in Table 9.6. Math results from Table 9.6 are in full accordance with
+outputs from orbital software given in Table 9.4.
+Conclusion: In general, the dierence in orbital periods between the
+two satellites will dictate the duration and repeatability of interference
+intervals. From Table 9.6 it is obvious that the S10/S12 pair experiences
+the highest interference repeat cycle – consequently, the longest possible
+interference disturbance, because of too‐close orbital periods. This
+means that the satellite pair S10/S12 is of particular concern from
+the interference aspect. The S7/S8 pair is the least experiences with
+interference (obvious from Figure 9.16).
+(9.16)
+9.7 Modulation Index Application for
+Downlink Interference Identification
+On support of interference identication, LEOLUT's software uses two
+more parameters: modulation index (mean) and modulation index (root
+mean square – RMS). Modulation index indicates the quantity by which
+the modulated variable varies around its unmodulated level (Cakaj 2012).
+Considering downlink phase modulation, modulation index (mean)
+relates to the variations in the phase of the carrier signal, expressed as:
+∆θ(t) is the phase deviation.
+416.4km). The frequency of these events and their duration relative to
+the xed ground stations depend on the dierence of orbital period times
+(Table 9.4). The ratio of interference time duration to time dierence in
+orbital periods represents Interference repeat cycle per orbit. For duration
+of 56.3s divided by orbital time dierence of 1.3s from Table 9.4 the
+repeat cycle is 43.3. This cycle is expressed in days when divided by mean
+motion (Table 8.1, it is 14.1095). Thus, for repeat cycle of 43.3 divided
+by 14.1095 stems the value of approx. 3.10 days. Considering separation
+distance, predictions for the interference repeat cycle of satellite pairs are
+listed in Table 9.6. Math results from Table 9.6 are in full accordance with
+outputs from orbital software given in Table 9.4.
+Conclusion: In general, the dierence in orbital periods between the
+two satellites will dictate the duration and repeatability of interference
+intervals. From Table 9.6 it is obvious that the S10/S12 pair experiences
+the highest interference repeat cycle – consequently, the longest possible
+interference disturbance, because of too‐close orbital periods. This
+means that the satellite pair S10/S12 is of particular concern from
+the interference aspect. The S7/S8 pair is the least experiences with
+interference (obvious from Figure 9.16).
+(9.16)
+9.7 Modulation Index Application for
+Downlink Interference Identification
+On support of interference identication, LEOLUT's software uses two
+more parameters: modulation index (mean) and modulation index (root
+mean square – RMS). Modulation index indicates the quantity by which
+the modulated variable varies around its unmodulated level (Cakaj 2012).
+Considering downlink phase modulation, modulation index (mean)
+relates to the variations in the phase of the carrier signal, expressed as:
+∆θ(t) is the phase deviation.
+378
+(9.17)
+(9.18)
+The other measure is modulation index (root mean square). In
+mathematics, the root mean square (RMS) is a statistical measure of the
+magnitude of varying quantity. It is especially useful for sinusoids wave
+forms. In case of set of n values mi1
+, mi2
+, …min
+,the RMS is given by (Mean‐
+Root‐Square, 2012; Yafeng et al. 2004):
+The corresponding formula for a continuous function m(t) dened over
+the time interval T1 < t < T2
+, the RMS is:
+For illustration and interpretation, two dierent Doppler curves are
+given, with no interference and the next one with interference presence,
+presented in Figures 9.18 and 9.19, respectively.
+The received carrier frequency is shown on the left axis, and modulation
+index mean and RMS (route mean square) on the right axis. Modulation
+index indicates the quantity by how much the modulated variable varies
+around its unmodulated level. Considering downlink phase modulation,
+this index relates to the variations in the phase of the carrier signal.
+In Figure 9.18, there is no interference, so the lines expressing
+modulation index and root mean square index are almost at, conrming
+noninterference presence. Figure 9.19, is the case with medium maximal
+elevation of 36°. Figure 9.19 shows the interference during AOS
+(acquisition of satellite- left circled part). Further, as the satellite moves
+toward higher elevation there is no interference (medium part of gure)
+and then again there is interference near LOS (loss of satellite- right
+circled part). Frequency jumps in the downlink carrier can be seen in the
+lower‐right corner of Figure 9.19, manifested by a high mean modulation
+index at the same time. In Figure 9.19, it is very expressive modulation
+(9.17)
+(9.18)
+The other measure is modulation index (root mean square). In
+mathematics, the root mean square (RMS) is a statistical measure of the
+magnitude of varying quantity. It is especially useful for sinusoids wave
+forms. In case of set of n values mi1
+, mi2
+, …min
+,the RMS is given by (Mean‐
+Root‐Square, 2012; Yafeng et al. 2004):
+The corresponding formula for a continuous function m(t) dened over
+the time interval T1 < t < T2
+, the RMS is:
+For illustration and interpretation, two dierent Doppler curves are
+given, with no interference and the next one with interference presence,
+presented in Figures 9.18 and 9.19, respectively.
+The received carrier frequency is shown on the left axis, and modulation
+index mean and RMS (route mean square) on the right axis. Modulation
+index indicates the quantity by how much the modulated variable varies
+around its unmodulated level. Considering downlink phase modulation,
+this index relates to the variations in the phase of the carrier signal.
+In Figure 9.18, there is no interference, so the lines expressing
+modulation index and root mean square index are almost at, conrming
+noninterference presence. Figure 9.19, is the case with medium maximal
+elevation of 36°. Figure 9.19 shows the interference during AOS
+(acquisition of satellite- left circled part). Further, as the satellite moves
+toward higher elevation there is no interference (medium part of gure)
+and then again there is interference near LOS (loss of satellite- right
+circled part). Frequency jumps in the downlink carrier can be seen in the
+lower‐right corner of Figure 9.19, manifested by a high mean modulation
+index at the same time. In Figure 9.19, it is very expressive modulation
+379
+Figure 9.18 No interference Doppler curve for Max. El. 23 °.
+index and frequency jump during the loss of satellite. In Figure 9.19
+modulation index is circled and mean root square index is squared,
+conrming exactly the principles discussed.
+Figure 9.18 No interference Doppler curve for Max. El. 23 °.
+index and frequency jump during the loss of satellite. In Figure 9.19
+modulation index is circled and mean root square index is squared,
+conrming exactly the principles discussed.
+380
+Figure 9.19 Doppler curve for Maximal elevation of 36° (present
+interference).
+9.7.1 Simulation Approach of Interference Events and Timelines
+As another approach, and for results comparison, a satellite orbit analysis
+program (at NSOF, SARSAT, NOAA) using the known LUT antenna gain
+pattern is applied. Again, when the both satellites are within –3 dB
+beamwidth (separation angle of 4.25°) from the point of view of the
+LUT, it was determined that interference is possible. Considering events
+from Table 9.3, a period from May to December is then conducted. The
+beginning of the period of possible interference was designated as the
+rst pass at a SARSAT LUT where S10 and S12 would be within 4.25°
+of each other, at any point during the pass. The predicted periods of
+interference were generated by a NOAA orbital analysis software. Table
+9.7 shows the timeline of these signicant events.
+Figure 9.19 Doppler curve for Maximal elevation of 36° (present
+interference).
+9.7.1 Simulation Approach of Interference Events and Timelines
+As another approach, and for results comparison, a satellite orbit analysis
+program (at NSOF, SARSAT, NOAA) using the known LUT antenna gain
+pattern is applied. Again, when the both satellites are within –3 dB
+beamwidth (separation angle of 4.25°) from the point of view of the
+LUT, it was determined that interference is possible. Considering events
+from Table 9.3, a period from May to December is then conducted. The
+beginning of the period of possible interference was designated as the
+rst pass at a SARSAT LUT where S10 and S12 would be within 4.25°
+of each other, at any point during the pass. The predicted periods of
+interference were generated by a NOAA orbital analysis software. Table
+9.7 shows the timeline of these signicant events.
+381
+Table 9.7 Timeline of signicant future interference events.
+Satellite pair Start of
+interference
+End of
+interference
+Duration (days‐
+hh:mm:ss)
+S9/S11 5.25.09, 18 : 06 :
+59
+5.26.09, 02 : 26 :
+06
+0 – 08 : 19 : 07
+S9/S11 7.03.09, 13 : 11 :
+29
+7.03.09, 19 : 37 :
+15
+0 – 06 : 25 : 46
+S9/S11 8.11.09, 01 : 29 :
+55
+8.11.09, 07 : 41 :
+06
+0 – 06 : 11 : 11
+S9/S11 9.18.09, 09 : 20 :
+34
+9.18.09, 14 : 40 :
+31
+0 – 05 : 19 : 57
+S10/S12 9.20.09, 10 : 49 :
+37
+9.23.09, 19 : 54 :
+12
+3 – 09 : 04 : 35
+S9/S11 10.26.09, 10 :
+28 : 57
+10.26.09, 16 :
+34 : 48
+0 – 06 : 05 : 51
+S9/S11 12.03.09, 07 :
+23 : 15
+12.03.09, 12 :
+37 : 25
+0 – 05 : 14 : 10
+382
+Figure 9.20 Doppler curve for Maximal elevation of 9°.
+The appropriate software conrmed that the duration of the S10/S12
+interference is of particular concern, and has been veried through this
+simulation method to be about three days. This proves the accordance
+between mathematical analysis results (Table 9.6) and simulation results
+given in Table 9.7 (Cakaj et al. 2010a). The duration of S9/S11 interference
+periods decreases. Periods of S8/S7 interference are negligible and
+therefore are not listed.
+Through these two approaches, we can conrm that considering antenna
+pattern and satellite pass geometry, analytical models can be built to
+predict the time and duration of interference based on the angular
+separation between the two satellites (Cakaj et al. 2010a).
+If operational impacts become severe, eorts must be performed to
+mitigate interference, specically under low elevation. Figure 9.20 shows
+the case at elevation of 9°. Modulation index and root mean square index
+variations during the whole satellite pass, manifested in Doppler shift
+curve, conrm interference during the whole pass under the maximal
+elevation (Max‐El) of 9°, which will make it much more dicult to
+Figure 9.20 Doppler curve for Maximal elevation of 9°.
+The appropriate software conrmed that the duration of the S10/S12
+interference is of particular concern, and has been veried through this
+simulation method to be about three days. This proves the accordance
+between mathematical analysis results (Table 9.6) and simulation results
+given in Table 9.7 (Cakaj et al. 2010a). The duration of S9/S11 interference
+periods decreases. Periods of S8/S7 interference are negligible and
+therefore are not listed.
+Through these two approaches, we can conrm that considering antenna
+pattern and satellite pass geometry, analytical models can be built to
+predict the time and duration of interference based on the angular
+separation between the two satellites (Cakaj et al. 2010a).
+If operational impacts become severe, eorts must be performed to
+mitigate interference, specically under low elevation. Figure 9.20 shows
+the case at elevation of 9°. Modulation index and root mean square index
+variations during the whole satellite pass, manifested in Doppler shift
+curve, conrm interference during the whole pass under the maximal
+elevation (Max‐El) of 9°, which will make it much more dicult to
+383
+determine a distress location, under these circumstances given in Figure
+9.20.
+Canadian team within a COSPAS‐SARSAT system developed a procedure
+to interrupt RF transmission from the satellite with a minimal chance of
+irrecoverable failure. The NOAA‐SARSAT executed this procedure when
+the operational impacts of interference became evident. The NOAA‐
+SARSAT analyzed the downlink characteristics during the periods both
+before and after the mitigation actions were taken. This process is further
+described.
+Satellite pair S10/S12, as the worst case of adjacent interference is
+further analyzed. The Canadian procedure to interrupt the downlink RF
+transmission from the satellite is considered to be applied as a method
+to mitigate adjacent satellite interference. The turno transmission was
+planned for S10. The situation before turning o the planned S10 satellite
+is given in Figure 9.21 under Max‐El of 12°, where the interference
+presence shows up!
+In Figure 9.21 before the turno of the S10 downlink, the received carrier
+frequency can be seen jumping from one satellite's downlink to the other
+one, causing the degradation of downlink capabilities. The modulation
+indices are higher during these times since the receiver cannot lock on
+only one carrier. Figure 9.22 shows the same plot after the downlink
+of S10 had been turned o. They show that the only increase of the
+modulation indices occurs near the LOS, when the signal is the weakest.
+Figure 9.22 is typical of what would be seen during a nominal pass with
+no interference. The procedures developed by Canada and executed by
+the USA were successful in interference mitigation (Cakaj et al. 2010a).
+384
+Figure 9.21 Doppler curve for Maximal elevation of 12°.
+Figure 9.22 No interference Doppler curve for Max‐El 23°.
+Conclusion: It is conrmed that adjacent SARSAT satellites with
+short dierences in orbital period interfere with each other. During
+these interference periods, signicant degradation of downlink occurs.
+The procedure to interrupt the downlink RF transmission from the
+“undesired” satellite is applied as a method to mitigate adjacent satellite
+Figure 9.21 Doppler curve for Maximal elevation of 12°.
+Figure 9.22 No interference Doppler curve for Max‐El 23°.
+Conclusion: It is conrmed that adjacent SARSAT satellites with
+short dierences in orbital period interfere with each other. During
+these interference periods, signicant degradation of downlink occurs.
+The procedure to interrupt the downlink RF transmission from the
+“undesired” satellite is applied as a method to mitigate adjacent satellite
+385
+interference. For newly built terminals though, larger antennas with a
+narrower beamwidth may also reduce the adjacent interference issue and
+impacts.
+The DASS (Distress Alert Satellite System) is a newly developed &
+future approach intended to enhance the international COSPAS‐SARSAT
+program. In this eort the satellite‐aided search and rescue (SAR) system
+will install 406 MHz SAR instruments on the MEO navigational satellites
+[GPS (US), Galileo (EU), and Glonass (Russian Federation)]. With an
+expected 80 satellites once fully operational, new processing algorithms
+and interference mitigation strategies should also be considered. Because
+of the much higher altitudes of MEO satellites, a larger separation
+distance exists, and the adjacent interference will be less pronounced.
+9.8 Uplink Interference Identification for
+LEO Search and Rescue Satellites
+For a rescue operation to be successful, it is crucial that the distress
+location be rapidly determined. The location determination is based on
+Doppler frequency shift, and its accuracy depends on the signal quality
+received at the satellite from the distress beacon. The distress beacon
+signal can be disturbed by interferers, which degrade the performance
+of the on‐board 406 MHz Search and Rescue Processor (SARP) and reduce
+the probability of detecting real beacon messages (COSPAS –SARSAT
+System Monitoring and Reporting 2008). Emergency distress beacons
+are essentially specialized radio transmitters for search and rescue
+purposes carried by airplanes, ships, and individuals. SAR (search and
+rescue) satellites can even “hear” faint distress signals from beacons.
+The beacon can be activated manually or automatically. Since February
+2009, rescue beacons have transmitted on 406 MHz. Some characteristics
+of 406 MHz beacons are shown in Table 9.8 (Specication for COSPAS –
+SARSAT406MHz Distress Beacons 2008).
+386
+Table 9.8 Some of beacon characteristics.
+Output power 5 W
+Transmission Burst (500 ms on every 50 sec)
+Modulation Phase
+Frequency stability High
+The 406.0–406.1 MHz band has been allocated by the International
+Telecommunication Union (ITU) for distress alerting using low‐
+power, emergency radio beacons. This 100 KHz licensed band is
+organized in channels for multiuser random access at the satellite.
+Frequency spectrum lies in the band 406.0–406.1 MHz. These radio
+beacons emit stable, constant frequency, which is highly important for
+location determination. The 406 MHz carrier is phase modulated with
+information such as beacon identication, synchronization frame, and
+the nature of emergency. From the time slot of 500 ms, only 160 ms
+are dedicated for poor carrier and the rest is for modulated data, such
+are beacon type, its country of origin and the registration number of
+the maritime vessel, aircraft, or individual (Specication for COSPAS –
+SARSAT406MHz Distress Beacons 2008).
+Idea: If the beacon signal at the distress location to be sent through
+the uplink to the satellite is disturbed, the satellite's receiver will not
+be able to receive the appropriate accurate (clean) beacon signal, and
+consequently will not yield the right Doppler curve to provide the
+correct rescue location. The question is to identify the impact of uplink
+interference on Doppler curve, and consequently on distress location
+determination (Cakaj et al. 2010b).
+Method: For conrmation of the above discussed eect, the records
+are taken from NSOF (NOAA Satellite Operation Facility), where the
+author did his research (NSOF 2010; National Telecommunications and
+Information Systems 2006).
+387
+Active signal sources in various areas of the world can produce spurious
+emissions in the 406 MHz allocated range, interfering with the NOAA‐
+SARSAT system, whether or not they operate at the 406 MHz band. How severe the interference is will depend on the amount of frequency
+overlap between the interfering spectrums and the allocated channel
+passband, relative to the tolerable level of the receiver. NOAA‐SARSAT
+satellites have 406 MHz repeaters for retransmitting emissions received
+from Earth in the band 406.0–406.1 MHz. As a result, the time/frequency
+pairs of interference emissions can be measured with specially designed
+LEOLUTs, which monitor 406 MHz interference using specic software
+in the LEOLUTs in conjunction with a 406 MHZ SAR processor. The
+software at the LEOLUT utilizes Fast Fourier Transform (FFT) analysis to
+determine time, frequency, and the power of the interfering signal.
+Results: Two spectrograms are further given, extracted by the
+examination of the Doppler frequency shift of data transmissions from
+detected beacons or interfering transmitters (NSOF 2010; USTTI, Course
+M6‐102, National Telecommunications and Information Systems 2006;
+Cakaj et al. 2010b).
+Figure 9.23 shows the spectrogram view with no interference. The
+Doppler curve is related to beacon A. The number of data points (Doppler
+events) depends on communication duration between a satellite and
+LEOLUT. Satellite orbital parameters, the duration, and, consequently,
+the expected data points are known in advance. In Figure 9.23, Doppler
+points are discrete, since the beacon hits the satellite in intervals of 50s.
+From Figure 9.23, it is obvious a good Doppler curve was provided during
+the satellite pass and the distress location was obtained.
+Figure 9.24 shows the spectrogram view when interference is present.
+Two beacons, B and C, are disturbed by interference. For beacon B, nine
+data points were expected and for beacon C, seven data points were
+expected. This indicates a medium duration of communication between
+a satellite and a LEOLUT. The interfering signal is shown in Figure 9.24.
+388
+Figure 9.23 No interference spectrogram view.
+The interfering signal is continuous for a long period of time as compared
+to the periodic 500 ms beacon bursts. The continuous interfering signals
+may produce a Doppler curve, but no identication code can be extracted
+from an interfering signal since its modulation, if any, would not be
+in the correct format. The lack of identication code is an interference
+indicator. Interference caused insucient data points to be captured for
+a Doppler curve, and, consequently, no distress location for these two
+beacons was obtained.
+Figure 9.23 No interference spectrogram view.
+The interfering signal is continuous for a long period of time as compared
+to the periodic 500 ms beacon bursts. The continuous interfering signals
+may produce a Doppler curve, but no identication code can be extracted
+from an interfering signal since its modulation, if any, would not be
+in the correct format. The lack of identication code is an interference
+indicator. Interference caused insucient data points to be captured for
+a Doppler curve, and, consequently, no distress location for these two
+beacons was obtained.
+389
+Figure 9.24 Interference spectrogram view.
+Conclusion: NOAA‐SARSAT is a data communication system dedicated
+for search and rescue purposes, oriented on determination of distress
+locations worldwide. Since uplink interference can disturb the satellite's
+receiver, blocking the location of the distress location, thus a very
+sophisticated method has been developed and applied at LEOLUTs to
+identify uplink interference, providing spectrograms above applied. This
+method provides data about frequency, power, and time of interference.
+Bulloch, C. (1987) Search and Rescue by satellite – Slow steps toward an
+operational system, (ISSN 0020‐5168), 42: 275 ‐277.
+Cakaj, S. (2010). Intermodulation interference modelling for low
+earth orbiting satellite ground stations book chapter. In: Modelling,
+Simulation and Optimization (ed. R.G. Rey and M.L. Muneta), 97–116.
+Croatia: INTECH.
+References
+Figure 9.24 Interference spectrogram view.
+Conclusion: NOAA‐SARSAT is a data communication system dedicated
+for search and rescue purposes, oriented on determination of distress
+locations worldwide. Since uplink interference can disturb the satellite's
+receiver, blocking the location of the distress location, thus a very
+sophisticated method has been developed and applied at LEOLUTs to
+identify uplink interference, providing spectrograms above applied. This
+method provides data about frequency, power, and time of interference.
+Bulloch, C. (1987) Search and Rescue by satellite – Slow steps toward an
+operational system, (ISSN 0020‐5168), 42: 275 ‐277.
+Cakaj, S. (2010). Intermodulation interference modelling for low
+earth orbiting satellite ground stations book chapter. In: Modelling,
+Simulation and Optimization (ed. R.G. Rey and M.L. Muneta), 97–116.
+Croatia: INTECH.
+References
+390
+Cakaj, S. (2012). Modulation index application for satellite adjacent
+downlink interference identication. In: The 6th European Conference
+on Antennas and Propagation EUCAP 2012, 2000–2004. Prague, Czech
+Republic: IEEE, March 26‐30, 2012.
+Cakaj, S. and Malaric, K. (2007). Rigorous analysis on performance of LEO
+satellite ground station in urban environment. International Journal
+of Satellite Communications and Networking 25 (6): 619–643, Surrey, United Kingdom.
+Cakaj, S., Keim, W.A., and Malaric, K. (2005). Intermodulation by
+uplink signal at low earth orbiting satellite ground station. In:
+18th International Conference on Applied Electromagnetics and
+Communications, ICECom, 193–197. Dubrovnik, Croatia: IEEE.
+Cakaj, S., Malaric, K., and Schotlz, L.A. (2008). Modelling of interference
+caused by uplink signal for low earth orbiting satellite ground
+stations. In: 17th IASTED International Conference on Applied
+Simulation and Modelling, ASM 2008, June 23 –25, 187–119. Greece.
+Cakaj, S., Fitzmaurice, M., Reich, J., and Foster, E. (2010a). The downlink
+adjacent interference for low earth orbiting (LEO) search and rescue
+satellites. International Journal of Communications, Networks and
+System Sciences (IJCNS) 3 (2): 107–115.
+Cakaj, S., Fitzmaurice, M., Reich, J., and Foster, E. (2010b). Uplink
+interference identication for low earth orbiting (LEO) search and
+rescue satellites. In: 52nd International Symposium ELMAR 2010
+focused on Multimedia Systems and Applications, 173–176. Zadar,
+Croatia: IEEE.
+COSPAS – SARSAT 406MHz Frequency Management Plan (2008) C/
+T T.012, Issue 1 – Revision 5, Probability of Successful Doppler
+Processing and LEOSAR System Capacity, October.
+391
+COSPAS –SARSAT System Monitoring and Reporting (2008) C/S A.003,
+Issue 1, Revision 15, October.
+Difonzo, F.D. (2000). Satellite and Aerospace. In: The Electrical Engineering
+Handbook, chapter 74 (ed. R.C. Dorf). Boca Raton, FL: CRC Press LLC.
+Dodel, H. (1999). Satellitenkommunikation. Berlin: Springer‐Verlag.
+Gordon, D.G. and Morgan, L.W. (1993). Principles of Communication
+Satellites. New York: Wiley.
+Kanellopoulos, D.J., Kritikos, D.T., and Panagopoulos, D.A. (2007). Adjacent satellite interference eects on the outage performance
+of a dual polarized triple site diversity scheme. IEEE Transaction on
+Antennas 55 (7): 2043–2055.
+Landis, S.J. and Mulldolland, J.E. (1993). Low‐cost satellite ground control
+facility design. IEEE, Aerospace & Electronics systems 2 (6): 35–49.
+Losik, L., (1995) Final report for a low–cost autonomous, unmanned
+ground station operations concept and network design for EUVE and
+other NASA Earth orbiting satellites, Technology Innovation Series,
+Publication 666, Center for EUVE Astrophysics, University California,
+Berkeley.
+Maral, G. and Bousquet, M. (2002). Satellite Communication Systems.
+Chichester, England: Wiley.
+Mendenhall, N. G. (2001) A Study of Intermodulation between
+Transmitters Sharing Filterplexed or Co‐Located Antenna Systems.
+Engineering Broadcast Electronics, Inc., Quincy, IL.
+NSOF (2010), https://commerce.maryland.gov/Documents/
+BusinessResource/NSOF‐NOAA‐Satellite‐Operations‐Facility.pdf
+392
+National Telecommunications and Information Administration, (2006)
+USTTI Radio Spectrum Frequency Management Course M6‐102, 2006, Washington, DC.
+Richharia, M. (1999). Satellite communications systems. New York:
+McGraw Hill.
+Root‐Mean‐Square 2012, http://mathworld.wolfram.com/Root‐Mean‐
+Square.htm
+Sklar, B. (2001). Digital Communication. Englewood Clis, NJ: Prentice
+Hall PTR.
+Specication for COSPAS – SARSAT406MHz Distress Beacons (2008) C/T
+T.001, Issue 3 – Revision 9 October.
+Vataralo, F., Emanuele, G., Caini, C., and Ferrarelli, C. (1995). Analysis
+OF LEO, MEO and GEO global Mobile satellite Systems in the
+Presence of interference and fading. IEEE Journal on Selected Areas in
+Communications 13 (2): 291–299.
+Yafeng, Z., Zhigang, C., and Zhengxin, M. (2004). Modulation index
+estimation for CPFSK signals and its application to timing
+synchronization. In: International Symposium on Multi‐Dimensional
+Mobile Communications, 2e, 874–877. Beijing, China.: IEEE.
+393
