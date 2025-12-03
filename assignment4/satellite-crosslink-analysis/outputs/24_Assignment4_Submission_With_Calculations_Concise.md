@@ -1,10 +1,12 @@
-# SpCE 5400 Assignment 4: Optical vs. RF Crosslinks Trade Study
-
 ## LEO Satellite Constellation Communication Analysis
 
-### **Submission with Calculations Shown**
+**Course:** SPCE 5400 – Small Satellite Engineering & Operations
 
-**Student SubmissionDate:** November 2025
+**Assignment:** #4 (100 points)
+
+Prepared by: **Jordan Clayton**
+
+**Date:** 2025-11-16
 
 ---
 
@@ -19,6 +21,7 @@
 7. ADVANTAGES AND DISADVANTAGES
 8. RECOMMENDATION
 9. CONCLUSION
+10. References 
 
 APPENDIX: Formula Reference
 
@@ -340,9 +343,9 @@ Formula: θ_3dB ≈ 0.514 × λ / D
 
 **Pointing Requirement:** ±8 μrad (3σ) for <3 dB pointing loss
 
-![https://en.wikipedia.org/wiki/Gaussian_beam](attachment:c27ef1d1-3b8d-462d-a597-8faa623ad819:Gaussian_Beam_FWHM.gif)
+![Gaussian Beam FWHM Diagram - Shows relationship between beam divergence and half-power beamwidth](figures/Gaussian_Beam_FWHM.gif)
 
-https://en.wikipedia.org/wiki/Gaussian_beam
+*Figure: Gaussian beam intensity profile showing FWHM (Full Width at Half Maximum). The half-power beamwidth (8.0 μrad) is where intensity drops to 50% (-3 dB), which defines our pointing requirement. Source: [Wikipedia - Gaussian Beam](https://en.wikipedia.org/wiki/Gaussian_beam)*
 
 **In degrees:**
 
@@ -1032,44 +1035,6 @@ RF has significantly easier pointing (calculated roughly 4,800× wider beamwidth
 
 ---
 
-## **APPENDIX: Formula Reference**
-
-### **Optical Link Budget Formulas**
-
-`n = Q / η                                    [photons/bit]
-E_photon = h × c / λ                         [J/photon]
-E_bit = n × E_photon                         [J/bit]
-P_req = E_bit × R_b                          [W]
-
-L_s = (λ / (4πR))²                           [linear]
-G = (πD / λ)²                                [linear]
-
-P_rx = P_tx × L_s × G_tx × G_rx × L_pt × L_o [W]
-Margin = 10 × log₁₀(P_rx / P_req)            [dB]
-
-θ = 1.22 × λ / D                             [radians]`
-
-### **RF Link Budget Formulas**
-
-`FSPL = 20 × log₁₀(4πR/λ)                     [dB]
-G = η_ant × (πD/λ)²                          [linear]
-EIRP = P_t + G_t                             [dBW]
-
-N_0 = k_B × T_sys                            [W/Hz]
-C/N_0 = P_rx - N_0                           [dB-Hz]
-(C/N_0)_req = (E_b/N_0)_req + 10×log₁₀(R_b)  [dB-Hz]
-Margin = C/N_0 - (C/N_0)_req                 [dB]
-
-θ_3dB ≈ 70 × λ / D                           [degrees]`
-
-### **Constants Used**
-
-`c = 3 × 10^8 m/s                 (speed of light)
-h = 6.626 × 10^-34 J·s           (Planck's constant)
-k_B = 1.38 × 10^-23 J/K          (Boltzmann constant)`
-
----
-
 ## 10. REFERENCES
 
 Standards and Regulatory Documents
@@ -1275,3 +1240,41 @@ J·s
 - Speed of light: c = 299,792,458 m/s (exact)
 - Boltzmann constant: k_B = 1.380649 × 10⁻²³
 J/K
+
+---
+
+## **APPENDIX: Formula Reference**
+
+### **Optical Link Budget Formulas**
+
+`n = Q / η                                    [photons/bit]
+E_photon = h × c / λ                         [J/photon]
+E_bit = n × E_photon                         [J/bit]
+P_req = E_bit × R_b                          [W]
+
+L_s = (λ / (4πR))²                           [linear]
+G = (πD / λ)²                                [linear]
+
+P_rx = P_tx × L_s × G_tx × G_rx × L_pt × L_o [W]
+Margin = 10 × log₁₀(P_rx / P_req)            [dB]
+
+θ = 1.22 × λ / D                             [radians]`
+
+### **RF Link Budget Formulas**
+
+`FSPL = 20 × log₁₀(4πR/λ)                     [dB]
+G = η_ant × (πD/λ)²                          [linear]
+EIRP = P_t + G_t                             [dBW]
+
+N_0 = k_B × T_sys                            [W/Hz]
+C/N_0 = P_rx - N_0                           [dB-Hz]
+(C/N_0)_req = (E_b/N_0)_req + 10×log₁₀(R_b)  [dB-Hz]
+Margin = C/N_0 - (C/N_0)_req                 [dB]
+
+θ_3dB ≈ 70 × λ / D                           [degrees]`
+
+### **Constants Used**
+
+`c = 3 × 10^8 m/s                 (speed of light)
+h = 6.626 × 10^-34 J·s           (Planck's constant)
+k_B = 1.38 × 10^-23 J/K          (Boltzmann constant)`

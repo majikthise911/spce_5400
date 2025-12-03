@@ -1,0 +1,67 @@
+---
+title: "Optical vs. RF Crosslinks Trade Study"
+subtitle: "LEO Satellite Constellation Communication Analysis"
+author: "Jordan Clayton"
+date: "November 2025"
+course: "SpCE 5400 - Space Communications Systems"
+assignment: "Assignment 4"
+
+# Document styling
+documentclass: article
+classoption:
+  - 11pt
+  - letterpaper
+
+# Geometry
+geometry:
+  - margin=1in
+  - top=1.2in
+  - bottom=1.2in
+
+# Typography
+mainfont: "Helvetica"
+monofont: "Courier New"
+fontsize: 11pt
+linestretch: 1.2
+
+# Colors for links
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
+citecolor: blue
+toccolor: black
+
+# Table of contents
+toc: true
+toc-depth: 3
+toc-title: "Table of Contents"
+numbersections: true
+
+# Headers and footers
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[L]{SpCE 5400 - Assignment 4}
+  \fancyhead[R]{Optical vs RF Crosslinks}
+  \fancyfoot[C]{\thepage}
+  \usepackage{graphicx}
+  \usepackage{booktabs}
+  \usepackage{longtable}
+  \usepackage{float}
+  \floatplacement{figure}{H}
+
+# Abstract
+abstract: |
+  This report presents a comprehensive trade study comparing optical (laser) and RF (Ka-band) crosslink technologies for a low Earth orbit (LEO) satellite constellation. Two satellites at 500 km altitude, separated by 250 km, require 1 Gbps data rate communication. The analysis evaluates five key parameters: aperture size, transmit power, data rate capability, link margin, and pointing accuracy. Complete link budget calculations are provided for both technologies, demonstrating that optical crosslinks achieve 25.66 dB margin with 10 cm apertures and 0.122 W transmit power, compared to RF's 2.8 dB margin with 30 cm apertures and 1.2 W power. Despite requiring 4,800× more precise pointing (8.0 μrad vs 2.19°), optical crosslinks are recommended due to superior link margin (9× better), scalability (10+ Gbps), and size/weight/power advantages (47% lighter, 10× lower power). The challenging pointing requirement is manageable with heritage Fast Steering Mirror technology from NASA LCRD and ESA EDRS missions.
+
+# Keywords
+keywords:
+  - Optical communications
+  - RF communications
+  - Satellite crosslinks
+  - Link budget analysis
+  - LEO constellation
+  - Ka-band
+  - Laser communications
+  - Trade study
+---
