@@ -14,7 +14,8 @@
       "Bash(sudo tlmgr install:*)",
       "Bash(./build_pdf_simple.sh:*)",
       "Bash(./build_pdf_file24.sh:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
