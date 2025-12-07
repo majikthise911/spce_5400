@@ -1,0 +1,49 @@
+flowchart TD
+    Box1Start([Box 1: Start - Gather Inputs]) --> Box2Inputs["Box 2: Input Parameters<br/><b>Description:</b> List key frequencies & bandwidth:<br/>• f_x: External radio source freq (intruder, e.g., 1.6 GHz)<br/>• f_t: Uplink transmit freq (local tx, e.g., 1.5 GHz)<br/>• f_r: Downlink receive freq (desired, e.g., 1.4 GHz)<br/>• B: Downlink bandwidth (e.g., 10 MHz; Δf = B/2 = 5 MHz)<br/><i>Why?</i> Identifies potential mixing sources in LNA front-end."]
+    
+    Box2Inputs --> Box3FIF["Box 3: Fixed IF Frequency<br/><b>f_IF = 140 MHz</b><br/><b>Description:</b> Standard intermediate freq for processing (narrow band: e.g., 139.95–140.05 MHz per Eq. 9.13).<br/><i>Why?</i> Post-downconversion 'sweet spot' where ghosts are checked."]
+    
+    Box3FIF --> Box4LO["Box 4: Local Oscillator Calc<br/><b>f_LO = f_r - f_IF</b> (or + for low-side; typical high-side injection)<br/><b>Description:</b> Mixer freq to shift f_r to f_IF (e.g., f_LO ≈ 1.26 GHz).<br/>• Formula: f_r - f_LO = f_IF (superheterodyne principle).<br/><i>Why?</i> Enables low-freq processing; shifts ghosts too."]
+    
+    Box4LO --> Box5DeltaF["Box 5: Half-Bandwidth Calc<br/><b>Δf = B/2</b><br/><b>Description:</b> Edges around f_r or f_IF (e.g., ±0.05 MHz for 100 kHz B).<br/><i>Why?</i> Defines 'in-band' tolerance for interference."]
+    
+    Box5DeltaF -->|Parallel Path 1| Box6F1["Box 6: First IM Product: f1 = 2*f_x - f_t<br/><b>Description:</b> 3rd-order mix in nonlinear LNA (y ~ x^3 term).<br/>• Example: 2*1.6 - 1.5 = 1.7 GHz ghost.<br/><i>Why?</i> Two intruders (f_x) overpower tx (f_t); common in front-ends."]
+    
+    Box6F1 --> Box7Check1Upper{"Box 7: Upper Bound Check<br/><b>f1 - f_LO ≤ f_IF + Δf ?</b><br/><b>Description:</b> Shift ghost to IF frame; check if below upper edge.<br/><i>Why?</i> Part 1 of range: Ghosts must be within [f_IF - Δf, f_IF + Δf]."}
+    
+    Box7Check1Upper -->|NO| Box8OutBand1["Box 8: Intermodulation Product Out of Band<br/><b>No Disturbance</b><br/><b>Description:</b> Ghost misses IF—harmless (filtered later).<br/><i>Why?</i> Outside passband; no overlap."]
+    
+    Box8OutBand1 -.-> Box18EndNo
+    
+    Box7Check1Upper -->|YES| Box9Check1Lower{"Box 9: Lower Bound Check<br/><b>f1 - f_LO ≥ f_IF - Δf ?</b><br/><b>Description:</b> Confirm above lower edge.<br/><i>Why?</i> Full range verification for in-band hit."}
+    
+    Box9Check1Lower -->|NO| Box8OutBand1
+    
+    Box9Check1Lower -->|YES| Box10InBand1["Box 10: Inband Interference Detected<br/><b>Description:</b> Ghost lands in IF band—potential issue.<br/><i>Why?</i> Will pass filters and add noise."]
+    
+    Box5DeltaF -->|Parallel Path 2| Box11F2["Box 11: Second IM Product: f2 = 2*f_r - f_x<br/><b>Description:</b> Symmetric 3rd-order mix.<br/>• Example: 2*1.4 - 1.6 = 1.2 GHz ghost.<br/><i>Why?</i> Two desired (f_r) overpower intruder (f_x); covers reverse crashes."]
+    
+    Box11F2 --> Box12Check2Upper{"Box 12: Upper Bound Check<br/><b>f2 - f_LO ≤ f_IF + Δf ?</b><br/><b>Description:</b> Same shift & upper edge check as f1.<br/><i>Why?</i> Consistent for both products."}
+    
+    Box12Check2Upper -->|NO| Box13OutBand2["Box 13: Intermodulation Product Out of Band<br/><b>No Disturbance</b><br/><b>Description:</b> Ghost misses—safe."]
+    
+    Box13OutBand2 -.-> Box18EndNo
+    
+    Box12Check2Upper -->|YES| Box14Check2Lower{"Box 14: Lower Bound Check<br/><b>f2 - f_LO ≥ f_IF - Δf ?</b><br/><b>Description:</b> Lower edge confirmation.<br/><i>Why?</i> Ensures full in-band overlap."}
+    
+    Box14Check2Lower -->|NO| Box13OutBand2
+    
+    Box14Check2Lower -->|YES| Box15InBand2["Box 15: Inband Interference Detected<br/><b>Description:</b> Ghost in IF—flag for power eval."]
+    
+    Box10InBand1 --> Box16Power["Box 16: Signal & Noise Powers at IF<br/><b>S(f_IF): Desired signal power<br/>N(f_IF): Noise floor + IM ghosts</b><br/><b>Description:</b> Quantify strengths post-downconversion.<br/>• Compute in linear or dB.<br/><i>Why?</i> Weak ghosts may be ignorable."]
+    
+    Box15InBand2 --> Box16Power
+    
+    Box16Power --> Box17FinalCheck{"Box 17: Threshold Decision<br/><b>S(f_IF) - N(f_IF) ≥ 20 dB ?</b><br/><b>Description:</b> SNR-like ratio (dB scale).<br/>• 20 dB: S 100x > N (clear margin).<br/><i>Why?</i> Confirms if interference drowns signal (e.g., BER impact)."}
+    
+    Box17FinalCheck -->|YES| Box18EndNo["Box 18: No Disturbance<br/>All Clear—Proceed!<br/><b>Description:</b> Ghost too weak; no issue."]
+    
+    Box17FinalCheck -->|NO| Box19Action["Box 19: Disturbance Confirmed<br/>TAKE ACTION!<br/><b>Description:</b> Mitigate: Retune freqs, filters, or coordinate (ITU).<br/><i>Why?</i> Protects link quality."]
+    
+    Box18EndNo --> Box20End([Box 20: End: Process Complete])
+    Box19Action --> Box20End
