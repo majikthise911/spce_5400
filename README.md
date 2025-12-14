@@ -1,62 +1,88 @@
-# 🛰️ SPCE 5400: Low Earth Orbit Satellite Systems
+# SPCE 5400: Low Earth Orbit Satellite Systems
 
 **University of Colorado Colorado Springs**
-*Course Projects and Assignments*
+*Course Assignments and Projects Repository*
 
-## 📚 Course Overview
+## Course Overview
 
-This repository contains projects and assignments for SPCE 5400 - Low Earth Orbit Satellite Systems. The course covers the fundamental principles, design considerations, and applications of LEO satellite constellations.
+This repository contains completed assignments and project work for SPCE 5400 - Low Earth Orbit Satellite Systems. The course covers fundamental principles, design considerations, and practical applications of LEO satellite systems including link budget analysis, orbital mechanics, constellation design, and interference mitigation.
 
-## 🗂️ Projects
+## Repository Structure
 
-### 🌧️ [Rain Attenuation Calculator](./RainAttenuation/)
+### Assignment 1: Rain Attenuation Analysis
 **ITU-R P.618 Rain Attenuation Model Implementation**
 
-- **Description**: Comprehensive web application for calculating rain-induced signal attenuation in satellite communication links
+Implementation of the ITU-R P.618 standard for calculating rain-induced signal attenuation in satellite communication links.
+
+- **Key Features**:
+  - Streamlit web application with interactive visualizations
+  - Jupyter notebook with parameter exploration widgets
+  - CLI and Python API for integration
+  - European city database with predefined coordinates
 - **Technologies**: Python, Streamlit, Plotly, Jupyter
-- **Features**: Interactive dashboard, multiple interfaces (web/CLI/API), European city database
-- **Status**: ✅ Complete
+- **Documentation**: See [assignment1/README.md](./assignment1/README.md)
 
----
+### Assignment 2: Orbital Mechanics and Coverage Analysis
+Analysis of orbital mechanics, satellite coverage geometry, and ground station design fundamentals.
 
-*More projects will be added throughout the semester...*
+- **Location**: `assignment2/`
+- **Submission**: SPCE_5400 - Homework #2.pdf
 
-## 🎯 Learning Objectives
+### Assignment 3: CubeSat Mission Planning
+Project 1 draft outline and mission planning documentation for CubeSat development.
 
-- Understand LEO satellite system architecture and design principles
-- Analyze orbital mechanics and constellation geometry
-- Study link budget calculations and RF propagation effects
-- Explore satellite communication protocols and technologies
-- Investigate mission planning and operational considerations
+- **Key Content**: NASA CubeSat 101 summary (Chapters 1-3)
+- **Topics**: Development process, mission models, launch integration
+- **Location**: `assignment3/`
+- **Submission**: Jordan_Clayton_Project1_Draft_Outline r1.pdf
 
-## 🛠️ Technologies Used
+### Assignment 4: Optical vs. RF Crosslinks Trade Study
+Comparative analysis of optical and RF inter-satellite link technologies for satellite constellations.
 
-- **Languages**: Python
+- **Analysis Focus**: Trade-offs between optical and RF crosslink technologies
+- **Location**: `assignment4/satellite-crosslink-analysis/`
+- **Tools**: Python analysis scripts, Excel templates
+- **Submission**: Assignment4_Concise_FINAL.pdf
+
+### Assignment 5: Adjacent Satellite Interference
+Calculation and analysis of interference between adjacent satellites in shared frequency bands.
+
+- **Key Deliverables**:
+  - Interference calculation scripts (educational and production versions)
+  - Intermodulation spectrum analysis
+  - System flowchart documentation
+- **Location**: `assignment5/`
+- **Files**:
+  - `interference_calculation.py`
+  - `interference_calculation_educational.py`
+  - `Adjacent_Satellite_Interference_COMPLETE.xlsx`
+
+### Final Paper
+Research paper in development.
+
+- **Location**: `final_paper/`
+- **Status**: Source material collection phase
+
+## Technologies and Tools
+
+- **Languages**: Python 3.x
 - **Frameworks**: Streamlit, Jupyter Notebook
 - **Libraries**: NumPy, Matplotlib, Plotly, Pandas
-- **Tools**: Git, Cursor
+- **Documentation**: LaTeX, Markdown
+- **Tools**: Git, Pandoc
 
-## 🚀 Getting Started
+## Course Topics Covered
 
-Each project directory contains its own README with specific setup instructions. Generally:
+- Rain attenuation and atmospheric propagation effects (ITU-R P.618)
+- Orbital mechanics and satellite coverage analysis
+- CubeSat development processes and mission planning
+- Inter-satellite link design (optical vs. RF trade studies)
+- Adjacent satellite interference mitigation
+- Ground station design and analysis
+- Link budget calculations
+- Constellation geometry and design
 
-```bash
-git clone [repository-url]
-cd spce_5400/[project-name]
-pip install -r requirements.txt
-```
-
-## 📖 Course Topics
-
-- LEO Constellation Design
-- Orbital Mechanics & Dynamics
-- RF Link Budget Analysis
-- Atmospheric Propagation Effects
-- Satellite Communication Systems
-- Ground Station Design
-- Mission Operations & Planning
-
-## 🎓 Academic Context
+## Academic Context
 
 **Course**: SPCE 5400 - Low Earth Orbit Satellite Systems
 **Institution**: University of Colorado Colorado Springs
@@ -64,4 +90,4 @@ pip install -r requirements.txt
 
 ---
 
-*This repository serves as a portfolio of work completed during the SPCE 5400 course, demonstrating practical applications of satellite systems engineering principles.*
+*This repository represents coursework demonstrating practical applications of satellite systems engineering principles, link budget analysis, orbital mechanics, and mission planning.*
