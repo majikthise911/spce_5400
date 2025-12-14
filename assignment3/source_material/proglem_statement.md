@@ -1,0 +1,28 @@
+Assignment #3
+Due Nov 2 by 11:59pm Points 50 Submitting a file upload Available Oct 7 at 12am - Dec 31 at 11:59pm
+Read assignment
+
+1) Read Textbook Chapter 6 : Sun Synchronous [ read for comprehension, but no problem sets assigned on this chapter ] 
+
+2) Begin your project!   Read sections 1-3 of CubeSat 101 : Basic Concepts and Processes for first time Cubesat developers.  [ already uploaded to Background module ].   Now, consider a novel space mission [ or an extension of an existing mission ] that sparks your interest: commercial, research/exploratory, defense, etc.  Keep the scope reasonable.   Follow the CubeSat 101 process and create a first draft outline [ sections: Intro, Process, Mission Models] that would serve to describe the Cubesat [ as you'll see - there are many configurations possible] with sufficient detail that might attract funding.    
+
+If you have any preliminary ideas, that you'll like show me early on, please do!
+
+ 
+
+** this project will be worth 200 pts total.  The outline is the first increment, worth 50 pts, to augmented the remainder of the Cubesat 101 sections later.  
+
+ 
+
+Submission
+ Submitted!
+Nov 2 at 10:20pm
+Submission Details
+Download Jordan_Clayton_Project1_Draft_Outline r1.pdf
+Grade: 50 (50 pts possible)
+Graded Anonymously: no
+Comments:
+Well done, your outline is quite complete.  Press forward with a design and provide as much detail as possible. It's clear that you've done research on components, etc. I'm really excited to see the final report.  Let me know if I can help further. 
+
+David Lee, Nov 5 at 5:11pm
+Really appreciate the encouragement. This topic is very exciting to me, and given my background being in energy rather than sat coms, I hope I can deliver a solid design.
