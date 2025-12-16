@@ -118,3 +118,43 @@ Repeat 2–4 cycles or until Grok grades ≥92/100:
 - Observed Performance: Dual review with specialized prompting project reduces major rework by ~60% vs. single-AI iteration
 
 This procedure is now documented and updated to explicitly reference the use of Grok in the **Prompt Engineering Expert** custom project for all primary iterations.
+
+---
+
+## Appendix: Exporting Markdown to PDF with Mermaid Diagrams
+
+When the final document contains Mermaid diagrams (flowcharts, block diagrams, etc.), standard markdown-to-PDF tools often fail to render them. The following workflow reliably produces PDFs with fully rendered diagrams.
+
+### Required Tools
+- **VS Code or Cursor IDE**
+- **Extension**: "Markdown Preview Enhanced" (install from Extensions marketplace)
+
+### Export Procedure
+
+1. **Open the markdown file** in VS Code/Cursor
+
+2. **Open Enhanced Preview**
+   - `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows)
+   - Type: "Markdown Preview Enhanced: Open Preview to the Side"
+   - Verify all Mermaid diagrams render correctly in the preview pane
+
+3. **Export to HTML**
+   - Right-click inside the preview pane
+   - Select: **"HTML" → "HTML (cdn hosted)"**
+   - The rendered HTML will open in your default browser
+
+4. **Print to PDF**
+   - In the browser: `Cmd+P` (Mac) or `Ctrl+P` (Windows)
+   - Destination: "Save as PDF"
+   - Adjust margins/scale as needed
+   - Click "Save"
+
+### Why This Works
+- Markdown Preview Enhanced has native Mermaid.js support
+- The "cdn hosted" HTML option includes all necessary scripts
+- Browser print-to-PDF captures the fully rendered output
+
+### Alternative Methods (If Above Fails)
+- **GitHub**: Push markdown to GitHub → view rendered file → print to PDF from browser
+- **Notion**: Import markdown → export to PDF (note: Mermaid may not render in Notion PDF export)
+- **mermaid.live**: Export diagrams as PNG individually, replace code blocks with image references
