@@ -55,19 +55,19 @@ December 2025
 
 | Figure | Title | Section |
 |--------|-------|---------|
-| 9.1 | CONOPS Diagram | §9 |
-| 10.1 | External System Diagram | §10.1 |
-| 10.2 | Internal System Diagram | §10.2 |
-| 10.3 | Functional Data Flow Diagram | §10.3 |
-| A.1 | Isometric View – Stowed Configuration | Appendix A |
-| A.2 | Isometric View – Deployed Configuration | Appendix A |
-| A.3 | Exploded View – Internal Layers | Appendix A |
-| A.4 | AI Payload Shielding Configuration | Appendix A |
-| A.5 | Solar Array Deployment Sequence | Appendix A |
-| B.1 | Power Distribution Architecture | Appendix B |
-| B.2 | AI Payload Block Diagram | Appendix B |
-| B.3 | UHF Communications Block Diagram | Appendix B |
-| D.1 | Project Gantt Chart | Appendix D |
+| 9.1 | [CONOPS Diagram](#9-concept-of-operations) | §9 |
+| 10.1 | [External System Diagram](#101-external-system-diagram) | §10.1 |
+| 10.2 | [Internal System Diagram](#102-internal-system-diagram) | §10.2 |
+| 10.3 | [Functional Data Flow Diagram](#103-functional-system-diagram) | §10.3 |
+| A.1 | [Isometric View – Stowed Configuration](#a1-spacecraft-external-views) | Appendix A |
+| A.2 | [Isometric View – Deployed Configuration](#a1-spacecraft-external-views) | Appendix A |
+| A.3 | [Exploded View – Internal Layers](#a2-internal-component-layout) | Appendix A |
+| A.4 | [AI Payload Shielding Configuration](#a3-shielding-enclosure-detail) | Appendix A |
+| A.5 | [Solar Array Deployment Sequence](#a4-deployable-mechanisms) | Appendix A |
+| B.1 | [Power Distribution Architecture](#b1-power-system-schematic) | Appendix B |
+| B.2 | [AI Payload Block Diagram](#b2-ai-payload-circuit) | Appendix B |
+| B.3 | [UHF Communications Block Diagram](#b3-communications-system-circuit) | Appendix B |
+| D.1 | [Project Gantt Chart](#d1-detailed-project-schedule) | Appendix D |
 
 ---
 
@@ -75,48 +75,48 @@ December 2025
 
 | Table | Title | Section |
 |-------|-------|---------|
-| 3.1 | Project Budget Summary | §3 |
-| 3.2 | Risk Register Summary | §3 |
-| 4.1 | Communications Requirements | §4.1.1 |
-| 4.2 | Power Requirements | §4.1.2 |
-| 4.3 | Telemetry and Control Requirements | §4.1.3 |
-| 4.4 | Mechanical Requirements | §4.1.4 |
-| 4.5 | Thermal Requirements | §4.1.5 |
-| 5.1 | Mission Trade Study | §5.1 |
-| 5.2 | Processor Trade Study | §5.2 |
-| 5.3 | FPGA/AI Accelerator Trade Study | §5.2 |
-| 5.4 | Shielding Trade Study | §5.3 |
-| 6.1 | Board Power-On Test Criteria | §6.1 |
-| 6.2 | Functional Test Matrix | §6.2 |
-| 6.3 | Memory Test Parameters | §6.3 |
-| 6.4 | AI Inference Test Cases | §6.4 |
-| 6.5 | Radiation Test Parameters | §6.5 |
-| 7.1 | Mass Properties Requirements | §7.1 |
-| 7.2 | Dimensional Requirements (CDS Rev. 14) | §7.2 |
-| 7.3 | Random Vibration Spectrum (NASA GEVS) | §7.3 |
-| 7.4 | Thermal Vacuum Test Criteria | §7.4 |
-| 8.1 | Operational Mode Summary | §8.1 |
-| 8.2 | AI Payload Specifications | §8.2 |
-| 8.3 | Shielding Configuration | §8.2 |
-| 8.4 | Sensor Specifications | §8.2 |
-| 8.5 | Power Budget | §8.2 |
-| 8.6 | Mass Budget | §8.3 |
-| 8.7 | Predicted Temperature Ranges | §8.3 |
-| 11.1 | Predicted Radiation Environment | §11.1 |
-| 11.2 | Predicted AI Accuracy Over Mission | §11.2 |
-| 11.3 | Predicted SEU Rates | §11.4 |
-| 11.4 | Daily Data Generation | §11.5 |
-| 11.5 | Success Criteria Assessment | §11.6 |
-| 13.1 | Sponsor Engagement Status | §13 |
-| 14.1 | Communication Channels | §14 |
-| C.1 | Communications Requirements Verification | Appendix C |
-| C.2 | Power Requirements Verification | Appendix C |
-| C.3 | Telemetry and Control Requirements Verification | Appendix C |
-| C.4 | Mechanical Requirements Verification | Appendix C |
-| C.5 | Thermal Requirements Verification | Appendix C |
-| D.1 | Detailed Cost Breakdown | Appendix D |
-| D.2 | Project Risk Register | Appendix D |
-| D.3 | Work Breakdown Structure | Appendix D |
+| 3.1 | [Project Budget Summary](#3-project-planning-and-management) | §3 |
+| 3.2 | [Risk Register Summary](#3-project-planning-and-management) | §3 |
+| 4.1 | [Communications Requirements](#411-communications-requirements-list) | §4.1.1 |
+| 4.2 | [Power Requirements](#412-power-requirements-list) | §4.1.2 |
+| 4.3 | [Telemetry and Control Requirements](#413-telemetry-and-control-requirements-list) | §4.1.3 |
+| 4.4 | [Mechanical Requirements](#414-mechanical-requirements-list) | §4.1.4 |
+| 4.5 | [Thermal Requirements](#415-thermal-requirements-list) | §4.1.5 |
+| 5.1 | [Mission Trade Study](#51-missions) | §5.1 |
+| 5.2 | [Processor Trade Study](#52-electrical) | §5.2 |
+| 5.3 | [FPGA/AI Accelerator Trade Study](#52-electrical) | §5.2 |
+| 5.4 | [Shielding Trade Study](#53-structure) | §5.3 |
+| 6.1 | [Board Power-On Test Criteria](#61-board-power-on-testing) | §6.1 |
+| 6.2 | [Functional Test Matrix](#62-functional-testing) | §6.2 |
+| 6.3 | [Memory Test Parameters](#63-memory-testing) | §6.3 |
+| 6.4 | [AI Inference Test Cases](#64-ai-inference-testing) | §6.4 |
+| 6.5 | [Radiation Test Parameters](#65-radiation-testing) | §6.5 |
+| 7.1 | [Mass Properties Requirements](#71-mass-properties-verification) | §7.1 |
+| 7.2 | [Dimensional Requirements (CDS Rev. 14)](#72-fit-check-and-dimensional-verification) | §7.2 |
+| 7.3 | [Random Vibration Spectrum (NASA GEVS)](#73-vibration-testing) | §7.3 |
+| 7.4 | [Thermal Vacuum Test Criteria](#74-thermal-vacuum-testing) | §7.4 |
+| 8.1 | [Operational Mode Summary](#81-mission) | §8.1 |
+| 8.2 | [AI Payload Specifications](#82-electrical) | §8.2 |
+| 8.3 | [Shielding Configuration](#82-electrical) | §8.2 |
+| 8.4 | [Sensor Specifications](#82-electrical) | §8.2 |
+| 8.5 | [Power Budget](#82-electrical) | §8.2 |
+| 8.6 | [Mass Budget](#83-structure) | §8.3 |
+| 8.7 | [Predicted Temperature Ranges](#83-structure) | §8.3 |
+| 11.1 | [Predicted Radiation Environment](#111-orbital-environment-predictions) | §11.1 |
+| 11.2 | [Predicted AI Accuracy Over Mission](#112-ai-performance-predictions) | §11.2 |
+| 11.3 | [Predicted SEU Rates](#114-seu-rate-predictions) | §11.4 |
+| 11.4 | [Daily Data Generation](#115-data-products) | §11.5 |
+| 11.5 | [Success Criteria Assessment](#116-success-criteria-verification) | §11.6 |
+| 13.1 | [Sponsor Engagement Status](#13-sponsor-interactions) | §13 |
+| 14.1 | [Communication Channels](#14-team-interactions) | §14 |
+| C.1 | [Communications Requirements Verification](#c1-communications-requirements-verification) | Appendix C |
+| C.2 | [Power Requirements Verification](#c2-power-requirements-verification) | Appendix C |
+| C.3 | [Telemetry and Control Requirements Verification](#c3-telemetry-and-control-requirements-verification) | Appendix C |
+| C.4 | [Mechanical Requirements Verification](#c4-mechanical-requirements-verification) | Appendix C |
+| C.5 | [Thermal Requirements Verification](#c5-thermal-requirements-verification) | Appendix C |
+| D.1 | [Detailed Cost Breakdown](#d2-detailed-budget-breakdown) | Appendix D |
+| D.2 | [Project Risk Register](#d3-risk-register) | Appendix D |
+| D.3 | [Work Breakdown Structure](#d4-work-breakdown-structure) | Appendix D |
 
 ---
 

@@ -1,0 +1,5161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RAD-AI_Final_Paper.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="rad-ai-radiation-mitigated-edge-ai-for-autonomous-space-operations">RAD-AI: Radiation-Mitigated Edge AI for Autonomous Space Operations</h1>
+<p><strong>UCCS CubeSat Design Project</strong></p>
+<p>Jordan Clayton</p>
+<p>SPCE 5400 – Small Satellite Engineering &amp; Operations</p>
+<p>University of Colorado Colorado Springs</p>
+<p>December 2025</p>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-introduction">Introduction</a>
+<ul>
+<li>2.1 <a href="#21-objective">Objective</a></li>
+<li>2.2 <a href="#22-problem-statement">Problem Statement</a></li>
+</ul>
+</li>
+<li><a href="#3-project-planning-and-management">Project Planning and Management</a></li>
+<li><a href="#4-problem-specifications">Problem Specifications</a>
+<ul>
+<li>4.1 <a href="#41-project-requirements">Project Requirements</a>
+<ul>
+<li>4.1.1 <a href="#411-communications-requirements-list">Communications Requirements List</a></li>
+<li>4.1.2 <a href="#412-power-requirements-list">Power Requirements List</a></li>
+<li>4.1.3 <a href="#413-telemetry-and-control-requirements-list">Telemetry and Control Requirements List</a></li>
+<li>4.1.4 <a href="#414-mechanical-requirements-list">Mechanical Requirements List</a></li>
+<li>4.1.5 <a href="#415-thermal-requirements-list">Thermal Requirements List</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-conceptual-design">Conceptual Design</a>
+<ul>
+<li>5.1 <a href="#51-missions">Missions</a></li>
+<li>5.2 <a href="#52-electrical">Electrical</a></li>
+<li>5.3 <a href="#53-structure">Structure</a></li>
+</ul>
+</li>
+<li><a href="#6-electrical-testing-methods-and-results">Electrical Testing Methods and Results</a></li>
+<li><a href="#7-structural-testing-methods-and-results">Structural Testing Methods and Results</a></li>
+<li><a href="#8-final-design">Final Design</a>
+<ul>
+<li>8.1 <a href="#81-mission">Mission</a></li>
+<li>8.2 <a href="#82-electrical">Electrical</a></li>
+<li>8.3 <a href="#83-structure">Structure</a></li>
+</ul>
+</li>
+<li><a href="#9-concept-of-operations">Concept of Operations</a></li>
+<li><a href="#10-system-block-definitions-diagram">System Block Definitions Diagram</a></li>
+<li><a href="#11-expected-flight-results">Expected Flight Results</a></li>
+<li><a href="#12-conclusion">Conclusion</a></li>
+<li><a href="#13-sponsor-interactions">Sponsor Interactions</a></li>
+<li><a href="#14-team-interactions">Team Interactions</a></li>
+<li><a href="#15-references">References</a></li>
+<li><a href="#16-appendices">Appendices</a>
+<ul>
+<li>Appendix A – 3D CAD Drawings and Spacecraft Configuration</li>
+<li>Appendix B – Complete System Circuit</li>
+<li>Appendix C – Requirements and Verification Matrix</li>
+<li>Appendix D – Management</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="list-of-figures">List of Figures</h2>
+<table>
+<thead>
+<tr>
+<th>Figure</th>
+<th>Title</th>
+<th>Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9.1</td>
+<td><a href="#9-concept-of-operations">CONOPS Diagram</a></td>
+<td>§9</td>
+</tr>
+<tr>
+<td>10.1</td>
+<td><a href="#101-external-system-diagram">External System Diagram</a></td>
+<td>§10.1</td>
+</tr>
+<tr>
+<td>10.2</td>
+<td><a href="#102-internal-system-diagram">Internal System Diagram</a></td>
+<td>§10.2</td>
+</tr>
+<tr>
+<td>10.3</td>
+<td><a href="#103-functional-system-diagram">Functional Data Flow Diagram</a></td>
+<td>§10.3</td>
+</tr>
+<tr>
+<td>A.1</td>
+<td><a href="#a1-spacecraft-external-views">Isometric View – Stowed Configuration</a></td>
+<td>Appendix A</td>
+</tr>
+<tr>
+<td>A.2</td>
+<td><a href="#a1-spacecraft-external-views">Isometric View – Deployed Configuration</a></td>
+<td>Appendix A</td>
+</tr>
+<tr>
+<td>A.3</td>
+<td><a href="#a2-internal-component-layout">Exploded View – Internal Layers</a></td>
+<td>Appendix A</td>
+</tr>
+<tr>
+<td>A.4</td>
+<td><a href="#a3-shielding-enclosure-detail">AI Payload Shielding Configuration</a></td>
+<td>Appendix A</td>
+</tr>
+<tr>
+<td>A.5</td>
+<td><a href="#a4-deployable-mechanisms">Solar Array Deployment Sequence</a></td>
+<td>Appendix A</td>
+</tr>
+<tr>
+<td>B.1</td>
+<td><a href="#b1-power-system-schematic">Power Distribution Architecture</a></td>
+<td>Appendix B</td>
+</tr>
+<tr>
+<td>B.2</td>
+<td><a href="#b2-ai-payload-circuit">AI Payload Block Diagram</a></td>
+<td>Appendix B</td>
+</tr>
+<tr>
+<td>B.3</td>
+<td><a href="#b3-communications-system-circuit">UHF Communications Block Diagram</a></td>
+<td>Appendix B</td>
+</tr>
+<tr>
+<td>D.1</td>
+<td><a href="#d1-detailed-project-schedule">Project Gantt Chart</a></td>
+<td>Appendix D</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="list-of-tables">List of Tables</h2>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Title</th>
+<th>Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.1</td>
+<td><a href="#3-project-planning-and-management">Project Budget Summary</a></td>
+<td>§3</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td><a href="#3-project-planning-and-management">Risk Register Summary</a></td>
+<td>§3</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td><a href="#411-communications-requirements-list">Communications Requirements</a></td>
+<td>§4.1.1</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td><a href="#412-power-requirements-list">Power Requirements</a></td>
+<td>§4.1.2</td>
+</tr>
+<tr>
+<td>4.3</td>
+<td><a href="#413-telemetry-and-control-requirements-list">Telemetry and Control Requirements</a></td>
+<td>§4.1.3</td>
+</tr>
+<tr>
+<td>4.4</td>
+<td><a href="#414-mechanical-requirements-list">Mechanical Requirements</a></td>
+<td>§4.1.4</td>
+</tr>
+<tr>
+<td>4.5</td>
+<td><a href="#415-thermal-requirements-list">Thermal Requirements</a></td>
+<td>§4.1.5</td>
+</tr>
+<tr>
+<td>5.1</td>
+<td><a href="#51-missions">Mission Trade Study</a></td>
+<td>§5.1</td>
+</tr>
+<tr>
+<td>5.2</td>
+<td><a href="#52-electrical">Processor Trade Study</a></td>
+<td>§5.2</td>
+</tr>
+<tr>
+<td>5.3</td>
+<td><a href="#52-electrical">FPGA/AI Accelerator Trade Study</a></td>
+<td>§5.2</td>
+</tr>
+<tr>
+<td>5.4</td>
+<td><a href="#53-structure">Shielding Trade Study</a></td>
+<td>§5.3</td>
+</tr>
+<tr>
+<td>6.1</td>
+<td><a href="#61-board-power-on-testing">Board Power-On Test Criteria</a></td>
+<td>§6.1</td>
+</tr>
+<tr>
+<td>6.2</td>
+<td><a href="#62-functional-testing">Functional Test Matrix</a></td>
+<td>§6.2</td>
+</tr>
+<tr>
+<td>6.3</td>
+<td><a href="#63-memory-testing">Memory Test Parameters</a></td>
+<td>§6.3</td>
+</tr>
+<tr>
+<td>6.4</td>
+<td><a href="#64-ai-inference-testing">AI Inference Test Cases</a></td>
+<td>§6.4</td>
+</tr>
+<tr>
+<td>6.5</td>
+<td><a href="#65-radiation-testing">Radiation Test Parameters</a></td>
+<td>§6.5</td>
+</tr>
+<tr>
+<td>7.1</td>
+<td><a href="#71-mass-properties-verification">Mass Properties Requirements</a></td>
+<td>§7.1</td>
+</tr>
+<tr>
+<td>7.2</td>
+<td><a href="#72-fit-check-and-dimensional-verification">Dimensional Requirements (CDS Rev. 14)</a></td>
+<td>§7.2</td>
+</tr>
+<tr>
+<td>7.3</td>
+<td><a href="#73-vibration-testing">Random Vibration Spectrum (NASA GEVS)</a></td>
+<td>§7.3</td>
+</tr>
+<tr>
+<td>7.4</td>
+<td><a href="#74-thermal-vacuum-testing">Thermal Vacuum Test Criteria</a></td>
+<td>§7.4</td>
+</tr>
+<tr>
+<td>8.1</td>
+<td><a href="#81-mission">Operational Mode Summary</a></td>
+<td>§8.1</td>
+</tr>
+<tr>
+<td>8.2</td>
+<td><a href="#82-electrical">AI Payload Specifications</a></td>
+<td>§8.2</td>
+</tr>
+<tr>
+<td>8.3</td>
+<td><a href="#82-electrical">Shielding Configuration</a></td>
+<td>§8.2</td>
+</tr>
+<tr>
+<td>8.4</td>
+<td><a href="#82-electrical">Sensor Specifications</a></td>
+<td>§8.2</td>
+</tr>
+<tr>
+<td>8.5</td>
+<td><a href="#82-electrical">Power Budget</a></td>
+<td>§8.2</td>
+</tr>
+<tr>
+<td>8.6</td>
+<td><a href="#83-structure">Mass Budget</a></td>
+<td>§8.3</td>
+</tr>
+<tr>
+<td>8.7</td>
+<td><a href="#83-structure">Predicted Temperature Ranges</a></td>
+<td>§8.3</td>
+</tr>
+<tr>
+<td>11.1</td>
+<td><a href="#111-orbital-environment-predictions">Predicted Radiation Environment</a></td>
+<td>§11.1</td>
+</tr>
+<tr>
+<td>11.2</td>
+<td><a href="#112-ai-performance-predictions">Predicted AI Accuracy Over Mission</a></td>
+<td>§11.2</td>
+</tr>
+<tr>
+<td>11.3</td>
+<td><a href="#114-seu-rate-predictions">Predicted SEU Rates</a></td>
+<td>§11.4</td>
+</tr>
+<tr>
+<td>11.4</td>
+<td><a href="#115-data-products">Daily Data Generation</a></td>
+<td>§11.5</td>
+</tr>
+<tr>
+<td>11.5</td>
+<td><a href="#116-success-criteria-verification">Success Criteria Assessment</a></td>
+<td>§11.6</td>
+</tr>
+<tr>
+<td>13.1</td>
+<td><a href="#13-sponsor-interactions">Sponsor Engagement Status</a></td>
+<td>§13</td>
+</tr>
+<tr>
+<td>14.1</td>
+<td><a href="#14-team-interactions">Communication Channels</a></td>
+<td>§14</td>
+</tr>
+<tr>
+<td>C.1</td>
+<td><a href="#c1-communications-requirements-verification">Communications Requirements Verification</a></td>
+<td>Appendix C</td>
+</tr>
+<tr>
+<td>C.2</td>
+<td><a href="#c2-power-requirements-verification">Power Requirements Verification</a></td>
+<td>Appendix C</td>
+</tr>
+<tr>
+<td>C.3</td>
+<td><a href="#c3-telemetry-and-control-requirements-verification">Telemetry and Control Requirements Verification</a></td>
+<td>Appendix C</td>
+</tr>
+<tr>
+<td>C.4</td>
+<td><a href="#c4-mechanical-requirements-verification">Mechanical Requirements Verification</a></td>
+<td>Appendix C</td>
+</tr>
+<tr>
+<td>C.5</td>
+<td><a href="#c5-thermal-requirements-verification">Thermal Requirements Verification</a></td>
+<td>Appendix C</td>
+</tr>
+<tr>
+<td>D.1</td>
+<td><a href="#d2-detailed-budget-breakdown">Detailed Cost Breakdown</a></td>
+<td>Appendix D</td>
+</tr>
+<tr>
+<td>D.2</td>
+<td><a href="#d3-risk-register">Project Risk Register</a></td>
+<td>Appendix D</td>
+</tr>
+<tr>
+<td>D.3</td>
+<td><a href="#d4-work-breakdown-structure">Work Breakdown Structure</a></td>
+<td>Appendix D</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>RAD-AI is a 6U CubeSat mission designed to validate commercial-off-the-shelf (COTS) artificial intelligence hardware with radiation mitigation techniques in Low Earth Orbit (LEO). The mission addresses a critical capability gap in autonomous space computing: radiation-hardened processors such as the BAE RAD750 lack the computational throughput required for real-time AI inference, while commercial AI accelerators deliver adequate performance but exhibit unacceptable failure rates in the space radiation environment [1, 2].</p>
+<p>The primary objective of RAD-AI is to demonstrate AI-driven autonomous computing with radiation-aware operation for a minimum of 12 months in LEO. The payload couples a SiFive U74 RISC-V quad-core processor with an FPGA-based AI accelerator, implementing Triple Modular Redundancy (TMR) in software, selective tantalum shielding, watchdog timers, and Error Detection and Correction (EDAC) memory protection [3, 4]. Unlike previous AI CubeSat demonstrations such as ESA's Phi-Sat-1, which performed static cloud detection, RAD-AI demonstrates real-time radiation event detection and autonomous mode switching—the system detects high-radiation zones including the South Atlantic Anomaly (SAA) and automatically adjusts processing parameters to prevent data corruption [5, 6].</p>
+<p>The mission targets the 2025-2027 development window before NASA's High Performance Spaceflight Computing (HPSC) processors become widely available [7]. RAD-AI provides empirical flight data on COTS AI degradation patterns and mitigation effectiveness, informing both LEO constellation designs and HPSC integration strategies for deep-space missions supporting Artemis and Mars Sample Return [8, 9].</p>
+<p>The spacecraft utilizes a hybrid development approach combining a COTS 6U bus with a custom AI payload. The 6U form factor (20×10×34 cm, &lt;14 kg) allocates 1.5U for the AI payload, 1.5U for power systems, and 3U for the spacecraft bus [10]. Power requirements average approximately 36 W with AI processing peaks of 15-30 W, supplied by GaAs solar arrays generating 45 W at beginning of life and a 60 Wh lithium-ion battery [11].</p>
+<p>Total development cost is estimated at $100,000-$120,000, with launch services provided through NASA's CubeSat Launch Initiative (CSLI) valued at approximately $250,000 [12]. The project timeline spans three years: design and development (months 1-24), integration and testing (months 17-30), and flight operations (months 31-42).</p>
+<hr>
+<h2 id="2-introduction">2. Introduction</h2>
+<h3 id="21-objective">2.1 Objective</h3>
+<p>The primary objective of the RAD-AI mission is to demonstrate AI-driven autonomous computing with radiation-aware operation in Low Earth Orbit for a duration of 12 months. This demonstration shall validate that COTS AI hardware, when coupled with appropriate radiation mitigation techniques, can provide reliable real-time inference capabilities in the LEO radiation environment.</p>
+<p>Secondary objectives for the mission are as follows:</p>
+<ol>
+<li>
+<p><strong>Measure radiation effects on mitigated COTS hardware</strong>: Quantify Single Event Upset (SEU) rates and Total Ionizing Dose (TID) accumulation on the RISC-V processor and FPGA AI accelerator with TMR software mitigation and selective shielding implemented [13].</p>
+</li>
+<li>
+<p><strong>Validate real-time radiation detection and adaptive processing</strong>: Demonstrate that the onboard system can detect radiation environment changes with latency less than one minute and autonomously transition between operational modes to maintain data integrity [14].</p>
+</li>
+<li>
+<p><strong>Generate flight dataset for future designs</strong>: Produce a comprehensive dataset of AI performance metrics, radiation event correlations, and degradation patterns to inform future LEO constellation computing architectures and NASA HPSC integration strategies [7].</p>
+</li>
+<li>
+<p><strong>Track AI accuracy degradation over mission lifetime</strong>: Continuously monitor inference accuracy on standardized benchmarks to characterize the relationship between cumulative radiation exposure and AI model performance degradation [15].</p>
+</li>
+</ol>
+<p>Success criteria for the RAD-AI mission are defined at three levels:</p>
+<ul>
+<li>
+<p><strong>Minimum Success (30 days)</strong>: Spacecraft achieves stable orbit, establishes ground communications, and returns valid telemetry data including radiation sensor readings and AI processor health metrics.</p>
+</li>
+<li>
+<p><strong>Baseline Success (6 months)</strong>: Continuous AI processing operations with documented SAA passages, validated autonomous mode transitions, and preliminary degradation trend data.</p>
+</li>
+<li>
+<p><strong>Full Success (12 months)</strong>: Complete mission duration with demonstrated radiation-aware adaptive behavior, comprehensive degradation curves, and sufficient data for statistical analysis of mitigation effectiveness.</p>
+</li>
+</ul>
+<h3 id="22-problem-statement">2.2 Problem Statement</h3>
+<p>Autonomous onboard computing is rapidly becoming essential for advanced space missions. NASA's Artemis program identifies autonomous precision landing as a cornerstone technology for lunar surface operations [8]. The Mars Sample Return campaign requires onboard hazard avoidance and terrain-relative navigation capabilities that cannot rely on ground control due to one-way light time delays ranging from 6 to 44 minutes [9]. NASA's Technology Area 4 (TA4) explicitly identifies &quot;radiation-tolerant autonomy&quot; as a critical capability gap requiring near-term investment [16].</p>
+<p>The fundamental challenge is a performance-reliability tradeoff in space computing hardware. Radiation-hardened processors such as the BAE RAD750, which has flown on over 100 missions including Mars rovers and deep space probes, operate at approximately 200 MHz with no dedicated AI acceleration capabilities [1]. This computational throughput is insufficient for real-time computer vision applications requiring 10-30 Hz inference rates on high-resolution imagery [17]. In contrast, commercial AI processors such as the NVIDIA Jetson platform deliver computational performance exceeding 500 GFLOPS, but radiation testing has demonstrated unacceptable vulnerability to the space environment. Total ionizing dose testing of NVIDIA Jetson Nano GPUs showed functional degradation beginning at approximately 20 krad (Si), with recent characterization of the Jetson Orin platform concluding it is only &quot;marginally sufficient for a three-year LEO mission&quot; [2, 18].</p>
+<p>NASA has recognized this capability gap and initiated the High Performance Spaceflight Computing (HPSC) program to develop a radiation-hardened processor providing 100x performance improvement over current flight heritage computers [7]. The HPSC program, with first processors expected in early 2025 and flight qualification extending through 2027, represents the authoritative long-term solution for deep-space autonomous computing [19]. However, a transition gap exists: near-term LEO constellations, commercial Earth observation satellites, and university research missions require autonomous computing solutions during the 2025-2027 period before HPSC becomes widely available and affordable [20].</p>
+<p>Recent commercial developments validate market demand for COTS-with-mitigation solutions. Cosmic Shielding Corporation successfully demonstrated radiation-shielded NVIDIA Jetson Orin NX hardware on the Aethero CubeSat platform in 2024, attracting both commercial and military customers [21]. The Air Force Research Laboratory (AFRL) actively partners with industry on COTS radiation mitigation approaches, confirming that government and defense stakeholders recognize the need for near-term solutions [21]. The OPTOS CubeSat, launched in 2019, demonstrated that a radiation-tolerant collaborative computer architecture using COTS components with system-level hardening could operate for three years in LEO with &quot;no System Error,&quot; proving that system reliability can exceed individual component reliability through appropriate design techniques [22].</p>
+<p>RAD-AI addresses this validated need by providing empirical orbit data on COTS AI performance with mitigation during the critical 2025-2027 window. The mission is positioned as complementary bridge technology rather than a competitor to HPSC—the flight data generated will directly inform HPSC integration strategies while enabling near-term missions that cannot wait for fully radiation-hardened solutions [7, 20].</p>
+<hr>
+<h2 id="3-project-planning-and-management">3. Project Planning and Management</h2>
+<p>The RAD-AI project follows a hybrid development strategy combining COTS spacecraft bus components with a custom AI payload, consistent with CubeSat 101 best practices for first-time developers seeking to balance risk, cost, and schedule [23]. The development approach leverages flight-proven subsystems where available while focusing custom development effort on the novel radiation-mitigated AI payload that represents the mission's primary contribution.</p>
+<h3 id="development-philosophy">Development Philosophy</h3>
+<p>Following CubeSat 101 guidance, three hardware configurations shall be developed [23, Ch. 2]:</p>
+<ol>
+<li>
+<p><strong>Engineering Test Unit (ETU)</strong>: First integrated assembly used for practice integration, fit checks, and initial testing. Mistakes discovered on the ETU prevent costly rework on flight hardware.</p>
+</li>
+<li>
+<p><strong>FlatSat Configuration</strong>: Components mounted on a flat board without flight structure, enabling rapid software development, debugging, and troubleshooting with full accessibility to all interfaces.</p>
+</li>
+<li>
+<p><strong>Flight Units (2)</strong>: Two complete flight-qualified spacecraft are fabricated. Producing multiple flight units simultaneously reduces per-unit cost and provides redundancy for launch opportunities.</p>
+</li>
+</ol>
+<h3 id="project-timeline">Project Timeline</h3>
+<p>The RAD-AI project spans approximately 42 months from initiation through completion of flight operations, organized into three major phases:</p>
+<p><strong>Phase 1: Design and Development (Months 1-16)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Timeframe</th>
+<th>Key Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concept Development</td>
+<td>Months 1-3</td>
+<td>Requirements definition, trade studies, preliminary design</td>
+</tr>
+<tr>
+<td>Preliminary Design Review (PDR)</td>
+<td>Months 7-10</td>
+<td>Subsystem designs, interface definitions, test planning</td>
+</tr>
+<tr>
+<td>Critical Design Review (CDR)</td>
+<td>Months 11-16</td>
+<td>Detailed designs, procurement initiation, software development</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Phase 2: Integration and Test (Months 17-30)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Timeframe</th>
+<th>Key Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ETU Integration</td>
+<td>Months 17-20</td>
+<td>First hardware integration, initial functional testing</td>
+</tr>
+<tr>
+<td>FlatSat Testing</td>
+<td>Months 18-22</td>
+<td>Software validation, HIL simulation, radiation injection testing</td>
+</tr>
+<tr>
+<td>Flight Unit Integration</td>
+<td>Months 21-26</td>
+<td>Flight hardware assembly, workmanship verification</td>
+</tr>
+<tr>
+<td>Environmental Testing</td>
+<td>Months 24-28</td>
+<td>Vibration, thermal-vacuum, EMI/EMC per NASA GEVS [24]</td>
+</tr>
+<tr>
+<td>Flight Readiness Review (FRR)</td>
+<td>Months 28-30</td>
+<td>Final verification, documentation completion, delivery preparation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Phase 3: Launch and Operations (Months 31-42)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Timeframe</th>
+<th>Key Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delivery to Integrator</td>
+<td>Month 30</td>
+<td>CubeSat delivery to CSLI mission integrator</td>
+</tr>
+<tr>
+<td>Launch Campaign</td>
+<td>Months 31-33</td>
+<td>Integration with dispenser, launch vehicle integration</td>
+</tr>
+<tr>
+<td>Commissioning</td>
+<td>Months 33-34</td>
+<td>On-orbit checkout, sensor calibration, baseline establishment</td>
+</tr>
+<tr>
+<td>Science Operations</td>
+<td>Months 34-42</td>
+<td>Continuous autonomous operation, data collection, analysis</td>
+</tr>
+</tbody>
+</table>
+<h3 id="budget-management">Budget Management</h3>
+<p>Following CubeSat 101 guidance that &quot;Budget includes 10%+ reserve for unexpected events&quot; [23, Ch. 2, p. 17], the RAD-AI project maintains a 20% reserve allocation given the novel nature of the AI payload development.</p>
+<p><strong>Table 3.1: RAD-AI Budget Summary</strong></p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Estimated Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Payload Development</td>
+<td>$35,000-40,000</td>
+<td>RISC-V processor, FPGA, sensors, shielding</td>
+</tr>
+<tr>
+<td>Spacecraft Bus (COTS)</td>
+<td>$40,000-50,000</td>
+<td>Blue Canyon XACT or equivalent [25]</td>
+</tr>
+<tr>
+<td>Environmental Testing</td>
+<td>$10,000-15,000</td>
+<td>Vibration, thermal-vacuum, radiation</td>
+</tr>
+<tr>
+<td>Ground Segment</td>
+<td>$5,000-8,000</td>
+<td>Station upgrades, cloud services</td>
+</tr>
+<tr>
+<td>Travel and Reviews</td>
+<td>$3,000-5,000</td>
+<td>PDR, CDR, FRR, delivery</td>
+</tr>
+<tr>
+<td>Reserve (20%)</td>
+<td>$18,000-24,000</td>
+<td>Contingency for unexpected costs</td>
+</tr>
+<tr>
+<td><strong>Total Development</strong></td>
+<td><strong>$100,000-120,000</strong></td>
+<td>Excluding launch services</td>
+</tr>
+<tr>
+<td>Launch Services (CSLI)</td>
+<td>~$250,000 value</td>
+<td>Provided by NASA at no cost [12]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="csli-compliance">CSLI Compliance</h3>
+<p>The RAD-AI mission design incorporates CSLI requirements from project initiation [23]:</p>
+<ul>
+<li><strong>No pyrotechnics</strong>: All deployable mechanisms use burn-wire release systems</li>
+<li><strong>RF licensing</strong>: Amateur radio frequencies selected; FCC application submitted within 30 days of manifesting per CSLI requirements</li>
+<li><strong>NASA benefit</strong>: Mission directly supports NASA Technology Area 4 autonomy objectives and Artemis/Mars Sample Return technology development [16]</li>
+<li><strong>Orbital debris compliance</strong>: 400-600 km altitude ensures natural decay within 25 years per NASA-STD-8719.14 [26]</li>
+<li><strong>Flexibility</strong>: Mission accepts any CSLI-compatible LEO orbit; no specific inclination or altitude requirements</li>
+</ul>
+<h3 id="risk-management">Risk Management</h3>
+<p>Key programmatic risks and mitigation strategies are summarized below:</p>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSLI selection not achieved</td>
+<td>Medium</td>
+<td>High</td>
+<td>Identify backup commercial launch options; maintain ORS/NRO rideshare eligibility</td>
+</tr>
+<tr>
+<td>Component availability delays</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Early procurement; identify alternate sources; maintain component buffer stock</td>
+</tr>
+<tr>
+<td>AI payload development challenges</td>
+<td>Medium</td>
+<td>High</td>
+<td>Extensive FlatSat testing; incremental capability demonstration; descope options defined</td>
+</tr>
+<tr>
+<td>Ground station communication gaps</td>
+<td>Low</td>
+<td>Medium</td>
+<td>SatNOGS network backup; automated retry protocols; onboard data storage</td>
+</tr>
+<tr>
+<td>Budget overrun</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>20% reserve; phased procurement; value engineering reviews</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="4-problem-specifications">4. Problem Specifications</h2>
+<h3 id="41-project-requirements">4.1 Project Requirements</h3>
+<p>The RAD-AI requirements are derived from four primary sources: (1) NASA CSLI and CubeSat Design Specification constraints [10, 23], (2) mission-specific science and technology demonstration objectives, (3) the LEO radiation environment at 400-600 km altitude [27], and (4) spacecraft bus capabilities and interfaces. Requirements are organized into five subsystem categories following the structure established in the reference design [28].</p>
+<h3 id="411-communications-requirements-list">4.1.1 Communications Requirements List</h3>
+<p>The communications subsystem shall provide reliable bidirectional data transfer between the spacecraft and ground segment, supporting both command uplink and science/telemetry downlink functions.</p>
+<p><strong>Table 4.1: Communications Requirements</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Rationale</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COM-1</td>
+<td>The communications subsystem shall provide command uplink capability at a minimum data rate of 1200 bps.</td>
+<td>Ground operators must be able to upload commands, software updates, and configuration changes throughout the mission [29].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>COM-2</td>
+<td>The communications subsystem shall provide telemetry and science data downlink at a minimum data rate of 9600 bps.</td>
+<td>Target daily data volume of 100 MB requires sustained downlink throughput during ground station passes [30].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>COM-3</td>
+<td>The communications subsystem shall operate in the UHF amateur radio band (430-440 MHz) with appropriate licensing.</td>
+<td>Amateur frequencies minimize licensing complexity and enable SatNOGS network backup; compliant with FCC Part 97 [31].</td>
+<td>Inspection</td>
+</tr>
+<tr>
+<td>COM-4</td>
+<td>The RF transmitter shall not exceed 8 W output power.</td>
+<td>Power budget allocation; compliant with amateur radio power limits for satellite operations [31].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>COM-5</td>
+<td>The communications subsystem shall support store-and-forward operation with minimum 72-hour data buffering.</td>
+<td>Ensures no data loss during periods without ground contact or during anomaly recovery [32].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>COM-6</td>
+<td>The antenna system shall deploy reliably from stowed configuration after orbit insertion.</td>
+<td>Launch vehicle constraints require stowed antennas; deployment must succeed for mission viability [10].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>COM-7</td>
+<td>The communications subsystem shall implement AX.25 protocol compatible with amateur radio ground infrastructure.</td>
+<td>Enables use of existing amateur satellite tracking networks and SatNOGS ground stations [33].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>COM-8</td>
+<td>The spacecraft shall transmit a unique identifier beacon at minimum 60-second intervals when power-positive.</td>
+<td>Supports orbital tracking and identification; required for amateur radio license compliance [31].</td>
+<td>Demonstration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="412-power-requirements-list">4.1.2 Power Requirements List</h3>
+<p>The electrical power subsystem shall generate, store, regulate, and distribute electrical power to all spacecraft subsystems throughout all mission phases and operational modes.</p>
+<p><strong>Table 4.2: Power Requirements</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Rationale</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POW-1</td>
+<td>The power subsystem shall generate minimum 45 W at beginning of life (BOL) from solar arrays.</td>
+<td>AI payload peak demand of 30 W plus bus loads of 10 W plus 20% margin requires 48 W; 45 W BOL provides adequate margin with degradation [11].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>POW-2</td>
+<td>The power subsystem shall provide minimum 60 Wh energy storage capacity.</td>
+<td>Supports 45-minute eclipse operations at average power plus one full AI processing cycle during eclipse [34].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>POW-3</td>
+<td>The power subsystem shall regulate bus voltage to 5.0 V ± 0.25 V for payload interfaces.</td>
+<td>RISC-V processor and FPGA require stable 5V supply; ±5% tolerance per component specifications [3].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>POW-4</td>
+<td>The power subsystem shall regulate bus voltage to 3.3 V ± 0.17 V for sensor interfaces.</td>
+<td>Sensors and low-power peripherals operate at 3.3V nominal [35].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>POW-5</td>
+<td>The power subsystem shall provide battery charge regulation preventing overcharge above 4.2 V per cell.</td>
+<td>Lithium-ion safety requirement; prevents thermal runaway and capacity degradation [36].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>POW-6</td>
+<td>The power subsystem shall implement undervoltage load shedding at 3.0 V per cell.</td>
+<td>Protects battery from deep discharge damage; ensures recovery capability [36].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>POW-7</td>
+<td>The power subsystem shall support autonomous load shedding in priority sequence during power-negative conditions.</td>
+<td>AI payload is lowest priority; critical bus functions maintained during anomalies [34].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>POW-8</td>
+<td>The power subsystem shall provide current-limited outputs with overcurrent protection on all power rails.</td>
+<td>Prevents fault propagation; isolates failed components [37].</td>
+<td>Test</td>
+</tr>
+</tbody>
+</table>
+<h3 id="413-telemetry-and-control-requirements-list">4.1.3 Telemetry and Control Requirements List</h3>
+<p>The telemetry and control subsystem shall acquire sensor data, manage onboard data storage, execute autonomous control algorithms, and coordinate spacecraft operational modes.</p>
+<p><strong>Table 4.3: Telemetry and Control Requirements</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Rationale</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TEL-1</td>
+<td>The telemetry system shall sample radiation sensors (RADFETs, particle detector) at minimum 1 Hz during science operations.</td>
+<td>Captures SAA transitions and SEU correlation data with sufficient temporal resolution [27].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>TEL-2</td>
+<td>The telemetry system shall sample housekeeping sensors (temperatures, voltages, currents) at minimum 0.1 Hz.</td>
+<td>Adequate for thermal and power trending; reduces data volume [38].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>TEL-3</td>
+<td>The telemetry system shall timestamp all data to ±1 second accuracy using GPS-synchronized onboard time.</td>
+<td>Enables correlation of radiation events with orbital position and ground-based space weather data [27].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>TEL-4</td>
+<td>The telemetry system shall store minimum 7 days of full-rate science and housekeeping data onboard.</td>
+<td>Provides margin for ground station outages and anomaly investigation [32].</td>
+<td>Inspection</td>
+</tr>
+<tr>
+<td>CON-1</td>
+<td>The control system shall execute autonomous mode transitions between Normal, Protected, and Safe modes based on radiation environment assessment.</td>
+<td>Core mission objective: demonstrate radiation-aware adaptive computing [14].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>CON-2</td>
+<td>The control system shall complete radiation environment assessment and mode transition decision within 60 seconds of sensor update.</td>
+<td>Ensures timely response to SAA entry; prevents data corruption [14].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>CON-3</td>
+<td>The control system shall implement watchdog timers with automatic reset capability for all processors.</td>
+<td>Recovers from radiation-induced processor lockups without ground intervention [4].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>CON-4</td>
+<td>The control system shall maintain operational state and resume autonomous operation following any processor reset.</td>
+<td>Ensures mission continuity; no ground intervention required for nominal recovery [39].</td>
+<td>Demonstration</td>
+</tr>
+<tr>
+<td>CON-5</td>
+<td>The C&amp;DH system shall be physically isolated from the AI payload processor.</td>
+<td>Prevents AI payload faults from affecting critical spacecraft functions; defense-in-depth architecture [40].</td>
+<td>Inspection</td>
+</tr>
+</tbody>
+</table>
+<h3 id="414-mechanical-requirements-list">4.1.4 Mechanical Requirements List</h3>
+<p>The mechanical subsystem shall provide structural support, environmental protection, and mechanical interfaces for all spacecraft components while maintaining compliance with CubeSat Design Specification and launch vehicle requirements.</p>
+<p><strong>Table 4.4: Mechanical Requirements</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Rationale</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEC-1</td>
+<td>The spacecraft shall conform to 6U CubeSat form factor: 20.0 cm × 10.0 cm × 34.05 cm maximum dimensions.</td>
+<td>CubeSat Design Specification Rev. 14 compliance; required for CSLI dispensers [10].</td>
+<td>Inspection</td>
+</tr>
+<tr>
+<td>MEC-2</td>
+<td>The spacecraft total mass shall not exceed 14.0 kg.</td>
+<td>CDS Rev. 14 6U mass limit [10].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>MEC-3</td>
+<td>The spacecraft center of mass shall be located within 2.0 cm of geometric center in all axes.</td>
+<td>CDS Rev. 14 requirement for dispenser compatibility and deployment stability [10].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>MEC-4</td>
+<td>The structure shall withstand quasi-static loads of 7.5 g in all axes.</td>
+<td>Derived from NASA GEVS launch environment requirements [24].</td>
+<td>Analysis</td>
+</tr>
+<tr>
+<td>MEC-5</td>
+<td>The structure shall withstand random vibration environment of 14.1 Grms per NASA GEVS.</td>
+<td>Qualification level for CubeSat dispensers [24].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>MEC-6</td>
+<td>All deployable components shall be constrained during launch with positive retention requiring active release.</td>
+<td>CDS requirement; prevents premature deployment that could interfere with launch vehicle or other payloads [10].</td>
+<td>Inspection</td>
+</tr>
+<tr>
+<td>MEC-7</td>
+<td>Rail contact surfaces shall be hard anodized aluminum with surface roughness ≤1.6 μm Ra.</td>
+<td>CDS dispenser interface requirement [10].</td>
+<td>Inspection</td>
+</tr>
+<tr>
+<td>MEC-8</td>
+<td>The structure shall provide mounting provisions for 2 mm tantalum shielding around AI processor and FPGA.</td>
+<td>Selective shielding approach for radiation mitigation [4].</td>
+<td>Inspection</td>
+</tr>
+<tr>
+<td>MEC-9</td>
+<td>The structure shall accommodate radiation sensor placement with unobstructed field of view for particle detector.</td>
+<td>Accurate radiation measurement requires minimized structural interference [27].</td>
+<td>Inspection</td>
+</tr>
+</tbody>
+</table>
+<h3 id="415-thermal-requirements-list">4.1.5 Thermal Requirements List</h3>
+<p>The thermal subsystem shall maintain all spacecraft components within operational temperature limits throughout all mission phases including eclipse transients and end-of-life degraded conditions.</p>
+<p><strong>Table 4.5: Thermal Requirements</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Rationale</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>THE-1</td>
+<td>The thermal subsystem shall maintain battery temperature between 0°C and 45°C during all operational phases.</td>
+<td>Lithium-ion cell operational limits; charging prohibited below 0°C [36].</td>
+<td>Analysis, Test</td>
+</tr>
+<tr>
+<td>THE-2</td>
+<td>The thermal subsystem shall maintain AI processor temperature between -20°C and 70°C during operation.</td>
+<td>RISC-V processor operational temperature range [3].</td>
+<td>Analysis, Test</td>
+</tr>
+<tr>
+<td>THE-3</td>
+<td>The thermal subsystem shall maintain FPGA temperature between -40°C and 85°C during operation.</td>
+<td>Lattice CrossLink-NX industrial temperature grade limits [41].</td>
+<td>Analysis, Test</td>
+</tr>
+<tr>
+<td>THE-4</td>
+<td>The thermal subsystem shall limit AI processor temperature rate of change to ≤5°C per minute.</td>
+<td>Prevents thermal stress on die attach and solder joints [42].</td>
+<td>Analysis</td>
+</tr>
+<tr>
+<td>THE-5</td>
+<td>The thermal design shall dissipate minimum 30 W from the AI payload during peak processing.</td>
+<td>AI processing thermal load with margin for worst-case hot conditions [11].</td>
+<td>Analysis</td>
+</tr>
+<tr>
+<td>THE-6</td>
+<td>The thermal subsystem shall provide minimum 10 W heater capacity for battery survival heating.</td>
+<td>Maintains battery above 0°C during cold-case eclipse scenarios [36].</td>
+<td>Analysis, Test</td>
+</tr>
+<tr>
+<td>THE-7</td>
+<td>All spacecraft components shall survive non-operational temperature range of -40°C to +60°C.</td>
+<td>Encompasses all credible mission scenarios including safe mode and anomaly conditions [24].</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>THE-8</td>
+<td>The thermal design shall accommodate increased power dissipation from TMR processing overhead.</td>
+<td>TMR implementation increases computational load and associated heat generation [4].</td>
+<td>Analysis</td>
+</tr>
+</tbody>
+</table>
+<h3 id="requirements-traceability">Requirements Traceability</h3>
+<p>A complete requirements verification matrix including verification methods, success criteria, and verification status tracking is provided in Appendix C. Requirements are traced to parent mission objectives and derived from applicable standards including:</p>
+<ul>
+<li>CubeSat Design Specification Rev. 14 [10]</li>
+<li>NASA General Environmental Verification Standard (GEVS) [24]</li>
+<li>NASA-STD-8719.14 Process for Limiting Orbital Debris [26]</li>
+<li>NASA CubeSat 101 [23]</li>
+<li>FCC Part 97 Amateur Radio Service Rules [31]</li>
+</ul>
+<hr>
+<h2 id="5-conceptual-design">5. Conceptual Design</h2>
+<p>The conceptual design phase evaluated multiple alternatives for mission focus, electrical architecture, and structural configuration. Each alternative was assessed against mission objectives, technical feasibility, cost constraints, and schedule risk. The evaluation process follows CubeSat 101 guidance emphasizing simplicity, use of flight-proven components, and designs that do not push CDS envelope limits [43].</p>
+<h3 id="51-missions">5.1 Missions</h3>
+<p>A variety of mission concepts were evaluated for the RAD-AI payload. The mission selection is critical in determining spacecraft requirements, component selection, development complexity, and ultimately the contribution to the field of radiation-tolerant autonomous computing.</p>
+<h4 id="mission-concept-1-static-cloud-detection-phi-sat-1-replication">Mission Concept 1: Static Cloud Detection (Phi-Sat-1 Replication)</h4>
+<p>This concept replicates the ESA Phi-Sat-1 mission approach, implementing a convolutional neural network for cloud detection in Earth observation imagery [44]. The AI system would classify image tiles as cloudy or clear, enabling selective downlink of scientifically valuable cloud-free imagery.</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Proven flight heritage from Phi-Sat-1 (2020)</li>
+<li>Well-documented neural network architecture and training methodology</li>
+<li>Straightforward success metrics (classification accuracy)</li>
+<li>Lower development risk due to available reference implementation</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Does not advance state-of-the-art beyond existing demonstration</li>
+<li>Static application with no radiation-adaptive behavior</li>
+<li>Limited contribution to autonomous computing for deep-space missions</li>
+<li>No real-time radiation environment awareness</li>
+</ul>
+<p><strong>Assessment:</strong> While technically feasible and low-risk, this concept offers limited novelty and does not address the core mission objective of demonstrating radiation-aware autonomous computing.</p>
+<h4 id="mission-concept-2-radiation-aware-autonomous-computing-selected">Mission Concept 2: Radiation-Aware Autonomous Computing (Selected)</h4>
+<p>This concept implements real-time radiation environment monitoring coupled with autonomous processing mode adaptation. The AI system performs star-field tracking for attitude determination while simultaneously monitoring radiation sensors and orbital position to detect high-radiation zones. Upon detecting elevated radiation (e.g., SAA entry), the system autonomously transitions to protected processing modes with increased redundancy [45].</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Novel contribution: first demonstration of AI-driven radiation-adaptive computing</li>
+<li>Directly addresses NASA TA4 &quot;radiation-tolerant autonomy&quot; gap [46]</li>
+<li>Generates flight data valuable for HPSC integration planning</li>
+<li>Demonstrates capability critical for Artemis and Mars Sample Return missions</li>
+<li>Multiple operational modes provide rich dataset for analysis</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Higher development complexity than static applications</li>
+<li>Requires integration of radiation sensors with AI decision system</li>
+<li>Mode transition logic requires careful design to prevent thrashing</li>
+<li>More complex verification and validation process</li>
+</ul>
+<p><strong>Assessment:</strong> Selected as primary mission. The increased complexity is justified by the significant contribution to autonomous space computing technology and strong alignment with NASA strategic objectives.</p>
+<h4 id="mission-concept-3-radiation-effects-monitoring-only">Mission Concept 3: Radiation Effects Monitoring Only</h4>
+<p>This concept focuses exclusively on characterizing radiation effects on COTS AI hardware without implementing adaptive behaviors. The system would operate continuously in a single mode while logging all radiation events and correlating them with AI inference errors [47].</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Simpler implementation than adaptive system</li>
+<li>Clean dataset without mode transition confounds</li>
+<li>Directly comparable to ground radiation testing results</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Does not demonstrate autonomous adaptation capability</li>
+<li>Passive monitoring provides less operational value</li>
+<li>Limited advancement toward deep-space autonomy goals</li>
+<li>Similar data available from dedicated radiation monitoring payloads</li>
+</ul>
+<p><strong>Assessment:</strong> While valuable for hardware characterization, this concept does not demonstrate the autonomous adaptation that represents RAD-AI's unique contribution.</p>
+<h4 id="mission-concept-4-high-performance-computing-benchmark">Mission Concept 4: High-Performance Computing Benchmark</h4>
+<p>This concept maximizes AI processing performance to establish CubeSat computing benchmarks, running standardized inference workloads (MLPerf) continuously without radiation adaptation [48].</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Provides standardized performance metrics</li>
+<li>Enables direct comparison with ground-based systems</li>
+<li>Useful for commercial constellation computing planning</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>No radiation awareness or adaptation</li>
+<li>Risk of premature failure without protective modes</li>
+<li>Does not advance autonomous computing for harsh environments</li>
+<li>Benchmark focus may not translate to operational applications</li>
+</ul>
+<p><strong>Assessment:</strong> Rejected due to lack of radiation-aware features essential to mission objectives.</p>
+<h4 id="mission-selection-summary">Mission Selection Summary</h4>
+<p><strong>Table 5.1: Mission Concept Evaluation Matrix</strong></p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Weight</th>
+<th>Concept 1</th>
+<th>Concept 2</th>
+<th>Concept 3</th>
+<th>Concept 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NASA Alignment</td>
+<td>25%</td>
+<td>2</td>
+<td>5</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Technical Novelty</td>
+<td>25%</td>
+<td>1</td>
+<td>5</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Feasibility</td>
+<td>20%</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Data Value</td>
+<td>20%</td>
+<td>2</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Risk Level</td>
+<td>10%</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Weighted Score</strong></td>
+<td>100%</td>
+<td><strong>2.5</strong></td>
+<td><strong>4.4</strong></td>
+<td><strong>3.5</strong></td>
+<td><strong>2.6</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Mission Concept 2 (Radiation-Aware Autonomous Computing) was selected based on superior alignment with NASA objectives, highest technical novelty, and greatest value of generated flight data.</p>
+<h3 id="52-electrical">5.2 Electrical</h3>
+<p>The electrical subsystem conceptual design evaluated alternatives for each major component: main processor, AI accelerator, radiation sensors, communications, and power system.</p>
+<h4 id="main-processor-options">Main Processor Options</h4>
+<p>Three processor architectures were evaluated for the main computing platform:</p>
+<p><strong>Option A: ARM Cortex-M Series (Microcontroller)</strong></p>
+<p>ARM Cortex-M4/M7 microcontrollers offer low power consumption (&lt;100 mW), extensive flight heritage in CubeSat missions, and mature development ecosystems [49]. However, limited computational resources (single core, &lt;500 MHz, no FPU on lower variants) preclude real-time AI inference at required rates.</p>
+<p><strong>Option B: ARM Cortex-A Series (Application Processor)</strong></p>
+<p>ARM Cortex-A53/A72 processors provide significantly higher performance (multi-core, &gt;1 GHz, NEON SIMD) with moderate power consumption (1-5 W) [50]. These processors can run full Linux operating systems, simplifying software development. However, radiation susceptibility is comparable to Option C without the architectural advantages for fault tolerance.</p>
+<p><strong>Option C: RISC-V Architecture (Selected)</strong></p>
+<p>RISC-V processors, specifically the SiFive U74 quad-core (1.5 GHz), offer several advantages for radiation-tolerant computing [51]:</p>
+<ul>
+<li>Open instruction set architecture enables custom radiation-hardening extensions</li>
+<li>Simpler pipeline architecture facilitates TMR implementation</li>
+<li>Growing space industry adoption (TRISAT-R demonstrated fault-tolerant RISC-V in 2022) [52]</li>
+<li>No licensing fees reduce program cost</li>
+<li>Active research community developing radiation-tolerant RISC-V variants</li>
+</ul>
+<p><strong>Table 5.2: Main Processor Comparison</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>ARM Cortex-M7</th>
+<th>ARM Cortex-A72</th>
+<th>SiFive U74 (RISC-V)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clock Speed</td>
+<td>480 MHz</td>
+<td>1.8 GHz</td>
+<td>1.5 GHz</td>
+</tr>
+<tr>
+<td>Cores</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Power (typical)</td>
+<td>0.1 W</td>
+<td>4 W</td>
+<td>3 W</td>
+</tr>
+<tr>
+<td>AI Capability</td>
+<td>Very Limited</td>
+<td>Moderate</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>TMR Feasibility</td>
+<td>Limited</td>
+<td>Moderate</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Flight Heritage</td>
+<td>Extensive</td>
+<td>Limited</td>
+<td>Emerging (TRISAT-R)</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>$15</td>
+<td>$50</td>
+<td>$40</td>
+</tr>
+<tr>
+<td><strong>Selection</strong></td>
+<td>Rejected</td>
+<td>Backup</td>
+<td><strong>Primary</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The SiFive U74 RISC-V processor was selected as the primary computing platform based on superior TMR implementation potential and alignment with emerging space computing trends.</p>
+<h4 id="ai-accelerator-options">AI Accelerator Options</h4>
+<p>Three AI acceleration approaches were evaluated:</p>
+<p><strong>Option A: GPU-Based (NVIDIA Jetson)</strong></p>
+<p>NVIDIA Jetson platforms offer exceptional AI performance (&gt;500 GFLOPS on Jetson Nano, &gt;100 TOPS on Orin) with mature software ecosystem (CUDA, TensorRT) [53]. However, radiation testing shows vulnerability beginning at ~20 krad TID, and high power consumption (10-40 W) challenges CubeSat power budgets [54]. Recent Cosmic Shielding demonstrations with Jetson Orin required significant shielding mass [55].</p>
+<p><strong>Option B: FPGA-Based (Selected)</strong></p>
+<p>Field Programmable Gate Arrays enable custom AI inference engine implementation with several advantages [56]:</p>
+<ul>
+<li>Inherent radiation tolerance superior to GPUs (configuration memory can be protected)</li>
+<li>Lower power consumption (2-5 W for equivalent inference performance)</li>
+<li>Reconfigurable architecture enables in-flight algorithm updates</li>
+<li>SEU effects localized to specific logic blocks rather than systemic failures</li>
+<li>Lattice CrossLink-NX specifically designed for edge AI applications</li>
+</ul>
+<p><strong>Option C: Dedicated AI ASIC (Google Edge TPU)</strong></p>
+<p>Application-specific AI accelerators offer excellent performance-per-watt but limited radiation characterization data and fixed functionality prevent adaptation [57].</p>
+<p><strong>Table 5.3: AI Accelerator Comparison</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>NVIDIA Jetson Nano</th>
+<th>Lattice CrossLink-NX</th>
+<th>Google Edge TPU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Performance</td>
+<td>472 GFLOPS</td>
+<td>10 TOPS (INT8)</td>
+<td>4 TOPS</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>10 W</td>
+<td>2 W</td>
+<td>2 W</td>
+</tr>
+<tr>
+<td>TID Tolerance</td>
+<td>~20 krad</td>
+<td>~50 krad (est.)</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Reconfigurable</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Development Effort</td>
+<td>Low</td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Selection</strong></td>
+<td>Rejected</td>
+<td><strong>Primary</strong></td>
+<td>Rejected</td>
+</tr>
+</tbody>
+</table>
+<p>The Lattice CrossLink-NX FPGA was selected for AI acceleration based on superior radiation tolerance, reconfigurability, and acceptable power consumption.</p>
+<h4 id="radiation-sensor-options">Radiation Sensor Options</h4>
+<p>Radiation environment monitoring requires sensors for both Total Ionizing Dose (TID) accumulation and Single Event Effects (SEE):</p>
+<p><strong>TID Monitoring: RADFETs</strong></p>
+<p>Radiation-sensitive Field Effect Transistors provide real-time TID measurement through threshold voltage shift proportional to accumulated dose [58]. Multiple RADFETs with different oxide thicknesses enable dose measurement across the expected mission range (5-30 krad). Selected for flight implementation.</p>
+<p><strong>SEE Monitoring: Particle Telescope</strong></p>
+<p>A simple cosmic ray telescope using stacked silicon detectors enables correlation between particle flux and observed SEU events [59]. This sensor provides direct measurement of the instantaneous radiation environment for mode transition decisions. Selected for flight implementation.</p>
+<p><strong>Supplementary: Orbital Position</strong></p>
+<p>GPS-derived orbital position enables prediction of SAA encounters using onboard radiation belt models (AP-8, AE-8) [60]. This predictive capability supplements real-time sensor data for mode transition decisions.</p>
+<h4 id="communications-options">Communications Options</h4>
+<p><strong>Option A: S-Band System</strong></p>
+<p>S-band (2.0-2.3 GHz) offers higher data rates (&gt;1 Mbps) and smaller antennas but requires more complex ground station infrastructure and licensing [61].</p>
+<p><strong>Option B: UHF System (Selected)</strong></p>
+<p>UHF amateur band (430-440 MHz) provides adequate data rate (9600 bps) for mission requirements with simplified licensing (amateur radio) and access to global SatNOGS ground station network for backup [62]. Lower cost and complexity align with budget constraints.</p>
+<p><strong>Option C: Combined S-Band/UHF</strong></p>
+<p>Dual-band system provides high-rate S-band downlink with UHF backup. Rejected due to mass, power, and cost impact exceeding available margins.</p>
+<h4 id="power-system-options">Power System Options</h4>
+<p><strong>Option A: Body-Mounted Solar Cells</strong></p>
+<p>Solar cells mounted directly on spacecraft body panels provide simplicity and reliability but limited power generation (~15 W for 6U) insufficient for AI payload requirements [63].</p>
+<p><strong>Option B: Deployable Solar Arrays (Selected)</strong></p>
+<p>Deployable solar panels provide required power generation (~45 W) within 6U form factor. GaAs triple-junction cells selected for high efficiency (~30%) and radiation tolerance [64].</p>
+<p><strong>Option C: Deployable Arrays with Battery Augmentation</strong></p>
+<p>Larger battery capacity (&gt;100 Wh) enables extended eclipse operations but exceeds mass budget. Rejected in favor of operational constraints during eclipse.</p>
+<h3 id="53-structure">5.3 Structure</h3>
+<p>The structural design evaluated configuration options for the 6U form factor, shielding approaches, and thermal management strategies.</p>
+<h4 id="6u-configuration-options">6U Configuration Options</h4>
+<p><strong>Option A: 3U + 3U Stacked</strong></p>
+<p>Two 3U sections stacked along the long axis, with AI payload in one section and bus in the other. Simple integration but suboptimal mass distribution and thermal coupling [65].</p>
+<p><strong>Option B: Integrated 6U (Selected)</strong></p>
+<p>Single integrated 6U structure with distributed subsystem placement optimized for mass properties and thermal management. Payload and bus components interleaved for optimal center of mass location.</p>
+<p><strong>Option C: Modular Design</strong></p>
+<p>Separable payload and bus modules enabling independent development. Rejected due to interface complexity and mass penalty.</p>
+<p><strong>Table 5.4: Volume Allocation</strong></p>
+<table>
+<thead>
+<tr>
+<th>Subsystem</th>
+<th>Volume Allocation</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Payload (processor, FPGA, sensors)</td>
+<td>1.5U</td>
+<td>Core mission hardware with shielding</td>
+</tr>
+<tr>
+<td>Power System (batteries, regulators)</td>
+<td>1.5U</td>
+<td>60 Wh battery pack, power electronics</td>
+</tr>
+<tr>
+<td>Communications (radio, antenna stowage)</td>
+<td>0.5U</td>
+<td>UHF transceiver and deployment mechanism</td>
+</tr>
+<tr>
+<td>ADCS (star tracker, magnetorquers)</td>
+<td>0.5U</td>
+<td>Attitude determination and control</td>
+</tr>
+<tr>
+<td>C&amp;DH and harness</td>
+<td>0.5U</td>
+<td>Flight computer, data storage, wiring</td>
+</tr>
+<tr>
+<td>Structure and margin</td>
+<td>1.5U</td>
+<td>Primary structure, brackets, contingency</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>6.0U</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="shielding-approach-options">Shielding Approach Options</h4>
+<p><strong>Option A: Full Enclosure Shielding</strong></p>
+<p>Complete aluminum or tantalum enclosure around all electronics. Provides uniform protection but significant mass penalty (&gt;2 kg for meaningful attenuation) [66].</p>
+<p><strong>Option B: Selective Shielding (Selected)</strong></p>
+<p>Targeted shielding of most radiation-sensitive components (AI processor, FPGA, critical memory) with 2 mm tantalum (equivalent to ~6 mm aluminum). Provides 10x dose reduction for ~500 g mass penalty [67].</p>
+<p><strong>Option C: No Dedicated Shielding</strong></p>
+<p>Rely entirely on software mitigation (TMR, EDAC) without physical shielding. Lowest mass but highest SEU rate and TID accumulation. Rejected as insufficient for 12-month mission duration.</p>
+<p><strong>Table 5.5: Shielding Mass Budget</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Shielding Material</th>
+<th>Thickness</th>
+<th>Mass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RISC-V Processor</td>
+<td>Tantalum</td>
+<td>2 mm</td>
+<td>180 g</td>
+</tr>
+<tr>
+<td>FPGA</td>
+<td>Tantalum</td>
+<td>2 mm</td>
+<td>220 g</td>
+</tr>
+<tr>
+<td>Critical Memory</td>
+<td>Tantalum</td>
+<td>1 mm</td>
+<td>80 g</td>
+</tr>
+<tr>
+<td><strong>Total Shielding</strong></td>
+<td></td>
+<td></td>
+<td><strong>480 g</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="thermal-management-options">Thermal Management Options</h4>
+<p><strong>Option A: Passive Thermal Control (Selected)</strong></p>
+<p>Thermal design using surface coatings, MLI blankets, and conductive coupling to radiator surfaces. Adequate for expected thermal loads with appropriate component placement [68].</p>
+<p><strong>Option B: Active Thermal Control</strong></p>
+<p>Heat pipes or pumped fluid loops for high-power components. Rejected due to complexity and mass penalty not justified by thermal requirements.</p>
+<p><strong>Option C: Thermoelectric Cooling</strong></p>
+<p>Peltier coolers for AI processor thermal management. Rejected due to power consumption and limited effectiveness in vacuum.</p>
+<hr>
+<h2 id="6-electrical-testing-methods-and-results">6. Electrical Testing Methods and Results</h2>
+<p>The electrical testing program verifies functionality, performance, and environmental tolerance of all electrical subsystems. Testing follows NASA General Environmental Verification Standard (GEVS) guidelines and CubeSat 101 recommendations [69, 70]. Per CubeSat 101, all testing shall be completed at least one month before Mission Readiness Review [70, Ch. 2].</p>
+<h3 id="61-sensor-integration-and-calibration">6.1 Sensor Integration and Calibration</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify that all sensors interface correctly with the flight computer and provide accurate measurements within specified tolerances.</p>
+<h4 id="test-configuration">Test Configuration</h4>
+<p>The sensor integration test utilizes the FlatSat configuration with all flight sensors connected to the engineering model processor. Sensors under test include:</p>
+<ul>
+<li>BME280 temperature/pressure/humidity sensor (I2C interface)</li>
+<li>RADFETs (analog interface via ADC)</li>
+<li>DS18B20 digital temperature probes (1-Wire interface)</li>
+<li>INA219 current/voltage monitors (I2C interface)</li>
+<li>Camera module (CSI interface)</li>
+</ul>
+<h4 id="test-procedure">Test Procedure</h4>
+<ol>
+<li>Power system initialization and voltage verification</li>
+<li>Sequential sensor activation and communication verification</li>
+<li>Sensor polling at operational rates (1 Hz for radiation sensors, 0.1 Hz for housekeeping)</li>
+<li>Data logging for minimum 300 seconds (300 samples at 1 Hz)</li>
+<li>Comparison of measured values against calibrated reference instruments</li>
+</ol>
+<h4 id="expected-results">Expected Results</h4>
+<p><strong>Table 6.1: Sensor Calibration Acceptance Criteria</strong></p>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Parameter</th>
+<th>Accuracy Requirement</th>
+<th>Reference Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BME280</td>
+<td>Temperature</td>
+<td>±1.0°C</td>
+<td>NIST-traceable thermometer</td>
+</tr>
+<tr>
+<td>BME280</td>
+<td>Pressure</td>
+<td>±1.0 hPa</td>
+<td>Calibrated barometer</td>
+</tr>
+<tr>
+<td>DS18B20</td>
+<td>Temperature</td>
+<td>±0.5°C</td>
+<td>NIST-traceable thermometer</td>
+</tr>
+<tr>
+<td>INA219</td>
+<td>Voltage</td>
+<td>±1%</td>
+<td>Calibrated multimeter</td>
+</tr>
+<tr>
+<td>INA219</td>
+<td>Current</td>
+<td>±2%</td>
+<td>Calibrated shunt reference</td>
+</tr>
+<tr>
+<td>RADFET</td>
+<td>Dose</td>
+<td>±10%</td>
+<td>Calibration curve from vendor</td>
+</tr>
+</tbody>
+</table>
+<h4 id="preliminary-results">Preliminary Results</h4>
+<p>Breadboard testing of sensor interfaces has verified communication protocols and basic functionality. Full calibration testing is scheduled for Month 18 (ETU integration phase).</p>
+<h3 id="62-radiation-testing">6.2 Radiation Testing</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Characterize radiation tolerance of the AI payload assembly including processor, FPGA, and memory under representative space radiation conditions.</p>
+<h4 id="test-facility">Test Facility</h4>
+<p>Radiation testing shall be conducted at the Lawrence Berkeley National Laboratory (LBNL) 88-Inch Cyclotron, which provides proton beams suitable for space radiation effects testing [71]. Test cost is approximately $2,500 per day.</p>
+<h4 id="test-configuration">Test Configuration</h4>
+<p>The Device Under Test (DUT) consists of the integrated AI payload board including:</p>
+<ul>
+<li>SiFive U74 RISC-V processor</li>
+<li>Lattice CrossLink-NX FPGA with AI inference engine</li>
+<li>DDR4 memory with EDAC protection</li>
+<li>Supporting power regulation circuitry</li>
+</ul>
+<p>The DUT is mounted in a vacuum chamber with thermal control. Beam parameters simulate LEO proton environment.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<p><strong>TID Testing:</strong></p>
+<ol>
+<li>Configure DUT in operational mode running AI inference benchmark</li>
+<li>Expose to proton beam at accelerated dose rate (100-1000 rad/hr)</li>
+<li>Monitor AI inference accuracy, processor health, and memory errors continuously</li>
+<li>Continue exposure to 30 krad total dose (3x expected annual dose)</li>
+<li>Characterize any performance degradation versus accumulated dose</li>
+</ol>
+<p><strong>SEU Testing:</strong></p>
+<ol>
+<li>Configure DUT in operational mode with TMR enabled and disabled</li>
+<li>Expose to proton beam while monitoring for upsets</li>
+<li>Measure SEU cross-section (upsets per unit fluence)</li>
+<li>Verify TMR effectiveness by comparing error rates</li>
+<li>Characterize autonomous recovery from detected upsets</li>
+</ol>
+<h4 id="expected-results">Expected Results</h4>
+<p><strong>Table 6.2: Radiation Test Success Criteria</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Requirement</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TID Tolerance</td>
+<td>&gt;20 krad functional</td>
+<td>2x annual dose with margin</td>
+</tr>
+<tr>
+<td>SEU Cross-Section</td>
+<td>&lt;10⁻¹⁴ cm²/bit (with TMR)</td>
+<td>Acceptable error rate for 12-month mission</td>
+</tr>
+<tr>
+<td>TMR Effectiveness</td>
+<td>&gt;99% error masking</td>
+<td>Demonstrated redundancy benefit</td>
+</tr>
+<tr>
+<td>Recovery Time</td>
+<td>&lt;10 seconds from SEU</td>
+<td>Minimal data loss from upsets</td>
+</tr>
+<tr>
+<td>Latchup Immunity</td>
+<td>No destructive latchup to 80 MeV-cm²/mg</td>
+<td>Survival of heavy ion environment</td>
+</tr>
+</tbody>
+</table>
+<h4 id="preliminary-analysis">Preliminary Analysis</h4>
+<p>Monte Carlo simulations using SPENVIS orbital radiation models predict annual TID of 5-10 krad at 500 km altitude with 2 mm tantalum shielding [72]. The 30 krad test level provides adequate margin for mission duration with shielding degradation.</p>
+<h3 id="63-tmr-validation-testing">6.3 TMR Validation Testing</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify that Triple Modular Redundancy implementation correctly masks single-point errors and maintains computational integrity.</p>
+<h4 id="test-configuration">Test Configuration</h4>
+<p>Software-based fault injection testing using the FlatSat configuration. Test software deliberately corrupts memory locations and register values to simulate radiation-induced bit flips.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<ol>
+<li>Initialize system with TMR enabled</li>
+<li>Execute AI inference benchmark establishing baseline accuracy</li>
+<li>Inject single-bit errors at random locations during execution</li>
+<li>Verify voter logic correctly identifies and masks errors</li>
+<li>Inject multi-bit errors to characterize TMR limitations</li>
+<li>Measure computational overhead from TMR (expected 2.5-3x baseline)</li>
+</ol>
+<h4 id="expected-results">Expected Results</h4>
+<p><strong>Table 6.3: TMR Validation Criteria</strong></p>
+<table>
+<thead>
+<tr>
+<th>Test Case</th>
+<th>Injected Errors</th>
+<th>Expected Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single-bit in one module</td>
+<td>1</td>
+<td>Masked, no output error</td>
+</tr>
+<tr>
+<td>Single-bit in two modules (same location)</td>
+<td>2</td>
+<td>Detected, output error flagged</td>
+</tr>
+<tr>
+<td>Multi-bit in one module</td>
+<td>3+</td>
+<td>Masked if independent locations</td>
+</tr>
+<tr>
+<td>Voter logic corruption</td>
+<td>1</td>
+<td>Detected by watchdog, system reset</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-power-system-testing">6.4 Power System Testing</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify power system performance under all operational modes and environmental conditions.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<ol>
+<li>Measure current draw in each operational mode (Safe, Protected, Normal)</li>
+<li>Verify voltage regulation stability under load transients</li>
+<li>Test battery charge/discharge cycling</li>
+<li>Verify undervoltage load shedding operation</li>
+<li>Measure system efficiency from solar input to loads</li>
+</ol>
+<h4 id="expected-results">Expected Results</h4>
+<p><strong>Table 6.4: Power System Test Criteria</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Expected Power</th>
+<th>Voltage Stability</th>
+<th>Duration Tested</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Safe Mode</td>
+<td>5-8 W</td>
+<td>±2%</td>
+<td>8 hours</td>
+</tr>
+<tr>
+<td>Protected Mode</td>
+<td>15-20 W</td>
+<td>±3%</td>
+<td>4 hours</td>
+</tr>
+<tr>
+<td>Normal Mode</td>
+<td>30-36 W</td>
+<td>±5%</td>
+<td>2 hours</td>
+</tr>
+<tr>
+<td>Peak Processing</td>
+<td>40-45 W</td>
+<td>±5%</td>
+<td>10 minutes</td>
+</tr>
+<tr>
+<td>Eclipse (battery only)</td>
+<td>20 W average</td>
+<td>±3%</td>
+<td>45 minutes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-communications-testing">6.5 Communications Testing</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify end-to-end communication link performance including range, data integrity, and protocol compliance.</p>
+<h4 id="test-configuration">Test Configuration</h4>
+<p>Flight radio connected to calibrated RF test equipment and ground station emulator. Long-range testing uses university rooftop antenna and mobile ground station.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<p><strong>Bench Testing:</strong></p>
+<ol>
+<li>Verify transmitter output power (8 W nominal)</li>
+<li>Measure receiver sensitivity</li>
+<li>Verify AX.25 protocol compliance</li>
+<li>Test store-and-forward data handling</li>
+</ol>
+<p><strong>Range Testing:</strong></p>
+<ol>
+<li>Position spacecraft emulator at elevated location (building rooftop)</li>
+<li>Establish link with mobile ground station at increasing distances</li>
+<li>Measure signal strength and bit error rate versus distance</li>
+<li>Verify successful command uplink and telemetry downlink at &gt;50 km</li>
+</ol>
+<h4 id="expected-results">Expected Results</h4>
+<p>Link budget analysis predicts positive margin at 2000 km slant range (worst-case LEO geometry) with 3 dB margin. Range testing target of 50 km terrestrial validates RF performance with atmospheric losses.</p>
+<h3 id="66-complete-system-bench-test">6.6 Complete System Bench Test</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify integrated system functionality with all subsystems operating simultaneously in flight-like configuration.</p>
+<h4 id="test-configuration">Test Configuration</h4>
+<p>Flight-equivalent hardware in FlatSat configuration with solar array simulator, battery pack, and RF link to ground station emulator.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<ol>
+<li>Execute full mission simulation including:
+<ul>
+<li>Power-on and initialization sequence</li>
+<li>Sensor activation and calibration</li>
+<li>AI inference benchmark execution</li>
+<li>Mode transition (Normal → Protected → Safe → Normal)</li>
+<li>Telemetry downlink and command uplink</li>
+<li>Simulated eclipse operations</li>
+</ul>
+</li>
+<li>Duration: 24 hours continuous operation</li>
+<li>Inject simulated radiation events to trigger mode transitions</li>
+</ol>
+<h4 id="expected-results">Expected Results</h4>
+<p>System completes 24-hour test with:</p>
+<ul>
+<li>Zero unplanned resets</li>
+<li>All mode transitions executed correctly</li>
+<li>AI inference accuracy within 1% of baseline</li>
+<li>All telemetry parameters within limits</li>
+<li>Successful command response for all uplinked commands</li>
+</ul>
+<hr>
+<h2 id="7-structural-testing-methods-and-results">7. Structural Testing Methods and Results</h2>
+<p>The structural testing program verifies mechanical integrity under launch and on-orbit environmental conditions. Testing follows NASA GEVS requirements for CubeSat-class spacecraft [69].</p>
+<h3 id="71-mass-properties-verification">7.1 Mass Properties Verification</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify spacecraft mass, center of mass location, and moments of inertia meet CDS and mission requirements.</p>
+<h4 id="test-equipment">Test Equipment</h4>
+<ul>
+<li>Calibrated scale (resolution 1 g)</li>
+<li>Mass properties measurement fixture</li>
+<li>Spin table for moment of inertia measurement</li>
+</ul>
+<h4 id="test-procedure">Test Procedure</h4>
+<ol>
+<li>Measure total spacecraft mass</li>
+<li>Measure center of mass in three axes using reaction method</li>
+<li>Measure moments of inertia about principal axes</li>
+</ol>
+<h4 id="acceptance-criteria">Acceptance Criteria</h4>
+<p><strong>Table 7.1: Mass Properties Requirements</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Requirement</th>
+<th>Measurement Uncertainty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Mass</td>
+<td>≤14.0 kg</td>
+<td>±10 g</td>
+</tr>
+<tr>
+<td>CoM X-axis</td>
+<td>Within 2.0 cm of geometric center</td>
+<td>±2 mm</td>
+</tr>
+<tr>
+<td>CoM Y-axis</td>
+<td>Within 2.0 cm of geometric center</td>
+<td>±2 mm</td>
+</tr>
+<tr>
+<td>CoM Z-axis</td>
+<td>Within 2.0 cm of geometric center</td>
+<td>±2 mm</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-fit-check-and-dimensional-verification">7.2 Fit Check and Dimensional Verification</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify spacecraft dimensions comply with CDS Rev. 14 6U envelope and rail interface requirements.</p>
+<h4 id="test-equipment">Test Equipment</h4>
+<ul>
+<li>CubeSat test dispenser (6U compatible)</li>
+<li>Calibrated calipers and gauge blocks</li>
+<li>Coordinate measuring machine (CMM) if available</li>
+</ul>
+<h4 id="test-procedure">Test Procedure</h4>
+<ol>
+<li>Measure overall dimensions at multiple locations</li>
+<li>Verify rail geometry and surface finish</li>
+<li>Insert spacecraft into test dispenser</li>
+<li>Verify smooth insertion and extraction</li>
+<li>Check deployment switch actuation</li>
+</ol>
+<h4 id="acceptance-criteria">Acceptance Criteria</h4>
+<p><strong>Table 7.2: Dimensional Requirements (CDS Rev. 14)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width (X)</td>
+<td>100.0 mm ± 0.1 mm</td>
+</tr>
+<tr>
+<td>Depth (Y)</td>
+<td>226.3 mm max</td>
+</tr>
+<tr>
+<td>Height (Z)</td>
+<td>340.5 mm max</td>
+</tr>
+<tr>
+<td>Rail Width</td>
+<td>8.5 mm × 8.5 mm</td>
+</tr>
+<tr>
+<td>Rail Surface</td>
+<td>Hard anodized, Ra ≤ 1.6 μm</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-vibration-testing">7.3 Vibration Testing</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify structural integrity under launch vibration environment per NASA GEVS requirements.</p>
+<h4 id="test-equipment">Test Equipment</h4>
+<p>Electrodynamic shaker system with:</p>
+<ul>
+<li>Sine and random vibration capability</li>
+<li>6U CubeSat test fixture</li>
+<li>Tri-axial accelerometers</li>
+<li>Data acquisition system</li>
+</ul>
+<h4 id="test-configuration">Test Configuration</h4>
+<p>Spacecraft in flight configuration mounted in test fixture simulating dispenser interface. All deployables in stowed/constrained configuration.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<p><strong>Sine Sweep (Workmanship):</strong></p>
+<ol>
+<li>Low-level sine sweep (0.25 g, 5-2000 Hz) pre-test</li>
+<li>Document resonant frequencies</li>
+<li>Low-level sine sweep post-test</li>
+<li>Compare resonances (shift &gt;5% indicates damage)</li>
+</ol>
+<p><strong>Random Vibration (Qualification):</strong></p>
+<ol>
+<li>Apply qualification-level random vibration per axis</li>
+<li>Duration: 2 minutes per axis</li>
+<li>Level: 14.1 Grms per NASA GEVS</li>
+</ol>
+<p><strong>Table 7.3: Random Vibration Spectrum (NASA GEVS)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Frequency (Hz)</th>
+<th>ASD (g²/Hz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>0.026</td>
+</tr>
+<tr>
+<td>50</td>
+<td>0.16</td>
+</tr>
+<tr>
+<td>800</td>
+<td>0.16</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>0.026</td>
+</tr>
+<tr>
+<td>Overall</td>
+<td>14.1 Grms</td>
+</tr>
+</tbody>
+</table>
+<h4 id="acceptance-criteria">Acceptance Criteria</h4>
+<ul>
+<li>No structural failure or permanent deformation</li>
+<li>Resonant frequency shift &lt;5%</li>
+<li>All components remain secured</li>
+<li>Post-test functional verification successful</li>
+</ul>
+<h3 id="74-thermal-vacuum-testing">7.4 Thermal Vacuum Testing</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify spacecraft operation across the expected on-orbit temperature range under vacuum conditions.</p>
+<h4 id="test-equipment">Test Equipment</h4>
+<ul>
+<li>Thermal vacuum chamber</li>
+<li>Thermal control system (heater plates, shrouds)</li>
+<li>Vacuum system (&lt;10⁻⁵ Torr)</li>
+<li>Temperature sensors and data acquisition</li>
+</ul>
+<h4 id="test-configuration">Test Configuration</h4>
+<p>Spacecraft in flight configuration mounted on thermal interface plate. Electrical interfaces through chamber feedthroughs enable functional testing during thermal exposure.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<p><strong>Thermal Cycling:</strong></p>
+<ol>
+<li>Initial functional test at ambient</li>
+<li>Reduce pressure to &lt;10⁻⁵ Torr</li>
+<li>Cold soak at -40°C for 2 hours</li>
+<li>Functional test at cold extreme</li>
+<li>Hot soak at +60°C for 2 hours</li>
+<li>Functional test at hot extreme</li>
+<li>Complete 4 thermal cycles</li>
+<li>Return to ambient, functional test</li>
+</ol>
+<p><strong>Thermal Balance (Optional):</strong>
+If schedule permits, perform thermal balance test to validate thermal model predictions.</p>
+<h4 id="acceptance-criteria">Acceptance Criteria</h4>
+<p><strong>Table 7.4: Thermal Vacuum Test Criteria</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cold Survival</td>
+<td>-40°C for 2 hours, non-operational</td>
+</tr>
+<tr>
+<td>Cold Operational</td>
+<td>-20°C with AI processing active</td>
+</tr>
+<tr>
+<td>Hot Survival</td>
+<td>+60°C for 2 hours, non-operational</td>
+</tr>
+<tr>
+<td>Hot Operational</td>
+<td>+50°C with AI processing active</td>
+</tr>
+<tr>
+<td>Functional Test</td>
+<td>All parameters within specification at temperature extremes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="75-emiemc-testing">7.5 EMI/EMC Testing</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify electromagnetic compatibility between spacecraft subsystems and with external environment.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<p><strong>Conducted Emissions:</strong></p>
+<ol>
+<li>Measure conducted emissions on power lines</li>
+<li>Verify compliance with MIL-STD-461G CE102</li>
+</ol>
+<p><strong>Radiated Emissions:</strong></p>
+<ol>
+<li>Measure radiated emissions from spacecraft</li>
+<li>Verify no interference with communications subsystem</li>
+<li>Verify compliance with MIL-STD-461G RE102</li>
+</ol>
+<p><strong>Susceptibility:</strong></p>
+<ol>
+<li>Verify AI payload operation during RF transmission</li>
+<li>Verify no upset from external RF fields</li>
+</ol>
+<h3 id="76-deployment-testing">7.6 Deployment Testing</h3>
+<h4 id="test-objective">Test Objective</h4>
+<p>Verify reliable deployment of solar arrays and antennas.</p>
+<h4 id="test-procedure">Test Procedure</h4>
+<ol>
+<li>Constrain deployables in flight configuration</li>
+<li>Actuate deployment mechanism</li>
+<li>Verify complete deployment</li>
+<li>Repeat for minimum 10 cycles</li>
+<li>Test at temperature extremes (-20°C and +50°C)</li>
+</ol>
+<h4 id="acceptance-criteria">Acceptance Criteria</h4>
+<ul>
+<li>100% deployment success (10/10 cycles minimum)</li>
+<li>Deployment time within specification</li>
+<li>No damage to deployment mechanisms or deployed elements</li>
+</ul>
+<hr>
+<h2 id="8-final-design">8. Final Design</h2>
+<p>The final design incorporates the selected alternatives from the conceptual design phase, refined through detailed analysis and preliminary testing. This section provides comprehensive specifications for the flight configuration.</p>
+<h3 id="81-mission">8.1 Mission</h3>
+<p>The finalized mission for RAD-AI is <strong>Radiation-Aware Autonomous Computing Demonstration</strong>, selected based on the trade study presented in Section 5.1. This mission directly addresses NASA Technology Area 4 requirements for radiation-tolerant autonomy while providing empirical flight data during the critical 2025-2027 period before HPSC availability [73].</p>
+<h4 id="mission-profile">Mission Profile</h4>
+<p><strong>Orbit Parameters:</strong></p>
+<ul>
+<li>Altitude: 400-600 km (CSLI-compatible range)</li>
+<li>Inclination: Any (mission is inclination-agnostic)</li>
+<li>Expected orbital lifetime: 8-15 years (natural decay within 25-year requirement) [74]</li>
+<li>SAA exposure: 6-10 passes per day at 500 km altitude</li>
+</ul>
+<p><strong>Mission Duration:</strong></p>
+<ul>
+<li>Operational lifetime: 12 months minimum</li>
+<li>Extended operations: Up to 24 months if spacecraft health permits</li>
+<li>Data collection: Continuous throughout operational phase</li>
+</ul>
+<h4 id="operational-modes">Operational Modes</h4>
+<p>The RAD-AI spacecraft operates in three distinct modes, with autonomous transitions based on radiation environment assessment:</p>
+<p><strong>Normal Mode:</strong></p>
+<ul>
+<li>AI inference rate: 10 Hz (star-field tracking)</li>
+<li>TMR: Standard implementation (3 parallel threads)</li>
+<li>Power consumption: 30-36 W</li>
+<li>Data generation: ~50 MB/day</li>
+<li>Activation: Default mode when radiation environment is nominal</li>
+</ul>
+<p><strong>Protected Mode:</strong></p>
+<ul>
+<li>AI inference rate: 3 Hz (reduced processing)</li>
+<li>TMR: Enhanced implementation (5 parallel threads with 2 spare)</li>
+<li>Power consumption: 25-30 W</li>
+<li>Data generation: ~30 MB/day</li>
+<li>Activation: Triggered by SAA entry detection or elevated particle flux</li>
+<li>Duration: Maintained until 10 minutes after SAA exit confirmed</li>
+</ul>
+<p><strong>Safe Mode:</strong></p>
+<ul>
+<li>AI inference: Suspended</li>
+<li>C&amp;DH: Housekeeping only</li>
+<li>Power consumption: 8-12 W</li>
+<li>Data generation: ~5 MB/day</li>
+<li>Activation: Triggered by multiple SEU detection, anomaly condition, or ground command</li>
+<li>Recovery: Automatic after 30 minutes or by ground command</li>
+</ul>
+<p><strong>Table 8.1: Operational Mode Summary</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Normal</th>
+<th>Protected</th>
+<th>Safe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Processing</td>
+<td>10 Hz</td>
+<td>3 Hz</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>TMR Level</td>
+<td>Standard</td>
+<td>Enhanced</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>30-36 W</td>
+<td>25-30 W</td>
+<td>8-12 W</td>
+</tr>
+<tr>
+<td>Data Rate</td>
+<td>50 MB/day</td>
+<td>30 MB/day</td>
+<td>5 MB/day</td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Default</td>
+<td>SAA/High flux</td>
+<td>Anomaly</td>
+</tr>
+</tbody>
+</table>
+<h4 id="autonomous-adaptation-algorithm">Autonomous Adaptation Algorithm</h4>
+<p>The radiation-aware mode transition algorithm implements the following logic:</p>
+<pre class="hljs"><code><div>INPUTS:
+  - RADFET dose rate (mrad/hr)
+  - Particle telescope count rate (counts/sec)
+  - GPS-derived orbital position
+  - SAA boundary model (AP-8)
+  - SEU counter (events in last 60 seconds)
+
+DECISION LOGIC:
+  IF (SEU_count &gt; 3 in 60 sec) OR (anomaly_flag):
+    TRANSITION → Safe Mode
+  ELSE IF (in_SAA OR dose_rate &gt; 50 mrad/hr OR particle_rate &gt; threshold):
+    TRANSITION → Protected Mode
+  ELSE IF (out_of_SAA AND dose_rate &lt; 20 mrad/hr for 10 min):
+    TRANSITION → Normal Mode
+
+HYSTERESIS:
+  - Minimum 5 minutes in any mode before transition
+  - SAA exit requires 10-minute confirmation
+  - Mode transitions logged with timestamp and trigger condition
+</div></code></pre>
+<p>The algorithm includes hysteresis to prevent mode thrashing at boundary conditions. All transitions are logged for post-mission analysis [75].</p>
+<h3 id="82-electrical">8.2 Electrical</h3>
+<p>The electrical design integrates the selected components from the conceptual design phase into a cohesive system architecture. A complete circuit diagram is provided in Appendix B.</p>
+<h4 id="main-computer-system">Main Computer System</h4>
+<p><strong>Flight Computer (C&amp;DH):</strong></p>
+<ul>
+<li>Processor: ARM Cortex-M4 (STM32F4 series)</li>
+<li>Clock: 168 MHz</li>
+<li>Memory: 256 KB SRAM, 1 MB Flash</li>
+<li>Storage: 2× 64 GB SD cards (redundant)</li>
+<li>Interfaces: I2C, SPI, UART, GPIO</li>
+<li>Function: Spacecraft housekeeping, communications, mode management</li>
+<li>Power: 0.5 W typical</li>
+</ul>
+<p>The flight computer is physically and electrically isolated from the AI payload to prevent fault propagation. Critical spacecraft functions (attitude control, communications, power management) remain operational even if the AI payload experiences radiation-induced failure [76].</p>
+<p><strong>AI Payload Processor:</strong></p>
+<ul>
+<li>Processor: SiFive U74 RISC-V quad-core</li>
+<li>Clock: 1.5 GHz</li>
+<li>Memory: 4 GB DDR4 with EDAC</li>
+<li>Storage: 32 GB eMMC</li>
+<li>Operating System: Linux (Yocto-based minimal distribution)</li>
+<li>Function: AI inference, radiation monitoring, autonomous mode control</li>
+<li>Power: 3-5 W typical</li>
+</ul>
+<p><strong>AI Accelerator:</strong></p>
+<ul>
+<li>Device: Lattice CrossLink-NX FPGA (LIFCL-40)</li>
+<li>Logic Cells: 39,000</li>
+<li>DSP Blocks: 56</li>
+<li>Memory: 2.5 Mb embedded</li>
+<li>Configuration: Custom neural network inference engine</li>
+<li>Function: Star-field feature extraction, radiation classifier</li>
+<li>Power: 1-3 W typical</li>
+</ul>
+<p><strong>Table 8.2: AI Payload Specifications</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Model</th>
+<th>Key Specs</th>
+<th>Power</th>
+<th>Mass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RISC-V Processor</td>
+<td>SiFive U74</td>
+<td>4-core, 1.5 GHz</td>
+<td>3-5 W</td>
+<td>15 g</td>
+</tr>
+<tr>
+<td>FPGA Accelerator</td>
+<td>Lattice LIFCL-40</td>
+<td>39K LUTs, 56 DSP</td>
+<td>1-3 W</td>
+<td>10 g</td>
+</tr>
+<tr>
+<td>DDR4 Memory</td>
+<td>Micron 4 GB</td>
+<td>EDAC protected</td>
+<td>1-2 W</td>
+<td>5 g</td>
+</tr>
+<tr>
+<td>eMMC Storage</td>
+<td>32 GB</td>
+<td>Wear-leveled</td>
+<td>0.5 W</td>
+<td>3 g</td>
+</tr>
+<tr>
+<td><strong>Total AI Payload</strong></td>
+<td></td>
+<td></td>
+<td><strong>8-15 W</strong></td>
+<td><strong>~200 g</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="radiation-mitigation-implementation">Radiation Mitigation Implementation</h4>
+<p><strong>Triple Modular Redundancy (TMR):</strong></p>
+<p>TMR is implemented in software on the RISC-V processor, executing three parallel instances of critical algorithms with majority voting [77]:</p>
+<pre class="hljs"><code><div>Architecture:
+  Thread 1 ──┐
+  Thread 2 ──┼── Voter ── Output
+  Thread 3 ──┘
+
+Implementation:
+  - Separate memory regions for each thread
+  - Voter executes on dedicated core
+  - Disagreement triggers error flag and SEU counter increment
+  - Persistent disagreement (&gt;3 consecutive) triggers Safe Mode
+</div></code></pre>
+<p>Computational overhead is approximately 2.8× baseline (less than theoretical 3× due to shared I/O operations).</p>
+<p><strong>Error Detection and Correction (EDAC):</strong></p>
+<p>DDR4 memory implements SECDED (Single Error Correct, Double Error Detect) using dedicated ECC bits [78]:</p>
+<ul>
+<li>Single-bit errors: Automatically corrected, logged</li>
+<li>Double-bit errors: Detected, flagged, triggers memory scrub</li>
+<li>Scrub rate: Complete memory scan every 60 seconds</li>
+</ul>
+<p><strong>Selective Shielding:</strong></p>
+<p>Tantalum shielding (density 16.6 g/cm³) provides 10× dose reduction compared to equivalent aluminum mass [79]:</p>
+<p><strong>Table 8.3: Shielding Configuration</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Shielding</th>
+<th>Thickness</th>
+<th>Dose Reduction</th>
+<th>Mass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RISC-V Processor</td>
+<td>Tantalum</td>
+<td>2.0 mm</td>
+<td>10×</td>
+<td>180 g</td>
+</tr>
+<tr>
+<td>FPGA</td>
+<td>Tantalum</td>
+<td>2.0 mm</td>
+<td>10×</td>
+<td>220 g</td>
+</tr>
+<tr>
+<td>DDR4 Memory</td>
+<td>Tantalum</td>
+<td>1.0 mm</td>
+<td>5×</td>
+<td>80 g</td>
+</tr>
+<tr>
+<td>eMMC Storage</td>
+<td>Aluminum (structure)</td>
+<td>3.0 mm</td>
+<td>2×</td>
+<td>Included</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>480 g</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Watchdog Timers:</strong></p>
+<p>Multiple watchdog timers provide defense-in-depth against processor lockup [80]:</p>
+<ul>
+<li>Software watchdog: 10-second timeout, resets AI application</li>
+<li>Hardware watchdog: 60-second timeout, resets AI processor</li>
+<li>System watchdog: 300-second timeout, power-cycles AI payload</li>
+</ul>
+<h4 id="sensor-package">Sensor Package</h4>
+<p><strong>Table 8.4: Sensor Specifications</strong></p>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Model</th>
+<th>Measurement</th>
+<th>Range</th>
+<th>Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RADFET (×4)</td>
+<td>RFT-300</td>
+<td>TID</td>
+<td>0-100 krad</td>
+<td>Analog/ADC</td>
+</tr>
+<tr>
+<td>Particle Telescope</td>
+<td>Custom</td>
+<td>Particle flux</td>
+<td>1-10⁶ counts/s</td>
+<td>Digital</td>
+</tr>
+<tr>
+<td>Temperature (×6)</td>
+<td>DS18B20</td>
+<td>Temperature</td>
+<td>-55 to +125°C</td>
+<td>1-Wire</td>
+</tr>
+<tr>
+<td>Current/Voltage (×4)</td>
+<td>INA219</td>
+<td>Power monitoring</td>
+<td>0-26V, 0-3.2A</td>
+<td>I2C</td>
+</tr>
+<tr>
+<td>IMU</td>
+<td>BMI088</td>
+<td>Acceleration, rotation</td>
+<td>±24g, ±2000°/s</td>
+<td>SPI</td>
+</tr>
+<tr>
+<td>Magnetometer</td>
+<td>LIS3MDL</td>
+<td>Magnetic field</td>
+<td>±16 gauss</td>
+<td>I2C</td>
+</tr>
+<tr>
+<td>Camera (×2)</td>
+<td>OV5640</td>
+<td>Visible imagery</td>
+<td>5 MP, 640×480 video</td>
+<td>CSI</td>
+</tr>
+</tbody>
+</table>
+<h4 id="communications-system">Communications System</h4>
+<p><strong>UHF Transceiver:</strong></p>
+<ul>
+<li>Model: EnduroSat UHF Transceiver II</li>
+<li>Frequency: 435-438 MHz (amateur allocation)</li>
+<li>TX Power: 0.5-8 W selectable</li>
+<li>Data Rate: 1200-9600 bps</li>
+<li>Modulation: GMSK</li>
+<li>Protocol: AX.25</li>
+<li>Power consumption: 8 W (TX), 0.5 W (RX)</li>
+</ul>
+<p><strong>Antenna:</strong></p>
+<ul>
+<li>Type: Deployable monopole (×4 for turnstile configuration)</li>
+<li>Gain: 0 dBi (omnidirectional)</li>
+<li>Deployment: Burn-wire release (redundant burn wires per CubeSat 101 guidance) [81]</li>
+</ul>
+<p><strong>Ground Station Interface:</strong></p>
+<ul>
+<li>Primary: University of Colorado Colorado Springs UHF station</li>
+<li>Backup: SatNOGS global network (~400 stations) [82]</li>
+<li>Passes per day: 4-6 (primary station), 15-20 (SatNOGS network)</li>
+<li>Daily data volume: 80-120 MB (target)</li>
+</ul>
+<h4 id="power-system">Power System</h4>
+<p><strong>Solar Arrays:</strong></p>
+<ul>
+<li>Configuration: 6U deployable panels (2× 3U wings)</li>
+<li>Cell type: GaAs triple-junction (30% efficiency)</li>
+<li>Power generation: 45 W BOL, 38 W EOL (15% degradation assumed)</li>
+<li>Deployment: Burn-wire release, spring-driven deployment</li>
+</ul>
+<p><strong>Battery:</strong></p>
+<ul>
+<li>Type: Lithium-ion (18650 cells)</li>
+<li>Configuration: 4S2P (8 cells)</li>
+<li>Capacity: 60 Wh (5.2 Ah at 11.5 V nominal)</li>
+<li>Voltage range: 12.0-16.8 V</li>
+<li>Operating temperature: 0-45°C (charging), -20 to 60°C (discharge)</li>
+</ul>
+<p><strong>Power Distribution:</strong></p>
+<ul>
+<li>Bus voltage: Unregulated 12-17 V</li>
+<li>Regulated rails: 5.0 V (5 A max), 3.3 V (3 A max)</li>
+<li>Load switching: Solid-state switches with current limiting</li>
+<li>Fault protection: Overcurrent, overvoltage, undervoltage on all rails</li>
+</ul>
+<p><strong>Table 8.5: Power Budget</strong></p>
+<table>
+<thead>
+<tr>
+<th>Subsystem</th>
+<th>Nominal (W)</th>
+<th>Peak (W)</th>
+<th>Duty Cycle</th>
+<th>Average (W)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Payload</td>
+<td>12</td>
+<td>30</td>
+<td>60%</td>
+<td>18.0</td>
+</tr>
+<tr>
+<td>C&amp;DH</td>
+<td>1.5</td>
+<td>2.0</td>
+<td>100%</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Communications (TX)</td>
+<td>8.0</td>
+<td>10.0</td>
+<td>10%</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>Communications (RX)</td>
+<td>0.5</td>
+<td>0.5</td>
+<td>100%</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>ADCS</td>
+<td>2.0</td>
+<td>4.0</td>
+<td>100%</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>Thermal (heaters)</td>
+<td>0</td>
+<td>10.0</td>
+<td>20%</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>Harness losses</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>25.8</strong></td>
+</tr>
+<tr>
+<td>Margin (20%)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>5.2</td>
+</tr>
+<tr>
+<td><strong>Total Required</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>31.0</strong></td>
+</tr>
+<tr>
+<td><strong>Available (EOL)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>38.0</strong></td>
+</tr>
+<tr>
+<td><strong>Margin</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>+7.0 W (18%)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="83-structure">8.3 Structure</h3>
+<p>The structural design provides mechanical support and environmental protection for all spacecraft components while maintaining CDS Rev. 14 compliance.</p>
+<h4 id="structural-configuration">Structural Configuration</h4>
+<p><strong>Primary Structure:</strong></p>
+<ul>
+<li>Material: 6061-T6 Aluminum</li>
+<li>Configuration: Machined rails with sheet metal panels</li>
+<li>Finish: Hard anodized (MIL-A-8625 Type III) on rails</li>
+<li>Panel attachment: M3 fasteners with Helicoil inserts</li>
+</ul>
+<p><strong>Mass Budget:</strong></p>
+<p><strong>Table 8.6: Mass Budget</strong></p>
+<table>
+<thead>
+<tr>
+<th>Subsystem</th>
+<th>Mass (kg)</th>
+<th>Allocation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structure (primary)</td>
+<td>1.8</td>
+<td>12.9%</td>
+</tr>
+<tr>
+<td>AI Payload</td>
+<td>0.4</td>
+<td>2.9%</td>
+</tr>
+<tr>
+<td>Radiation Shielding</td>
+<td>0.5</td>
+<td>3.6%</td>
+</tr>
+<tr>
+<td>Power System (batteries)</td>
+<td>1.2</td>
+<td>8.6%</td>
+</tr>
+<tr>
+<td>Power System (solar, electronics)</td>
+<td>1.5</td>
+<td>10.7%</td>
+</tr>
+<tr>
+<td>Communications</td>
+<td>0.6</td>
+<td>4.3%</td>
+</tr>
+<tr>
+<td>ADCS</td>
+<td>0.8</td>
+<td>5.7%</td>
+</tr>
+<tr>
+<td>C&amp;DH</td>
+<td>0.3</td>
+<td>2.1%</td>
+</tr>
+<tr>
+<td>Sensors</td>
+<td>0.2</td>
+<td>1.4%</td>
+</tr>
+<tr>
+<td>Harness</td>
+<td>0.5</td>
+<td>3.6%</td>
+</tr>
+<tr>
+<td>Thermal hardware</td>
+<td>0.3</td>
+<td>2.1%</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td><strong>8.1</strong></td>
+<td><strong>57.9%</strong></td>
+</tr>
+<tr>
+<td>Margin (20%)</td>
+<td>1.6</td>
+<td>11.4%</td>
+</tr>
+<tr>
+<td><strong>Total with Margin</strong></td>
+<td><strong>9.7</strong></td>
+<td><strong>69.3%</strong></td>
+</tr>
+<tr>
+<td><strong>CDS Limit</strong></td>
+<td><strong>14.0</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+<tr>
+<td><strong>Available Margin</strong></td>
+<td><strong>4.3</strong></td>
+<td><strong>30.7%</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="component-layout">Component Layout</h4>
+<p>The 6U volume is organized to optimize mass properties, thermal paths, and accessibility:</p>
+<p><strong>-Z Face (Nadir):</strong></p>
+<ul>
+<li>Camera apertures (2×)</li>
+<li>Particle telescope aperture</li>
+<li>Antenna deployment mechanisms</li>
+</ul>
+<p><strong>+Z Face (Zenith):</strong></p>
+<ul>
+<li>Solar array hinges</li>
+<li>Sun sensor</li>
+</ul>
+<p><strong>±X Faces (Ram/Wake):</strong></p>
+<ul>
+<li>Body-mounted solar cells (supplementary)</li>
+<li>External temperature sensors</li>
+</ul>
+<p><strong>±Y Faces (Cross-track):</strong></p>
+<ul>
+<li>Deployable solar arrays (stowed)</li>
+<li>Magnetorquer coils</li>
+</ul>
+<p><strong>Internal Volume:</strong></p>
+<ul>
+<li>Layer 1 (bottom): Battery pack, power electronics</li>
+<li>Layer 2: AI payload with shielding enclosure</li>
+<li>Layer 3: C&amp;DH, communications, ADCS electronics</li>
+<li>Layer 4 (top): Antenna deployment, GPS receiver</li>
+</ul>
+<h4 id="thermal-design">Thermal Design</h4>
+<p><strong>Thermal Environment:</strong></p>
+<p>At 500 km altitude, the spacecraft experiences [83]:</p>
+<ul>
+<li>Solar flux: 1367 W/m² (direct)</li>
+<li>Albedo: ~30% of solar (Earth-reflected)</li>
+<li>Earth IR: 237 W/m²</li>
+<li>Eclipse duration: ~35 minutes (96-minute orbit)</li>
+</ul>
+<p><strong>Thermal Control Approach:</strong></p>
+<p>Passive thermal control is implemented using:</p>
+<ul>
+<li>
+<p><strong>Surface coatings:</strong></p>
+<ul>
+<li>Radiator surfaces: White paint (α=0.2, ε=0.9)</li>
+<li>Solar array back: Black paint (α=0.95, ε=0.9)</li>
+<li>MLI blankets: Gold-aluminized Kapton (selective surfaces)</li>
+</ul>
+</li>
+<li>
+<p><strong>Conductive paths:</strong></p>
+<ul>
+<li>AI payload thermally coupled to radiator panel</li>
+<li>Battery isolated from structure with low-conductivity mounts</li>
+</ul>
+</li>
+<li>
+<p><strong>Heaters:</strong></p>
+<ul>
+<li>Battery heater: 5 W (thermostat controlled at 5°C)</li>
+<li>Propulsion heater: N/A (no propulsion system)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Thermal Analysis Results:</strong></p>
+<p><strong>Table 8.7: Predicted Temperature Ranges</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Cold Case (°C)</th>
+<th>Hot Case (°C)</th>
+<th>Limit (°C)</th>
+<th>Margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Processor</td>
+<td>-5</td>
+<td>+55</td>
+<td>-20/+70</td>
+<td>+15/+15</td>
+</tr>
+<tr>
+<td>FPGA</td>
+<td>-10</td>
+<td>+60</td>
+<td>-40/+85</td>
+<td>+30/+25</td>
+</tr>
+<tr>
+<td>Battery</td>
+<td>+5</td>
+<td>+35</td>
+<td>0/+45</td>
+<td>+5/+10</td>
+</tr>
+<tr>
+<td>C&amp;DH</td>
+<td>-15</td>
+<td>+50</td>
+<td>-40/+85</td>
+<td>+25/+35</td>
+</tr>
+<tr>
+<td>Camera</td>
+<td>-20</td>
+<td>+45</td>
+<td>-30/+70</td>
+<td>+10/+25</td>
+</tr>
+</tbody>
+</table>
+<p>All components maintain positive margin in both hot and cold cases.</p>
+<hr>
+<h2 id="9-concept-of-operations">9. Concept of Operations</h2>
+<p>The Concept of Operations (CONOPS) defines the operational timeline and data flow for the RAD-AI mission from launch through end of operations.</p>
+<h3 id="conops-overview">CONOPS Overview</h3>
+<p>Figure 9.1 illustrates the operational flow of the RAD-AI spacecraft during nominal science operations.</p>
+<p><strong>CONOPS Diagram:</strong></p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    subgraph SPACECRAFT["🛰️ RAD-AI SPACECRAFT"]
+        A["**STEP 1**<br/>Power On"] --> B["**STEP 2**<br/>Sensor Sample"]
+        B --> C["**STEP 3**<br/>AI Inference"]
+        C --> D{"**STEP 4**<br/>Mode Decision"}
+        D --> E[("**STEP 5**<br/>Data Storage")]
+        E --> F["**STEP 6**<br/>Comms Queue"]
+        F --> G["**STEP 7**<br/>Downlink to GND"]
+        G -.->|"Loop"| B
+    end
+
+    subgraph GROUND["📡 GROUND SEGMENT"]
+        H["**GROUND STATION**<br/>• Command Processing<br/>• Data Analysis<br/>• Mission Planning"]
+    end
+
+    G <-->|"RF Link (UHF)"| H
+    H -.->|"Commands"| A
+
+    style SPACECRAFT fill:#e8f4f8,stroke:#0077b6,stroke-width:2px
+    style GROUND fill:#f5f5f5,stroke:#555,stroke-width:2px
+    style D fill:#ffdd57,stroke:#b8860b
+    style E fill:#98c379,stroke:#3d5a3d
+</div></code></pre>
+<p><em>LOOP: Steps 2-7 repeat continuously during science operations</em></p>
+<h3 id="operational-steps">Operational Steps</h3>
+<p><strong>Step 1: Power On and Initialization</strong>
+Upon deployment from the launch vehicle dispenser, the spacecraft initializes automatically:</p>
+<ul>
+<li>Deployment switches detect separation</li>
+<li>30-minute timer delays antenna deployment (per range safety)</li>
+<li>Flight computer boots and performs self-test</li>
+<li>AI payload remains off until commissioning command</li>
+</ul>
+<p><strong>Step 2: Sensor Sampling</strong>
+The sensor package continuously acquires environmental data:</p>
+<ul>
+<li>RADFETs sampled at 1 Hz for dose rate calculation</li>
+<li>Particle telescope provides real-time flux measurement</li>
+<li>Housekeeping sensors sampled at 0.1 Hz</li>
+<li>Camera captures images at 0.1 Hz during illumination</li>
+</ul>
+<p><strong>Step 3: AI Inference</strong>
+The AI payload processes sensor and image data:</p>
+<ul>
+<li>Star-field images analyzed for attitude determination</li>
+<li>Radiation sensor data processed by classifier neural network</li>
+<li>Inference results passed to mode decision logic</li>
+<li>All processing results logged with timestamps</li>
+</ul>
+<p><strong>Step 4: Mode Decision</strong>
+The autonomous mode controller evaluates system state:</p>
+<ul>
+<li>Compares radiation environment to threshold values</li>
+<li>Checks SEU counter and system health flags</li>
+<li>Determines if mode transition is required</li>
+<li>Executes transition with hysteresis enforcement</li>
+</ul>
+<p><strong>Step 5: Data Storage</strong>
+Processed data and raw telemetry are stored locally:</p>
+<ul>
+<li>Science data written to primary storage</li>
+<li>Mirror copy written to redundant storage</li>
+<li>Storage utilization monitored (auto-purge of oldest data at 90%)</li>
+</ul>
+<p><strong>Step 6: Communications Queue</strong>
+Data is prioritized for downlink:</p>
+<ul>
+<li>Priority 1: Anomaly reports and critical health data</li>
+<li>Priority 2: Mode transition events and triggers</li>
+<li>Priority 3: Science data (AI metrics, radiation correlations)</li>
+<li>Priority 4: Housekeeping telemetry</li>
+<li>Priority 5: Stored imagery</li>
+</ul>
+<p><strong>Step 7: Downlink to Ground</strong>
+During ground station passes:</p>
+<ul>
+<li>Beacon provides acquisition signal</li>
+<li>Ground station initiates link establishment</li>
+<li>Queued data transmitted in priority order</li>
+<li>Commands received and acknowledged</li>
+<li>Pass statistics logged</li>
+</ul>
+<h3 id="mission-phases">Mission Phases</h3>
+<p><strong>Phase 1: Launch and Early Operations (Days 1-7)</strong></p>
+<ul>
+<li>Deployment from dispenser</li>
+<li>Antenna and solar array deployment</li>
+<li>Initial ground contact establishment</li>
+<li>Spacecraft health verification</li>
+</ul>
+<p><strong>Phase 2: Commissioning (Weeks 2-4)</strong></p>
+<ul>
+<li>Subsystem activation and checkout</li>
+<li>Sensor calibration</li>
+<li>AI payload activation and baseline establishment</li>
+<li>Communications link characterization</li>
+<li>Initial mode transition testing</li>
+</ul>
+<p><strong>Phase 3: Characterization (Months 2-4)</strong></p>
+<ul>
+<li>Normal science operations initiated</li>
+<li>SAA passage documentation</li>
+<li>Mitigation strategy validation</li>
+<li>Baseline performance metrics established</li>
+<li>Algorithm tuning based on flight data</li>
+</ul>
+<p><strong>Phase 4: Science Operations (Months 5-12)</strong></p>
+<ul>
+<li>Continuous autonomous operation</li>
+<li>Periodic algorithm updates via uplink</li>
+<li>Long-term degradation tracking</li>
+<li>Comparative analysis across radiation zones</li>
+<li>Data publication preparation</li>
+</ul>
+<p><strong>Phase 5: Extended Operations (Months 13+, if applicable)</strong></p>
+<ul>
+<li>Continued data collection</li>
+<li>Degradation trend extrapolation</li>
+<li>End-of-life characterization</li>
+<li>Lessons learned documentation</li>
+</ul>
+<hr>
+<h2 id="10-system-block-definitions-diagram">10. System Block Definitions Diagram</h2>
+<p>The system architecture is defined through three complementary block diagrams: external system context, internal subsystem connections, and functional data flow.</p>
+<h3 id="101-external-system-diagram">10.1 External System Diagram</h3>
+<p>The external system diagram illustrates the mission environment hierarchy and interfaces external to the spacecraft.</p>
+<p><strong>External System Diagram:</strong></p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TB
+    subgraph ENV["🌌 SPACE ENVIRONMENT"]
+        E1["☀️ Solar radiation (1367 W/m²)"]
+        E2["⚡ Trapped radiation (Van Allen belts, SAA)"]
+        E3["🌠 Galactic cosmic rays"]
+        E4["🌡️ Thermal environment (eclipse cycling)"]
+    end
+
+    subgraph SC["🛰️ RAD-AI SPACECRAFT"]
+        direction LR
+        S1["AI Payload<br/>System"]
+        S2["Spacecraft<br/>Bus"]
+        S3["Power<br/>System"]
+    end
+
+    subgraph GND["📡 GROUND SEGMENT"]
+        direction LR
+        G1["Primary<br/>Ground Station"]
+        G2["SatNOGS<br/>Network (Backup)"]
+        G3["Mission<br/>Operations Center"]
+    end
+
+    ENV -->|"Radiation & Thermal Environment"| SC
+    SC <-->|"RF Link (UHF)"| GND
+
+    style ENV fill:#1a1a2e,stroke:#4a4a6a,color:#fff
+    style SC fill:#e8f4f8,stroke:#0077b6,stroke-width:2px
+    style GND fill:#f5f5f5,stroke:#555,stroke-width:2px
+</div></code></pre>
+<h3 id="102-internal-system-diagram">10.2 Internal System Diagram</h3>
+<p>The internal system diagram shows electrical and data connections between spacecraft subsystems.</p>
+<p><strong>Internal System Diagram:</strong></p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TB
+    subgraph POWER["⚡ POWER BUS (12-17V)"]
+        direction LR
+        BAT["🔋 Battery Pack<br/>(60 Wh)"]
+        SOL["☀️ Solar Arrays<br/>(45 W)"]
+        PDU["PDU"]
+    end
+
+    subgraph SUBSYSTEMS["📦 SUBSYSTEMS"]
+        direction LR
+        AI["AI Payload"]
+        CDH["C&DH"]
+        ADCS["ADCS"]
+        COMM["Comms"]
+    end
+
+    subgraph AIPAYLOAD["🧠 AI PAYLOAD DETAIL"]
+        direction TB
+        RISCV["RISC-V + FPGA"]
+        SENS["Sensors<br/>(RAD/CAM)"]
+    end
+
+    subgraph DATABUS["💾 DATA BUS (I2C/SPI/UART)"]
+        direction LR
+        BUS[" "]
+    end
+
+    SOL --> BAT
+    BAT --> PDU
+    PDU ==>|"Power"| AI
+    PDU ==>|"Power"| CDH
+    PDU ==>|"Power"| ADCS
+    PDU ==>|"Power"| COMM
+
+    AI --- RISCV
+    RISCV --- SENS
+
+    AI <-->|"Data"| BUS
+    CDH <-->|"Data"| BUS
+    ADCS <-->|"Data"| BUS
+    COMM <-->|"Data"| BUS
+    SENS <-->|"Data"| BUS
+
+    style POWER fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style SUBSYSTEMS fill:#e8f4f8,stroke:#0077b6,stroke-width:2px
+    style AIPAYLOAD fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style DATABUS fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+</div></code></pre>
+<p><em>Legend: Double lines (==) = Power connections | Single lines (--) = Data connections</em></p>
+<h3 id="103-functional-system-diagram">10.3 Functional System Diagram</h3>
+<p>The functional diagram illustrates data flow and control relationships during science operations.</p>
+<p><strong>Functional System Diagram:</strong></p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    subgraph SENSING["📷 SENSING"]
+        CAM["Cameras (×2)"]
+        RAD["RADFETs (×4)"]
+        PT["Particle Telescope"]
+    end
+
+    subgraph PROCESSING["🧠 PROCESSING"]
+        AI["AI Inference"]
+        MODE{"Mode Decision<br/>Logic"}
+    end
+
+    subgraph STORAGE["💾 STORAGE"]
+        DATA[("Data Storage<br/>(64GB)")]
+    end
+
+    subgraph COMMS["📡 COMMUNICATION"]
+        TX["Radio TX"]
+        RX["Radio RX"]
+    end
+
+    subgraph GROUND["🌍 GROUND"]
+        GS["Ground Station"]
+        MOC["MOC (Ground)"]
+        CMD["Command Handler"]
+    end
+
+    CAM -->|"Images"| AI
+    RAD -->|"Dose Data"| MODE
+    PT -->|"Particle Flux"| MODE
+    AI --> MODE
+    AI --> DATA
+    MODE --> DATA
+    DATA --> TX
+    TX <-->|"RF Downlink"| GS
+    GS --> MOC
+    MOC -->|"Commands"| CMD
+    CMD -->|"RF Uplink"| RX
+    RX -->|"Command Flow"| MODE
+
+    style SENSING fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style PROCESSING fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style STORAGE fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style COMMS fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style GROUND fill:#f5f5f5,stroke:#616161,stroke-width:2px
+</div></code></pre>
+<p><em>Data Flow: Solid arrows (→) | Command Flow: Dashed path from Ground</em></p>
+<hr>
+<h2 id="11-expected-flight-results">11. Expected Flight Results</h2>
+<p>As RAD-AI is a design-phase mission, this section presents expected flight results based on analysis, simulation, and heritage mission data. These predictions establish baseline expectations against which actual flight performance will be evaluated.</p>
+<h3 id="111-orbital-environment-predictions">11.1 Orbital Environment Predictions</h3>
+<p>Based on SPENVIS modeling for a 500 km, 51.6° inclination orbit [84]:</p>
+<p><strong>Table 11.1: Predicted Radiation Environment</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Annual Value</th>
+<th>Daily Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Ionizing Dose (unshielded)</td>
+<td>50-100 krad</td>
+<td>140-275 rad</td>
+</tr>
+<tr>
+<td>Total Ionizing Dose (2mm Ta shielded)</td>
+<td>5-10 krad</td>
+<td>14-28 rad</td>
+</tr>
+<tr>
+<td>Proton fluence (&gt;10 MeV)</td>
+<td>10¹⁰ p/cm²</td>
+<td>2.7×10⁷ p/cm²/day</td>
+</tr>
+<tr>
+<td>SAA passes</td>
+<td>~2,500/year</td>
+<td>6-8/day</td>
+</tr>
+<tr>
+<td>SAA residence time</td>
+<td>~300 hr/year</td>
+<td>~50 min/day</td>
+</tr>
+</tbody>
+</table>
+<h3 id="112-ai-performance-predictions">11.2 AI Performance Predictions</h3>
+<p><strong>Inference Rate:</strong></p>
+<p>Based on FPGA implementation benchmarks and RISC-V performance modeling:</p>
+<ul>
+<li>Normal mode: 10.2 ± 0.5 Hz sustained inference rate</li>
+<li>Protected mode: 3.1 ± 0.2 Hz with enhanced TMR</li>
+<li>Processing latency: &lt;100 ms per frame</li>
+</ul>
+<p><strong>Accuracy Degradation Model:</strong></p>
+<p>Literature data from Phi-Sat-1 and ground testing suggests AI inference accuracy degrades logarithmically with accumulated dose [85]:</p>
+<pre class="hljs"><code><div>Accuracy(D) = A₀ - k × ln(1 + D/D₀)
+
+Where:
+  A₀ = Initial accuracy (expected 95% for star-field tracking)
+  D  = Accumulated dose (krad)
+  D₀ = Reference dose (1 krad)
+  k  = Degradation coefficient (expected 0.5-2% per decade)
+</div></code></pre>
+<p><strong>Table 11.2: Predicted AI Accuracy Over Mission</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mission Month</th>
+<th>Accumulated TID (krad)</th>
+<th>Predicted Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 (BOL)</td>
+<td>0</td>
+<td>95.0%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.5</td>
+<td>94.2%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3.0</td>
+<td>93.5%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>4.5</td>
+<td>92.9%</td>
+</tr>
+<tr>
+<td>12 (EOL)</td>
+<td>6.0</td>
+<td>92.4%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="113-mode-transition-predictions">11.3 Mode Transition Predictions</h3>
+<p><strong>Expected Mode Distribution:</strong></p>
+<p>Based on orbital mechanics and SAA geometry:</p>
+<ul>
+<li>Normal mode: 85-90% of mission time</li>
+<li>Protected mode: 8-12% of mission time (SAA passages)</li>
+<li>Safe mode: &lt;2% of mission time (anomalies, testing)</li>
+</ul>
+<p><strong>Expected Transition Frequency:</strong></p>
+<ul>
+<li>Normal → Protected: 6-8 transitions/day (SAA entry)</li>
+<li>Protected → Normal: 6-8 transitions/day (SAA exit)</li>
+<li>Any → Safe: &lt;1 transition/week (predicted)</li>
+</ul>
+<h3 id="114-seu-rate-predictions">11.4 SEU Rate Predictions</h3>
+<p>Based on SPENVIS proton flux and literature SEU cross-sections for 28nm CMOS [86]:</p>
+<p><strong>Table 11.3: Predicted SEU Rates</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Cross-section (cm²/bit)</th>
+<th>Bits</th>
+<th>Upsets/day (unmitigated)</th>
+<th>Upsets/day (with TMR)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RISC-V registers</td>
+<td>10⁻¹⁴</td>
+<td>10⁴</td>
+<td>0.3</td>
+<td>&lt;0.01</td>
+</tr>
+<tr>
+<td>DDR4 memory</td>
+<td>10⁻¹³</td>
+<td>3×10¹⁰</td>
+<td>800</td>
+<td>8 (with EDAC)</td>
+</tr>
+<tr>
+<td>FPGA config</td>
+<td>10⁻¹⁴</td>
+<td>4×10⁷</td>
+<td>1.2</td>
+<td>0.1 (with scrubbing)</td>
+</tr>
+</tbody>
+</table>
+<p>The predicted SEU rates are manageable with implemented mitigation techniques. TMR reduces effective processor upset rate by &gt;95%, while EDAC reduces memory error rate by &gt;99% [87].</p>
+<h3 id="115-data-products">11.5 Data Products</h3>
+<p><strong>Expected Data Volume:</strong></p>
+<p><strong>Table 11.4: Daily Data Generation</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Size/Day</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Housekeeping telemetry</td>
+<td>5 MB</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Radiation sensor data</td>
+<td>15 MB</td>
+<td>High</td>
+</tr>
+<tr>
+<td>AI performance metrics</td>
+<td>10 MB</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Mode transition logs</td>
+<td>1 MB</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Imagery (compressed)</td>
+<td>50 MB</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>81 MB</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Downlink Capacity:</strong></p>
+<p>At 9600 bps with 4-6 passes per day averaging 8 minutes:</p>
+<ul>
+<li>Per pass: ~0.5 MB</li>
+<li>Daily capacity: 2-3 MB (primary station only)</li>
+<li>With SatNOGS: 15-20 MB/day</li>
+</ul>
+<p>Data prioritization ensures critical mode transition and radiation data are downlinked; imagery stored onboard for selective retrieval.</p>
+<h3 id="116-success-criteria-verification">11.6 Success Criteria Verification</h3>
+<p><strong>Table 11.5: Success Criteria Assessment</strong></p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Requirement</th>
+<th>Prediction</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum mission (30 days)</td>
+<td>Valid telemetry</td>
+<td>Achievable</td>
+<td>High (&gt;95%)</td>
+</tr>
+<tr>
+<td>Baseline mission (6 months)</td>
+<td>Continuous operation</td>
+<td>Achievable</td>
+<td>High (&gt;90%)</td>
+</tr>
+<tr>
+<td>Full mission (12 months)</td>
+<td>SAA adaptive behavior</td>
+<td>Achievable</td>
+<td>Medium (&gt;75%)</td>
+</tr>
+<tr>
+<td>TID tolerance</td>
+<td>&gt;20 krad functional</td>
+<td>Expected &gt;30 krad</td>
+<td>High</td>
+</tr>
+<tr>
+<td>TMR effectiveness</td>
+<td>&gt;99% error masking</td>
+<td>Expected 99.5%</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Mode transitions</td>
+<td>Autonomous execution</td>
+<td>Expected 6-8/day</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="12-conclusion">12. Conclusion</h2>
+<p>The RAD-AI mission addresses a validated and urgent need for radiation-tolerant autonomous computing capability in the space industry. As NASA prepares for Artemis lunar surface operations and Mars Sample Return, the ability to perform real-time AI inference in radiation environments becomes increasingly critical. The 6-44 minute communication delays inherent to deep-space missions preclude ground-based decision making for time-critical functions such as hazard avoidance and precision landing [88].</p>
+<h3 id="design-achievements">Design Achievements</h3>
+<p>The RAD-AI design successfully balances performance, radiation tolerance, and cost constraints within the 6U CubeSat form factor:</p>
+<ol>
+<li>
+<p><strong>Novel Radiation-Aware Architecture</strong>: The combination of RISC-V processor, FPGA AI accelerator, TMR software mitigation, selective tantalum shielding, and autonomous mode switching represents a unique approach to radiation-tolerant computing not previously demonstrated in flight [89].</p>
+</li>
+<li>
+<p><strong>Timely Technology Demonstration</strong>: By targeting the 2025-2027 window before NASA HPSC widespread availability, RAD-AI provides empirical data exactly when early adopters need integration guidance for near-term missions.</p>
+</li>
+<li>
+<p><strong>Cost-Effective Approach</strong>: The $100,000-$120,000 development cost with free CSLI launch (valued at $250,000) demonstrates that meaningful space AI research is achievable within university and small program budgets.</p>
+</li>
+<li>
+<p><strong>Strong NASA Alignment</strong>: The mission directly supports NASA Technology Area 4 objectives, Artemis program technology needs, and Mars Sample Return autonomy requirements, maximizing the strategic value of the flight data.</p>
+</li>
+</ol>
+<h3 id="contribution-to-the-field">Contribution to the Field</h3>
+<p>RAD-AI will generate the following contributions to radiation-tolerant space computing:</p>
+<ul>
+<li>
+<p><strong>Empirical Performance Data</strong>: First comprehensive dataset on RISC-V processor and FPGA AI accelerator performance degradation in LEO radiation environment over 12-month duration.</p>
+</li>
+<li>
+<p><strong>Mitigation Effectiveness Validation</strong>: Quantitative assessment of TMR, EDAC, and selective shielding effectiveness against actual space radiation, enabling improved design trades for future missions.</p>
+</li>
+<li>
+<p><strong>Autonomous Adaptation Demonstration</strong>: First demonstration of AI-driven radiation detection with autonomous processing mode adjustment, establishing a foundation for deep-space autonomous systems.</p>
+</li>
+<li>
+<p><strong>Design Reference</strong>: Complete design documentation available for adaptation by follow-on university and commercial missions.</p>
+</li>
+</ul>
+<h3 id="lessons-learned-from-design-process">Lessons Learned from Design Process</h3>
+<p>Several insights emerged from the RAD-AI design process:</p>
+<ol>
+<li>
+<p><strong>Heritage Matters</strong>: Building on proven architectures (TRISAT-R for RISC-V, OPTOS for COTS mitigation) significantly reduced technical risk compared to fully novel approaches [90].</p>
+</li>
+<li>
+<p><strong>Selective Shielding Enables Performance</strong>: The decision to shield only the most sensitive components (processor, FPGA, critical memory) achieves meaningful dose reduction without prohibitive mass penalty.</p>
+</li>
+<li>
+<p><strong>Software Mitigation is Essential</strong>: Hardware shielding alone is insufficient; TMR, EDAC, and watchdog timers provide defense-in-depth against radiation effects that cannot be completely shielded.</p>
+</li>
+<li>
+<p><strong>Test Like You Fly</strong>: The comprehensive test program, including proton beam radiation testing, ensures that flight performance matches design predictions.</p>
+</li>
+</ol>
+<h3 id="recommendations-for-future-work">Recommendations for Future Work</h3>
+<p>Based on the RAD-AI design experience, the following recommendations are offered for future radiation-tolerant AI missions:</p>
+<ol>
+<li>
+<p><strong>HPSC Integration Studies</strong>: As HPSC processors become available, flight data from RAD-AI should inform integration strategies for hybrid HPSC/COTS architectures.</p>
+</li>
+<li>
+<p><strong>Higher-Altitude Missions</strong>: Extend radiation-tolerant AI demonstrations to MEO and GEO environments where radiation challenges are more severe.</p>
+</li>
+<li>
+<p><strong>Deep-Space Demonstrations</strong>: Adapt RAD-AI architecture for lunar orbit or cislunar missions supporting Artemis technology development.</p>
+</li>
+<li>
+<p><strong>Commercial Applications</strong>: Transition lessons learned to commercial LEO constellation computing requirements (Earth observation, communications).</p>
+</li>
+</ol>
+<h3 id="final-assessment">Final Assessment</h3>
+<p>RAD-AI represents a technically sound, strategically relevant, and financially feasible approach to advancing radiation-tolerant autonomous computing for space applications. The mission addresses validated NASA technology needs, builds on proven heritage systems, and generates high-value flight data during a critical technology transition period. Upon successful completion, RAD-AI will directly enable the autonomous capabilities required for humanity's expansion to the Moon and Mars.</p>
+<hr>
+<h2 id="13-sponsor-interactions">13. Sponsor Interactions</h2>
+<p>The RAD-AI project, as a graduate-level design study, engaged with potential sponsors and industry partners to validate technical approaches and explore future collaboration opportunities. While the design phase did not involve formal sponsorship agreements, these interactions informed requirements and established relationships for potential implementation.</p>
+<h3 id="industry-engagement">Industry Engagement</h3>
+<p><strong>SiFive, Inc.</strong></p>
+<p>Initial contact was established with SiFive regarding educational licensing for RISC-V development tools and evaluation hardware. SiFive offers academic programs providing:</p>
+<ul>
+<li>Reduced-cost development boards (~$10,000 value)</li>
+<li>Access to core documentation and design collateral</li>
+<li>Technical support for student projects</li>
+</ul>
+<p>SiFive expressed interest in flight demonstrations of RISC-V processors, noting that successful CubeSat missions provide valuable heritage data for commercial space customers. A formal educational license application is planned for the implementation phase [91].</p>
+<p><strong>Lattice Semiconductor</strong></p>
+<p>Lattice Semiconductor was contacted regarding the CrossLink-NX FPGA selected for AI acceleration. Lattice provides:</p>
+<ul>
+<li>University program with free design software licenses</li>
+<li>Evaluation boards for prototyping</li>
+<li>Application engineering support for edge AI implementations</li>
+</ul>
+<p>Lattice confirmed that CrossLink-NX radiation characterization data is limited, making RAD-AI flight data potentially valuable for their space-qualified product roadmap [92].</p>
+<p><strong>Cosmic Shielding Corporation</strong></p>
+<p>Following their successful 2024 demonstration of radiation-shielded Nvidia GPUs on the Aethero CubeSat, Cosmic Shielding was contacted to discuss potential collaboration [93]. Areas of mutual interest include:</p>
+<ul>
+<li>Comparative analysis of shielding approaches (selective tantalum vs. comprehensive enclosure)</li>
+<li>Data sharing on COTS AI hardware performance in LEO</li>
+<li>Joint publication of radiation effects findings</li>
+</ul>
+<p>Cosmic Shielding indicated interest in partnerships that expand the empirical database of COTS electronics performance in space radiation environments.</p>
+<p><strong>Blue Canyon Technologies</strong></p>
+<p>Blue Canyon Technologies, manufacturer of the XACT CubeSat bus platform, was contacted regarding 6U bus procurement and educational pricing. Blue Canyon offers:</p>
+<ul>
+<li>10-20% educational discount on bus components</li>
+<li>Technical integration support</li>
+<li>Flight heritage documentation for CSLI proposals</li>
+</ul>
+<p>A preliminary budgetary quote was obtained confirming the ~$80,000 bus cost estimate used in project planning [94].</p>
+<h3 id="government-and-academic-engagement">Government and Academic Engagement</h3>
+<p><strong>NASA Goddard Space Flight Center</strong></p>
+<p>Informal discussions with NASA GSFC personnel validated the mission concept alignment with NASA technology needs. Key feedback included:</p>
+<ul>
+<li>Strong interest in COTS AI mitigation data for future missions</li>
+<li>Confirmation that RAD-AI addresses Technology Area 4 gaps</li>
+<li>Encouragement to pursue CSLI as primary launch path</li>
+<li>Offer to review CSLI proposal materials prior to submission</li>
+</ul>
+<p><strong>Air Force Research Laboratory (AFRL)</strong></p>
+<p>AFRL's Space Vehicles Directorate was contacted regarding potential interest in radiation-tolerant AI research. AFRL confirmed:</p>
+<ul>
+<li>Active programs in COTS radiation mitigation</li>
+<li>University Nanosat Program as potential funding source ($50,000-$100,000)</li>
+<li>Interest in autonomous satellite computing for DoD applications</li>
+</ul>
+<p>An application to the University Nanosat Program is under consideration as supplemental funding source [95].</p>
+<p><strong>University of Colorado Colorado Springs</strong></p>
+<p>Internal university engagement established:</p>
+<ul>
+<li>Faculty advisor: Dr. David Lee (SPCE 5400 instructor)</li>
+<li>Department support: Access to laboratory facilities and test equipment</li>
+<li>College of Engineering: Potential seed funding ($10,000-$30,000)</li>
+<li>Ground station: University UHF station available for mission operations</li>
+</ul>
+<h3 id="sponsor-interaction-summary">Sponsor Interaction Summary</h3>
+<p><strong>Table 13.1: Sponsor Engagement Status</strong></p>
+<table>
+<thead>
+<tr>
+<th>Organization</th>
+<th>Type</th>
+<th>Status</th>
+<th>Potential Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SiFive</td>
+<td>Industry</td>
+<td>Initial contact</td>
+<td>Hardware, licensing (~$10k value)</td>
+</tr>
+<tr>
+<td>Lattice Semiconductor</td>
+<td>Industry</td>
+<td>Initial contact</td>
+<td>Software, dev boards (~$5k value)</td>
+</tr>
+<tr>
+<td>Cosmic Shielding</td>
+<td>Industry</td>
+<td>Initial contact</td>
+<td>Technical collaboration</td>
+</tr>
+<tr>
+<td>Blue Canyon Technologies</td>
+<td>Industry</td>
+<td>Quote received</td>
+<td>Bus procurement (~$80k)</td>
+</tr>
+<tr>
+<td>NASA GSFC</td>
+<td>Government</td>
+<td>Informal discussion</td>
+<td>Technical guidance, CSLI support</td>
+</tr>
+<tr>
+<td>AFRL</td>
+<td>Government</td>
+<td>Initial contact</td>
+<td>Potential funding ($50-100k)</td>
+</tr>
+<tr>
+<td>UCCS</td>
+<td>Academic</td>
+<td>Active support</td>
+<td>Facilities, advising, ground station</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-sponsor-development">Future Sponsor Development</h3>
+<p>For implementation phase, the following sponsor development activities are planned:</p>
+<ol>
+<li><strong>Formal CSLI Proposal</strong>: Submit to NASA CSLI during next solicitation cycle (typically March-April)</li>
+<li><strong>Industry Partnerships</strong>: Formalize agreements with SiFive, Lattice for educational programs</li>
+<li><strong>Grant Applications</strong>: Submit proposals to NASA STRG, AFRL University Nanosat Program</li>
+<li><strong>University Funding</strong>: Request College of Engineering seed funding for prototype development</li>
+</ol>
+<hr>
+<h2 id="14-team-interactions">14. Team Interactions</h2>
+<p>The RAD-AI project was conducted as an individual graduate student design study for SPCE 5400 (Small Satellite Engineering &amp; Operations) at the University of Colorado Colorado Springs. While not a multi-person team project, significant collaboration occurred with faculty, industry contacts, and the broader CubeSat community.</p>
+<h3 id="project-structure">Project Structure</h3>
+<p><strong>Principal Investigator / Designer:</strong></p>
+<ul>
+<li>Jordan Clayton, Graduate Student, Mechanical Engineering</li>
+<li>Responsibilities: All aspects of mission design, analysis, and documentation</li>
+</ul>
+<p><strong>Faculty Advisor:</strong></p>
+<ul>
+<li>Dr. David Lee, SPCE 5400 Instructor</li>
+<li>Responsibilities: Technical guidance, design review, grading</li>
+<li>Interaction frequency: Weekly during course, as-needed outside course</li>
+</ul>
+<h3 id="collaboration-model">Collaboration Model</h3>
+<p>As an individual project, RAD-AI employed a self-directed learning model with external validation:</p>
+<p><strong>Course Framework:</strong></p>
+<ul>
+<li>SPCE 5400 provided structured milestones (outline, draft, final paper)</li>
+<li>Course materials (CubeSat 101, NASA handbooks) established baseline knowledge</li>
+<li>Instructor feedback guided design refinement</li>
+</ul>
+<p><strong>External Consultation:</strong></p>
+<ul>
+<li>Industry contacts provided technical validation of component selections</li>
+<li>Online CubeSat community (Reddit r/cubesat, CubeSat Developers forum) answered specific questions</li>
+<li>Published literature and mission reports informed design decisions</li>
+</ul>
+<p><strong>Documentation Approach:</strong></p>
+<ul>
+<li>All design decisions documented with rationale and sources</li>
+<li>Trade studies capture alternatives considered and selection criteria</li>
+<li>This approach ensures design knowledge is transferable to future team if project proceeds to implementation</li>
+</ul>
+<h3 id="communication-methods">Communication Methods</h3>
+<p><strong>Table 14.1: Communication Channels</strong></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Purpose</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Course meetings</td>
+<td>Progress review, Q&amp;A</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Specific technical questions</td>
+<td>As needed</td>
+</tr>
+<tr>
+<td>Office hours</td>
+<td>In-depth design discussions</td>
+<td>Bi-weekly</td>
+</tr>
+<tr>
+<td>Industry emails</td>
+<td>Sponsor development</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>Online forums</td>
+<td>Community knowledge</td>
+<td>As needed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lessons-learned-individual-vs-team-projects">Lessons Learned: Individual vs. Team Projects</h3>
+<p>The individual project format offered several advantages and challenges relevant to future CubeSat efforts:</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Complete design ownership enables deep understanding of all subsystems</li>
+<li>No coordination overhead or scheduling conflicts</li>
+<li>Consistent documentation style throughout</li>
+<li>Full accountability for design decisions</li>
+</ul>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Limited bandwidth for parallel development activities</li>
+<li>No peer review during design process</li>
+<li>Single point of failure for specialized knowledge</li>
+<li>Reduced diversity of perspectives on trade studies</li>
+</ul>
+<p><strong>Recommendation for Implementation:</strong>
+If RAD-AI proceeds to hardware development, a 3-5 person team is recommended with the following roles:</p>
+<ul>
+<li>Project Manager / Systems Engineer (1)</li>
+<li>AI Payload Lead (1)</li>
+<li>Spacecraft Bus Lead (1)</li>
+<li>Software/Ground Systems Lead (1)</li>
+<li>Integration &amp; Test Lead (1, can be shared role)</li>
+</ul>
+<h3 id="acknowledgments">Acknowledgments</h3>
+<p>The author acknowledges the following contributions to the RAD-AI design:</p>
+<ul>
+<li><strong>Dr. David Lee</strong> (UCCS) for course instruction, technical guidance, and design feedback</li>
+<li><strong>SPCE 5400 course materials</strong> including NASA CubeSat 101 and mission handbooks</li>
+<li><strong>Industry contacts</strong> at SiFive, Lattice, Cosmic Shielding, and Blue Canyon Technologies for technical discussions</li>
+<li><strong>The CubeSat community</strong> for openly sharing mission experiences and lessons learned</li>
+<li><strong>NASA</strong> for publicly available documentation supporting CubeSat development</li>
+</ul>
+<hr>
+<h2 id="15-references">15. References</h2>
+<p>[1] BAE Systems, &quot;RAD750 Radiation-Hardened Computer Datasheet,&quot; 2020.</p>
+<p>[2] IEEE, &quot;Total Ionizing Dose Radiation Testing of NVIDIA Jetson Nano GPUs,&quot; 2020 IEEE Radiation Effects Data Workshop, 2020.</p>
+<p>[3] SiFive, &quot;U74 RISC-V Core Product Brief,&quot; 2023.</p>
+<p>[4] R.E. Lyons and W. Vanderkulk, &quot;The Use of Triple-Modular Redundancy to Improve Computer Reliability,&quot; IBM Journal of Research and Development, vol. 6, no. 2, pp. 200-209, 1962.</p>
+<p>[5] ESA, &quot;Phi-Sat-1 Mission Overview,&quot; 2020. Available: https://www.esa.int/Applications/Observing_the_Earth/Ph-sat</p>
+<p>[6] G. Giuffrida et al., &quot;The Φ-Sat-1 Mission: The First On-Board Deep Neural Network Demonstrator for Satellite Earth Observation,&quot; IEEE Transactions on Geoscience and Remote Sensing, vol. 60, pp. 1-14, 2021.</p>
+<p>[7] NASA, &quot;High Performance Spaceflight Computing (HPSC) Overview,&quot; 2024. Available: https://www.nasa.gov/hpsc</p>
+<p>[8] NASA, &quot;Artemis Plan,&quot; 2024. Available: https://www.nasa.gov/artemis</p>
+<p>[9] NASA, &quot;Mars Sample Return Campaign Plan,&quot; 2023. Available: https://science.nasa.gov/mars-sample-return</p>
+<p>[10] California Polytechnic State University, &quot;CubeSat Design Specification (CDS) Rev. 14.1,&quot; 2022. Available: https://www.cubesat.org/specifications</p>
+<p>[11] EnduroSat, &quot;6U Solar Panel Datasheet,&quot; 2023.</p>
+<p>[12] NASA, &quot;Venture Class Launch Services,&quot; 2024. Available: https://www.nasa.gov/vcls</p>
+<p>[13] E. Petersen, Single Event Effects in Aerospace, IEEE Press, 2011.</p>
+<p>[14] NASA Technical Reports Server, &quot;Current AI Technology in Space,&quot; NTRS Document 20240001139, July 2023.</p>
+<p>[15] L. Buckley et al., &quot;Radiation Test and in Orbit Performance of MpSoC AI Accelerator,&quot; IEEE Aerospace Conference, 2022.</p>
+<p>[16] NASA, &quot;2020 NASA Technology Taxonomy,&quot; 2020. Available: https://www.nasa.gov/otps/2020-nasa-technology-taxonomy</p>
+<p>[17] CAVU Aerospace UK, &quot;The Challenge of AI Processing in Space,&quot; September 2024. Available: https://cavuaerospace.uk/articles/the-challenge-of-ai-processing-in-space/</p>
+<p>[18] SpaceNews, &quot;Startup's radiation shield tech could bring high-performance AI chips to space,&quot; September 2024. Available: https://spacenews.com/startups-radiation-shield-tech</p>
+<p>[19] NASA, &quot;NASA Awards Next-Generation Spaceflight Computing Processor Contract,&quot; Press Release, September 2022.</p>
+<p>[20] D. Sinclair and J. Dyer, &quot;Radiation Effects and COTS Parts in SmallSats,&quot; 27th AIAA/USU Conference on Small Satellites, SSC13-IV-3, 2013.</p>
+<p>[21] SpaceNews, &quot;Cosmic Shielding Corporation CubeSat Demonstration,&quot; September 2024.</p>
+<p>[22] V. Banos-Garcia et al., &quot;Data Analysis and Results of the Radiation-Tolerant Collaborative Computer On-Board OPTOS CubeSat,&quot; International Journal of Aerospace Engineering, vol. 2019, Article ID 5765943, 2019.</p>
+<p>[23] NASA, CubeSat 101: Basic Concepts and Processes for First-Time CubeSat Developers, NASA CubeSat Launch Initiative, 2017.</p>
+<p>[24] NASA, &quot;General Environmental Verification Standard (GEVS),&quot; GSFC-STD-7000B, 2021.</p>
+<p>[25] Blue Canyon Technologies, &quot;XACT-6U CubeSat Platform Datasheet,&quot; 2023.</p>
+<p>[26] NASA, &quot;NASA-STD-8719.14: Process for Limiting Orbital Debris,&quot; Revision A with Change 1, 2019.</p>
+<p>[27] D. Heynderickx et al., &quot;ESA's Space Environment Information System (SPENVIS),&quot; Space Weather, vol. 2, no. 10, 2004.</p>
+<p>[28] UCCS DemoSat Team, &quot;UCCS DemoSat Final Report,&quot; MAE 4511/ECE 4898, University of Colorado Colorado Springs, April 2023.</p>
+<p>[29] CCSDS, &quot;TC Space Data Link Protocol,&quot; Blue Book 232.0-B-3, September 2015.</p>
+<p>[30] IARU, &quot;Amateur Satellite Frequency Coordination,&quot; International Amateur Radio Union, 2023.</p>
+<p>[31] FCC, &quot;Part 97 - Amateur Radio Service,&quot; Code of Federal Regulations Title 47, 2023.</p>
+<p>[32] J.R. Wertz and W.J. Larson, Space Mission Analysis and Design, 3rd ed., Microcosm Press, 1999.</p>
+<p>[33] SatNOGS, &quot;Global Network of Ground Stations,&quot; 2024. Available: https://network.satnogs.org/</p>
+<p>[34] AAC Clyde Space, &quot;CubeSat Electrical Power System Design Guide,&quot; Application Note AN-1042, 2020.</p>
+<p>[35] Analog Devices, &quot;RADFET Dosimeter Application Note,&quot; AN-1163, 2019.</p>
+<p>[36] NASA, &quot;Crewed Space Vehicle Battery Safety Requirements,&quot; JSC 20793 Rev D, 2020.</p>
+<p>[37] Pumpkin Inc., &quot;Supernova Flight Computer Datasheet,&quot; 2022.</p>
+<p>[38] NASA, &quot;Small Spacecraft Technology State of the Art,&quot; TP-2021-5008734, 2021.</p>
+<p>[39] IEEE, &quot;Fault-Tolerant Computing in Space Applications,&quot; IEEE Transactions on Aerospace and Electronic Systems, vol. 54, no. 6, 2018.</p>
+<p>[40] AAC Clyde Space, &quot;Spacecraft Avionics Architecture Guide,&quot; 2022.</p>
+<p>[41] Lattice Semiconductor, &quot;CrossLink-NX FPGA Family Data Sheet,&quot; DS1001, 2023.</p>
+<p>[42] IPC, &quot;IPC-9701: Performance Test Methods and Qualification Requirements for Surface Mount Solder Attachments,&quot; 2020.</p>
+<p>[43] NASA, CubeSat 101: Basic Concepts and Processes for First-Time CubeSat Developers, Chapter 2: Development Process Overview, 2017.</p>
+<p>[44] ESA, &quot;First Earth observation satellite with AI ready for launch,&quot; Press Release, August 2020.</p>
+<p>[45] NASA Technical Reports Server, &quot;Current AI Technology in Space,&quot; NTRS Document 20240001139, July 2023.</p>
+<p>[46] NASA, &quot;2020 NASA Technology Taxonomy: TA4 Robotics and Autonomous Systems,&quot; 2020.</p>
+<p>[47] IEEE, &quot;Radiation Effects Data Workshop Proceedings,&quot; IEEE NSREC, 2023.</p>
+<p>[48] MLCommons, &quot;MLPerf Inference Benchmark Suite,&quot; v3.1, 2024.</p>
+<p>[49] ARM, &quot;Cortex-M7 Technical Reference Manual,&quot; Revision r1p2, 2022.</p>
+<p>[50] ARM, &quot;Cortex-A72 Technical Reference Manual,&quot; Revision r0p3, 2022.</p>
+<p>[51] SiFive, &quot;U74 RISC-V Core IP Product Brief,&quot; 2023.</p>
+<p>[52] eoPortal, &quot;TRISAT-R CubeSat Mission,&quot; 2022. Available: https://www.eoportal.org/satellite-missions/trisat-r</p>
+<p>[53] NVIDIA, &quot;Jetson Platform Comparison,&quot; 2024. Available: https://developer.nvidia.com/embedded/jetson-modules</p>
+<p>[54] J. George et al., &quot;Total Ionizing Dose Radiation Testing of NVIDIA Jetson Nano GPUs,&quot; IEEE Radiation Effects Data Workshop, 2020.</p>
+<p>[55] SpaceNews, &quot;Startup's radiation shield tech could bring high-performance AI chips to space,&quot; September 2024.</p>
+<p>[56] Xilinx, &quot;Radiation-Tolerant FPGA Solutions for Space Applications,&quot; WP485, 2021.</p>
+<p>[57] Google, &quot;Edge TPU Performance Benchmarks,&quot; 2023. Available: https://coral.ai/docs/edgetpu/benchmarks/</p>
+<p>[58] Analog Devices, &quot;RADFET Dosimeter Design and Application,&quot; AN-1163, 2019.</p>
+<p>[59] CERN, &quot;Cosmic Ray Telescope for Radiation Monitoring,&quot; Technical Note, 2020.</p>
+<p>[60] D. Heynderickx, &quot;SPENVIS: Space Environment Information System,&quot; ESA TEC-EES, 2004.</p>
+<p>[61] CCSDS, &quot;Proximity-1 Space Link Protocol—Physical Layer,&quot; Blue Book 211.0-B-5, 2013.</p>
+<p>[62] SatNOGS, &quot;Global Network of Ground Stations,&quot; Libre Space Foundation, 2024.</p>
+<p>[63] AAC Clyde Space, &quot;CubeSat Solar Panel Design Guide,&quot; Application Note AN-1038, 2020.</p>
+<p>[64] EnduroSat, &quot;6U Solar Panel Datasheet,&quot; Rev. 2.1, 2023.</p>
+<p>[65] Pumpkin Inc., &quot;CubeSat Kit 6U Structure User Manual,&quot; 2022.</p>
+<p>[66] S. Bourdarie and M. Xapsos, &quot;The Near-Earth Space Radiation Environment,&quot; IEEE Trans. Nucl. Sci., vol. 55, no. 4, pp. 1810-1832, 2008.</p>
+<p>[67] NASA, &quot;Shielding Requirements for Spacecraft Electronics,&quot; GSFC Technical Note, 2019.</p>
+<p>[68] D.G. Gilmore, Ed., Spacecraft Thermal Control Handbook, Volume 1: Fundamental Technologies, 2nd ed., AIAA, 2002.</p>
+<p>[69] NASA, &quot;General Environmental Verification Standard (GEVS),&quot; GSFC-STD-7000B, April 2021.</p>
+<p>[70] NASA, CubeSat 101, Chapter 2: Development Process Overview, &quot;All testing and documentation must be submitted at least 1 month before readiness reviews,&quot; 2017.</p>
+<p>[71] Lawrence Berkeley National Laboratory, &quot;88-Inch Cyclotron Ion Beam Testing Services,&quot; 2024. Available: https://cyclotron.lbl.gov/</p>
+<p>[72] D. Heynderickx et al., &quot;SPENVIS: The Space Environment Information System,&quot; 38th COSPAR Scientific Assembly, 2010.</p>
+<p>[73] NASA, &quot;2020 NASA Technology Taxonomy: TA4 Robotics and Autonomous Systems,&quot; 2020.</p>
+<p>[74] NASA, &quot;NASA-STD-8719.14: Process for Limiting Orbital Debris,&quot; 2019.</p>
+<p>[75] NASA Technical Reports Server, &quot;Autonomous Systems for Space Exploration,&quot; NTRS-2023-0001234, 2023.</p>
+<p>[76] R.R. Some, &quot;Fault-Tolerant Computing Architectures for Space Applications,&quot; IEEE Trans. Aerospace and Electronic Systems, 2020.</p>
+<p>[77] R.E. Lyons, &quot;The Use of Triple-Modular Redundancy to Improve Computer Reliability,&quot; IBM Journal of Research and Development, 1962.</p>
+<p>[78] JEDEC, &quot;DDR4 SDRAM Standard,&quot; JESD79-4C, 2020.</p>
+<p>[79] NASA, &quot;Shielding Requirements for Spacecraft Electronics,&quot; GSFC Technical Note TN-2019-04, 2019.</p>
+<p>[80] ARM, &quot;Watchdog Timer Implementation Guide for Safety-Critical Applications,&quot; Application Note AN-321, 2021.</p>
+<p>[81] NASA, CubeSat 101, Chapter 2: &quot;Double Up on Burn Wire,&quot; Design Best Practice #4, 2017.</p>
+<p>[82] SatNOGS, &quot;SatNOGS Network Statistics,&quot; 2024. Available: https://network.satnogs.org/</p>
+<p>[83] D.G. Gilmore, Spacecraft Thermal Control Handbook, Volume 1, Chapter 2: Spacecraft Thermal Environments, AIAA, 2002.</p>
+<p>[84] D. Heynderickx, &quot;SPENVIS Trapped Proton and Electron Models,&quot; ESA, 2004.</p>
+<p>[85] Phi-Sat-1 Mission Team, &quot;On-Orbit AI Performance Characterization for Earth Observation,&quot; IEEE Trans. Geoscience and Remote Sensing, 2022.</p>
+<p>[86] E. Petersen, Single Event Effects in Aerospace, Chapter 8: Proton-Induced SEU, IEEE Press, 2011.</p>
+<p>[87] NASA, &quot;Radiation Hardness Assurance for Space Systems,&quot; NASA-HDBK-4002A, 2017.</p>
+<p>[88] NASA, &quot;Mars Sample Return Mission Concept,&quot; Science Definition Team Report, 2023.</p>
+<p>[89] eoPortal, &quot;TRISAT-R: First Fault-Tolerant RISC-V in Orbit,&quot; Mission Summary, 2022.</p>
+<p>[90] V. Banos-Garcia, &quot;OPTOS CubeSat Three-Year Performance Analysis,&quot; International Journal of Aerospace Engineering, 2022.</p>
+<p>[91] SiFive, &quot;SiFive Academic Program,&quot; 2024. Available: https://www.sifive.com/academic</p>
+<p>[92] Lattice Semiconductor, &quot;Lattice University Program,&quot; 2024.</p>
+<p>[93] Cosmic Shielding Corporation, &quot;Aethero Mission Results,&quot; Company Press Release, 2024.</p>
+<p>[94] Blue Canyon Technologies, &quot;Educational Pricing Program,&quot; Private Communication, 2024.</p>
+<p>[95] AFRL, &quot;University Nanosat Program,&quot; 2024. Available: https://www.airuniversity.af.edu/AFROTC/Display/Article/2166855/university-nanosat-program/</p>
+<hr>
+<h2 id="16-appendices">16. Appendices</h2>
+<h3 id="appendix-a-%E2%80%93-3d-cad-drawings-and-spacecraft-configuration">Appendix A – 3D CAD Drawings and Spacecraft Configuration</h3>
+<p>This appendix provides detailed drawings and configuration diagrams for the RAD-AI spacecraft structure and component layout.</p>
+<h4 id="a1-spacecraft-external-views">A.1 Spacecraft External Views</h4>
+<p><strong>Figure A.1: Isometric View - Stowed Configuration</strong></p>
+<pre class="hljs"><code><div>                    +Z (Zenith)
+                        ↑
+                        │
+            ┌───────────┴───────────┐
+           /│                       /│
+          / │     Solar Arrays     / │
+         /  │      (Stowed)       /  │
+        ┌───┼──────────────────┬─┘   │
+        │   │                  │     │
+        │   │    ┌────────┐   │     │
+        │   │    │ Camera │   │     │
+        │   │    │   ×2   │   │     │ +Y
+        │   │    └────────┘   │     ↗
+        │   │                  │    /
+        │   └──────────────────┼───┘
+        │  /                   │  /
+        │ /    UHF Antennas   │ /
+        │/      (Stowed)      │/
+        └─────────────────────┘
+                        → +X (Ram)
+
+Dimensions: 100mm × 226.3mm × 340.5mm (6U CDS compliant)
+</div></code></pre>
+<p><strong>Figure A.2: Isometric View - Deployed Configuration</strong></p>
+<pre class="hljs"><code><div>                                    Solar Array Wing (+Y)
+                                   ╱
+                    +Z            ╱
+                     ↑      ┌────┴────┐
+                     │      │█████████│
+            ┌────────┴──────┤█ Cells █├──────┐
+           /│               │█████████│      │
+          / │               └────┬────┘      │
+         /  │                    │           │
+        ┌───┼────────────────────┼───────────┤
+        │   │                    │           │
+        │   │    Spacecraft      │           │
+        │   │       Body         │           │
+        │   │                    │           │
+        │   └────────────────────┼───────────┤
+        │  /                     │          /│
+        │ /     ╲                │         / │
+        │/       ╲               │        /  │
+        └─────────╲──────────────┴───────┘   │
+                   ╲ UHF Antenna (×4)        │
+                    ╲  Turnstile            /
+                     ╲                     /
+                      ╲───────────────────╱
+                           Solar Array Wing (-Y)
+</div></code></pre>
+<h4 id="a2-internal-component-layout">A.2 Internal Component Layout</h4>
+<p><strong>Figure A.3: Exploded View - Internal Layers</strong></p>
+<pre class="hljs"><code><div>Layer 4 (Top): Antenna Deployment &amp; GPS
+┌─────────────────────────────────┐
+│  ┌─────┐ ┌─────┐ ┌─────┐       │
+│  │Ant 1│ │Ant 2│ │Ant 3│ ┌───┐ │
+│  └─────┘ └─────┘ └─────┘ │GPS│ │
+│                          └───┘ │
+└─────────────────────────────────┘
+              ↓
+Layer 3: C&amp;DH, Communications, ADCS
+┌─────────────────────────────────┐
+│ ┌──────────┐ ┌───────┐ ┌─────┐ │
+│ │  C&amp;DH    │ │ UHF   │ │Star │ │
+│ │  Board   │ │ Radio │ │Trkr │ │
+│ └──────────┘ └───────┘ └─────┘ │
+│ ┌────────────────────────────┐ │
+│ │    Magnetorquer Assembly   │ │
+│ └────────────────────────────┘ │
+└─────────────────────────────────┘
+              ↓
+Layer 2: AI Payload (Shielded)
+┌─────────────────────────────────┐
+│ ╔═══════════════════════════╗  │
+│ ║  ┌────────┐ ┌──────────┐  ║  │
+│ ║  │ RISC-V │ │  FPGA    │  ║  │
+│ ║  │  U74   │ │CrossLink │  ║  │
+│ ║  └────────┘ └──────────┘  ║  │
+│ ║  ┌────────┐ ┌──────────┐  ║  │
+│ ║  │  DDR4  │ │  eMMC    │  ║  │
+│ ║  │  4GB   │ │  32GB    │  ║  │
+│ ║  └────────┘ └──────────┘  ║  │
+│ ╚═══════════════════════════╝  │
+│   (Tantalum Shielding Box)     │
+└─────────────────────────────────┘
+              ↓
+Layer 1 (Bottom): Power System
+┌─────────────────────────────────┐
+│ ┌───────────────────────────┐  │
+│ │    Battery Pack (4S2P)    │  │
+│ │    ┌──┐┌──┐┌──┐┌──┐      │  │
+│ │    │18││65││00││  │×8    │  │
+│ │    └──┘└──┘└──┘└──┘      │  │
+│ └───────────────────────────┘  │
+│ ┌───────────┐ ┌─────────────┐  │
+│ │Power Dist.│ │Solar Array  │  │
+│ │   Unit    │ │ Interface   │  │
+│ └───────────┘ └─────────────┘  │
+└─────────────────────────────────┘
+</div></code></pre>
+<h4 id="a3-shielding-enclosure-detail">A.3 Shielding Enclosure Detail</h4>
+<p><strong>Figure A.4: AI Payload Shielding Configuration</strong></p>
+<pre class="hljs"><code><div>                  Top View (2mm Tantalum)
+           ┌─────────────────────────────┐
+           │╔═══════════════════════════╗│
+           │║       Lid (2mm Ta)        ║│
+           │╠═══════════════════════════╣│
+           │║  ┌───────┐   ┌─────────┐  ║│
+           │║  │RISC-V │   │  FPGA   │  ║│
+           │║  │(2mm)  │   │ (2mm)   │  ║│
+           │║  └───────┘   └─────────┘  ║│
+           │║                           ║│
+           │║  ┌───────┐   ┌─────────┐  ║│
+           │║  │Memory │   │ Storage │  ║│
+           │║  │(1mm)  │   │ (struct)│  ║│
+           │║  └───────┘   └─────────┘  ║│
+           │╚═══════════════════════════╝│
+           └─────────────────────────────┘
+
+           Wall thickness: 2mm Tantalum (16.6 g/cm³)
+           Total shielding mass: 480g
+           Dose reduction factor: 10× at 500km altitude
+</div></code></pre>
+<h4 id="a4-deployable-mechanisms">A.4 Deployable Mechanisms</h4>
+<p><strong>Figure A.5: Solar Array Deployment Sequence</strong></p>
+<pre class="hljs"><code><div>State 1: Stowed            State 2: Released         State 3: Deployed
+┌───────────────┐          ┌───────────────┐         ┌───────────────┐
+│   ┌───────┐   │          │   ┌───────┐   │         │               │
+│   │███████│   │  Burn    │   │███████│   │ Spring  │   ┌───────┐   │
+│   │███████│◄──┼─ Wire ──▶│   │███████│───┼─Hinge─▶ │   │███████│   │
+│   │███████│   │ Release  │   │       │   │         │   │███████│   │
+│   └───────┘   │          │   └───┬───┘   │         │   │███████│   │
+│               │          │       │       │         │   └───┬───┘   │
+│   Spacecraft  │          │       │       │         │       │       │
+│      Body     │          │       ▼       │         │       │ 90°   │
+└───────────────┘          └───────────────┘         └───────┴───────┘
+
+Deployment time: &lt;5 seconds
+Redundancy: Dual burn wires per hinge
+</div></code></pre>
+<hr>
+<h3 id="appendix-b-%E2%80%93-complete-system-circuit">Appendix B – Complete System Circuit</h3>
+<p>This appendix provides the electrical system architecture and circuit interconnections for the RAD-AI spacecraft.</p>
+<h4 id="b1-power-system-schematic">B.1 Power System Schematic</h4>
+<p><strong>Figure B.1: Power Distribution Architecture</strong></p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TB
+    subgraph SOLAR["☀️ SOLAR ARRAYS"]
+        direction LR
+        SY["+Y Wing<br/>22.5W"]
+        SN["-Y Wing<br/>22.5W"]
+    end
+
+    subgraph CHARGE["🔌 CHARGING"]
+        MPPT["MPPT<br/>Charger"]
+        BAT["🔋 4S2P Li-Ion<br/>60 Wh<br/>12-16.8V"]
+    end
+
+    subgraph PDU["⚡ POWER DISTRIBUTION UNIT"]
+        direction LR
+        OCP["OCP"]
+        OVP["OVP"]
+    end
+
+    subgraph DCDC["DC-DC CONVERTERS"]
+        direction LR
+        DC1["DC-DC 5V<br/>(AI Payload)"]
+        DC2["DC-DC 5V<br/>(C&DH)"]
+        DC3["DC-DC 3.3V<br/>(Sensors)"]
+        DC4["DC-DC 12V<br/>(Heaters)"]
+    end
+
+    subgraph LOADS["📦 LOADS"]
+        direction LR
+        L1["AI Payload<br/>15W max"]
+        L2["Flight Computer<br/>1.5W"]
+        L3["Sensor Package<br/>0.5W"]
+        L4["Thermal Control<br/>10W max"]
+    end
+
+    SY --> MPPT
+    SN --> MPPT
+    MPPT <--> BAT
+    BAT -->|"Unregulated Bus (12-17V)"| PDU
+    PDU --> DC1 & DC2 & DC3 & DC4
+    DC1 --> L1
+    DC2 --> L2
+    DC3 --> L3
+    DC4 --> L4
+
+    style SOLAR fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style CHARGE fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style PDU fill:#cce5ff,stroke:#004085,stroke-width:2px
+    style DCDC fill:#e2e3e5,stroke:#383d41,stroke-width:2px
+    style LOADS fill:#f8d7da,stroke:#721c24,stroke-width:2px
+</div></code></pre>
+<h4 id="b2-ai-payload-circuit">B.2 AI Payload Circuit</h4>
+<p><strong>Figure B.2: AI Payload Block Diagram</strong></p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TB
+    subgraph POWER["⚡ 5V REGULATED"]
+        PWR[" "]
+    end
+
+    subgraph COMPUTE["🧠 COMPUTE"]
+        direction LR
+        RISCV["SiFive U74<br/>RISC-V"]
+        FPGA["Lattice CrossLink-NX<br/>FPGA"]
+        MEM["DDR4 4GB<br/>+ EDAC"]
+    end
+
+    subgraph PERIPHERALS["📷 PERIPHERALS"]
+        direction LR
+        WDT["Watchdog<br/>Timer"]
+        CAM["Camera<br/>×2 CSI"]
+        RAD["RADFET<br/>×4 ADC"]
+    end
+
+    subgraph INTERFACE["🔗 DATA INTERFACE TO C&DH"]
+        ISO["Isolated - Optocoupler barrier"]
+    end
+
+    PWR -->|"Power"| RISCV & FPGA & MEM
+    RISCV <-->|"SPI"| FPGA
+    FPGA <-->|"I2C"| MEM
+    RISCV -->|"UART"| WDT
+    FPGA -->|"GPIO"| CAM
+    FPGA -->|"ADC"| RAD
+    RISCV -->|"UART"| ISO
+
+    style POWER fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style COMPUTE fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style PERIPHERALS fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style INTERFACE fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+</div></code></pre>
+<h4 id="b3-communications-system-circuit">B.3 Communications System Circuit</h4>
+<p><strong>Figure B.3: UHF Communications Block Diagram</strong></p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    subgraph SPACECRAFT["🛰️ SPACECRAFT"]
+        CDH["C&DH"]
+        subgraph RADIO["📻 UHF TRANSCEIVER (EnduroSat)"]
+            TRX["Transceiver"]
+            CTRL["Control Logic<br/>• PA Enable<br/>• TX/RX Switch<br/>• PTT Control"]
+        end
+        ANT["📡 Antenna<br/>Turnstile ×4"]
+    end
+
+    SPACE(("🌌 SPACE"))
+
+    CDH <-->|"UART"| TRX
+    TRX --> CTRL
+    TRX <-->|"RF"| ANT
+    ANT <-->|"UHF Link"| SPACE
+
+    style SPACECRAFT fill:#e8f4f8,stroke:#0077b6,stroke-width:2px
+    style RADIO fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style SPACE fill:#1a1a2e,stroke:#4a4a6a,color:#fff
+</div></code></pre>
+<p><strong>Specifications:</strong></p>
+<ul>
+<li>TX Power: 0.5-8W selectable</li>
+<li>Frequency: 435-438 MHz</li>
+<li>Data Rate: 1200-9600 bps</li>
+<li>Modulation: GMSK</li>
+<li>Protocol: AX.25</li>
+</ul>
+<hr>
+<h3 id="appendix-c-%E2%80%93-requirements-and-verification-matrix">Appendix C – Requirements and Verification Matrix</h3>
+<p>This appendix provides the complete requirements traceability matrix with verification methods and status.</p>
+<h4 id="c1-communications-requirements-verification">C.1 Communications Requirements Verification</h4>
+<p><strong>Table C.1: Communications Requirements Verification Matrix</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Verification Method</th>
+<th>Success Criteria</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COM-1</td>
+<td>Uplink capability ≥1200 bps</td>
+<td>Demonstration</td>
+<td>Successful command reception</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>COM-2</td>
+<td>Downlink capability ≥9600 bps</td>
+<td>Demonstration</td>
+<td>Sustained data transfer</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>COM-3</td>
+<td>UHF amateur band operation</td>
+<td>Inspection</td>
+<td>Frequency within 430-440 MHz</td>
+<td>Design Complete</td>
+</tr>
+<tr>
+<td>COM-4</td>
+<td>TX power ≤8 W</td>
+<td>Test</td>
+<td>Measured output ≤8 W</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>COM-5</td>
+<td>72-hour data buffering</td>
+<td>Demonstration</td>
+<td>Data recovery after 72-hr gap</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>COM-6</td>
+<td>Antenna deployment</td>
+<td>Test</td>
+<td>Full deployment in 10 cycles</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>COM-7</td>
+<td>AX.25 protocol compliance</td>
+<td>Demonstration</td>
+<td>Interoperability with ground</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>COM-8</td>
+<td>Beacon transmission</td>
+<td>Demonstration</td>
+<td>60-second interval verified</td>
+<td>Planned</td>
+</tr>
+</tbody>
+</table>
+<h4 id="c2-power-requirements-verification">C.2 Power Requirements Verification</h4>
+<p><strong>Table C.2: Power Requirements Verification Matrix</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Verification Method</th>
+<th>Success Criteria</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POW-1</td>
+<td>Solar generation ≥45 W BOL</td>
+<td>Test</td>
+<td>Measured output ≥45 W</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>POW-2</td>
+<td>Energy storage ≥60 Wh</td>
+<td>Test</td>
+<td>Capacity test ≥60 Wh</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>POW-3</td>
+<td>5V regulation ±5%</td>
+<td>Test</td>
+<td>Voltage within 4.75-5.25 V</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>POW-4</td>
+<td>3.3V regulation ±5%</td>
+<td>Test</td>
+<td>Voltage within 3.14-3.47 V</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>POW-5</td>
+<td>Overcharge protection</td>
+<td>Demonstration</td>
+<td>Charge terminates at 4.2 V/cell</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>POW-6</td>
+<td>Undervoltage load shed</td>
+<td>Demonstration</td>
+<td>Loads shed at 3.0 V/cell</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>POW-7</td>
+<td>Autonomous load shedding</td>
+<td>Demonstration</td>
+<td>Priority sequence verified</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>POW-8</td>
+<td>Overcurrent protection</td>
+<td>Test</td>
+<td>Faults isolated correctly</td>
+<td>Planned</td>
+</tr>
+</tbody>
+</table>
+<h4 id="c3-telemetry-and-control-requirements-verification">C.3 Telemetry and Control Requirements Verification</h4>
+<p><strong>Table C.3: Telemetry and Control Requirements Verification Matrix</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Verification Method</th>
+<th>Success Criteria</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TEL-1</td>
+<td>Radiation sensor sampling ≥1 Hz</td>
+<td>Demonstration</td>
+<td>1-second data intervals</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>TEL-2</td>
+<td>Housekeeping sampling ≥0.1 Hz</td>
+<td>Demonstration</td>
+<td>10-second data intervals</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>TEL-3</td>
+<td>Timestamp accuracy ±1 s</td>
+<td>Test</td>
+<td>GPS-synchronized time</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>TEL-4</td>
+<td>7-day onboard storage</td>
+<td>Inspection</td>
+<td>Storage capacity verified</td>
+<td>Design Complete</td>
+</tr>
+<tr>
+<td>CON-1</td>
+<td>Autonomous mode transitions</td>
+<td>Demonstration</td>
+<td>All modes exercised</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>CON-2</td>
+<td>Mode transition ≤60 s</td>
+<td>Test</td>
+<td>Latency measured &lt;60 s</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>CON-3</td>
+<td>Watchdog timer reset</td>
+<td>Demonstration</td>
+<td>Recovery from induced fault</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>CON-4</td>
+<td>State persistence across reset</td>
+<td>Demonstration</td>
+<td>No state loss on reset</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>CON-5</td>
+<td>C&amp;DH isolation from AI</td>
+<td>Inspection</td>
+<td>Electrical isolation verified</td>
+<td>Design Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="c4-mechanical-requirements-verification">C.4 Mechanical Requirements Verification</h4>
+<p><strong>Table C.4: Mechanical Requirements Verification Matrix</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Verification Method</th>
+<th>Success Criteria</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEC-1</td>
+<td>6U envelope compliance</td>
+<td>Inspection</td>
+<td>Dimensions within CDS limits</td>
+<td>Design Complete</td>
+</tr>
+<tr>
+<td>MEC-2</td>
+<td>Mass ≤14.0 kg</td>
+<td>Test</td>
+<td>Measured mass ≤14.0 kg</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>MEC-3</td>
+<td>CoM within 2.0 cm</td>
+<td>Test</td>
+<td>CoM location verified</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>MEC-4</td>
+<td>Quasi-static load 7.5 g</td>
+<td>Analysis</td>
+<td>Positive margin of safety</td>
+<td>Design Complete</td>
+</tr>
+<tr>
+<td>MEC-5</td>
+<td>Random vibration 14.1 Grms</td>
+<td>Test</td>
+<td>No damage, &lt;5% freq shift</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>MEC-6</td>
+<td>Deployable retention</td>
+<td>Inspection</td>
+<td>Positive restraint verified</td>
+<td>Design Complete</td>
+</tr>
+<tr>
+<td>MEC-7</td>
+<td>Rail surface finish</td>
+<td>Inspection</td>
+<td>Ra ≤1.6 μm verified</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>MEC-8</td>
+<td>Shielding mounting</td>
+<td>Inspection</td>
+<td>Shielding secured</td>
+<td>Design Complete</td>
+</tr>
+<tr>
+<td>MEC-9</td>
+<td>Sensor field of view</td>
+<td>Inspection</td>
+<td>Unobstructed apertures</td>
+<td>Design Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="c5-thermal-requirements-verification">C.5 Thermal Requirements Verification</h4>
+<p><strong>Table C.5: Thermal Requirements Verification Matrix</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Verification Method</th>
+<th>Success Criteria</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>THE-1</td>
+<td>Battery temp 0-45°C</td>
+<td>Analysis, Test</td>
+<td>Temps within range</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>THE-2</td>
+<td>AI processor -20 to +70°C</td>
+<td>Analysis, Test</td>
+<td>Temps within range</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>THE-3</td>
+<td>FPGA -40 to +85°C</td>
+<td>Analysis, Test</td>
+<td>Temps within range</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>THE-4</td>
+<td>Processor ΔT ≤5°C/min</td>
+<td>Analysis</td>
+<td>Rate within limit</td>
+<td>Design Complete</td>
+</tr>
+<tr>
+<td>THE-5</td>
+<td>30 W dissipation capacity</td>
+<td>Analysis</td>
+<td>Positive thermal margin</td>
+<td>Design Complete</td>
+</tr>
+<tr>
+<td>THE-6</td>
+<td>10 W heater capacity</td>
+<td>Test</td>
+<td>Heater output verified</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>THE-7</td>
+<td>Survival -40 to +60°C</td>
+<td>Test</td>
+<td>Functional after exposure</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>THE-8</td>
+<td>TMR thermal accommodation</td>
+<td>Analysis</td>
+<td>Temps within limits</td>
+<td>Design Complete</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="appendix-d-%E2%80%93-management">Appendix D – Management</h3>
+<p>This appendix provides project management documentation including schedule, budget breakdown, and risk register.</p>
+<h4 id="d1-detailed-project-schedule">D.1 Detailed Project Schedule</h4>
+<p><strong>Figure D.1: RAD-AI Project Gantt Chart</strong></p>
+<pre class="hljs"><code><div>Task                          | 2025  | 2026           | 2027           | 2028
+                              |Q3|Q4|Q1|Q2|Q3|Q4|Q1|Q2|Q3|Q4|Q1|Q2|Q3|Q4|
+──────────────────────────────┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┤
+PHASE 1: DESIGN               │██│██│██│██│██│██│  │  │  │  │  │  │  │  │
+  Concept Development         │██│██│  │  │  │  │  │  │  │  │  │  │  │  │
+  Requirements Definition     │  │██│██│  │  │  │  │  │  │  │  │  │  │  │
+  Preliminary Design          │  │  │██│██│  │  │  │  │  │  │  │  │  │  │
+  ▲ PDR                       │  │  │  │▲ │  │  │  │  │  │  │  │  │  │  │
+  Detailed Design             │  │  │  │██│██│██│  │  │  │  │  │  │  │  │
+  ▲ CDR                       │  │  │  │  │  │▲ │  │  │  │  │  │  │  │  │
+──────────────────────────────┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┤
+PHASE 2: BUILD &amp; TEST         │  │  │  │  │  │██│██│██│██│██│██│  │  │  │
+  Component Procurement       │  │  │  │  │██│██│██│  │  │  │  │  │  │  │
+  ETU Integration             │  │  │  │  │  │██│██│  │  │  │  │  │  │  │
+  FlatSat Testing             │  │  │  │  │  │  │██│██│  │  │  │  │  │  │
+  Flight Unit Build           │  │  │  │  │  │  │██│██│██│  │  │  │  │  │
+  Environmental Testing       │  │  │  │  │  │  │  │██│██│██│  │  │  │  │
+  Radiation Testing           │  │  │  │  │  │  │  │  │██│  │  │  │  │  │
+  ▲ FRR                       │  │  │  │  │  │  │  │  │  │▲ │  │  │  │  │
+  Delivery to Integrator      │  │  │  │  │  │  │  │  │  │██│  │  │  │  │
+──────────────────────────────┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┼──┤
+PHASE 3: LAUNCH &amp; OPS         │  │  │  │  │  │  │  │  │  │  │██│██│██│██│
+  Launch Campaign             │  │  │  │  │  │  │  │  │  │  │██│  │  │  │
+  ★ LAUNCH                    │  │  │  │  │  │  │  │  │  │  │★ │  │  │  │
+  Commissioning               │  │  │  │  │  │  │  │  │  │  │██│  │  │  │
+  Science Operations          │  │  │  │  │  │  │  │  │  │  │  │██│██│██│
+  Data Analysis               │  │  │  │  │  │  │  │  │  │  │  │  │██│██│
+──────────────────────────────┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┘
+
+Legend: ██ = Activity duration  ▲ = Review milestone  ★ = Launch
+</div></code></pre>
+<h4 id="d2-detailed-budget-breakdown">D.2 Detailed Budget Breakdown</h4>
+<p><strong>Table D.1: Detailed Cost Breakdown</strong></p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Item</th>
+<th>Unit Cost</th>
+<th>Qty</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI Payload</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$37,500</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>SiFive U74 Dev Kit</td>
+<td>$1,500</td>
+<td>2</td>
+<td>$3,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Lattice CrossLink-NX Kit</td>
+<td>$800</td>
+<td>3</td>
+<td>$2,400</td>
+</tr>
+<tr>
+<td></td>
+<td>DDR4 Memory Modules</td>
+<td>$200</td>
+<td>6</td>
+<td>$1,200</td>
+</tr>
+<tr>
+<td></td>
+<td>eMMC Storage</td>
+<td>$100</td>
+<td>4</td>
+<td>$400</td>
+</tr>
+<tr>
+<td></td>
+<td>Camera Modules</td>
+<td>$150</td>
+<td>6</td>
+<td>$900</td>
+</tr>
+<tr>
+<td></td>
+<td>RADFETs</td>
+<td>$500</td>
+<td>8</td>
+<td>$4,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Particle Telescope Components</td>
+<td>$2,000</td>
+<td>1</td>
+<td>$2,000</td>
+</tr>
+<tr>
+<td></td>
+<td>PCB Fabrication</td>
+<td>$3,000</td>
+<td>3</td>
+<td>$9,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Tantalum Shielding Material</td>
+<td>$5,000</td>
+<td>1</td>
+<td>$5,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Connectors, Passives, Misc</td>
+<td>$2,000</td>
+<td>1</td>
+<td>$2,000</td>
+</tr>
+<tr>
+<td></td>
+<td>AI Payload Labor (in-kind)</td>
+<td>—</td>
+<td>—</td>
+<td>$7,600</td>
+</tr>
+<tr>
+<td><strong>Spacecraft Bus</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$45,000</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Bus Platform (COTS)</td>
+<td>$40,000</td>
+<td>1</td>
+<td>$40,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Integration Hardware</td>
+<td>$3,000</td>
+<td>1</td>
+<td>$3,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Software Licenses</td>
+<td>$2,000</td>
+<td>1</td>
+<td>$2,000</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$12,500</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Vibration Testing</td>
+<td>$3,000</td>
+<td>1</td>
+<td>$3,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Thermal Vacuum Testing</td>
+<td>$4,000</td>
+<td>1</td>
+<td>$4,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Radiation Testing (LBNL)</td>
+<td>$2,500</td>
+<td>2</td>
+<td>$5,000</td>
+</tr>
+<tr>
+<td></td>
+<td>EMI/EMC Testing</td>
+<td>$500</td>
+<td>1</td>
+<td>$500</td>
+</tr>
+<tr>
+<td><strong>Ground Segment</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$6,500</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Ground Station Upgrades</td>
+<td>$3,000</td>
+<td>1</td>
+<td>$3,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Cloud Services (3 years)</td>
+<td>$1,500</td>
+<td>1</td>
+<td>$1,500</td>
+</tr>
+<tr>
+<td></td>
+<td>Software Development</td>
+<td>$2,000</td>
+<td>1</td>
+<td>$2,000</td>
+</tr>
+<tr>
+<td><strong>Program Support</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$4,500</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Travel (Reviews, Delivery)</td>
+<td>$3,000</td>
+<td>1</td>
+<td>$3,000</td>
+</tr>
+<tr>
+<td></td>
+<td>Documentation, Supplies</td>
+<td>$1,500</td>
+<td>1</td>
+<td>$1,500</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$106,000</strong></td>
+</tr>
+<tr>
+<td><strong>Reserve (20%)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$21,200</strong></td>
+</tr>
+<tr>
+<td><strong>TOTAL DEVELOPMENT</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>$127,200</strong></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Launch Services (CSLI)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>~$250,000</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>(Provided by NASA)</td>
+<td></td>
+<td></td>
+<td>(No cost)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="d3-risk-register">D.3 Risk Register</h4>
+<p><strong>Table D.2: Project Risk Register</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risk Description</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Risk Score</th>
+<th>Mitigation Strategy</th>
+<th>Contingency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>CSLI selection not achieved</td>
+<td>Medium</td>
+<td>High</td>
+<td>High</td>
+<td>Strong NASA alignment; compelling proposal</td>
+<td>Commercial launch ($50-100k)</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>RISC-V radiation performance worse than expected</td>
+<td>Medium</td>
+<td>High</td>
+<td>High</td>
+<td>Early radiation testing; conservative design margins</td>
+<td>Fallback to ARM processor</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>FPGA configuration upsets exceed predictions</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Configuration scrubbing; TMR in logic</td>
+<td>Reduce AI complexity</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Power budget exceeded</td>
+<td>Low</td>
+<td>High</td>
+<td>Medium</td>
+<td>18% EOL margin; detailed power analysis</td>
+<td>Reduce duty cycle</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>Thermal design inadequate</td>
+<td>Low</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Conservative thermal model; margin in all cases</td>
+<td>Add heater capacity</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>Schedule slip delays launch</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Schedule reserve; parallel paths</td>
+<td>Accept later launch opportunity</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>Component obsolescence</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Low</td>
+<td>Early procurement; identify alternates</td>
+<td>Redesign with available parts</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>Ground station communication gaps</td>
+<td>Low</td>
+<td>Medium</td>
+<td>Low</td>
+<td>SatNOGS backup; onboard data storage</td>
+<td>Increase storage capacity</td>
+</tr>
+<tr>
+<td>R9</td>
+<td>Budget overrun</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>20% reserve; phased procurement</td>
+<td>Reduce scope; seek additional funding</td>
+</tr>
+<tr>
+<td>R10</td>
+<td>Key personnel unavailable</td>
+<td>Low</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Documentation; knowledge transfer</td>
+<td>Recruit replacement</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Risk Matrix:</strong></p>
+<pre class="hljs"><code><div>           │ Low Impact │ Med Impact │ High Impact │
+───────────┼────────────┼────────────┼─────────────┤
+High       │            │            │             │
+Likelihood │            │            │             │
+───────────┼────────────┼────────────┼─────────────┤
+Medium     │    R7      │  R6, R9    │   R1, R2    │
+Likelihood │            │            │             │
+───────────┼────────────┼────────────┼─────────────┤
+Low        │    R10     │  R5, R8    │     R4      │
+Likelihood │            │    R3      │             │
+───────────┴────────────┴────────────┴─────────────┘
+</div></code></pre>
+<h4 id="d4-work-breakdown-structure">D.4 Work Breakdown Structure</h4>
+<p><strong>Table D.3: Work Breakdown Structure</strong></p>
+<table>
+<thead>
+<tr>
+<th>WBS</th>
+<th>Task</th>
+<th>Duration</th>
+<th>Dependencies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td><strong>Project Management</strong></td>
+<td>42 months</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>Planning and Control</td>
+<td>Continuous</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>Reviews (PDR, CDR, FRR)</td>
+<td>Milestones</td>
+<td>2.3, 3.3, 4.4</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>Documentation</td>
+<td>Continuous</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td><strong>Systems Engineering</strong></td>
+<td>18 months</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2.1</td>
+<td>Requirements Development</td>
+<td>3 months</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>System Architecture</td>
+<td>3 months</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>Interface Definition</td>
+<td>2 months</td>
+<td>2.2</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>Verification Planning</td>
+<td>2 months</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td><strong>AI Payload Development</strong></td>
+<td>18 months</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3.1</td>
+<td>Processor Board Design</td>
+<td>4 months</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>FPGA Development</td>
+<td>6 months</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>3.3</td>
+<td>Software Development</td>
+<td>8 months</td>
+<td>3.1, 3.2</td>
+</tr>
+<tr>
+<td>3.4</td>
+<td>Payload Integration</td>
+<td>3 months</td>
+<td>3.1, 3.2, 3.3</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td><strong>Spacecraft Integration</strong></td>
+<td>12 months</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td>Bus Procurement</td>
+<td>6 months</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>Payload-Bus Integration</td>
+<td>3 months</td>
+<td>3.4, 4.1</td>
+</tr>
+<tr>
+<td>4.3</td>
+<td>System Testing</td>
+<td>4 months</td>
+<td>4.2</td>
+</tr>
+<tr>
+<td>4.4</td>
+<td>Environmental Testing</td>
+<td>3 months</td>
+<td>4.3</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td><strong>Ground Segment</strong></td>
+<td>12 months</td>
+<td>—</td>
+</tr>
+<tr>
+<td>5.1</td>
+<td>Station Upgrades</td>
+<td>3 months</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>5.2</td>
+<td>Software Development</td>
+<td>6 months</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>5.3</td>
+<td>Operational Procedures</td>
+<td>3 months</td>
+<td>5.2</td>
+</tr>
+<tr>
+<td>6.0</td>
+<td><strong>Mission Operations</strong></td>
+<td>12 months</td>
+<td>—</td>
+</tr>
+<tr>
+<td>6.1</td>
+<td>Launch Support</td>
+<td>1 month</td>
+<td>4.4</td>
+</tr>
+<tr>
+<td>6.2</td>
+<td>Commissioning</td>
+<td>1 month</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>6.3</td>
+<td>Science Operations</td>
+<td>10 months</td>
+<td>6.2</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>End of Document</em></p>
+<hr>
+<p><strong>Document Statistics:</strong></p>
+<ul>
+<li>Total Sections: 16</li>
+<li>Total Words: ~19,200</li>
+<li>Total References: 95</li>
+<li>Total Tables: 35</li>
+<li>Total Figures/Diagrams: 15</li>
+</ul>
+
+</body>
+</html>
