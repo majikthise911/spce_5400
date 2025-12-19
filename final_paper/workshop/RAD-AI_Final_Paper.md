@@ -2433,140 +2433,24 @@ This appendix provides detailed drawings and configuration diagrams for the RAD-
 
 **Figure A.1: Isometric View - Stowed Configuration**
 
-```
-                    +Z (Zenith)
-                        ↑
-                        │
-            ┌───────────┴───────────┐
-           /│                       /│
-          / │     Solar Arrays     / │
-         /  │      (Stowed)       /  │
-        ┌───┼──────────────────┬─┘   │
-        │   │                  │     │
-        │   │    ┌────────┐   │     │
-        │   │    │ Camera │   │     │
-        │   │    │   ×2   │   │     │ +Y
-        │   │    └────────┘   │     ↗
-        │   │                  │    /
-        │   └──────────────────┼───┘
-        │  /                   │  /
-        │ /    UHF Antennas   │ /
-        │/      (Stowed)      │/
-        └─────────────────────┘
-                        → +X (Ram)
+![Figure A.1: RAD-AI 6U CubeSat - Stowed Configuration](../images/figure_a1_stowed.png)
 
 Dimensions: 100mm × 226.3mm × 340.5mm (6U CDS compliant)
-```
+
 
 **Figure A.2: Isometric View - Deployed Configuration**
-
-```
-                                    Solar Array Wing (+Y)
-                                   ╱
-                    +Z            ╱
-                     ↑      ┌────┴────┐
-                     │      │█████████│
-            ┌────────┴──────┤█ Cells █├──────┐
-           /│               │█████████│      │
-          / │               └────┬────┘      │
-         /  │                    │           │
-        ┌───┼────────────────────┼───────────┤
-        │   │                    │           │
-        │   │    Spacecraft      │           │
-        │   │       Body         │           │
-        │   │                    │           │
-        │   └────────────────────┼───────────┤
-        │  /                     │          /│
-        │ /     ╲                │         / │
-        │/       ╲               │        /  │
-        └─────────╲──────────────┴───────┘   │
-                   ╲ UHF Antenna (×4)        │
-                    ╲  Turnstile            /
-                     ╲                     /
-                      ╲───────────────────╱
-                           Solar Array Wing (-Y)
-```
+![Figure A.2: RAD-AI 6U CubeSat - Deployed Configuration](../images/figure_a2_deployed.png)
 
 #### A.2 Internal Component Layout
 
 **Figure A.3: Exploded View - Internal Layers**
+![Figure A.3: RAD-AI 6U CubeSat - Exploded View - Internal Layers](../images/figure_a3_exploded.png)
 
-```
-Layer 4 (Top): Antenna Deployment & GPS
-┌─────────────────────────────────┐
-│  ┌─────┐ ┌─────┐ ┌─────┐       │
-│  │Ant 1│ │Ant 2│ │Ant 3│ ┌───┐ │
-│  └─────┘ └─────┘ └─────┘ │GPS│ │
-│                          └───┘ │
-└─────────────────────────────────┘
-              ↓
-Layer 3: C&DH, Communications, ADCS
-┌─────────────────────────────────┐
-│ ┌──────────┐ ┌───────┐ ┌─────┐ │
-│ │  C&DH    │ │ UHF   │ │Star │ │
-│ │  Board   │ │ Radio │ │Trkr │ │
-│ └──────────┘ └───────┘ └─────┘ │
-│ ┌────────────────────────────┐ │
-│ │    Magnetorquer Assembly   │ │
-│ └────────────────────────────┘ │
-└─────────────────────────────────┘
-              ↓
-Layer 2: AI Payload (Shielded)
-┌─────────────────────────────────┐
-│ ╔═══════════════════════════╗  │
-│ ║  ┌────────┐ ┌──────────┐  ║  │
-│ ║  │ RISC-V │ │  FPGA    │  ║  │
-│ ║  │  U74   │ │CrossLink │  ║  │
-│ ║  └────────┘ └──────────┘  ║  │
-│ ║  ┌────────┐ ┌──────────┐  ║  │
-│ ║  │  DDR4  │ │  eMMC    │  ║  │
-│ ║  │  4GB   │ │  32GB    │  ║  │
-│ ║  └────────┘ └──────────┘  ║  │
-│ ╚═══════════════════════════╝  │
-│   (Tantalum Shielding Box)     │
-└─────────────────────────────────┘
-              ↓
-Layer 1 (Bottom): Power System
-┌─────────────────────────────────┐
-│ ┌───────────────────────────┐  │
-│ │    Battery Pack (4S2P)    │  │
-│ │    ┌──┐┌──┐┌──┐┌──┐      │  │
-│ │    │18││65││00││  │×8    │  │
-│ │    └──┘└──┘└──┘└──┘      │  │
-│ └───────────────────────────┘  │
-│ ┌───────────┐ ┌─────────────┐  │
-│ │Power Dist.│ │Solar Array  │  │
-│ │   Unit    │ │ Interface   │  │
-│ └───────────┘ └─────────────┘  │
-└─────────────────────────────────┘
-```
 
 #### A.3 Shielding Enclosure Detail
 
 **Figure A.4: AI Payload Shielding Configuration**
-
-```
-                  Top View (2mm Tantalum)
-           ┌─────────────────────────────┐
-           │╔═══════════════════════════╗│
-           │║       Lid (2mm Ta)        ║│
-           │╠═══════════════════════════╣│
-           │║  ┌───────┐   ┌─────────┐  ║│
-           │║  │RISC-V │   │  FPGA   │  ║│
-           │║  │(2mm)  │   │ (2mm)   │  ║│
-           │║  └───────┘   └─────────┘  ║│
-           │║                           ║│
-           │║  ┌───────┐   ┌─────────┐  ║│
-           │║  │Memory │   │ Storage │  ║│
-           │║  │(1mm)  │   │ (struct)│  ║│
-           │║  └───────┘   └─────────┘  ║│
-           │╚═══════════════════════════╝│
-           └─────────────────────────────┘
-
-           Wall thickness: 2mm Tantalum (16.6 g/cm³)
-           Total shielding mass: 480g
-           Dose reduction factor: 10× at 500km altitude
-```
+![Figure A.4: RAD-AI 6U CubeSat - AI Payload Shielding Configuration](../images/figure_a4_shielding.png)
 
 #### A.4 Deployable Mechanisms
 
