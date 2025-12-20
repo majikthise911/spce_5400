@@ -10,7 +10,9 @@ University of Colorado Colorado Springs
 
 December 2025
 
-**Revision 2.0** | December 17, 2025
+**Revision 3.0** | December 20, 2025
+
+*Changes from Rev 2.0: Merged requirements verification into Section 4 tables, condensed CSLI analysis, added acronym glossary appendix, streamlined appendix structure*
 
 *Changes from Rev 1.0: Added link budget analysis, CSLI scoring appendix, expanded TMR implementation details, radiation test configuration matrix, FMEA summary table, data management strategy*
 
@@ -44,15 +46,14 @@ December 2025
 10. [System Block Definitions Diagram](#10-system-block-definitions-diagram)
 11. [Expected Flight Results](#11-expected-flight-results)
 12. [Conclusion](#12-conclusion)
-13. [Sponsor Interactions](#13-sponsor-interactions)
-14. [Team Interactions](#14-team-interactions)
-15. [References](#15-references)
-16. [Appendices](#16-appendices)
+13. [Sponsor and Team Interactions](#13-sponsor-and-team-interactions)
+14. [References](#14-references)
+15. [Appendices](#15-appendices)
     - Appendix A – 3D CAD Drawings and Spacecraft Configuration
     - Appendix B – Complete System Circuit
-    - Appendix C – Requirements and Verification Matrix
-    - Appendix D – Management
-    - Appendix E – CSLI Selection Probability Analysis
+    - Appendix C – Management
+    - Appendix D – CSLI Selection Probability Analysis
+    - Appendix E – Acronyms and Abbreviations
 
 ---
 
@@ -72,7 +73,7 @@ December 2025
 | B.1 | [Power Distribution Architecture](#b1-power-system-schematic) | Appendix B |
 | B.2 | [AI Payload Block Diagram](#b2-ai-payload-circuit) | Appendix B |
 | B.3 | [UHF Communications Block Diagram](#b3-communications-system-circuit) | Appendix B |
-| D.1 | [Project Gantt Chart](#d1-detailed-project-schedule) | Appendix D |
+| C.1 | [Project Gantt Chart](#c1-detailed-project-schedule) | Appendix C |
 
 ---
 
@@ -90,7 +91,7 @@ December 2025
 | 5.1 | [Mission Trade Study](#51-missions) | §5.1 |
 | 5.2 | [Processor Trade Study](#52-electrical) | §5.2 |
 | 5.3 | [FPGA/AI Accelerator Trade Study](#52-electrical) | §5.2 |
-| 5.4 | [Shielding Trade Study](#53-structure) | §5.3 |
+| 5.4 | [Volume Allocation](#53-structure) | §5.3 |
 | 6.1 | [Board Power-On Test Criteria](#61-board-power-on-testing) | §6.1 |
 | 6.2 | [Radiation Test Success Criteria](#62-radiation-testing) | §6.2 |
 | 6.2a | [Radiation Test Configuration Matrix](#radiation-test-configuration-matrix) | §6.2 |
@@ -112,18 +113,11 @@ December 2025
 | 11.3 | [Predicted SEU Rates](#114-seu-rate-predictions) | §11.4 |
 | 11.4 | [Daily Data Generation](#115-data-products) | §11.5 |
 | 11.5 | [Success Criteria Assessment](#116-success-criteria-verification) | §11.6 |
-| 13.1 | [Sponsor Engagement Status](#13-sponsor-interactions) | §13 |
-| 14.1 | [Communication Channels](#14-team-interactions) | §14 |
-| C.1 | [Communications Requirements Verification](#c1-communications-requirements-verification) | Appendix C |
-| C.2 | [Power Requirements Verification](#c2-power-requirements-verification) | Appendix C |
-| C.3 | [Telemetry and Control Requirements Verification](#c3-telemetry-and-control-requirements-verification) | Appendix C |
-| C.4 | [Mechanical Requirements Verification](#c4-mechanical-requirements-verification) | Appendix C |
-| C.5 | [Thermal Requirements Verification](#c5-thermal-requirements-verification) | Appendix C |
-| D.1 | [Detailed Cost Breakdown](#d2-detailed-budget-breakdown) | Appendix D |
-| D.2 | [Project Risk Register](#d3-risk-register) | Appendix D |
-| D.3 | [Work Breakdown Structure](#d4-work-breakdown-structure) | Appendix D |
-| E.1 | [CSLI Evaluation Criteria and RAD-AI Scores](#e1-csli-selection-criteria) | Appendix E |
-| E.2 | [Selection Probability Sensitivity](#e3-sensitivity-analysis) | Appendix E |
+| 13.1 | [Stakeholder Engagement Summary](#13-sponsor-and-team-interactions) | §13 |
+| C.1 | [Detailed Cost Breakdown](#c2-detailed-budget-breakdown) | Appendix C |
+| C.2 | [Project Risk Register](#c3-risk-register) | Appendix C |
+| C.3 | [Work Breakdown Structure](#c4-work-breakdown-structure) | Appendix C |
+| D.1 | [CSLI Evaluation Criteria and RAD-AI Scores](#appendix-d--csli-selection-probability-analysis) | Appendix D |
 
 ---
 
@@ -302,16 +296,16 @@ The communications subsystem shall provide reliable bidirectional data transfer 
 
 **Table 4.1: Communications Requirements**
 
-| ID | Requirement | Rationale | Verification |
-|----|-------------|-----------|--------------|
-| COM-1 | The communications subsystem shall provide command uplink capability at a minimum data rate of 1200 bps. | Ground operators must be able to upload commands, software updates, and configuration changes throughout the mission [29]. | Demonstration |
-| COM-2 | The communications subsystem shall provide telemetry and science data downlink at a minimum data rate of 9600 bps. | Supports ~15-20 MB/day downlink with compression; critical telemetry prioritized over imagery [30]. | Demonstration |
-| COM-3 | The communications subsystem shall operate in the UHF amateur radio band (430-440 MHz) with appropriate licensing. | Amateur frequencies minimize licensing complexity and enable SatNOGS network backup; compliant with FCC Part 97 [31]. | Inspection |
-| COM-4 | The RF transmitter shall not exceed 8 W output power. | Power budget allocation; compliant with amateur radio power limits for satellite operations [31]. | Test |
-| COM-5 | The communications subsystem shall support store-and-forward operation with minimum 72-hour data buffering. | Ensures no data loss during periods without ground contact or during anomaly recovery [32]. | Demonstration |
-| COM-6 | The antenna system shall deploy reliably from stowed configuration after orbit insertion. | Launch vehicle constraints require stowed antennas; deployment must succeed for mission viability [10]. | Test |
-| COM-7 | The communications subsystem shall implement AX.25 protocol compatible with amateur radio ground infrastructure. | Enables use of existing amateur satellite tracking networks and SatNOGS ground stations [33]. | Demonstration |
-| COM-8 | The spacecraft shall transmit a unique identifier beacon at minimum 60-second intervals when power-positive. | Supports orbital tracking and identification; required for amateur radio license compliance [31]. | Demonstration |
+| ID | Requirement | Rationale | Verification | Success Criteria | Status |
+|----|-------------|-----------|--------------|------------------|--------|
+| COM-1 | Command uplink ≥1200 bps | Ground operators must upload commands, software updates, and configuration changes [29]. | Demonstration | Successful command reception | Planned |
+| COM-2 | Telemetry downlink ≥9600 bps | Supports ~15-20 MB/day downlink with compression; critical telemetry prioritized [30]. | Demonstration | Sustained data transfer | Planned |
+| COM-3 | UHF amateur band (430-440 MHz) | Amateur frequencies minimize licensing complexity; enables SatNOGS backup [31]. | Inspection | Frequency within allocation | Design Complete |
+| COM-4 | TX power ≤8 W | Power budget allocation; compliant with amateur radio limits [31]. | Test | Measured output ≤8 W | Planned |
+| COM-5 | 72-hour store-and-forward buffering | Ensures no data loss during ground contact gaps or anomaly recovery [32]. | Demonstration | Data recovery after 72-hr gap | Planned |
+| COM-6 | Reliable antenna deployment | Launch constraints require stowed antennas; deployment critical for mission [10]. | Test | Full deployment in 10 cycles | Planned |
+| COM-7 | AX.25 protocol compliance | Enables use of amateur satellite networks and SatNOGS ground stations [33]. | Demonstration | Interoperability with ground | Planned |
+| COM-8 | Beacon at 60-second intervals | Supports orbital tracking; required for amateur radio license compliance [31]. | Demonstration | Interval verified | Planned |
 
 ### 4.1.2 Power Requirements List
 
@@ -319,16 +313,16 @@ The electrical power subsystem shall generate, store, regulate, and distribute e
 
 **Table 4.2: Power Requirements**
 
-| ID | Requirement | Rationale | Verification |
-|----|-------------|-----------|--------------|
-| POW-1 | The power subsystem shall generate minimum 45 W at beginning of life (BOL) from solar arrays. | AI payload peak demand of 30 W plus bus loads of 10 W plus 20% margin requires 48 W; 45 W BOL provides adequate margin with degradation [11]. | Test |
-| POW-2 | The power subsystem shall provide minimum 60 Wh energy storage capacity. | Supports 45-minute eclipse operations at average power plus one full AI processing cycle during eclipse [34]. | Test |
-| POW-3 | The power subsystem shall regulate bus voltage to 5.0 V ± 0.25 V for payload interfaces. | RISC-V processor and FPGA require stable 5V supply; ±5% tolerance per component specifications [3]. | Test |
-| POW-4 | The power subsystem shall regulate bus voltage to 3.3 V ± 0.17 V for sensor interfaces. | Sensors and low-power peripherals operate at 3.3V nominal [35]. | Test |
-| POW-5 | The power subsystem shall provide battery charge regulation preventing overcharge above 4.2 V per cell. | Lithium-ion safety requirement; prevents thermal runaway and capacity degradation [36]. | Test |
-| POW-6 | The power subsystem shall implement undervoltage load shedding at 3.0 V per cell. | Protects battery from deep discharge damage; ensures recovery capability [36]. | Demonstration |
-| POW-7 | The power subsystem shall support autonomous load shedding in priority sequence during power-negative conditions. | AI payload is lowest priority; critical bus functions maintained during anomalies [34]. | Demonstration |
-| POW-8 | The power subsystem shall provide current-limited outputs with overcurrent protection on all power rails. | Prevents fault propagation; isolates failed components [37]. | Test |
+| ID | Requirement | Rationale | Verification | Success Criteria | Status |
+|----|-------------|-----------|--------------|------------------|--------|
+| POW-1 | Solar generation ≥45 W BOL | AI payload (30 W) + bus (10 W) + 20% margin; adequate with degradation [11]. | Test | Measured output ≥45 W | Planned |
+| POW-2 | Energy storage ≥60 Wh | Supports 45-min eclipse at average power plus one AI processing cycle [34]. | Test | Capacity test ≥60 Wh | Planned |
+| POW-3 | 5V regulation ±5% (4.75-5.25 V) | RISC-V and FPGA require stable 5V supply per component specs [3]. | Test | Voltage within range | Planned |
+| POW-4 | 3.3V regulation ±5% (3.14-3.47 V) | Sensors and low-power peripherals operate at 3.3V nominal [35]. | Test | Voltage within range | Planned |
+| POW-5 | Overcharge protection at 4.2 V/cell | Li-ion safety; prevents thermal runaway and capacity degradation [36]. | Test | Charge terminates at limit | Planned |
+| POW-6 | Undervoltage load shed at 3.0 V/cell | Protects battery from deep discharge; ensures recovery capability [36]. | Demonstration | Loads shed at threshold | Planned |
+| POW-7 | Autonomous priority load shedding | AI payload lowest priority; critical bus maintained during anomalies [34]. | Demonstration | Priority sequence verified | Planned |
+| POW-8 | Current-limited outputs with OCP | Prevents fault propagation; isolates failed components [37]. | Test | Faults isolated correctly | Planned |
 
 ### 4.1.3 Telemetry and Control Requirements List
 
@@ -336,17 +330,17 @@ The telemetry and control subsystem shall acquire sensor data, manage onboard da
 
 **Table 4.3: Telemetry and Control Requirements**
 
-| ID | Requirement | Rationale | Verification |
-|----|-------------|-----------|--------------|
-| TEL-1 | The telemetry system shall sample radiation sensors (RADFETs, particle detector) at minimum 1 Hz during science operations. | Captures SAA transitions and SEU correlation data with sufficient temporal resolution [27]. | Demonstration |
-| TEL-2 | The telemetry system shall sample housekeeping sensors (temperatures, voltages, currents) at minimum 0.1 Hz. | Adequate for thermal and power trending; reduces data volume [38]. | Demonstration |
-| TEL-3 | The telemetry system shall timestamp all data to ±1 second accuracy using GPS-synchronized onboard time. | Enables correlation of radiation events with orbital position and ground-based space weather data [27]. | Test |
-| TEL-4 | The telemetry system shall store minimum 7 days of full-rate science and housekeeping data onboard. | Provides margin for ground station outages and anomaly investigation [32]. | Inspection |
-| CON-1 | The control system shall execute autonomous mode transitions between Normal, Protected, and Safe modes based on radiation environment assessment. | Core mission objective: demonstrate radiation-aware adaptive computing [14]. | Demonstration |
-| CON-2 | The control system shall complete radiation environment assessment and mode transition decision within 60 seconds of sensor update. | Ensures timely response to SAA entry; prevents data corruption [14]. | Test |
-| CON-3 | The control system shall implement watchdog timers with automatic reset capability for all processors. | Recovers from radiation-induced processor lockups without ground intervention [4]. | Demonstration |
-| CON-4 | The control system shall maintain operational state and resume autonomous operation following any processor reset. | Ensures mission continuity; no ground intervention required for nominal recovery [39]. | Demonstration |
-| CON-5 | The C&DH system shall be physically isolated from the AI payload processor. | Prevents AI payload faults from affecting critical spacecraft functions; defense-in-depth architecture [40]. | Inspection |
+| ID | Requirement | Rationale | Verification | Success Criteria | Status |
+|----|-------------|-----------|--------------|------------------|--------|
+| TEL-1 | Radiation sensor sampling ≥1 Hz | Captures SAA transitions and SEU correlation with sufficient resolution [27]. | Demonstration | 1-second data intervals | Planned |
+| TEL-2 | Housekeeping sampling ≥0.1 Hz | Adequate for thermal and power trending; reduces data volume [38]. | Demonstration | 10-second data intervals | Planned |
+| TEL-3 | Timestamp accuracy ±1 s (GPS-sync) | Enables correlation of radiation events with orbital position [27]. | Test | GPS-synchronized time | Planned |
+| TEL-4 | 7-day onboard data storage | Provides margin for ground station outages and anomaly investigation [32]. | Inspection | Storage capacity verified | Design Complete |
+| CON-1 | Autonomous mode transitions | Core mission objective: radiation-aware adaptive computing [14]. | Demonstration | All modes exercised | Planned |
+| CON-2 | Mode transition ≤60 s latency | Ensures timely response to SAA entry; prevents data corruption [14]. | Test | Latency measured <60 s | Planned |
+| CON-3 | Watchdog timers with auto-reset | Recovers from radiation-induced lockups without ground intervention [4]. | Demonstration | Recovery from induced fault | Planned |
+| CON-4 | State persistence across resets | Ensures mission continuity; no ground intervention for recovery [39]. | Demonstration | No state loss on reset | Planned |
+| CON-5 | C&DH isolated from AI payload | Prevents AI faults from affecting critical spacecraft functions [40]. | Inspection | Electrical isolation verified | Design Complete |
 
 ### 4.1.4 Mechanical Requirements List
 
@@ -354,17 +348,17 @@ The mechanical subsystem shall provide structural support, environmental protect
 
 **Table 4.4: Mechanical Requirements**
 
-| ID | Requirement | Rationale | Verification |
-|----|-------------|-----------|--------------|
-| MEC-1 | The spacecraft shall conform to 6U CubeSat form factor: 20.0 cm × 10.0 cm × 34.05 cm maximum dimensions. | CubeSat Design Specification Rev. 14 compliance; required for CSLI dispensers [10]. | Inspection |
-| MEC-2 | The spacecraft total mass shall not exceed 14.0 kg. | CDS Rev. 14 6U mass limit [10]. | Test |
-| MEC-3 | The spacecraft center of mass shall be located within 2.0 cm of geometric center in all axes. | CDS Rev. 14 requirement for dispenser compatibility and deployment stability [10]. | Test |
-| MEC-4 | The structure shall withstand quasi-static loads of 7.5 g in all axes. | Derived from NASA GEVS launch environment requirements [24]. | Analysis |
-| MEC-5 | The structure shall withstand random vibration environment of 14.1 Grms per NASA GEVS. | Qualification level for CubeSat dispensers [24]. | Test |
-| MEC-6 | All deployable components shall be constrained during launch with positive retention requiring active release. | CDS requirement; prevents premature deployment that could interfere with launch vehicle or other payloads [10]. | Inspection |
-| MEC-7 | Rail contact surfaces shall be hard anodized aluminum with surface roughness ≤1.6 μm Ra. | CDS dispenser interface requirement [10]. | Inspection |
-| MEC-8 | The structure shall provide mounting provisions for 2 mm tantalum shielding around AI processor and FPGA. | Selective shielding approach for radiation mitigation [4]. | Inspection |
-| MEC-9 | The structure shall accommodate radiation sensor placement with unobstructed field of view for particle detector. | Accurate radiation measurement requires minimized structural interference [27]. | Inspection |
+| ID | Requirement | Rationale | Verification | Success Criteria | Status |
+|----|-------------|-----------|--------------|------------------|--------|
+| MEC-1 | 6U envelope (100×226.3×340.5 mm max) | CDS Rev. 14 compliance; required for CSLI dispensers [10]. | Inspection | Dimensions within limits | Design Complete |
+| MEC-2 | Mass ≤14.0 kg | CDS Rev. 14 6U mass limit [10]. | Test | Measured mass ≤14.0 kg | Planned |
+| MEC-3 | CoM within 2.0 cm of geometric center | CDS requirement for dispenser compatibility and deployment stability [10]. | Test | CoM location verified | Planned |
+| MEC-4 | Quasi-static load capacity 7.5 g | Derived from NASA GEVS launch environment requirements [24]. | Analysis | Positive margin of safety | Design Complete |
+| MEC-5 | Random vibration 14.1 Grms | NASA GEVS qualification level for CubeSat dispensers [24]. | Test | No damage, <5% freq shift | Planned |
+| MEC-6 | Positive deployable retention | Prevents premature deployment during launch [10]. | Inspection | Restraint verified | Design Complete |
+| MEC-7 | Rail finish: anodized, Ra ≤1.6 μm | CDS dispenser interface requirement [10]. | Inspection | Surface verified | Planned |
+| MEC-8 | 2 mm Ta shielding mounting | Selective shielding for radiation mitigation [4]. | Inspection | Shielding secured | Design Complete |
+| MEC-9 | Unobstructed sensor FOV | Accurate radiation measurement requires clear apertures [27]. | Inspection | Apertures unobstructed | Design Complete |
 
 ### 4.1.5 Thermal Requirements List
 
@@ -372,26 +366,20 @@ The thermal subsystem shall maintain all spacecraft components within operationa
 
 **Table 4.5: Thermal Requirements**
 
-| ID | Requirement | Rationale | Verification |
-|----|-------------|-----------|--------------|
-| THE-1 | The thermal subsystem shall maintain battery temperature between 0°C and 45°C during all operational phases. | Lithium-ion cell operational limits; charging prohibited below 0°C [36]. | Analysis, Test |
-| THE-2 | The thermal subsystem shall maintain AI processor temperature between -20°C and 70°C during operation. | RISC-V processor operational temperature range [3]. | Analysis, Test |
-| THE-3 | The thermal subsystem shall maintain FPGA temperature between -40°C and 85°C during operation. | Lattice CrossLink-NX industrial temperature grade limits [41]. | Analysis, Test |
-| THE-4 | The thermal subsystem shall limit AI processor temperature rate of change to ≤5°C per minute. | Prevents thermal stress on die attach and solder joints [42]. | Analysis |
-| THE-5 | The thermal design shall dissipate minimum 30 W from the AI payload during peak processing. | AI processing thermal load with margin for worst-case hot conditions [11]. | Analysis |
-| THE-6 | The thermal subsystem shall provide minimum 10 W heater capacity for battery survival heating. | Maintains battery above 0°C during cold-case eclipse scenarios [36]. | Analysis, Test |
-| THE-7 | All spacecraft components shall survive non-operational temperature range of -40°C to +60°C. | Encompasses all credible mission scenarios including safe mode and anomaly conditions [24]. | Test |
-| THE-8 | The thermal design shall accommodate increased power dissipation from TMR processing overhead. | TMR implementation increases computational load and associated heat generation [4]. | Analysis |
+| ID | Requirement | Rationale | Verification | Success Criteria | Status |
+|----|-------------|-----------|--------------|------------------|--------|
+| THE-1 | Battery temp 0-45°C (operational) | Li-ion operational limits; charging prohibited below 0°C [36]. | Analysis, Test | Temps within range | Planned |
+| THE-2 | AI processor temp -20 to +70°C | RISC-V processor operational temperature range [3]. | Analysis, Test | Temps within range | Planned |
+| THE-3 | FPGA temp -40 to +85°C | Lattice CrossLink-NX industrial temperature grade limits [41]. | Analysis, Test | Temps within range | Planned |
+| THE-4 | Processor ΔT ≤5°C/min | Prevents thermal stress on die attach and solder joints [42]. | Analysis | Rate within limit | Design Complete |
+| THE-5 | 30 W dissipation capacity | AI thermal load with margin for worst-case hot conditions [11]. | Analysis | Positive thermal margin | Design Complete |
+| THE-6 | 10 W heater capacity | Maintains battery above 0°C during cold-case eclipse [36]. | Analysis, Test | Heater output verified | Planned |
+| THE-7 | Survival temp -40 to +60°C | Encompasses all mission scenarios including anomaly conditions [24]. | Test | Functional after exposure | Planned |
+| THE-8 | TMR thermal accommodation | TMR increases computational load and heat generation [4]. | Analysis | Temps within limits | Design Complete |
 
 ### Requirements Traceability
 
-A complete requirements verification matrix including verification methods, success criteria, and verification status tracking is provided in Appendix C. Requirements are traced to parent mission objectives and derived from applicable standards including:
-
-- CubeSat Design Specification Rev. 14 [10]
-- NASA General Environmental Verification Standard (GEVS) [24]
-- NASA-STD-8719.14 Process for Limiting Orbital Debris [26]
-- NASA CubeSat 101 [23]
-- FCC Part 97 Amateur Radio Service Rules [31]
+Requirements are traced to parent mission objectives and derived from applicable standards including CubeSat Design Specification Rev. 14 [10], NASA GEVS [24], NASA-STD-8719.14 [26], CubeSat 101 [23], and FCC Part 97 [31]. Verification methods, success criteria, and status are tracked inline in Tables 4.1-4.5 above.
 
 ---
 
@@ -491,29 +479,11 @@ Mission Concept 2 (Radiation-Aware Autonomous Computing) was selected based on s
 
 ### 5.2 Electrical
 
-The electrical subsystem conceptual design evaluated alternatives for each major component: main processor, AI accelerator, radiation sensors, communications, and power system.
+The electrical subsystem conceptual design evaluated alternatives for main processor, AI accelerator, radiation sensors, communications, and power system.
 
 #### Main Processor Options
 
-Three processor architectures were evaluated for the main computing platform:
-
-**Option A: ARM Cortex-M Series (Microcontroller)**
-
-ARM Cortex-M4/M7 microcontrollers offer low power consumption (<100 mW), extensive flight heritage in CubeSat missions, and mature development ecosystems [49]. However, limited computational resources (single core, <500 MHz, no FPU on lower variants) preclude real-time AI inference at required rates.
-
-**Option B: ARM Cortex-A Series (Application Processor)**
-
-ARM Cortex-A53/A72 processors provide significantly higher performance (multi-core, >1 GHz, NEON SIMD) with moderate power consumption (1-5 W) [50]. These processors can run full Linux operating systems, simplifying software development. However, radiation susceptibility is comparable to Option C without the architectural advantages for fault tolerance.
-
-**Option C: RISC-V Architecture (Selected)**
-
-RISC-V processors, specifically the SiFive U74 quad-core (1.5 GHz), offer several advantages for radiation-tolerant computing [51]:
-
-- Open instruction set architecture enables custom radiation-hardening extensions
-- Simpler pipeline architecture facilitates TMR implementation
-- Growing space industry adoption (TRISAT-R demonstrated fault-tolerant RISC-V in 2022) [52]
-- No licensing fees reduce program cost
-- Active research community developing radiation-tolerant RISC-V variants
+Three processor architectures were evaluated. ARM Cortex-M offers extensive heritage but insufficient performance for real-time AI [49]. ARM Cortex-A provides adequate performance but lacks TMR advantages [50]. RISC-V (SiFive U74) was selected for its open architecture enabling custom hardening, simpler pipeline for TMR, and growing space adoption (TRISAT-R, 2022) [51, 52].
 
 **Table 5.2: Main Processor Comparison**
 
@@ -522,35 +492,13 @@ RISC-V processors, specifically the SiFive U74 quad-core (1.5 GHz), offer severa
 | Clock Speed | 480 MHz | 1.8 GHz | 1.5 GHz |
 | Cores | 1 | 4 | 4 |
 | Power (typical) | 0.1 W | 4 W | 3 W |
-| AI Capability | Very Limited | Moderate | Moderate |
 | TMR Feasibility | Limited | Moderate | Good |
 | Flight Heritage | Extensive | Limited | Emerging (TRISAT-R) |
-| Cost | $15 | $50 | $40 |
 | **Selection** | Rejected | Backup | **Primary** |
-
-The SiFive U74 RISC-V processor was selected as the primary computing platform based on superior TMR implementation potential and alignment with emerging space computing trends.
 
 #### AI Accelerator Options
 
-Three AI acceleration approaches were evaluated:
-
-**Option A: GPU-Based (NVIDIA Jetson)**
-
-NVIDIA Jetson platforms offer exceptional AI performance (>500 GFLOPS on Jetson Nano, >100 TOPS on Orin) with mature software ecosystem (CUDA, TensorRT) [53]. However, radiation testing shows vulnerability beginning at ~20 krad TID, and high power consumption (10-40 W) challenges CubeSat power budgets [54]. Recent Cosmic Shielding demonstrations with Jetson Orin required significant shielding mass [55].
-
-**Option B: FPGA-Based (Selected)**
-
-Field Programmable Gate Arrays enable custom AI inference engine implementation with several advantages [56]:
-
-- Inherent radiation tolerance superior to GPUs (configuration memory can be protected)
-- Lower power consumption (2-5 W for equivalent inference performance)
-- Reconfigurable architecture enables in-flight algorithm updates
-- SEU effects localized to specific logic blocks rather than systemic failures
-- Lattice CrossLink-NX specifically designed for edge AI applications
-
-**Option C: Dedicated AI ASIC (Google Edge TPU)**
-
-Application-specific AI accelerators offer excellent performance-per-watt but limited radiation characterization data and fixed functionality prevent adaptation [57].
+NVIDIA Jetson offers exceptional AI performance but radiation vulnerability (~20 krad TID) and high power (10-40 W) are limiting [53-55]. Google Edge TPU lacks radiation characterization [57]. Lattice CrossLink-NX FPGA was selected for superior radiation tolerance (~50 krad), reconfigurability, and acceptable power (2 W) [56].
 
 **Table 5.3: AI Accelerator Comparison**
 
@@ -560,10 +508,7 @@ Application-specific AI accelerators offer excellent performance-per-watt but li
 | Power | 10 W | 2 W | 2 W |
 | TID Tolerance | ~20 krad | ~50 krad (est.) | Unknown |
 | Reconfigurable | No | Yes | No |
-| Development Effort | Low | High | Medium |
 | **Selection** | Rejected | **Primary** | Rejected |
-
-The Lattice CrossLink-NX FPGA was selected for AI acceleration based on superior radiation tolerance, reconfigurability, and acceptable power consumption.
 
 #### Radiation Sensor Options
 
@@ -611,70 +556,27 @@ Larger battery capacity (>100 Wh) enables extended eclipse operations but exceed
 
 ### 5.3 Structure
 
-The structural design evaluated configuration options for the 6U form factor, shielding approaches, and thermal management strategies.
+The structural design evaluated 6U configuration, shielding approaches, and thermal management.
 
-#### 6U Configuration Options
+#### 6U Configuration
 
-**Option A: 3U + 3U Stacked**
-
-Two 3U sections stacked along the long axis, with AI payload in one section and bus in the other. Simple integration but suboptimal mass distribution and thermal coupling [65].
-
-**Option B: Integrated 6U (Selected)**
-
-Single integrated 6U structure with distributed subsystem placement optimized for mass properties and thermal management. Payload and bus components interleaved for optimal center of mass location.
-
-**Option C: Modular Design**
-
-Separable payload and bus modules enabling independent development. Rejected due to interface complexity and mass penalty.
+An integrated 6U structure was selected over 3U+3U stacked (suboptimal mass distribution [65]) or modular design (interface complexity). Payload and bus components are interleaved for optimal center of mass.
 
 **Table 5.4: Volume Allocation**
 
-| Subsystem | Volume Allocation | Rationale |
-|-----------|-------------------|-----------|
-| AI Payload (processor, FPGA, sensors) | 1.5U | Core mission hardware with shielding |
-| Power System (batteries, regulators) | 1.5U | 60 Wh battery pack, power electronics |
-| Communications (radio, antenna stowage) | 0.5U | UHF transceiver and deployment mechanism |
-| ADCS (star tracker, magnetorquers) | 0.5U | Attitude determination and control |
-| C&DH and harness | 0.5U | Flight computer, data storage, wiring |
-| Structure and margin | 1.5U | Primary structure, brackets, contingency |
-| **Total** | **6.0U** | |
+| Subsystem | Volume | Subsystem | Volume |
+|-----------|--------|-----------|--------|
+| AI Payload (with shielding) | 1.5U | ADCS | 0.5U |
+| Power System | 1.5U | C&DH and harness | 0.5U |
+| Communications | 0.5U | Structure/margin | 1.5U |
 
-#### Shielding Approach Options
+#### Shielding Approach
 
-**Option A: Full Enclosure Shielding**
+Full enclosure shielding was rejected (>2 kg mass penalty [66]). No shielding was rejected (insufficient for 12-month mission). **Selective shielding** was selected: 2 mm tantalum on processor, FPGA, and critical memory provides 10× dose reduction for 480 g total mass [67]. See Table 8.3 for detailed configuration.
 
-Complete aluminum or tantalum enclosure around all electronics. Provides uniform protection but significant mass penalty (>2 kg for meaningful attenuation) [66].
+#### Thermal Management
 
-**Option B: Selective Shielding (Selected)**
-
-Targeted shielding of most radiation-sensitive components (AI processor, FPGA, critical memory) with 2 mm tantalum (equivalent to ~6 mm aluminum). Provides 10x dose reduction for ~500 g mass penalty [67].
-
-**Option C: No Dedicated Shielding**
-
-Rely entirely on software mitigation (TMR, EDAC) without physical shielding. Lowest mass but highest SEU rate and TID accumulation. Rejected as insufficient for 12-month mission duration.
-
-**Table 5.5: Shielding Mass Budget**
-
-| Component | Shielding Material | Thickness | Mass |
-|-----------|-------------------|-----------|------|
-| RISC-V Processor | Tantalum | 2 mm | 180 g |
-| FPGA | Tantalum | 2 mm | 220 g |
-| Critical Memory | Tantalum | 1 mm | 80 g |
-| **Total Shielding** | | | **480 g** |
-
-#### Thermal Management Options
-
-**Option A: Passive Thermal Control (Selected)**
-
-Thermal design using surface coatings, MLI blankets, and conductive coupling to radiator surfaces. Adequate for expected thermal loads with appropriate component placement [68].
-
-**Option B: Active Thermal Control**
-
-Heat pipes or pumped fluid loops for high-power components. Rejected due to complexity and mass penalty not justified by thermal requirements.
-
-**Option C: Thermoelectric Cooling**
-
-Peltier coolers for AI processor thermal management. Rejected due to power consumption and limited effectiveness in vacuum.
+Passive thermal control was selected using surface coatings, MLI blankets, and conductive coupling to radiators [68]. Active cooling (heat pipes, thermoelectric) rejected due to complexity and mass not justified by thermal requirements.
 
 ---
 
@@ -1234,89 +1136,14 @@ The flight computer is physically and electrically isolated from the AI payload 
 
 **Triple Modular Redundancy (TMR):**
 
-TMR is implemented in software on the RISC-V processor, executing three parallel instances of critical algorithms with majority voting [77]:
+TMR is implemented in software on the RISC-V processor, executing three parallel instances of critical algorithms with majority voting [77]. The implementation operates at the **application level**, triplicating the entire AI inference pipeline with voting on final outputs. This approach balances protection (~99% error masking) with acceptable overhead (2.8× computational cost), achieving 10 Hz inference in Normal mode and 3 Hz in Protected mode [52].
 
-```
-Architecture:
-  Thread 1 ──┐
-  Thread 2 ──┼── Voter ── Output
-  Thread 3 ──┘
+| Mode | TMR Threads | Effective Inference Rate | Overhead |
+|------|-------------|--------------------------|----------|
+| Normal | 3 (cores 0-2) | 10 Hz | 2.8× |
+| Protected | 5 (3 + 2 spare) | 3 Hz | 4.0× |
 
-Implementation:
-  - Separate memory regions for each thread
-  - Voter executes on dedicated core
-  - Disagreement triggers error flag and SEU counter increment
-  - Persistent disagreement (>3 consecutive) triggers Safe Mode
-```
-
-**TMR Implementation Granularity:**
-
-The RAD-AI TMR implementation operates at the **application level** rather than instruction level, providing an optimal balance between protection and overhead:
-
-| Granularity Level | Protection | Overhead | RAD-AI Selection |
-|-------------------|------------|----------|------------------|
-| Instruction-level (compiler-inserted) | Maximum (every instruction) | 3-5× | Rejected: excessive overhead |
-| Function-level | High (critical functions) | 2-3× | Partial: sensor processing |
-| **Application-level** | Moderate (full inference pipeline) | **2.5-3×** | **Primary: AI inference** |
-| Task-level | Low (coarse checkpointing) | 1.5-2× | Backup: housekeeping |
-
-The application-level approach triplicates the entire AI inference pipeline, with voting on final classification outputs rather than intermediate values. This design choice reflects:
-- Neural network inference is inherently fault-tolerant to small perturbations
-- Voting on outputs catches errors that propagate to affect results
-- Lower overhead preserves real-time inference capability
-
-**Voting Mechanism:**
-
-The majority voter implements bitwise comparison with configurable tolerance:
-
-```
-VOTER_ALGORITHM:
-  INPUT: result_1, result_2, result_3 (inference outputs)
-
-  IF (result_1 == result_2 == result_3):
-    OUTPUT: result_1  // Unanimous agreement
-    STATUS: NOMINAL
-
-  ELSE IF (two results match):
-    OUTPUT: majority_result
-    STATUS: CORRECTED
-    LOG: disagreeing_thread_id, expected_value, actual_value
-    INCREMENT: seu_counter
-
-  ELSE (all three disagree):
-    OUTPUT: NONE
-    STATUS: FAULT
-    TRIGGER: safe_mode_transition
-```
-
-For floating-point AI outputs, the voter applies epsilon-tolerance comparison (ε = 10⁻⁶) to account for legitimate floating-point variation between threads.
-
-**Performance Overhead Analysis:**
-
-The 2.8× computational overhead and resulting inference rate reduction is justified as follows:
-
-| Parameter | Normal Mode | Protected Mode | Overhead Factor |
-|-----------|-------------|----------------|-----------------|
-| AI threads executing | 3 | 5 (3 + 2 spare) | 1.67× |
-| Voter operations/inference | 1 | 2 (enhanced checking) | 2× |
-| Memory copy overhead | 1.1× | 1.2× | 1.09× |
-| **Combined multiplier** | **2.8×** | **4.0×** | |
-| Baseline inference rate | 28 Hz | 28 Hz | |
-| **Effective inference rate** | **10 Hz** | **3 Hz** | |
-
-The 10 Hz Normal mode rate exceeds the 1-10 Hz requirement for star-field tracking attitude determination. The 3 Hz Protected mode rate during SAA passage provides reduced but continuous AI operation rather than complete suspension.
-
-**TMR Software Implementation:**
-
-The TMR framework is implemented using POSIX threads on the Linux-based RISC-V system:
-
-- **Thread affinity**: Each TMR instance pinned to specific CPU core (cores 0-2)
-- **Voter core**: Dedicated core 3 for voting and system management
-- **Memory isolation**: Separate heap regions via custom allocator
-- **Synchronization**: Barrier synchronization at inference boundaries
-- **Checkpointing**: State snapshot every 100 inferences for recovery
-
-This implementation approach builds on techniques demonstrated in the TRISAT-R fault-tolerant RISC-V mission [52] and academic research on software-implemented TMR for space systems [77].
+The majority voter outputs the agreed result when ≥2 threads match. Single disagreements are logged as SEU events; complete disagreement triggers Safe Mode transition. Each thread uses isolated memory regions with barrier synchronization at inference boundaries.
 
 **Error Detection and Correction (EDAC):**
 
@@ -2053,183 +1880,45 @@ RAD-AI represents a technically sound, strategically relevant, and financially f
 
 ---
 
-## 13. Sponsor Interactions
+## 13. Sponsor and Team Interactions
 
-The RAD-AI project, as a graduate-level design study, engaged with potential sponsors and industry partners to validate technical approaches and explore future collaboration opportunities. While the design phase did not involve formal sponsorship agreements, these interactions informed requirements and established relationships for potential implementation.
+The RAD-AI project was conducted as an individual graduate student design study for SPCE 5400 at the University of Colorado Colorado Springs. This section documents industry engagement, academic support, and project context.
 
-### Industry Engagement
+### Industry and Government Engagement
 
-**SiFive, Inc.**
+Initial contact was established with potential partners to validate technical approaches and explore future collaboration:
 
-Initial contact was established with SiFive regarding educational licensing for RISC-V development tools and evaluation hardware. SiFive offers academic programs providing:
-- Reduced-cost development boards (~$10,000 value)
-- Access to core documentation and design collateral
-- Technical support for student projects
-
-SiFive expressed interest in flight demonstrations of RISC-V processors, noting that successful CubeSat missions provide valuable heritage data for commercial space customers. A formal educational license application is planned for the implementation phase [91].
-
-**Lattice Semiconductor**
-
-Lattice Semiconductor was contacted regarding the CrossLink-NX FPGA selected for AI acceleration. Lattice provides:
-- University program with free design software licenses
-- Evaluation boards for prototyping
-- Application engineering support for edge AI implementations
-
-Lattice confirmed that CrossLink-NX radiation characterization data is limited, making RAD-AI flight data potentially valuable for their space-qualified product roadmap [92].
-
-**Cosmic Shielding Corporation**
-
-Following their successful 2024 demonstration of radiation-shielded Nvidia GPUs on the Aethero CubeSat, Cosmic Shielding was contacted to discuss potential collaboration [93]. Areas of mutual interest include:
-- Comparative analysis of shielding approaches (selective tantalum vs. comprehensive enclosure)
-- Data sharing on COTS AI hardware performance in LEO
-- Joint publication of radiation effects findings
-
-Cosmic Shielding indicated interest in partnerships that expand the empirical database of COTS electronics performance in space radiation environments.
-
-**Blue Canyon Technologies**
-
-Blue Canyon Technologies, manufacturer of the XACT CubeSat bus platform, was contacted regarding 6U bus procurement and educational pricing. Blue Canyon offers:
-- 10-20% educational discount on bus components
-- Technical integration support
-- Flight heritage documentation for CSLI proposals
-
-A preliminary budgetary quote was obtained confirming the ~$80,000 bus cost estimate used in project planning [94].
-
-### Government and Academic Engagement
-
-**NASA Goddard Space Flight Center**
-
-Informal discussions with NASA GSFC personnel validated the mission concept alignment with NASA technology needs. Key feedback included:
-- Strong interest in COTS AI mitigation data for future missions
-- Confirmation that RAD-AI addresses Technology Area 4 gaps
-- Encouragement to pursue CSLI as primary launch path
-- Offer to review CSLI proposal materials prior to submission
-
-**Air Force Research Laboratory (AFRL)**
-
-AFRL's Space Vehicles Directorate was contacted regarding potential interest in radiation-tolerant AI research. AFRL confirmed:
-- Active programs in COTS radiation mitigation
-- University Nanosat Program as potential funding source ($50,000-$100,000)
-- Interest in autonomous satellite computing for DoD applications
-
-An application to the University Nanosat Program is under consideration as supplemental funding source [95].
-
-**University of Colorado Colorado Springs**
-
-Internal university engagement established:
-- Faculty advisor: Dr. David Lee (SPCE 5400 instructor)
-- Department support: Access to laboratory facilities and test equipment
-- College of Engineering: Potential seed funding ($10,000-$30,000)
-- Ground station: University UHF station available for mission operations
-
-### Sponsor Interaction Summary
-
-**Table 13.1: Sponsor Engagement Status**
+**Table 13.1: Stakeholder Engagement Summary**
 
 | Organization | Type | Status | Potential Contribution |
 |--------------|------|--------|----------------------|
-| SiFive | Industry | Initial contact | Hardware, licensing (~$10k value) |
-| Lattice Semiconductor | Industry | Initial contact | Software, dev boards (~$5k value) |
-| Cosmic Shielding | Industry | Initial contact | Technical collaboration |
-| Blue Canyon Technologies | Industry | Quote received | Bus procurement (~$80k) |
-| NASA GSFC | Government | Informal discussion | Technical guidance, CSLI support |
-| AFRL | Government | Initial contact | Potential funding ($50-100k) |
-| UCCS | Academic | Active support | Facilities, advising, ground station |
+| SiFive | Industry | Initial contact | RISC-V dev boards, licensing (~$10k value) [91] |
+| Lattice Semiconductor | Industry | Initial contact | FPGA software, eval boards (~$5k value) [92] |
+| Cosmic Shielding Corp. | Industry | Initial contact | Technical collaboration on shielding data [93] |
+| Blue Canyon Technologies | Industry | Quote received | 6U bus platform (~$80k) [94] |
+| NASA GSFC | Government | Informal discussion | Technical guidance, CSLI proposal review |
+| AFRL | Government | Initial contact | University Nanosat Program funding ($50-100k) [95] |
+| UCCS | Academic | Active support | Facilities, ground station, advising |
 
-### Future Sponsor Development
-
-For implementation phase, the following sponsor development activities are planned:
-
-1. **Formal CSLI Proposal**: Submit to NASA CSLI during next solicitation cycle (typically March-April)
-2. **Industry Partnerships**: Formalize agreements with SiFive, Lattice for educational programs
-3. **Grant Applications**: Submit proposals to NASA STRG, AFRL University Nanosat Program
-4. **University Funding**: Request College of Engineering seed funding for prototype development
-
----
-
-## 14. Team Interactions
-
-The RAD-AI project was conducted as an individual graduate student design study for SPCE 5400 (Small Satellite Engineering & Operations) at the University of Colorado Colorado Springs. While not a multi-person team project, significant collaboration occurred with faculty, industry contacts, and the broader CubeSat community.
+Key feedback from NASA GSFC confirmed RAD-AI addresses Technology Area 4 gaps and encouraged CSLI as the primary launch path. AFRL indicated active interest in COTS radiation mitigation research.
 
 ### Project Structure
 
-**Principal Investigator / Designer:**
-- Jordan Clayton, Graduate Student, Mechanical Engineering
-- Responsibilities: All aspects of mission design, analysis, and documentation
+**Principal Investigator**: Jordan Clayton, Graduate Student, Mechanical Engineering
 
-**Faculty Advisor:**
-- Dr. David Lee, SPCE 5400 Instructor
-- Responsibilities: Technical guidance, design review, grading
-- Interaction frequency: Weekly during course, as-needed outside course
+**Faculty Advisor**: Dr. David Lee, SPCE 5400 Instructor
 
-### Collaboration Model
+The project followed SPCE 5400 structured milestones with weekly faculty interaction. External consultation included industry contacts for component validation and the CubeSat developer community for technical guidance.
 
-As an individual project, RAD-AI employed a self-directed learning model with external validation:
-
-**Course Framework:**
-- SPCE 5400 provided structured milestones (outline, draft, final paper)
-- Course materials (CubeSat 101, NASA handbooks) established baseline knowledge
-- Instructor feedback guided design refinement
-
-**External Consultation:**
-- Industry contacts provided technical validation of component selections
-- Online CubeSat community (Reddit r/cubesat, CubeSat Developers forum) answered specific questions
-- Published literature and mission reports informed design decisions
-
-**Documentation Approach:**
-- All design decisions documented with rationale and sources
-- Trade studies capture alternatives considered and selection criteria
-- This approach ensures design knowledge is transferable to future team if project proceeds to implementation
-
-### Communication Methods
-
-**Table 14.1: Communication Channels**
-
-| Channel | Purpose | Frequency |
-|---------|---------|-----------|
-| Course meetings | Progress review, Q&A | Weekly |
-| Email | Specific technical questions | As needed |
-| Office hours | In-depth design discussions | Bi-weekly |
-| Industry emails | Sponsor development | Monthly |
-| Online forums | Community knowledge | As needed |
-
-### Lessons Learned: Individual vs. Team Projects
-
-The individual project format offered several advantages and challenges relevant to future CubeSat efforts:
-
-**Advantages:**
-- Complete design ownership enables deep understanding of all subsystems
-- No coordination overhead or scheduling conflicts
-- Consistent documentation style throughout
-- Full accountability for design decisions
-
-**Challenges:**
-- Limited bandwidth for parallel development activities
-- No peer review during design process
-- Single point of failure for specialized knowledge
-- Reduced diversity of perspectives on trade studies
-
-**Recommendation for Implementation:**
-If RAD-AI proceeds to hardware development, a 3-5 person team is recommended with the following roles:
-- Project Manager / Systems Engineer (1)
-- AI Payload Lead (1)
-- Spacecraft Bus Lead (1)
-- Software/Ground Systems Lead (1)
-- Integration & Test Lead (1, can be shared role)
+**Implementation Recommendation**: If RAD-AI proceeds to hardware, a 3-5 person team is recommended: Project Manager/Systems Engineer, AI Payload Lead, Spacecraft Bus Lead, Software/Ground Systems Lead, and Integration & Test Lead.
 
 ### Acknowledgments
 
-The author acknowledges the following contributions to the RAD-AI design:
-
-- **Dr. David Lee** (UCCS) for course instruction, technical guidance, and design feedback
-- **SPCE 5400 course materials** including NASA CubeSat 101 and mission handbooks
-- **Industry contacts** at SiFive, Lattice, Cosmic Shielding, and Blue Canyon Technologies for technical discussions
-- **The CubeSat community** for openly sharing mission experiences and lessons learned
-- **NASA** for publicly available documentation supporting CubeSat development
+The author acknowledges: Dr. David Lee (UCCS) for instruction and technical guidance; industry contacts at SiFive, Lattice, Cosmic Shielding, and Blue Canyon Technologies; the CubeSat community for openly sharing mission experiences; and NASA for publicly available CubeSat development documentation.
 
 ---
 
-## 15. References
+## 14. References
 
 [1] BAE Systems, "RAD750 Radiation-Hardened Computer Datasheet," 2020.
 
@@ -2423,7 +2112,7 @@ The author acknowledges the following contributions to the RAD-AI design:
 
 ---
 
-## 16. Appendices
+## 15. Appendices
 
 ### Appendix A – 3D CAD Drawings and Spacecraft Configuration
 
@@ -2613,96 +2302,13 @@ flowchart LR
 
 ---
 
-### Appendix C – Requirements and Verification Matrix
-
-This appendix provides the complete requirements traceability matrix with verification methods and status.
-
-#### C.1 Communications Requirements Verification
-
-**Table C.1: Communications Requirements Verification Matrix**
-
-| ID | Requirement | Verification Method | Success Criteria | Status |
-|----|-------------|--------------------|--------------------|--------|
-| COM-1 | Uplink capability ≥1200 bps | Demonstration | Successful command reception | Planned |
-| COM-2 | Downlink capability ≥9600 bps | Demonstration | Sustained data transfer | Planned |
-| COM-3 | UHF amateur band operation | Inspection | Frequency within 430-440 MHz | Design Complete |
-| COM-4 | TX power ≤8 W | Test | Measured output ≤8 W | Planned |
-| COM-5 | 72-hour data buffering | Demonstration | Data recovery after 72-hr gap | Planned |
-| COM-6 | Antenna deployment | Test | Full deployment in 10 cycles | Planned |
-| COM-7 | AX.25 protocol compliance | Demonstration | Interoperability with ground | Planned |
-| COM-8 | Beacon transmission | Demonstration | 60-second interval verified | Planned |
-
-#### C.2 Power Requirements Verification
-
-**Table C.2: Power Requirements Verification Matrix**
-
-| ID | Requirement | Verification Method | Success Criteria | Status |
-|----|-------------|--------------------|--------------------|--------|
-| POW-1 | Solar generation ≥45 W BOL | Test | Measured output ≥45 W | Planned |
-| POW-2 | Energy storage ≥60 Wh | Test | Capacity test ≥60 Wh | Planned |
-| POW-3 | 5V regulation ±5% | Test | Voltage within 4.75-5.25 V | Planned |
-| POW-4 | 3.3V regulation ±5% | Test | Voltage within 3.14-3.47 V | Planned |
-| POW-5 | Overcharge protection | Demonstration | Charge terminates at 4.2 V/cell | Planned |
-| POW-6 | Undervoltage load shed | Demonstration | Loads shed at 3.0 V/cell | Planned |
-| POW-7 | Autonomous load shedding | Demonstration | Priority sequence verified | Planned |
-| POW-8 | Overcurrent protection | Test | Faults isolated correctly | Planned |
-
-#### C.3 Telemetry and Control Requirements Verification
-
-**Table C.3: Telemetry and Control Requirements Verification Matrix**
-
-| ID | Requirement | Verification Method | Success Criteria | Status |
-|----|-------------|--------------------|--------------------|--------|
-| TEL-1 | Radiation sensor sampling ≥1 Hz | Demonstration | 1-second data intervals | Planned |
-| TEL-2 | Housekeeping sampling ≥0.1 Hz | Demonstration | 10-second data intervals | Planned |
-| TEL-3 | Timestamp accuracy ±1 s | Test | GPS-synchronized time | Planned |
-| TEL-4 | 7-day onboard storage | Inspection | Storage capacity verified | Design Complete |
-| CON-1 | Autonomous mode transitions | Demonstration | All modes exercised | Planned |
-| CON-2 | Mode transition ≤60 s | Test | Latency measured <60 s | Planned |
-| CON-3 | Watchdog timer reset | Demonstration | Recovery from induced fault | Planned |
-| CON-4 | State persistence across reset | Demonstration | No state loss on reset | Planned |
-| CON-5 | C&DH isolation from AI | Inspection | Electrical isolation verified | Design Complete |
-
-#### C.4 Mechanical Requirements Verification
-
-**Table C.4: Mechanical Requirements Verification Matrix**
-
-| ID | Requirement | Verification Method | Success Criteria | Status |
-|----|-------------|--------------------|--------------------|--------|
-| MEC-1 | 6U envelope compliance | Inspection | Dimensions within CDS limits | Design Complete |
-| MEC-2 | Mass ≤14.0 kg | Test | Measured mass ≤14.0 kg | Planned |
-| MEC-3 | CoM within 2.0 cm | Test | CoM location verified | Planned |
-| MEC-4 | Quasi-static load 7.5 g | Analysis | Positive margin of safety | Design Complete |
-| MEC-5 | Random vibration 14.1 Grms | Test | No damage, <5% freq shift | Planned |
-| MEC-6 | Deployable retention | Inspection | Positive restraint verified | Design Complete |
-| MEC-7 | Rail surface finish | Inspection | Ra ≤1.6 μm verified | Planned |
-| MEC-8 | Shielding mounting | Inspection | Shielding secured | Design Complete |
-| MEC-9 | Sensor field of view | Inspection | Unobstructed apertures | Design Complete |
-
-#### C.5 Thermal Requirements Verification
-
-**Table C.5: Thermal Requirements Verification Matrix**
-
-| ID | Requirement | Verification Method | Success Criteria | Status |
-|----|-------------|--------------------|--------------------|--------|
-| THE-1 | Battery temp 0-45°C | Analysis, Test | Temps within range | Planned |
-| THE-2 | AI processor -20 to +70°C | Analysis, Test | Temps within range | Planned |
-| THE-3 | FPGA -40 to +85°C | Analysis, Test | Temps within range | Planned |
-| THE-4 | Processor ΔT ≤5°C/min | Analysis | Rate within limit | Design Complete |
-| THE-5 | 30 W dissipation capacity | Analysis | Positive thermal margin | Design Complete |
-| THE-6 | 10 W heater capacity | Test | Heater output verified | Planned |
-| THE-7 | Survival -40 to +60°C | Test | Functional after exposure | Planned |
-| THE-8 | TMR thermal accommodation | Analysis | Temps within limits | Design Complete |
-
----
-
-### Appendix D – Management
+### Appendix C – Management
 
 This appendix provides project management documentation including schedule, budget breakdown, and risk register.
 
-#### D.1 Detailed Project Schedule
+#### C.1 Detailed Project Schedule
 
-**Figure D.1: RAD-AI Project Gantt Chart**
+**Figure C.1: RAD-AI Project Gantt Chart**
 
 ```
 Task                          | 2025  | 2026           | 2027           | 2028
@@ -2737,9 +2343,9 @@ PHASE 3: LAUNCH & OPS         │  │  │  │  │  │  │  │  │  │  
 Legend: ██ = Activity duration  ▲ = Review milestone  ★ = Launch
 ```
 
-#### D.2 Detailed Budget Breakdown
+#### C.2 Detailed Budget Breakdown
 
-**Table D.1: Detailed Cost Breakdown**
+**Table C.1: Detailed Cost Breakdown**
 
 | Category | Item | Unit Cost | Qty | Total |
 |----------|------|-----------|-----|-------|
@@ -2778,9 +2384,9 @@ Legend: ██ = Activity duration  ▲ = Review milestone  ★ = Launch
 | **Launch Services (CSLI)** | | | | **~$250,000** |
 | | (Provided by NASA) | | | (No cost) |
 
-#### D.3 Risk Register
+#### C.3 Risk Register
 
-**Table D.2: Project Risk Register**
+**Table C.2: Project Risk Register**
 
 | ID | Risk Description | Likelihood | Impact | Risk Score | Mitigation Strategy | Contingency |
 |----|------------------|------------|--------|------------|--------------------|--------------|
@@ -2811,9 +2417,9 @@ Likelihood │            │    R3      │             │
 ───────────┴────────────┴────────────┴─────────────┘
 ```
 
-#### D.4 Work Breakdown Structure
+#### C.4 Work Breakdown Structure
 
-**Table D.3: Work Breakdown Structure**
+**Table C.3: Work Breakdown Structure**
 
 | WBS | Task | Duration | Dependencies |
 |-----|------|----------|--------------|
@@ -2847,79 +2453,138 @@ Likelihood │            │    R3      │             │
 
 ---
 
-### Appendix E – CSLI Selection Probability Analysis
+### Appendix D – CSLI Selection Probability Analysis
 
-This appendix documents the methodology and calculations supporting the estimated 55-65% CSLI selection probability for the RAD-AI mission.
+This appendix documents the methodology supporting the estimated 55-65% CSLI selection probability.
 
-#### E.1 CSLI Selection Criteria
-
-The NASA CubeSat Launch Initiative evaluates proposals against published criteria [23]. The following weighted scoring methodology estimates selection probability based on historical selection patterns and published evaluation factors.
-
-**Table E.1: CSLI Evaluation Criteria and RAD-AI Scores**
+**Table D.1: CSLI Evaluation Criteria and RAD-AI Scores**
 
 | Criterion | Weight | Score (1-5) | Weighted | Rationale |
 |-----------|--------|-------------|----------|-----------|
-| **NASA Strategic Alignment** | 2.0 | 4 | 8.0 | Directly supports TA4 autonomy objectives; Artemis/MSR relevance; HPSC bridge technology |
-| **Educational Value** | 1.5 | 5 | 7.5 | Graduate-level systems engineering; hands-on spacecraft development; publishable results |
-| **Technical Merit** | 2.0 | 4 | 8.0 | Novel radiation-aware computing; sound heritage (TRISAT-R, Phi-Sat-1); multi-layer mitigation |
-| **Design Feasibility** | 2.0 | 4 | 8.0 | COTS bus + custom payload; proven components; appropriate TRL mix (TRL 4-6) |
-| **Form Factor Compliance** | 1.0 | 5 | 5.0 | Standard 6U; full CDS Rev. 14 compliance; no envelope exceptions |
-| **Simplicity/Risk** | 1.5 | 3 | 4.5 | Custom AI payload adds complexity; mitigated by COTS bus and extensive testing |
-| **Component Heritage** | 1.0 | 4 | 4.0 | Blue Canyon bus flight-proven; RISC-V demonstrated (TRISAT-R); FPGA heritage multiple missions |
-| **Budget Realism** | 1.0 | 4 | 4.0 | $100-120k within university grants; 20% reserve; itemized breakdown provided |
-| **Regulatory Compliance** | 0.5 | 5 | 2.5 | Amateur radio (simplified licensing); no ITAR concerns; debris compliance (400-600 km) |
-| **Schedule Credibility** | 0.5 | 3 | 1.5 | 42-month timeline aggressive for first mission; mitigated by phased approach |
+| **NASA Strategic Alignment** | 2.0 | 4 | 8.0 | Supports TA4 autonomy; Artemis/MSR relevance; HPSC bridge |
+| **Educational Value** | 1.5 | 5 | 7.5 | Graduate systems engineering; publishable results |
+| **Technical Merit** | 2.0 | 4 | 8.0 | Novel radiation-aware computing; heritage (TRISAT-R, Phi-Sat-1) |
+| **Design Feasibility** | 2.0 | 4 | 8.0 | COTS bus + custom payload; TRL 4-6 components |
+| **Form Factor Compliance** | 1.0 | 5 | 5.0 | Standard 6U; full CDS Rev. 14 compliance |
+| **Simplicity/Risk** | 1.5 | 3 | 4.5 | Custom AI adds complexity; mitigated by COTS bus |
+| **Component Heritage** | 1.0 | 4 | 4.0 | Blue Canyon proven; RISC-V (TRISAT-R); FPGA heritage |
+| **Budget Realism** | 1.0 | 4 | 4.0 | $100-120k with 20% reserve; itemized |
+| **Regulatory Compliance** | 0.5 | 5 | 2.5 | Amateur radio; no ITAR; debris compliant |
+| **Schedule Credibility** | 0.5 | 3 | 1.5 | 42-month timeline aggressive; phased approach |
 | **Total** | **13.0** | | **53.0** | Maximum possible: 65.0 |
 
-#### E.2 Selection Probability Calculation
+**Probability Calculation:** RAD-AI scores 53.0/65.0 (81.5%), placing it in the "strong proposal" category per CSLI historical data [23]. Strong proposals (>75% of max) typically achieve 60-75% selection rates. Adjusting for first-time developer status, schedule risk, and typical CSLI oversubscription yields an **estimated selection probability of 55-65%**.
 
-**Scoring Methodology:**
-- Maximum possible score: 13.0 × 5 = 65.0 points
-- RAD-AI score: 53.0 points
-- Percentage: 53.0 / 65.0 = **81.5%** of maximum
+---
 
-**Historical Calibration:**
+### Appendix E – Acronyms and Abbreviations
 
-Based on analysis of CSLI selection statistics [23]:
-- Typical selection rate: 40-60% of compliant proposals
-- Strong proposals (>75% of max score): 60-75% selection probability
-- Average proposals (60-75% of max score): 40-55% selection probability
-- Marginal proposals (<60% of max score): 15-35% selection probability
-
-RAD-AI's 81.5% score places it in the "strong proposal" category. However, selection probability is tempered by:
-- Competition from other strong proposals in each cycle
-- Limited manifest slots per solicitation
-- Preference variation among review panels
-
-**Estimated Selection Probability: 55-65%**
-
-This estimate accounts for:
-- Strong technical merit and NASA alignment (positive factors)
-- First-time developer status and schedule risk (negative factors)
-- Typical oversubscription of CSLI solicitations (competitive pressure)
-
-#### E.3 Sensitivity Analysis
-
-**Table E.2: Selection Probability Sensitivity**
-
-| Scenario | Score Change | New Probability | Key Factor |
-|----------|--------------|-----------------|------------|
-| Baseline | 53.0 / 65.0 | 55-65% | Current design |
-| Reduced complexity (simpler AI) | +3.0 | 60-70% | Lower risk scores higher |
-| Secured industry partnership | +2.0 | 58-68% | Demonstrates commitment |
-| Completed PDR before submission | +4.0 | 65-75% | Higher TRL, reduced risk |
-| Schedule slip to submission | -2.0 | 50-60% | Reduced credibility |
-| CSLI oversubscription (2× typical) | -5.0 | 45-55% | More competition |
-
-#### E.4 Risk Mitigation for Selection
-
-To maximize selection probability, the following actions are recommended:
-
-1. **Pre-submission PDR**: Complete internal PDR before CSLI submission to demonstrate design maturity
-2. **Industry letters of support**: Obtain letters from SiFive, Lattice confirming component availability
-3. **Faculty endorsement**: Include strong faculty recommendation emphasizing educational value
-4. **NASA pre-coordination**: Brief NASA GSFC contacts on mission concept before formal submission
-5. **Backup launch path**: Document commercial launch alternatives to show mission viability without CSLI
+| Acronym | Definition |
+|---------|------------|
+| ADC | Analog-to-Digital Converter |
+| ADCS | Attitude Determination and Control System |
+| AFRL | Air Force Research Laboratory |
+| AI | Artificial Intelligence |
+| ARM | Advanced RISC Machine |
+| ASD | Acceleration Spectral Density |
+| AX.25 | Amateur X.25 Protocol |
+| BOL | Beginning of Life |
+| bps | Bits Per Second |
+| C&DH | Command and Data Handling |
+| CCSDS | Consultative Committee for Space Data Systems |
+| CDR | Critical Design Review |
+| CDS | CubeSat Design Specification |
+| CMM | Coordinate Measuring Machine |
+| CoM | Center of Mass |
+| CONOPS | Concept of Operations |
+| COTS | Commercial Off-The-Shelf |
+| CSI | Camera Serial Interface |
+| CSLI | CubeSat Launch Initiative |
+| DC-DC | Direct Current to Direct Current Converter |
+| DDR4 | Double Data Rate 4 (Memory Standard) |
+| DSP | Digital Signal Processing |
+| DUT | Device Under Test |
+| ECC | Error Correction Code |
+| EDAC | Error Detection and Correction |
+| EIRP | Effective Isotropic Radiated Power |
+| EMC | Electromagnetic Compatibility |
+| EMI | Electromagnetic Interference |
+| eMMC | Embedded Multi-Media Card |
+| EOL | End of Life |
+| ESA | European Space Agency |
+| ETU | Engineering Test Unit |
+| FCC | Federal Communications Commission |
+| FEC | Forward Error Correction |
+| FMEA | Failure Modes and Effects Analysis |
+| FPGA | Field Programmable Gate Array |
+| FRR | Flight Readiness Review |
+| FSPL | Free Space Path Loss |
+| GaAs | Gallium Arsenide |
+| GB | Gigabyte |
+| GEO | Geostationary Earth Orbit |
+| GEVS | General Environmental Verification Standard |
+| GHz | Gigahertz |
+| GMSK | Gaussian Minimum Shift Keying |
+| GPIO | General Purpose Input/Output |
+| GPS | Global Positioning System |
+| Grms | G Root Mean Square |
+| GSFC | Goddard Space Flight Center |
+| HIL | Hardware-In-the-Loop |
+| HPSC | High Performance Spaceflight Computing |
+| I2C | Inter-Integrated Circuit |
+| IARU | International Amateur Radio Union |
+| IMU | Inertial Measurement Unit |
+| IR | Infrared |
+| ITAR | International Traffic in Arms Regulations |
+| KB | Kilobyte |
+| krad | Kilorad (1,000 rad) |
+| LBNL | Lawrence Berkeley National Laboratory |
+| LEO | Low Earth Orbit |
+| LET | Linear Energy Transfer |
+| LUT | Look-Up Table |
+| Mb | Megabit |
+| MB | Megabyte |
+| MEO | Medium Earth Orbit |
+| MHz | Megahertz |
+| MIL-STD | Military Standard |
+| MLI | Multi-Layer Insulation |
+| MOC | Mission Operations Center |
+| MPPT | Maximum Power Point Tracking |
+| mrad | Millirad |
+| MSR | Mars Sample Return |
+| NASA | National Aeronautics and Space Administration |
+| NIST | National Institute of Standards and Technology |
+| NRO | National Reconnaissance Office |
+| NTRS | NASA Technical Reports Server |
+| OCP | Overcurrent Protection |
+| ORS | Operationally Responsive Space |
+| OVP | Overvoltage Protection |
+| PCB | Printed Circuit Board |
+| PDR | Preliminary Design Review |
+| PDU | Power Distribution Unit |
+| PTT | Push-To-Talk |
+| RAD-AI | Radiation-Mitigated Edge AI |
+| RADFET | Radiation-Sensitive Field Effect Transistor |
+| RF | Radio Frequency |
+| RISC-V | Reduced Instruction Set Computer, Fifth Generation |
+| RPN | Risk Priority Number |
+| SAA | South Atlantic Anomaly |
+| SatNOGS | Satellite Networked Open Ground Station |
+| SECDED | Single Error Correct, Double Error Detect |
+| SEE | Single Event Effects |
+| SEL | Single Event Latchup |
+| SEU | Single Event Upset |
+| SPENVIS | Space Environment Information System |
+| SPI | Serial Peripheral Interface |
+| TA | Technology Area |
+| TID | Total Ionizing Dose |
+| TMR | Triple Modular Redundancy |
+| TRL | Technology Readiness Level |
+| UART | Universal Asynchronous Receiver/Transmitter |
+| UCCS | University of Colorado Colorado Springs |
+| UHF | Ultra High Frequency |
+| WBS | Work Breakdown Structure |
+| Wh | Watt-hour |
 
 ---
 
@@ -2929,8 +2594,8 @@ To maximize selection probability, the following actions are recommended:
 
 **Document Statistics:**
 - Total Sections: 16 (plus 5 appendices)
-- Total Words: ~24,500
+- Total Words: ~24,000
 - Total References: 95
-- Total Tables: 42
+- Total Tables: 37
 - Total Figures/Diagrams: 15
 
